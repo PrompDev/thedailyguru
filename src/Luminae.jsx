@@ -963,6 +963,18 @@ const LockTag = () => (
   <span className="lum-sans" style={{ fontSize: 10, letterSpacing: ".14em", color: T.goldHi, border: `1px solid ${T.gold}66`, borderRadius: 12, padding: "3px 9px", textTransform: "uppercase" }}>🔒 Illuminate</span>
 );
 
+const VersionBadge = () => {
+  const stamp = new Date(__BUILD_TIME__).toLocaleString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+  return (
+    <div className="lum-sans" style={{
+      position: "fixed", top: 10, right: 12, zIndex: 999, pointerEvents: "none",
+      fontSize: 10.5, letterSpacing: ".03em", color: T.faint,
+      background: "rgba(13,13,26,.55)", border: "1px solid rgba(201,168,76,.18)",
+      borderRadius: 10, padding: "3px 9px",
+    }}>v{__APP_VERSION__} · {stamp}</div>
+  );
+};
+
 const Back = ({ onClick, label = "Back" }) => (
   <button onClick={onClick} className="lum-sans" style={{ background: "none", border: "none", color: T.dim, fontSize: 13, cursor: "pointer", padding: "6px 0", letterSpacing: ".06em", marginBottom: 6 }}>← {label}</button>
 );
@@ -2285,6 +2297,7 @@ export default function Luminae() {
     <div className="lum-sans" style={{ minHeight: "100vh", background: T.bg, color: T.ink, position: "relative" }}>
       <GlobalStyle />
       <Stars />
+      <VersionBadge />
       {firstOpen && <SacredGate first onReady={() => setFirstOpen(false)} />}
       {ritual && !firstOpen && <SacredGate onReady={() => { const cb = ritual; setRitual(null); cb(); }} />}
       {upgrade && <UpgradeModal reason={upgrade} onClose={() => setUpgrade(null)} onChoose={(t) => { setTier(t); setUpgrade(null); setInterstitial(false); }} />}
