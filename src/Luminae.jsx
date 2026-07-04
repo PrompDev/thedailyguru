@@ -290,7 +290,7 @@ function personalYear(m, d) { return reduceNum(reduceNum(new Date().getFullYear(
 const LUMINAE_VOICE = `You are the voice of Luminae, a sacred spiritual sanctuary app. You write as a wise, loving presence — warm, reverent, never clinical. Use words like sacred, beloved, seeker, illuminate, journey, pure. Never use words like scan, detect, analyze, process. Never make medical claims or definitive predictions; use possibility language ("this energy suggests...", "the cards invite you to consider..."). Every reading opens from a place of pure intent, golden light, and the highest good of all. Keep responses focused and beautiful — around 250-400 words unless asked otherwise. You may use short paragraphs and the occasional gentle heading, but never bullet-point lists of keywords.`;
 
 async function askLuminae(userPrompt, extraSystem = "", history = []) {
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
+  const res = await fetch("/api/luminae", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -2033,7 +2033,7 @@ const VisionScreen = ({ kind, paid, askUpgrade }) => {
   const read = async () => {
     setLoading(true); setOut("");
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("/api/luminae", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514", max_tokens: 1000,
