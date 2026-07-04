@@ -1,3 +1,8 @@
+/* thedailyguru Cloudflare Worker — serves the built Luminae app (./dist via
+   the ASSETS binding) and proxies AI calls through /api/luminae so the
+   Anthropic key lives ONLY as a Worker secret, never in the browser bundle.
+   Set the secret once with:  npx wrangler secret put ANTHROPIC_API_KEY  */
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -15,7 +20,6 @@ async function handleLuminae(request, env) {
       headers: { "Content-Type": "application/json" },
     });
   }
-
   let body;
   try {
     body = await request.json();
@@ -25,7 +29,6 @@ async function handleLuminae(request, env) {
       headers: { "Content-Type": "application/json" },
     });
   }
-
   const upstream = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -35,7 +38,6 @@ async function handleLuminae(request, env) {
     },
     body: JSON.stringify(body),
   });
-
   const text = await upstream.text();
   return new Response(text, {
     status: upstream.status,

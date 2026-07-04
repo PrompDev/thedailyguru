@@ -102,11 +102,13 @@ const ANGEL_NUMBERS = {
 
 /* ---------------- Archangels ---------------- */
 const ARCHANGELS = [
-  { name: "Archangel Michael", domain: "Protection & Courage", colour: "Cobalt Blue", hex: "#3b6fd4", crystal: "Black Tourmaline", invocation: "Archangel Michael, surround me in your blue flame of protection. Cut away all that is not of the light, and fill me with courage and strength." },
-  { name: "Archangel Raphael", domain: "Healing & Health", colour: "Emerald Green", hex: "#3da06b", crystal: "Malachite", invocation: "Archangel Raphael, pour your emerald healing light through every cell of my being. Restore me to wholeness in body, heart, and spirit." },
-  { name: "Archangel Gabriel", domain: "Communication & Creativity", colour: "White & Copper", hex: "#d8c8b8", crystal: "Selenite", invocation: "Archangel Gabriel, open my voice and my creative channel. Help me express my truth with clarity and grace." },
-  { name: "Archangel Uriel", domain: "Wisdom & Clarity", colour: "Gold", hex: "#d4b04c", crystal: "Amber", invocation: "Archangel Uriel, illuminate my mind with your golden light. Show me the wisdom hidden within this moment." },
-  { name: "Archangel Chamuel", domain: "Love & Relationships", colour: "Pink", hex: "#d489a0", crystal: "Rose Quartz", invocation: "Archangel Chamuel, open my heart to give and receive love freely. Help me see myself and others through the eyes of compassion." },
+  { name: "Archangel Michael", domain: "Protection & Courage", colour: "Cobalt Blue", hex: "#3b6fd4", crystal: "Black Tourmaline", img: "/images/angels/archangel-michael.webp", invocation: "Archangel Michael, surround me in your blue flame of protection. Cut away all that is not of the light, and fill me with courage and strength." },
+  { name: "Archangel Raphael", domain: "Healing & Health", colour: "Emerald Green", hex: "#3da06b", crystal: "Malachite", img: "/images/angels/archangel-raphael-2.webp", invocation: "Archangel Raphael, pour your emerald healing light through every cell of my being. Restore me to wholeness in body, heart, and spirit." },
+  { name: "Archangel Gabriel", domain: "Communication & Creativity", colour: "White & Copper", hex: "#d8c8b8", crystal: "Selenite", img: "/images/angels/archangel-gabriel.webp", invocation: "Archangel Gabriel, open my voice and my creative channel. Help me express my truth with clarity and grace." },
+  { name: "Archangel Uriel", domain: "Wisdom & Clarity", colour: "Gold", hex: "#d4b04c", crystal: "Amber", img: "/images/angels/archangel-uriel-3.webp", invocation: "Archangel Uriel, illuminate my mind with your golden light. Show me the wisdom hidden within this moment." },
+  { name: "Archangel Chamuel", domain: "Love & Relationships", colour: "Pink", hex: "#d489a0", crystal: "Rose Quartz", img: "/images/angels/archangel-chamuel.webp", invocation: "Archangel Chamuel, open my heart to give and receive love freely. Help me see myself and others through the eyes of compassion." },
+  { name: "Archangel Jophiel", domain: "Beauty & Joyful Thought", colour: "Sunshine Yellow", hex: "#eccb55", crystal: "Citrine", img: "/images/angels/archangel-jophiel.webp", invocation: "Archangel Jophiel, beautify my thoughts and brighten my inner world. Open my eyes to the beauty already all around me, and lift my heart into joy." },
+  { name: "Archangel Zadkiel", domain: "Mercy & Forgiveness", colour: "Violet", hex: "#9a6fd8", crystal: "Amethyst", img: "/images/angels/archangel-zadkiel.webp", invocation: "Archangel Zadkiel, bathe me in the violet flame of transmutation. Help me forgive myself and others, releasing the past into light and freedom." },
 ];
 
 /* ---------------- Crystals ---------------- */
@@ -124,46 +126,6 @@ const CRYSTALS = [
   { name: "Lapis Lazuli", chakra: "Throat & Third Eye", use: "Royal truth-telling, wisdom, speaking your soul's voice.", pair: "741 Hz" },
   { name: "Carnelian", chakra: "Sacral", use: "Creative fire, courage, vitality and motivation.", pair: "417 Hz" },
 ];
-
-/* ---------------- Daily Quotes ---------------- */
-const QUOTES = [
-  ["The universe is not outside of you. Look inside yourself; everything that you want, you already are.", "Rumi"],
-  ["You are the sky. Everything else is just the weather.", "Pema Chödrön"],
-  ["Nothing in the universe can stop you from letting go and being free.", "Mooji"],
-  ["What lies behind us and what lies before us are tiny matters compared to what lies within us.", "Ralph Waldo Emerson"],
-  ["The wound is the place where the Light enters you.", "Rumi"],
-  ["Peace comes from within. Do not seek it without.", "Buddha"],
-  ["Your sacred space is where you can find yourself again and again.", "Joseph Campbell"],
-  ["The soul always knows what to do to heal itself. The challenge is to silence the mind.", "Caroline Myss"],
-  ["Every heart sings a song, incomplete, until another heart whispers back.", "Plato"],
-  ["Be soft. Do not let the world make you hard.", "Kurt Vonnegut"],
-  ["You are not a drop in the ocean. You are the entire ocean in a drop.", "Rumi"],
-  ["The privilege of a lifetime is to become who you truly are.", "Carl Jung"],
-  ["When you do things from your soul, you feel a river moving in you, a joy.", "Rumi"],
-  ["The quieter you become, the more you are able to hear.", "Rumi"],
-  ["Trust the timing of your life. Every step is preparing you for the next.", "Unknown"],
-  ["Healing takes courage, and we all have courage, even if we have to dig a little to find it.", "Tori Amos"],
-  ["Surround yourself with those who see the greatness within you, even when you don't see it yourself.", "Unknown"],
-  ["What we plant in the soil of contemplation, we shall reap in the harvest of action.", "Meister Eckhart"],
-  ["You have been given this life because you are strong enough to live it.", "Unknown"],
-  ["The most powerful relationship you will ever have is the relationship with yourself.", "Steve Maraboli"],
-  ["Let yourself be silently drawn by the strange pull of what you really love.", "Rumi"],
-  ["Gratitude turns what we have into enough.", "Unknown"],
-  ["The soul that sees beauty may sometimes walk alone.", "Johann Wolfgang von Goethe"],
-  ["Within you there is a stillness and a sanctuary to which you can retreat at any time.", "Hermann Hesse"],
-  ["Everything that happens to you is your teacher. The secret is to learn to sit at the feet of your own life.", "Polly Berrien Berends"],
-  ["You are the universe experiencing itself.", "Alan Watts"],
-  ["May you trust that a small, quiet voice within you will guide you home.", "Unknown"],
-  ["Wherever you are, be there totally.", "Eckhart Tolle"],
-  ["Light tomorrow with today.", "Elizabeth Barrett Browning"],
-  ["What you seek is seeking you.", "Rumi"],
-  ["Beloved, you carry your own weather. Choose the golden light within.", "Luminae"],
-];
-function dailyQuote(date = new Date()) {
-  const start = Date.UTC(date.getFullYear(), 0, 0);
-  const dayOfYear = Math.floor((date.getTime() - start) / 86400000);
-  return QUOTES[dayOfYear % QUOTES.length];
-}
 
 /* ---------------- Sound Sanctuary ---------------- */
 const SOLFEGGIO = [
@@ -189,6 +151,10 @@ const INSTRUMENTS = [
   { id: "tibetan", name: "Tibetan Singing Bowls", desc: "Deep resonant tones for grounding", type: "tibetan", free: false },
   { id: "crystalbowls", name: "Crystal Singing Bowls", desc: "Chakra-tuned bowls in gentle sequence", type: "crystal", free: false },
 ];
+/* A real harp recording (served from public/audio) that becomes the
+   Angelic Harp in place of the live-synth version. Falls back to the
+   synth if it can't be loaded, and a seeker's own upload still wins. */
+const HARP_RECORDING = { src: "/audio/Moonlit Canopy Drift.mp3", title: "Moonlit Canopy Drift" };
 const LAYERS = [
   { id: "rainflute", name: "Rain & Native Flute", desc: "The classic sleep companion", parts: ["rain", "flute"] },
   { id: "harp528", name: "528 Hz + Angelic Harp", desc: "The Love Frequency, sung in strings", parts: [528, "harp"] },
@@ -239,6 +205,46 @@ const SOUL_STATEMENTS = [
 ];
 const RESONANCE = [["Deeply true", 2], ["Somewhat", 1], ["Not really me", 0]];
 
+/* ---------------- Daily Quotes ---------------- */
+const QUOTES = [
+  ["The universe is not outside of you. Look inside yourself; everything that you want, you already are.", "Rumi"],
+  ["You are the sky. Everything else is just the weather.", "Pema Chödrön"],
+  ["Nothing in the universe can stop you from letting go and being free.", "Mooji"],
+  ["What lies behind us and what lies before us are tiny matters compared to what lies within us.", "Ralph Waldo Emerson"],
+  ["The wound is the place where the Light enters you.", "Rumi"],
+  ["Peace comes from within. Do not seek it without.", "Buddha"],
+  ["Your sacred space is where you can find yourself again and again.", "Joseph Campbell"],
+  ["The soul always knows what to do to heal itself. The challenge is to silence the mind.", "Caroline Myss"],
+  ["Every heart sings a song, incomplete, until another heart whispers back.", "Plato"],
+  ["Be soft. Do not let the world make you hard.", "Kurt Vonnegut"],
+  ["You are not a drop in the ocean. You are the entire ocean in a drop.", "Rumi"],
+  ["The privilege of a lifetime is to become who you truly are.", "Carl Jung"],
+  ["When you do things from your soul, you feel a river moving in you, a joy.", "Rumi"],
+  ["The quieter you become, the more you are able to hear.", "Rumi"],
+  ["Trust the timing of your life. Every step is preparing you for the next.", "Unknown"],
+  ["Healing takes courage, and we all have courage, even if we have to dig a little to find it.", "Tori Amos"],
+  ["Surround yourself with those who see the greatness within you, even when you don't see it yourself.", "Unknown"],
+  ["What we plant in the soil of contemplation, we shall reap in the harvest of action.", "Meister Eckhart"],
+  ["You have been given this life because you are strong enough to live it.", "Unknown"],
+  ["The most powerful relationship you will ever have is the relationship with yourself.", "Steve Maraboli"],
+  ["Let yourself be silently drawn by the strange pull of what you really love.", "Rumi"],
+  ["Gratitude turns what we have into enough.", "Unknown"],
+  ["The soul that sees beauty may sometimes walk alone.", "Johann Wolfgang von Goethe"],
+  ["Within you there is a stillness and a sanctuary to which you can retreat at any time.", "Hermann Hesse"],
+  ["Everything that happens to you is your teacher. The secret is to learn to sit at the feet of your own life.", "Polly Berrien Berends"],
+  ["You are the universe experiencing itself.", "Alan Watts"],
+  ["May you trust that a small, quiet voice within you will guide you home.", "Unknown"],
+  ["Wherever you are, be there totally.", "Eckhart Tolle"],
+  ["Light tomorrow with today.", "Elizabeth Barrett Browning"],
+  ["What you seek is seeking you.", "Rumi"],
+  ["Beloved, you carry your own weather. Choose the golden light within.", "Luminae"],
+];
+function dailyQuote(date = new Date()) {
+  const start = Date.UTC(date.getFullYear(), 0, 0);
+  const dayOfYear = Math.floor((date.getTime() - start) / 86400000);
+  return QUOTES[dayOfYear % QUOTES.length];
+}
+
 /* ---------------- Zodiac & moon ---------------- */
 const ZODIAC = [
   ["Capricorn", 1, 19, "♑"], ["Aquarius", 2, 18, "♒"], ["Pisces", 3, 20, "♓"], ["Aries", 4, 19, "♈"],
@@ -286,15 +292,275 @@ function sumName(name, filter) {
 function lifePath(y, m, d) { return reduceNum(reduceNum(y) + reduceNum(m) + reduceNum(d)); }
 function personalYear(m, d) { return reduceNum(reduceNum(new Date().getFullYear()) + reduceNum(m) + reduceNum(d)); }
 
+/* ---------------- Deep lore: signs, moons, numbers, library ----------------
+   Written in Luminae's inclusive voice — plain enough for a first-timer,
+   layered enough for an old soul. No gatekeeping, no talking down. */
+const ELEMENT_HUE = { Fire: "#e0885a", Earth: "#8ec9a0", Air: "#9cb8ee", Water: "#b898e8" };
+
+const SIGN_LORE = {
+  Aries: { glyph: "♈", dates: "Mar 21 – Apr 19", element: "Fire", modality: "Cardinal", ruler: "Mars", stone: "Carnelian",
+    essence: "The zodiac's first spark — cardinal fire, ruled by Mars. You meet life head-first, and your courage quietly gives everyone around you permission to begin. The deeper work of an Aries life: learning which battles deserve your beautiful fire, and which are only noise.",
+    light: "Instigator's courage, radical honesty, a heart that forgives fast and moves forward.",
+    shadow: "Impatience that abandons ships mid-voyage; anger that speaks before the soul has voted.",
+    love: "Falls fast and burns bright — needs a fellow flame, not fuel.",
+    work: "Born to found, launch and lead the charge — wilts under micromanagement.",
+    mantra: "I begin, and the path appears." },
+  Taurus: { glyph: "♉", dates: "Apr 20 – May 20", element: "Earth", modality: "Fixed", ruler: "Venus", stone: "Rose Quartz",
+    essence: "Fixed earth, ruled by Venus. You are the zodiac's garden — patient, sensual, loyal to what is real. Where others chase, you cultivate; your superpower is staying long enough for things to bloom.",
+    light: "Steadfast devotion, an artist's senses, a calm that steadies whole rooms.",
+    shadow: "Comfort that quietly becomes a cage; stubbornness dressed up as principle.",
+    love: "Slow to open, endlessly loyal once rooted — love spoken in touch and tending.",
+    work: "Builds beautiful, lasting things — craft, food, finance, land, the arts.",
+    mantra: "What I tend, grows." },
+  Gemini: { glyph: "♊", dates: "May 21 – Jun 20", element: "Air", modality: "Mutable", ruler: "Mercury", stone: "Agate",
+    essence: "Mutable air, ruled by Mercury. You are the messenger — twin currents of curiosity that can hold two truths at once. Your mind moves like light on water; the art is choosing where to land.",
+    light: "Wit, wordcraft, and the gift of making strangers feel like old friends.",
+    shadow: "Scattered fire; speaking fluently around a feeling instead of through it.",
+    love: "Needs conversation like oxygen — the mind is the first organ of romance.",
+    work: "Writing, teaching, media, trade — anywhere ideas need wings.",
+    mantra: "I am allowed to be more than one thing." },
+  Cancer: { glyph: "♋", dates: "Jun 21 – Jul 22", element: "Water", modality: "Cardinal", ruler: "the Moon", stone: "Moonstone",
+    essence: "Cardinal water, ruled by the Moon. You feel the room before you enter it. Home is not a place to you — it is a frequency, and you carry it with you, offering shelter wherever you go.",
+    light: "Fierce nurture, long memory of kindness, intuition that arrives as simple knowing.",
+    shadow: "The shell — retreating sideways instead of saying the tender thing out loud.",
+    love: "Loves by feeding, keeping and remembering — needs safety before softness.",
+    work: "Care, hospitality, history, home-making of every kind — building sanctuaries.",
+    mantra: "My softness is a strength I choose." },
+  Leo: { glyph: "♌", dates: "Jul 23 – Aug 22", element: "Fire", modality: "Fixed", ruler: "the Sun", stone: "Sunstone",
+    essence: "Fixed fire, ruled by the Sun itself. You are not seeking the spotlight — you are one. The royal lesson: real gold warms others; it never needs to outshine them.",
+    light: "Radiant generosity, creative fire, loyalty like a lion guards its pride.",
+    shadow: "A heart that sometimes confuses applause with love.",
+    love: "Whole-hearted and gloriously theatrical — adoration must flow both ways.",
+    work: "Performance, leadership, teaching, anything where warmth is the craft.",
+    mantra: "I shine so others remember they can." },
+  Virgo: { glyph: "♍", dates: "Aug 23 – Sep 22", element: "Earth", modality: "Mutable", ruler: "Mercury", stone: "Peridot",
+    essence: "Mutable earth, ruled by Mercury. You see the missing stitch in every fabric — devotion disguised as detail. Your love language is improvement; your medicine is learning that you, unedited, were never a draft.",
+    light: "Precision, service, the healer's eye — competence that feels like kindness.",
+    shadow: "The inner critic with a megaphone; perfection used as procrastination.",
+    love: "Shows love in acts — remembers, mends, prepares. Be gentle with its worry.",
+    work: "Health, analysis, editing, systems — the sacred maintenance of the world.",
+    mantra: "Done with love is better than perfect." },
+  Libra: { glyph: "♎", dates: "Sep 23 – Oct 22", element: "Air", modality: "Cardinal", ruler: "Venus", stone: "Lapis Lazuli",
+    essence: "Cardinal air, ruled by Venus. You are the zodiac's diplomat — beauty and balance are not luxuries to you, they are justice. The scales' secret: harmony that costs your truth is only quiet, not peace.",
+    light: "Grace, fairness, an eye for beauty, the gift of making peace feel possible.",
+    shadow: "Deciding by committee; abandoning your own side of the scale.",
+    love: "Partnership is home terrain — romantic, attentive, allergic to ugliness in conflict.",
+    work: "Law, design, mediation, art — anywhere balance must be built, not assumed.",
+    mantra: "My truth belongs on the scale too." },
+  Scorpio: { glyph: "♏", dates: "Oct 23 – Nov 21", element: "Water", modality: "Fixed", ruler: "Pluto", stone: "Black Obsidian",
+    essence: "Fixed water, ruled by Pluto. You live at the depths others only visit — intimacy, mystery, death-and-rebirth are your native waters. You don't do casual; you do transformation.",
+    light: "X-ray honesty, devotion unto death, the power to begin again from ash.",
+    shadow: "Control worn as armour; the sting saved for those who came closest.",
+    love: "All or nothing — trust is the true intimacy, and betrayal is remembered in the bones.",
+    work: "Research, psychology, healing, finance, the mysteries — the hidden rooms of the world.",
+    mantra: "I can be deep without drowning." },
+  Sagittarius: { glyph: "♐", dates: "Nov 22 – Dec 21", element: "Fire", modality: "Mutable", ruler: "Jupiter", stone: "Turquoise",
+    essence: "Mutable fire, ruled by Jupiter. You are the arrow and the horizon both — faith, wander, laughter, meaning. Your compass points at truth; your lesson is staying present while you aim.",
+    light: "Optimism that heals rooms, wild honesty, a philosopher's hunger for the real.",
+    shadow: "The exit door always propped open; truth delivered without anaesthetic.",
+    love: "Needs a co-adventurer — freedom isn't the opposite of devotion, it's the proof of it.",
+    work: "Travel, publishing, teaching, spirit — anywhere meaning is made and shared.",
+    mantra: "The journey is the destination wearing boots." },
+  Capricorn: { glyph: "♑", dates: "Dec 22 – Jan 19", element: "Earth", modality: "Cardinal", ruler: "Saturn", stone: "Garnet",
+    essence: "Cardinal earth, ruled by Saturn. You were born with a mountain in your eye and the patience to climb it. Time is your ally — and the summit teaches what the valley couldn't: you were worthy before the achievement.",
+    light: "Endurance, mastery, dry humour, a spine strong enough for the whole family tree.",
+    shadow: "Worth measured only in output; loneliness at altitude.",
+    love: "Slow, deliberate, deeply loyal — devotion shown in structure and in showing up.",
+    work: "Leadership, architecture of every kind, the long game — the elder of the zodiac.",
+    mantra: "I am more than what I build." },
+  Aquarius: { glyph: "♒", dates: "Jan 20 – Feb 18", element: "Air", modality: "Fixed", ruler: "Uranus", stone: "Amethyst",
+    essence: "Fixed air, ruled by Uranus. You are the lightning that visits the village — future-sighted, communal, gloriously unbothered by 'how it's done'. Your paradox: a humanitarian who needs solitude to love humanity well.",
+    light: "Vision, invention, loyalty to principles, friendship raised to an art form.",
+    shadow: "A head so far in tomorrow the heart misses today; detachment as defence.",
+    love: "Friendship first, always — needs space inside togetherness, not instead of it.",
+    work: "Science, technology, activism, community — building the world that isn't here yet.",
+    mantra: "I belong to the future and to the room I'm in." },
+  Pisces: { glyph: "♓", dates: "Feb 19 – Mar 20", element: "Water", modality: "Mutable", ruler: "Neptune", stone: "Aquamarine",
+    essence: "Mutable water, ruled by Neptune. The zodiac's last chapter — you carry a little of all eleven signs before you, which is why the world pours itself into you so easily. Boundaries aren't walls for you; they are the banks that let the river flow.",
+    light: "Compassion without borders, artistry, mystic antennae, effortless forgiveness.",
+    shadow: "Escaping into dream, fantasy or fog when the shore gets sharp.",
+    love: "Loves like weather — total immersion. Needs anchors, not audiences.",
+    work: "Art, music, healing, film, spirit — wherever the veil is thin.",
+    mantra: "I can feel everything and still choose." },
+};
+const SIGN_ORDER = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+
+const MOON_MEANINGS = {
+  "New Moon": "Plant in the dark — name the intention no one else needs to hear yet.",
+  "Waxing Crescent": "First light on the seed. Feed what you began with one small act.",
+  "First Quarter": "The first resistance arrives. Adjust the sail, not the destination.",
+  "Waxing Gibbous": "Almost — refine, edit, trust the swelling light.",
+  "Full Moon": "Everything is visible, including you. Celebrate, release, forgive.",
+  "Waning Gibbous": "Gratitude and harvest — share what the light taught you.",
+  "Last Quarter": "Prune without apology. What you release funds what comes next.",
+  "Waning Crescent": "Rest is ritual too. Empty gracefully before the next dark seed.",
+};
+
+const NUM_MEANINGS = {
+  1: { title: "The Pioneer", essence: "The number of the first step — original fire, independence, the courage to exist unprecedented.", light: "Leadership, initiative, unshakeable self-trust.", bond: "Loves with fierce devotion, but must guard against making every duet a solo.", invitation: "Begin the thing. Your path opens by walking it." },
+  2: { title: "The Peacemaker", essence: "The number of the bridge — sensitivity, partnership, the quiet genius of truly listening.", light: "Diplomacy, empathy, the craft of harmony.", bond: "A natural partner — attentive and attuned; must remember its own vote counts too.", invitation: "Your gentleness is a power, not an apology." },
+  3: { title: "The Voice", essence: "Creative expression — the number of the artist and storyteller, joy practised as a discipline.", light: "Charisma, imagination, healing humour.", bond: "Brings play and poetry; needs a partner who applauds and anchors.", invitation: "Say it, sing it, make it — expression is your medicine." },
+  4: { title: "The Builder", essence: "Foundation and form — the number of order, craft, and devotion to the long haul.", light: "Reliability, method, sacred stubbornness.", bond: "Loves in commitments kept; must let spontaneity in the door sometimes.", invitation: "Build slowly. What you make will outlast moods." },
+  5: { title: "The Wanderer", essence: "Freedom in motion — the number of change, appetite, and the open road.", light: "Adaptability, magnetism, fearless curiosity.", bond: "Electric and alive; devotion must never feel like a cage, or it bolts.", invitation: "Choose your changes, or they will choose you." },
+  6: { title: "The Guardian", essence: "The number of the hearth — love as responsibility, beauty as an act of care.", light: "Nurture, loyalty, an instinct for making broken things whole.", bond: "The most devoted heart in the blueprint; must serve without disappearing.", invitation: "Care for others from a full cup, not an emptying one." },
+  7: { title: "The Mystic", essence: "The inward number — analysis wed to mystery, the hermit with a telescope.", light: "Depth, discernment, spiritual intelligence.", bond: "Loves in depth, not display; needs silence honoured as intimacy.", invitation: "Your solitude is a temple — visit it, don't move in." },
+  8: { title: "The Sovereign", essence: "Power and harvest — the number of mastery in the material world.", light: "Ambition, sound judgment, the strength to steward much.", bond: "Loves generously and protects fiercely; must not keep a ledger of the heart.", invitation: "Own your power — softly held, it feeds many." },
+  9: { title: "The Sage", essence: "Completion's number — compassion wide as a horizon, the old soul's ache to give back.", light: "Wisdom, artistry, humanitarian fire.", bond: "Loves the whole world through one person; must let endings actually end.", invitation: "Release gracefully. Open hands are the ones that receive." },
+  11: { title: "The Illuminator", essence: "A master number — 2's sensitivity electrified into vision. A high-voltage life: inspiration travelling with stage fright.", light: "Prophetic instinct, magnetism, fine spiritual antennae.", bond: "Feels everything within a bond — needs grounding rituals made for two.", invitation: "The nerves are part of the wiring. Shine anyway." },
+  22: { title: "The Master Builder", essence: "A master number — 4's craft raised to cathedral scale. Dreams drawn with a straightedge.", light: "Vision married to discipline; legacy-building.", bond: "Would build an empire for its beloved; must remember presence beats provision.", invitation: "Dream at full size — then pour the first footing today." },
+  33: { title: "The Master Teacher", essence: "A master number — 6's care raised to the service of many. Compassion as a vocation.", light: "Healing presence, selfless wisdom.", bond: "Loves unconditionally; the lesson is learning to accept care in return.", invitation: "Teach by being — your life is the lesson." },
+};
+
+const PHONE_SPIN = {
+  1: "calls that start things — opportunities, first moves, bold news travel down this line.",
+  2: "heart-to-hearts — this line soothes; people call this number to feel heard.",
+  3: "laughter and invitations — a social, creative, storytelling line.",
+  4: "practical matters — plans firm up and promises are kept through this number.",
+  5: "surprises and movement — travel plans, changes and spontaneity love this line.",
+  6: "family and care — the number loved ones instinctively reach for first.",
+  7: "quiet, meaningful talk — fewer calls arrive here, but deeper ones.",
+  8: "opportunity and negotiation — a prosperous, professional hum runs through it.",
+  9: "help and counsel — people bring this line their endings and their healings.",
+  11: "inspired downloads — conversations on this line can feel strangely fated.",
+  22: "big builds — partnerships and projects of real scale find their way here.",
+  33: "guidance — this number quietly becomes a lighthouse for everyone who has it.",
+};
+
+const HOME_SPIN = {
+  1: "A house of fresh starts and independence — brilliant for founders, first homes and new chapters. To balance it: share meals often, so autonomy never hardens into isolation.",
+  2: "A peacemaker's home — gentle, coupled, sensitive to discord. To balance it: protect it from absorbing every guest's weather; clear the air often.",
+  3: "A social, expressive home — art on the walls, music in the kitchen, friends at the door. To balance it: keep one corner of true quiet, or the energy scatters.",
+  4: "A fortress of stability — routines take root deeply at this address. To balance it: invite spontaneity in regularly, so solid never sets into stuck.",
+  5: "A crossroads home — guests, changes and adventures launch from here. To balance it: keep one unchanging ritual as the anchor everyone returns to.",
+  6: "The archetypal family hearth — nurturing, beautiful, responsible. To balance it: make sure care flows in as generously as it flows out.",
+  7: "A sanctuary of study and spirit — naturally quiet, faintly monastic. To balance it: schedule warmth on purpose; invite people in before the silence forgets how.",
+  8: "A house of ambition and abundance — careers accelerate for those who live here. To balance it: leave the ledger outside the bedroom door.",
+  9: "A wise, open-door home — people come here to heal and to complete chapters. To balance it: release what — and who — has genuinely finished.",
+  11: "A lightning-rod home — intuition and inspiration run high under this roof. To balance it: ground it with plants, stone, texture and routine.",
+  22: "A legacy address — something lasting wants to be built from this base. To balance it: remember rest is part of the architecture.",
+  33: "A teaching hearth — others gather here to learn and to be held. To balance it: the keepers of this home must also let themselves be kept.",
+};
+
+const NUM_AFFINITY = {
+  1: { flows: [3, 5, 9], balances: [2, 6, 7] },
+  2: { flows: [4, 6, 8], balances: [1, 3, 9] },
+  3: { flows: [1, 5, 7], balances: [2, 6, 9] },
+  4: { flows: [2, 6, 8], balances: [7, 9] },
+  5: { flows: [1, 3, 7], balances: [9] },
+  6: { flows: [2, 4, 9], balances: [1, 3, 8] },
+  7: { flows: [3, 5], balances: [1, 4, 9] },
+  8: { flows: [2, 4, 6], balances: [1, 3] },
+  9: { flows: [1, 3, 6], balances: [2, 4, 5, 7] },
+};
+const hardReduce = (n) => (n === 11 ? 2 : n === 22 ? 4 : n === 33 ? 6 : n);
+function pairVerdict(a, b) {
+  const ra = hardReduce(a), rb = hardReduce(b);
+  const A = NUM_AFFINITY[ra], B = NUM_AFFINITY[rb];
+  if (A.flows.includes(rb) || B.flows.includes(ra)) return { kind: "A Flowing Current", icon: "🌊",
+    text: "Your numbers speak a shared dialect — energy moves between you with uncommon ease. The work here is not harmony but depth: easy love still needs deliberate roots." };
+  if (A.balances.includes(rb) || B.balances.includes(ra)) return { kind: "A Balancing Dance", icon: "☯",
+    text: "Each of you carries what the other is learning — a complementary bond where the difference itself is the medicine. Translate often, and assume good faith first." };
+  return { kind: "A Forging Fire", icon: "⚒",
+    text: "Iron meets iron: this pairing generates heat, growth, and the occasional spark off the anvil. Handled with respect, nothing forges strength faster. Name frictions early; laugh even earlier." };
+}
+
+/* ---------------- The Library: in-app deep dives ----------------
+   (Learn-more articles; when the Luminae blog goes live these can
+   also carry href links out to full posts.) */
+const LEARN = [
+  { id: "masters", cat: "Numerology", colour: "#7fd4e0", title: "Why 11, 22 and 33 refuse to be reduced", min: 3, body: [
+    "Nearly every number in numerology gets 'reduced' — folded down digit by digit until a single figure remains. 29 becomes 2 + 9 = 11, and 11 would become 1 + 1 = 2… except it doesn't. It stops. Three numbers — 11, 22 and 33 — are left standing at full height, and numerologists call them master numbers.",
+    "If you're new to this: reduction isn't mathematics for its own sake. It's a way of asking, 'what is the essence hiding inside this bigger pattern?' Most patterns simplify. A few refuse to — and that refusal is the message.",
+    "## What the masters carry",
+    "11 is 2's sensitivity turned up until it hums — the Illuminator, intuition so strong it can frighten its own carrier. 22 is 4's builder-craft at cathedral scale — the Master Builder, given blueprints too big for one lifetime and the stubbornness to try anyway. 33 is 6's care widened into vocation — the Master Teacher, whose classroom is simply the way they live.",
+    "Carrying a master number is not a prize; it is a higher voltage running through ordinary wiring. Most who hold one spend years living its reduced form (the 2, the 4, the 6) before the full current switches on — usually in seasons of great pressure. If that is you, be patient with the flicker.",
+    "And if your chart holds no master numbers at all, hear this clearly: the masters are not 'better'. A 7 who truly lives its depth out-shines an 11 who hides from its own light. The number is the instrument — the music is always yours.",
+  ]},
+  { id: "karmic", cat: "Numerology", colour: "#7fd4e0", title: "Karmic debt numbers: 13, 14, 16 and 19", min: 3, body: [
+    "Sometimes, on the way to a reduced number, your birth date or name passes through one of four way-stations: 13, 14, 16 or 19. Traditional numerology calls these karmic debt numbers — old lessons asking to be finished this time around.",
+    "Don't let the word 'debt' frighten you. This is not punishment; it is unfinished curriculum. A karmic number simply marks the place where the soul says: 'here — this one we practise until it's beautiful.'",
+    "## The four lessons",
+    "13 (living as 4) is the debt of work left undone — it asks for honest, patient labour and rewards it doubly. 14 (living as 5) is the debt of freedom once misused — it asks for moderation inside adventure. 16 (living as 7) is the debt of the toppled tower — pride in love and spirit, rebuilt on truer foundations. 19 (living as 1) is the debt of power once hoarded — it asks you to lead while letting yourself be helped.",
+    "You find them by watching the totals *before* reduction. If your Life Path calculation passes through 16 on its way to 7, you are a 7 — and the 16 tells you which door your 7 walks in through.",
+    "Seen kindly, a karmic number is the most hopeful thing in a chart: it means the lesson is ready to be completed. The debt only lingers while it is ignored.",
+  ]},
+  { id: "livednumbers", cat: "Numerology", colour: "#7fd4e0", title: "The numbers you live inside: homes and phones", min: 3, body: [
+    "Your Life Path describes the road you walk — but numerology has always noticed that we also *live inside* numbers. The address on your door and the phone number in your pocket are frequencies you touch every single day.",
+    "A house number is found by adding its digits (a flat like 12B adds the letter too — B carries the value 2). Number 47 becomes 4 + 7 = 11 — a master-number home, a lightning rod under a roof. This doesn't overwrite who lives there; it flavours the air. A 4 home steadies its people. A 5 home keeps the suitcase by the door. A 9 home quietly collects people who are finishing chapters of their lives.",
+    "Phone numbers work the same way — add every digit, reduce, and you have the line's vibration: the kind of conversations it attracts. An 8 line hums with opportunity and negotiation; a 2 line becomes the one friends call at midnight to feel heard.",
+    "## Choosing and balancing",
+    "None of this is fate — it is furniture. If your home's number runs hot (1, 5, 8), balance it with grounding ritual: shared meals, plants, stone, routine. If it runs quiet (2, 4, 7), invite aliveness in on purpose. And if you're choosing between two flats or two SIM cards — now you have one more beautiful way to listen.",
+    "The deeper principle, for those who've walked with numbers a long time: environment-numerology is the practice of *consent*. You are not ruled by the number on the door. You are in conversation with it.",
+  ]},
+  { id: "pairs", cat: "Numerology", colour: "#7fd4e0", title: "Numerology for two: how paths entwine", min: 4, body: [
+    "Compare two Life Paths and you are really asking: what does each soul practise — and what happens when the practices share a kitchen?",
+    "Pairings tend to fall into three weathers. Flowing bonds (like 3 with 5, or 2 with 6) share a dialect: energy moves easily, laughter comes cheap, and the danger is only shallowness — easy love still needs deliberate roots. Balancing bonds (like 1 with 2, or 4 with 9) pair a strength with its complement: one initiates while the other harmonises, one builds while the other blesses. These couples translate for each other, and the translation is the intimacy. Forging bonds (like 1 with 8, or 4 with 5) put iron against iron — heat, growth, the occasional spark off the anvil. Handled with respect, nothing makes stronger metal.",
+    "## No doomed numbers",
+    "Hear this before anything else: there are no doomed pairings in numerology. A 'difficult' combination between two conscious people outgrows an 'easy' one between two sleepwalkers every single time. The chart describes the dance floor, never the dancers' skill.",
+    "Master numbers in a pairing (11, 22, 33) add voltage to whatever weather exists — more inspiration, more intensity, more need for grounding rituals made for two.",
+    "Beyond Life Paths, adepts compare Soul Urge numbers (what each heart privately wants) and Personal Years (what season each partner is standing in — a 1-year partner is sprinting at dawn while a 9-year partner is lighting lamps at dusk; knowing this dissolves half of all timing arguments).",
+    "Use the Partnership calculator here as a beginning, not a verdict. The numbers open the conversation — you two are the answer.",
+  ]},
+  { id: "bigthree", cat: "Astrology", colour: "#b898e8", title: "Sun, Moon and Rising: your three-fold self", min: 4, body: [
+    "'What's your sign?' almost always means your Sun sign — where the Sun stood on your birthday. It is real and it matters: the Sun is your core voltage, the hero of your story, the thing you are learning to *be*. But a birth chart holds a whole sky, and two other placements share the throne.",
+    "Your Moon sign is where the Moon sat at your birth — the tides underneath. It describes your emotional weather, what safety feels like, who you are at 2 a.m. when nobody is performing. Many people feel more like their Moon than their Sun, especially in private, especially in love.",
+    "Your Rising sign (the Ascendant) is the sign that was dawning on the eastern horizon at the exact minute you arrived — which is why the birth *time* matters so much. It is the doorway self: first impressions, your instinctive way of meeting the new. People who 'don't seem like their sign' are usually being read by their Rising.",
+    "## The three in one breath",
+    "A gentle formula: the Rising is how you enter the room, the Sun is why you came, and the Moon is what you need before you can leave whole. A Leo Sun with a Cancer Moon and Virgo Rising might arrive quietly checking the details, radiate warmth once seen, and need real tenderness after the crowd goes home. No contradiction — three instruments, one music.",
+    "If you know your birth time, Luminae's natal reading can begin weaving all three. If you don't, ask a parent, hunt for the birth certificate — or simply read your Moon possibilities and *feel* for the tide that recognises you. Your own resonance is evidence too.",
+  ]},
+  { id: "elements", cat: "Astrology", colour: "#b898e8", title: "Fire, Earth, Air, Water — the sky's four temperaments", min: 3, body: [
+    "The twelve signs are not twelve strangers — they are four families, three siblings each. Fire (Aries, Leo, Sagittarius) runs on inspiration: it wants to act, to shine, to believe. Earth (Taurus, Virgo, Capricorn) runs on manifestation: it wants to build, to tend, to finish. Air (Gemini, Libra, Aquarius) runs on connection: it wants to think, to relate, to name. Water (Cancer, Scorpio, Pisces) runs on feeling: it wants to bond, to sense, to heal.",
+    "Crossed with the elements are the three modalities — the *how* of each family. Cardinal signs (Aries, Cancer, Libra, Capricorn) start the season: initiators. Fixed signs (Taurus, Leo, Scorpio, Aquarius) hold its middle: sustainers. Mutable signs (Gemini, Virgo, Sagittarius, Pisces) close and hand it on: transformers. Twelve signs, four elements, three modes — a perfect weave with no repeats.",
+    "## Using this today",
+    "Element language explains chemistry faster than almost anything: fire delights air (wind feeds flame), earth banks water (banks let rivers flow) — while fire can scorch water into steam and air can erode earth's patience. None of these are verdicts; they are weather reports for relationships.",
+    "And within yourself: when you feel flat, borrow the missing element. Too airy and anxious? Touch earth — cook, garden, walk. Too fiery and scorched? Visit water — bathe, weep, listen to rain. The elements are a first-aid kit as old as the sky.",
+  ]},
+  { id: "houses", cat: "Astrology", colour: "#b898e8", title: "The twelve houses: where the sky touches your life", min: 4, body: [
+    "If signs are *how* an energy behaves, houses are *where* it lands. The birth chart is a wheel of twelve rooms, and every planet in your chart stands in one of them — colouring one province of your life.",
+    "The wheel begins at your Rising sign and moves through the great human territories: the 1st house is the self and the body's arrival; the 2nd, worth and what you own; the 3rd, words, siblings, the neighbourhood mind; the 4th, home and roots and the parent who held you; the 5th, romance, art, play, children; the 6th, work, health, the sacred daily grind.",
+    "Then the wheel crosses to others: the 7th house is partnership — every 'we' you formally make; the 8th, the deep exchanges — intimacy, shared money, transformation; the 9th, the far horizon — travel, philosophy, faith; the 10th, vocation and the public name you carve; the 11th, friends, community, the future you belong to; and the 12th, the hidden sea — dreams, solitude, the unconscious, the last room before the wheel begins again.",
+    "## Reading with houses",
+    "This is why two Leos can live such different lives: a Leo Sun in the 10th house performs its fire in public vocation; the same Sun in the 4th warms a home like a hearth and may never want a stage at all.",
+    "Houses need your birth time — the wheel turns completely every 24 hours, so even an hour's difference re-rooms the planets. It is the single best reason to hunt down that birth certificate: it turns astrology from a horoscope into a map with an address.",
+  ]},
+  { id: "firstchart", cat: "Astrology", colour: "#b898e8", title: "How to read a birth chart without fear", min: 4, body: [
+    "The first time you open a real birth chart it looks like the cockpit of a starship — glyphs, angles, a wheel sliced twelve ways. Breathe. Every working astrologer began exactly this lost, and the chart opens to a simple key: planet, sign, house. Who — how — where.",
+    "Each planet is a character in your inner company: the Sun (purpose), the Moon (needs), Mercury (mind and voice), Venus (love and taste), Mars (drive and anger), Jupiter (growth and luck), Saturn (discipline and time), and the slow outer three — Uranus, Neptune, Pluto — who move so gradually they shape whole generations' weather.",
+    "The sign a planet occupies is its costume and dialect: Mercury in Scorpio thinks like a detective; Mercury in Sagittarius thinks like an explorer. The house is its address — which room of your life that character mostly works in.",
+    "## A gentle first reading",
+    "Start with only three sentences. Find your Sun: 'my purpose behaves like ___ in the room of ___.' Find your Moon: 'my needs behave like ___ in the room of ___.' Find your Rising: 'I arrive like ___.' That is already a truer portrait than any newspaper column, and you built it yourself.",
+    "Two kindnesses as you go deeper. First: there are no bad charts — a 'hard' aspect is torque, and torque is how engines move. Second: the chart describes weather, never worth. You remain the one who sails. Astrology's oldest secret is that it was never fortune-telling — it is self-remembering with a map of the sky.",
+  ]},
+];
+
 /* ---------------- Claude API ---------------- */
 const LUMINAE_VOICE = `You are the voice of Luminae, a sacred spiritual sanctuary app. You write as a wise, loving presence — warm, reverent, never clinical. Use words like sacred, beloved, seeker, illuminate, journey, pure. Never use words like scan, detect, analyze, process. Never make medical claims or definitive predictions; use possibility language ("this energy suggests...", "the cards invite you to consider..."). Every reading opens from a place of pure intent, golden light, and the highest good of all. Keep responses focused and beautiful — around 250-400 words unless asked otherwise. You may use short paragraphs and the occasional gentle heading, but never bullet-point lists of keywords.`;
 
+/* The seeker's Anthropic API key, read from a Vite env var at build time.
+   Create a `.env` (or `.env.local`) with:  VITE_ANTHROPIC_API_KEY=sk-ant-...
+   Note: this ships the key into the browser bundle — fine for a personal,
+   locally-run sanctuary, but for a public deployment route calls through a
+   small server-side proxy instead so the key is never exposed. */
+const ANTHROPIC_MODEL = "claude-sonnet-4-6";
+const apiKey = () => (import.meta.env && import.meta.env.VITE_ANTHROPIC_API_KEY) || "";
+const anthropicHeaders = () => ({
+  "Content-Type": "application/json",
+  "x-api-key": apiKey(),
+  "anthropic-version": "2023-06-01",
+  "anthropic-dangerous-direct-browser-access": "true",
+});
+
 async function askLuminae(userPrompt, extraSystem = "", history = []) {
-  const res = await fetch("/api/luminae", {
+  /* Local dev with a VITE key calls Anthropic directly; otherwise we speak to
+     the deployed Worker's /api/luminae proxy, which holds the key server-side
+     (set with: npx wrangler secret put ANTHROPIC_API_KEY). */
+  const direct = !!apiKey();
+  const res = await fetch(direct ? "https://api.anthropic.com/v1/messages" : "/api/luminae", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: direct ? anthropicHeaders() : { "Content-Type": "application/json" },
     body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
+      model: ANTHROPIC_MODEL,
       max_tokens: 1000,
       system: LUMINAE_VOICE + (extraSystem ? "\n\n" + extraSystem : ""),
       messages: [...history, { role: "user", content: userPrompt }],
@@ -896,6 +1162,10 @@ const GlobalStyle = () => (
     @keyframes orbRing { 0% { transform: scale(1); opacity: .4; } 100% { transform: scale(2.15); opacity: 0; } }
     @keyframes glisten { 0%, 100% { transform: translateX(-65%) rotate(8deg); } 50% { transform: translateX(65%) rotate(8deg); } }
     @keyframes sparkleDrift { 0% { transform: translate(0, 0) scale(.3); opacity: 0; } 22% { opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) scale(1); opacity: 0; } }
+    @keyframes inkIn { from { opacity: 0; filter: blur(6px); transform: translateY(4px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+    @keyframes bloomFull { from { transform: scale(.15); border-radius: 22px; opacity: .3; } to { transform: scale(1); border-radius: 0; opacity: 1; } }
+    @keyframes haloPulse { 0%, 100% { transform: scale(1); opacity: .5; } 50% { transform: scale(1.16); opacity: .95; } }
+    .ink-word { display: inline-block; animation: inkIn .6s ease both; margin-right: .3em; }
     .fade-up { animation: fadeUp .6s ease both; }
     .lum-card-hover { transition: transform .25s ease, box-shadow .25s ease; }
     .lum-card-hover:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(0,0,0,.5), 0 0 24px rgba(201,168,76,.12); }
@@ -1028,9 +1298,19 @@ const PROTECTION_PRAYER = "Archangel Michael, surround this space in pure golden
        silently dies on long passages, and gives a slower, softer cadence. --- */
 const pickVoice = () => {
   try {
-    const voices = window.speechSynthesis?.getVoices?.() || [];
-    return voices.find((v) => /karen|samantha|victoria|moira|tessa|zira|aria|jenny|libby|sonia|natasha|female/i.test(v.name) && v.lang.startsWith("en"))
-      || voices.find((v) => v.lang.startsWith("en")) || null;
+    const all = (window.speechSynthesis?.getVoices?.() || []).filter((v) => /^en(-|_|$)/i.test(v.lang));
+    if (!all.length) return null;
+    // Avoid the harsh, robotic engines (eSpeak/Festival/Pico are common on Linux
+    // and sound "possessed"); reach first for natural/neural voices, ideally a
+    // warm feminine one, before falling back to whatever clear voice exists.
+    const robotic = /espeak|festival|robosoft|flite|pico|mbrola|david|mark|zira/i;
+    const natural = /natural|neural|google|premium|enhanced|siri|wavenet/i;
+    const warm = /samantha|karen|moira|tessa|fiona|serena|allison|ava|susan|kate|sonia|libby|jenny|natasha|aria|female|woman/i;
+    const pool = all.filter((v) => !robotic.test(v.name)); const list = pool.length ? pool : all;
+    return list.find((v) => natural.test(v.name) && warm.test(v.name))
+      || list.find((v) => warm.test(v.name))
+      || list.find((v) => natural.test(v.name))
+      || list.find((v) => v.default) || list[0];
   } catch (e) { return null; }
 };
 let _speakCtl = null;
@@ -1052,14 +1332,16 @@ const speakLong = (text, { rate = 0.82, gap = 380 } = {}, onDone) => {
   if (cur.trim()) pieces.push(cur.trim());
   let i = 0, cancelled = false;
   const v = pickVoice();
-  const keep = setInterval(() => { try { if (synth.speaking && !synth.paused) { synth.pause(); synth.resume(); } } catch (e) {} }, 9000);
+  // Gentle keep-alive: only nudge if the browser auto-paused. Never pause active
+  // speech — pausing mid-utterance is what made the voice stutter & sound possessed.
+  const keep = setInterval(() => { try { if (synth.paused) synth.resume(); } catch (e) {} }, 5000);
   const finish = () => { clearInterval(keep); if (!cancelled && onDone) onDone(); };
   const next = () => {
     if (cancelled) return;
     if (i >= pieces.length) return finish();
     const u = new SpeechSynthesisUtterance(pieces[i++]);
     if (v) u.voice = v;
-    u.rate = rate; u.pitch = 1.02; u.volume = 1;
+    u.rate = rate; u.pitch = 1.06; u.volume = 1;
     u.onend = () => setTimeout(next, gap);
     u.onerror = () => setTimeout(next, 120);
     try { synth.speak(u); } catch (e) { finish(); }
@@ -1138,9 +1420,8 @@ const OracleOrb = ({ size = 150, tint = "#e8c97a", onClick, label }) => {
 
 /* --- a luminous angel figure, tinted to each Archangel's colour
        (placeholder line-art; painted artwork ships at launch) --- */
-const AngelFigure = ({ colour, size = 46, img }) => {
+const AngelFigure = ({ colour, size = 46 }) => {
   const id = "ag" + colour.replace("#", "");
-  if (img) return <img src={img} alt="" aria-hidden style={{ width: size, height: size, objectFit: "contain", flexShrink: 0, transition: "width .3s, height .3s" }} />;
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" aria-hidden style={{ flexShrink: 0, transition: "width .3s, height .3s" }}>
       <defs>
@@ -1156,145 +1437,6 @@ const AngelFigure = ({ colour, size = 46, img }) => {
       <circle cx="50" cy="31" r="7.5" fill="#f2ecdf" opacity="0.92" />
       <path d="M50 40 C58 50 61 64 57 82 C52 88 48 88 43 82 C39 64 42 50 50 40 Z" fill="#f2ecdf" opacity="0.55" stroke={colour} strokeOpacity="0.7" strokeWidth="1" />
     </svg>
-  );
-};
-
-/* ---------------- Angel card draw ritual ---------------- */
-const ArchangelCardBack = () => (
-  <div style={{
-    width: 70, height: 108, borderRadius: 12, background: `linear-gradient(165deg, ${T.card}, ${T.card2})`,
-    border: `1.5px solid ${T.gold}77`, display: "flex", alignItems: "center", justifyContent: "center",
-    boxShadow: "0 8px 20px rgba(0,0,0,.5)",
-  }}>
-    <span className="lum-serif" style={{ fontSize: 26, color: T.gold }}>✧</span>
-  </div>
-);
-
-const FlippingAngelCard = ({ archangel }) => {
-  const [flipped, setFlipped] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setFlipped(true), 50); return () => clearTimeout(t); }, []);
-  return (
-    <div style={{ width: 70, height: 108, perspective: 600 }}>
-      <div style={{
-        position: "relative", width: "100%", height: "100%", transformStyle: "preserve-3d",
-        transition: "transform .7s cubic-bezier(.4,0,.2,1)", transform: `rotateY(${flipped ? 180 : 0}deg)`,
-      }}>
-        <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden" }}><ArchangelCardBack /></div>
-        <div style={{
-          position: "absolute", inset: 0, backfaceVisibility: "hidden", transform: "rotateY(180deg)",
-          display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12,
-          background: `linear-gradient(165deg, ${archangel.hex}33, #141428)`, border: `1.5px solid ${archangel.hex}99`,
-        }}>
-          <AngelFigure colour={archangel.hex} img={archangel.img} size={40} />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const HandwrittenText = ({ text, colour = T.goldHi }) => {
-  const words = useMemo(() => text.split(/\s+/), [text]);
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    setCount(0);
-    const id = setInterval(() => {
-      setCount((c) => {
-        if (c + 1 >= words.length) { clearInterval(id); return words.length; }
-        return c + 1;
-      });
-    }, 110);
-    return () => clearInterval(id);
-  }, [words]);
-  const done = count >= words.length;
-  return (
-    <p className="lum-serif" style={{ color: T.ink, fontSize: 18, fontStyle: "italic", lineHeight: 1.75, textAlign: "center", minHeight: "3.5em" }}>
-      {words.slice(0, count).join(" ")}{!done && <span style={{ color: colour }}>▍</span>}
-    </p>
-  );
-};
-
-const AngelDrawRitual = ({ archangel, onClose }) => {
-  const [phase, setPhase] = useState("shuffle"); // shuffle -> deck -> flip -> reveal -> message
-  const [spin, setSpin] = useState(0);
-  const [msg, setMsg] = useState("");
-  const [msgReady, setMsgReady] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    askLuminae(`Channel today's short message (120-160 words) from ${archangel.name}, the archangel of ${archangel.domain}. Today is ${new Date().toDateString()}. End with their invocation feeling woven in naturally.`)
-      .then((t) => { if (!cancelled) { setMsg(t); setMsgReady(true); } })
-      .catch(() => { if (!cancelled) { setMsg(archangel.invocation); setMsgReady(true); } });
-    return () => { cancelled = true; };
-  }, [archangel]);
-
-  useEffect(() => {
-    const timers = [
-      setTimeout(() => setSpin(540), 30),
-      setTimeout(() => setPhase("deck"), 1500),
-      setTimeout(() => setPhase("flip"), 2300),
-      setTimeout(() => setPhase("reveal"), 3000),
-      setTimeout(() => setPhase("message"), 3600),
-    ];
-    return () => timers.forEach(clearTimeout);
-  }, []);
-
-  const n = ARCHANGELS.length;
-  const topIndex = ARCHANGELS.findIndex((a) => a.name === archangel.name);
-  const showRing = phase === "shuffle" || phase === "deck" || phase === "flip";
-
-  return (
-    <div className="fade-up" style={{
-      position: "fixed", inset: 0, zIndex: 120, background: "rgba(6,6,14,.96)",
-      display: "flex", flexDirection: "column", alignItems: "center",
-      justifyContent: showRing ? "center" : "flex-start", overflowY: "auto", padding: "48px 20px",
-    }}>
-      {showRing && (
-        <div style={{ position: "relative", width: 260, height: 260, transform: `rotate(${phase === "shuffle" ? spin : 0}deg)`, transition: "transform 1.5s cubic-bezier(.4,0,.2,1)" }}>
-          {ARCHANGELS.map((a, i) => {
-            const angle = (360 / n) * i;
-            const isTop = i === topIndex;
-            const atCenter = phase === "deck" || phase === "flip";
-            const radius = atCenter ? 0 : 96;
-            const stackY = atCenter ? i * 2 : 0;
-            const jitter = atCenter ? ((i % 3) - 1) * 6 : 0;
-            return (
-              <div key={a.name} style={{
-                position: "absolute", left: "50%", top: "50%",
-                transform: `translate(-50%,-50%) rotate(${angle}deg) translate(${radius}px, ${-stackY}px) rotate(${-angle + jitter}deg)`,
-                transition: "transform .8s cubic-bezier(.4,0,.2,1)", zIndex: isTop ? 50 : i,
-              }}>
-                <div style={{ transform: `rotate(${phase === "shuffle" ? -spin : 0}deg)`, transition: "transform 1.5s cubic-bezier(.4,0,.2,1)" }}>
-                  {phase === "flip" && isTop ? <FlippingAngelCard archangel={a} /> : <ArchangelCardBack />}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {(phase === "reveal" || phase === "message") && (
-        <div className="fade-up" style={{ textAlign: "center" }}>
-          <AngelFigure colour={archangel.hex} img={archangel.img} size={168} />
-          <div className="lum-serif gold-shimmer" style={{ fontSize: 30, marginTop: 14 }}>{archangel.name}</div>
-          <div className="lum-sans" style={{ color: T.dim, fontSize: 12, marginTop: 4, letterSpacing: ".1em", textTransform: "uppercase" }}>{archangel.domain}</div>
-        </div>
-      )}
-
-      {phase === "message" && (
-        <div style={{ maxWidth: 480, marginTop: 22 }}>
-          {!msgReady
-            ? <div className="lum-serif" style={{ color: archangel.hex, fontStyle: "italic", textAlign: "center" }}>Channelling…</div>
-            : <HandwrittenText text={msg} colour={archangel.hex} />}
-        </div>
-      )}
-
-      {phase === "message" && msgReady && (
-        <div className="fade-up" style={{ marginTop: 22, display: "flex", gap: 12 }}>
-          <SpeakBtn text={msg} colour={archangel.hex} />
-          <Btn small kind="ghost" onClick={onClose}>Return to the sanctuary</Btn>
-        </div>
-      )}
-    </div>
   );
 };
 
@@ -1436,49 +1578,203 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
 /* ============================================================
    ASTROLOGY
    ============================================================ */
-const AstrologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
-  const [tab, setTab] = useState("weekly");
-  const [out, setOut] = useState(""); const [loading, setLoading] = useState(false); const [err, setErr] = useState("");
-  const sign = birth.dob ? sunSign(Number(birth.dob.slice(5, 7)), Number(birth.dob.slice(8, 10))) : null;
+/* ---------------- The Library reader & learn-more buttons ---------------- */
+const LearnBtn = ({ id, onOpen, children }) => (
+  <button onClick={() => onOpen(id)} className="lum-sans" style={{ background: "rgba(232,201,122,.07)", border: "1px solid rgba(232,201,122,.35)", borderRadius: 20, color: T.goldHi, fontSize: 12, padding: "7px 14px", cursor: "pointer", letterSpacing: ".05em" }}>
+    📜 {children || "Learn more"} ✧
+  </button>
+);
 
-  const run = async (prompt, sys = "") => {
-    setOut(""); setErr(""); setLoading(true);
-    try { setOut(await askLuminae(prompt, sys)); } catch (e) { setErr("The stars are quiet for a moment, beloved. Please try again."); }
+const ArticleOverlay = ({ id, onOpen, onClose }) => {
+  const art = LEARN.find((a) => a.id === id);
+  if (!art) return null;
+  const related = LEARN.filter((a) => a.id !== id);
+  return (
+    <div className="fade-up" style={{ position: "fixed", inset: 0, zIndex: 96, background: "rgba(9,9,20,.985)", overflowY: "auto", padding: "24px 20px 70px" }}>
+      <div style={{ maxWidth: 630, margin: "0 auto" }}>
+        <button onClick={onClose} className="lum-sans" style={{ background: "none", border: "none", color: T.dim, fontSize: 13, cursor: "pointer", padding: "6px 0", letterSpacing: ".06em", marginBottom: 6 }}>← Return</button>
+        <Eyebrow colour={art.colour}>{art.cat} · The Library · {art.min} min</Eyebrow>
+        <H size={30}>{art.title}</H>
+        <div style={{ marginTop: 16 }}>
+          {art.body.map((p, i) => p.startsWith("## ")
+            ? <div key={i} className="lum-serif" style={{ color: T.goldHi, fontSize: 21, margin: "24px 0 8px" }}>{p.slice(3)}</div>
+            : <p key={i} className="lum-serif" style={{ color: T.ink, fontSize: 17.5, lineHeight: 1.85, margin: "0 0 15px" }}>{p}</p>)}
+        </div>
+        <div className="lum-sans" style={{ color: T.faint, fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", margin: "26px 0 10px" }}>Keep reading</div>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          {related.map((a) => (
+            <button key={a.id} onClick={() => onOpen(a.id)} className="lum-sans" style={{ background: "rgba(233,230,242,.05)", border: `1px solid ${a.colour}44`, borderRadius: 14, color: T.ink, fontSize: 12.5, padding: "9px 14px", cursor: "pointer", textAlign: "left" }}>
+              <span style={{ color: a.colour }}>{a.cat}</span> · {a.title}
+            </button>
+          ))}
+        </div>
+        <p className="lum-serif" style={{ fontStyle: "italic", color: T.faint, fontSize: 14, marginTop: 28 }}>From the Luminae Library — written for first steps and old souls alike. ✧</p>
+        <Btn small onClick={onClose} style={{ marginTop: 4 }}>Return ✧</Btn>
+      </div>
+    </div>
+  );
+};
+
+/* ---------------- Sign lore card ---------------- */
+const Chip = ({ label, value, hue }) => (
+  <div className="lum-sans" style={{ border: `1px solid ${hue}55`, background: `${hue}12`, borderRadius: 14, padding: "6px 12px", fontSize: 11.5, color: T.ink }}>
+    <span style={{ color: hue, letterSpacing: ".1em", textTransform: "uppercase", fontSize: 9.5 }}>{label}</span> {value}
+  </div>
+);
+
+const SignLoreCard = ({ name }) => {
+  const L = SIGN_LORE[name];
+  if (!L) return null;
+  const hue = ELEMENT_HUE[L.element];
+  const row = (icon, label, text) => (
+    <div style={{ display: "flex", gap: 10, alignItems: "flex-start", marginTop: 10 }}>
+      <span style={{ fontSize: 15, flexShrink: 0, width: 22, textAlign: "center" }}>{icon}</span>
+      <div>
+        <span className="lum-sans" style={{ fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: hue }}>{label}</span>
+        <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.6, marginTop: 1 }}>{text}</div>
+      </div>
+    </div>
+  );
+  return (
+    <Panel style={{ padding: 20, borderColor: hue + "55", background: `radial-gradient(130% 160% at 12% 0%, ${hue}1e, transparent 55%), linear-gradient(165deg, #16152b, #0e0e1b)`, boxShadow: `0 0 30px ${hue}1a` }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ position: "relative", flexShrink: 0 }}>
+          <div aria-hidden style={{ position: "absolute", inset: -8, borderRadius: "50%", background: `radial-gradient(circle, ${hue}55, transparent 70%)`, animation: "haloPulse 3s ease-in-out infinite" }} />
+          <div style={{ position: "relative", width: 64, height: 64, borderRadius: "50%", border: `1.5px solid ${hue}88`, background: `radial-gradient(circle at 35% 30%, ${hue}44, #14121f 75%)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 32, color: hue, textShadow: `0 0 16px ${hue}` }}>{L.glyph}</div>
+        </div>
+        <div>
+          <div className="lum-serif" style={{ fontSize: 26, color: T.ink, textShadow: `0 0 22px ${hue}66` }}>{name}</div>
+          <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, letterSpacing: ".08em" }}>{L.dates}</div>
+        </div>
+      </div>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 14 }}>
+        <Chip label="Element" value={L.element} hue={hue} />
+        <Chip label="Mode" value={L.modality} hue={hue} />
+        <Chip label="Ruler" value={L.ruler} hue={hue} />
+        <Chip label="Stone" value={L.stone} hue={hue} />
+      </div>
+      <p className="lum-serif" style={{ color: T.ink, fontSize: 16.5, fontStyle: "italic", lineHeight: 1.75, margin: "14px 0 4px" }}>{L.essence}</p>
+      {row("☀", "In their light", L.light)}
+      {row("🌑", "Shadow work", L.shadow)}
+      {row("💞", "In love", L.love)}
+      {row("⚒", "In work", L.work)}
+      <div className="lum-serif" style={{ marginTop: 14, fontSize: 15.5, fontStyle: "italic", color: hue, textAlign: "center" }}>“{L.mantra}”</div>
+    </Panel>
+  );
+};
+
+const AstrologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
+  const [tab, setTab] = useState("mysign");
+  const [browse, setBrowse] = useState("Aries");
+  const [article, setArticle] = useState(null);
+  const [out, setOut] = useState(""); const [loading, setLoading] = useState(false); const [note, setNote] = useState("");
+  const sign = birth.dob ? sunSign(Number(birth.dob.slice(5, 7)), Number(birth.dob.slice(8, 10))) : null;
+  const moon = moonPhase();
+
+  const fallbackWeekly = () => {
+    const L = SIGN_LORE[sign.name];
+    return `The ${moon.name} sets this week's rhythm, ${sign.name}: ${MOON_MEANINGS[moon.name]}\n\nAs ${L.modality.toLowerCase()} ${L.element.toLowerCase()} ruled by ${L.ruler}, lean into what is most yours — ${L.light} And keep one kind eye on the familiar shadow: ${L.shadow}\n\nAn intention to carry: “${L.mantra}”`;
+  };
+  const weekly = async () => {
+    if (!sign) return;
+    setOut(""); setNote(""); setLoading(true);
+    try {
+      setOut(await askLuminae(`Write this week's horoscope for ${sign.name} (${SIGN_LORE[sign.name].modality} ${SIGN_LORE[sign.name].element}, ruled by ${SIGN_LORE[sign.name].ruler}). Current moon phase: ${moon.name}. Include the week's energy theme, a gentle area of focus, one loving warning drawn from the sign's shadow side, and one intention suggestion. Today is ${new Date().toDateString()}.`));
+    } catch (e) { setOut(fallbackWeekly()); setNote("A moon-guided reflection, while the deeper channel rests."); }
     setLoading(false);
   };
-
-  const weekly = () => {
-    if (!sign) return;
-    run(`Write this week's horoscope for ${sign.name}. Current moon phase: ${moonPhase().name}. Include the week's energy theme, a gentle area of focus, and one intention suggestion. Today is ${new Date().toDateString()}.`);
-  };
-  const natal = () => {
+  const natal = async () => {
     if (!paid) return askUpgrade("Your full natal chart reading lives in Illuminate.");
-    run(`Create a personalised natal energy portrait for a seeker born ${birth.dob} at ${birth.time || "an unknown time"} in ${birth.place || "an unknown place"}. Sun sign: ${sign.name}. Speak to their core essence, emotional nature, gifts, and soul lessons. Include this week's energy theme, favourable days, days to move gently, a weekly intention, and one recommended sound frequency or meditation. Note gently that exact planetary placements deepen with a precise birth time.`);
+    setOut(""); setNote(""); setLoading(true);
+    try {
+      setOut(await askLuminae(`Create a personalised natal energy portrait for a seeker born ${birth.dob} at ${birth.time || "an unknown time"} in ${birth.place || "an unknown place"}. Sun sign: ${sign.name}. Speak to their core essence, emotional nature (Moon possibilities if time unknown), gifts, and soul lessons. Include this week's energy theme, favourable days, days to move gently, a weekly intention, and one recommended sound frequency or meditation. Note gently that exact planetary placements deepen with a precise birth time.`));
+    } catch (e) { setOut("The stars are quiet for a moment, beloved. Please try again."); }
+    setLoading(false);
   };
+  const switchTab = (t) => { setTab(t); setOut(""); setNote(""); };
 
   return (
-    <div className="fade-up" style={{ maxWidth: 560 }}>
+    <div className="fade-up" style={{ maxWidth: 580 }}>
       <Eyebrow colour={T.violet}>Astrology</Eyebrow>
       <H>Written in the stars</H>
-      <Panel style={{ margin: "16px 0", padding: 18 }}>
-        <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginBottom: 10, letterSpacing: ".08em" }}>YOUR BIRTH DETAILS</div>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5, lineHeight: 1.6 }}>Whether this is your first sky-map or your thousandth — the heavens hold a seat for you.</p>
+
+      <Panel style={{ margin: "16px 0", padding: 18, borderColor: T.violet + "44", background: "radial-gradient(130% 160% at 88% 0%, #b898e81c, transparent 55%), linear-gradient(165deg, #16152b, #0e0e1b)" }}>
+        <div className="lum-sans" style={{ fontSize: 11, color: T.dim, marginBottom: 10, letterSpacing: ".16em" }}>YOUR BIRTH DETAILS</div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
           <input type="date" value={birth.dob} onChange={(e) => setBirth({ ...birth, dob: e.target.value })} className="lum-sans" style={inp} aria-label="Date of birth" />
           <input type="time" value={birth.time} onChange={(e) => setBirth({ ...birth, time: e.target.value })} className="lum-sans" style={inp} aria-label="Time of birth" />
           <input placeholder="Place of birth" value={birth.place} onChange={(e) => setBirth({ ...birth, place: e.target.value })} className="lum-sans" style={{ ...inp, gridColumn: "1 / -1" }} />
         </div>
-        {sign && <div className="lum-serif" style={{ color: T.goldHi, fontSize: 20, marginTop: 12 }}>{sign.glyph} {sign.name} Sun · {moonPhase().icon} {moonPhase().name} now</div>}
+        {sign && <div className="lum-serif" style={{ color: T.goldHi, fontSize: 20, marginTop: 12 }}>{sign.glyph} {sign.name} Sun</div>}
+        <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 6, lineHeight: 1.6 }}>{moon.icon} <span style={{ color: T.moon }}>{moon.name}</span> — {MOON_MEANINGS[moon.name]}</div>
+        {!birth.time && <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, marginTop: 8 }}>Add a birth time when you find it — it unlocks your Rising sign and houses. No time? You're still fully welcome here.</div>}
       </Panel>
-      <div style={{ display: "flex", gap: 10, marginBottom: 18, flexWrap: "wrap" }}>
-        <Btn small kind={tab === "weekly" ? "gold" : "ghost"} onClick={() => { setTab("weekly"); setOut(""); }}>Weekly Horoscope · Free</Btn>
-        <Btn small kind={tab === "natal" ? "gold" : "ghost"} onClick={() => { setTab("natal"); setOut(""); }}>Natal Chart Reading {!paid && "🔒"}</Btn>
+
+      <div style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
+        <Btn small kind={tab === "mysign" ? "gold" : "ghost"} onClick={() => switchTab("mysign")}>My Sign</Btn>
+        <Btn small kind={tab === "twelve" ? "gold" : "ghost"} onClick={() => switchTab("twelve")}>The Twelve</Btn>
+        <Btn small kind={tab === "weekly" ? "gold" : "ghost"} onClick={() => switchTab("weekly")}>Weekly ✧</Btn>
+        <Btn small kind={tab === "natal" ? "gold" : "ghost"} onClick={() => switchTab("natal")}>Natal Chart {!paid && "🔒"}</Btn>
       </div>
-      {!sign ? <p className="lum-sans" style={{ color: T.faint, fontSize: 14 }}>Enter your date of birth to begin, beloved.</p> :
-        !out && !loading && !err && <Btn onClick={tab === "weekly" ? weekly : natal}>{tab === "weekly" ? "Reveal my week ✧" : "Open my chart ✧"}</Btn>}
-      {loading && <Channeling text="Reading the heavens…" />}
-      {err && <p className="lum-sans" style={{ color: T.rose, fontSize: 14 }}>{err}</p>}
-      {out && <Panel style={{ padding: 26, marginTop: 8 }}><ReadingText text={out} /></Panel>}
-      {tab === "natal" && paid && <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 14 }}>Production note: precise planetary placements will use ephemeris data (AstrologyAPI) at launch.</p>}
+
+      {tab === "mysign" && (sign ? (
+        <div style={{ display: "grid", gap: 14 }}>
+          <SignLoreCard name={sign.name} />
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <LearnBtn id="bigthree" onOpen={setArticle}>Sun, Moon & Rising</LearnBtn>
+            <LearnBtn id="elements" onOpen={setArticle}>The four elements</LearnBtn>
+          </div>
+        </div>
+      ) : <p className="lum-sans" style={{ color: T.faint, fontSize: 14 }}>Enter your date of birth above, beloved — your sun sign will step forward.</p>)}
+
+      {tab === "twelve" && (
+        <div style={{ display: "grid", gap: 14 }}>
+          <p className="lum-sans" style={{ color: T.dim, fontSize: 13 }}>Every sign, no gate — read for the people you love.</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 8 }}>
+            {SIGN_ORDER.map((n) => {
+              const hue = ELEMENT_HUE[SIGN_LORE[n].element]; const on = browse === n;
+              return (
+                <button key={n} onClick={() => setBrowse(n)} aria-label={n} className="lum-serif" style={{ background: on ? `${hue}22` : "rgba(233,230,242,.04)", border: `1px solid ${on ? hue + "aa" : "rgba(233,230,242,.12)"}`, borderRadius: 12, color: on ? hue : T.dim, fontSize: 22, padding: "10px 0", cursor: "pointer", textShadow: on ? `0 0 12px ${hue}` : "none", transition: "all .25s" }}>
+                  {SIGN_LORE[n].glyph}
+                </button>
+              );
+            })}
+          </div>
+          <SignLoreCard name={browse} />
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <LearnBtn id="houses" onOpen={setArticle}>The twelve houses</LearnBtn>
+            <LearnBtn id="firstchart" onOpen={setArticle}>Reading your first chart</LearnBtn>
+          </div>
+        </div>
+      )}
+
+      {tab === "weekly" && (!sign
+        ? <p className="lum-sans" style={{ color: T.faint, fontSize: 14 }}>Enter your date of birth above to reveal your week.</p>
+        : <div>
+            {!out && !loading && <Btn onClick={weekly}>Reveal my week ✧</Btn>}
+            {loading && <Channeling text="Reading the heavens…" />}
+            {out && <Panel style={{ padding: 26 }}><ReadingText text={out} />{note && <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 12 }}>🌙 {note}</p>}</Panel>}
+          </div>)}
+
+      {tab === "natal" && (!sign
+        ? <p className="lum-sans" style={{ color: T.faint, fontSize: 14 }}>Enter your date of birth above to open your chart.</p>
+        : <div>
+            {!out && !loading && (
+              <div style={{ display: "grid", gap: 12 }}>
+                <Btn onClick={natal}>Open my chart ✧ {!paid && "🔒"}</Btn>
+                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                  <LearnBtn id="bigthree" onOpen={setArticle}>What a natal chart holds</LearnBtn>
+                  <LearnBtn id="houses" onOpen={setArticle}>The houses explained</LearnBtn>
+                </div>
+              </div>
+            )}
+            {loading && <Channeling text="Unrolling your sky-map…" />}
+            {out && <Panel style={{ padding: 26 }}><ReadingText text={out} /></Panel>}
+            {paid && <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 14 }}>Production note: precise planetary placements will use ephemeris data (AstrologyAPI) at launch.</p>}
+          </div>)}
+
+      {article && <ArticleOverlay id={article} onOpen={setArticle} onClose={() => setArticle(null)} />}
     </div>
   );
 };
@@ -1487,48 +1783,187 @@ const inp = { background: "#141428", border: "1px solid rgba(201,168,76,.25)", b
 /* ============================================================
    NUMEROLOGY
    ============================================================ */
+const CORE_KEYS = {
+  "Life Path": "the road your life keeps inviting you down — the most important number in the chart",
+  "Destiny": "drawn from your full name — the work your life is quietly assembling",
+  "Soul Urge": "the vowels of your name — what your heart privately wants",
+  "Personality": "the consonants — the self you show at the door",
+  "Expression": "how your gifts most naturally move into the world",
+  "Personal Year": "the season you are standing in right now (it changes each year)",
+};
+
+const NumberMeaningCard = ({ n, context, spin }) => {
+  const M = NUM_MEANINGS[n];
+  if (!M) return null;
+  const master = n === 11 || n === 22 || n === 33;
+  return (
+    <div className="fade-up">
+    <Panel style={{ padding: 20, borderColor: T.teal + "55", background: "radial-gradient(130% 160% at 12% 0%, #7fd4e01a, transparent 55%), linear-gradient(165deg, #14182b, #0e0e1b)" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ position: "relative", flexShrink: 0 }}>
+          <div aria-hidden style={{ position: "absolute", inset: -8, borderRadius: "50%", background: "radial-gradient(circle, #7fd4e055, transparent 70%)", animation: "haloPulse 3s ease-in-out infinite" }} />
+          <div className="lum-serif" style={{ position: "relative", width: 62, height: 62, borderRadius: "50%", border: "1.5px solid #7fd4e088", background: "radial-gradient(circle at 35% 30%, #7fd4e033, #14121f 75%)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, fontWeight: 600, color: T.teal, textShadow: "0 0 16px #7fd4e0" }}>{n}</div>
+        </div>
+        <div>
+          <div className="lum-serif" style={{ fontSize: 23, color: T.ink, textShadow: "0 0 20px #7fd4e055" }}>{M.title}{master && <span className="lum-sans" style={{ fontSize: 10, letterSpacing: ".14em", color: T.goldHi, border: `1px solid ${T.gold}66`, borderRadius: 10, padding: "2px 8px", marginLeft: 10, verticalAlign: "middle", textTransform: "uppercase" }}>Master</span>}</div>
+          {context && <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 2 }}>{context}</div>}
+        </div>
+      </div>
+      <p className="lum-serif" style={{ color: T.ink, fontSize: 16, fontStyle: "italic", lineHeight: 1.7, margin: "13px 0 4px" }}>{M.essence}</p>
+      {spin && <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5, lineHeight: 1.65, margin: "8px 0 0" }}>{spin}</p>}
+      <div className="lum-sans" style={{ color: T.dim, fontSize: 13, marginTop: 10 }}><span style={{ color: T.teal, fontSize: 10, letterSpacing: ".14em", textTransform: "uppercase" }}>In their light</span> {M.light}</div>
+      <div className="lum-serif" style={{ marginTop: 12, fontSize: 15, fontStyle: "italic", color: T.teal, textAlign: "center" }}>“{M.invitation}”</div>
+    </Panel>
+    </div>
+  );
+};
+
 const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
+  const [tab, setTab] = useState("profile");
+  const [article, setArticle] = useState(null);
   const [name, setName] = useState("");
   const [nums, setNums] = useState(null);
+  const [sel, setSel] = useState("Life Path");
   const [out, setOut] = useState(""); const [loading, setLoading] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [home, setHome] = useState("");
+  const [dobB, setDobB] = useState("");
 
-  const calc = async () => {
-    if (!paid) return askUpgrade("Your full numerology profile lives in Illuminate.");
+  const calc = () => {
     if (!birth.dob || !name.trim()) return;
     const [y, m, d] = birth.dob.split("-").map(Number);
-    const profile = {
+    setNums({
       "Life Path": lifePath(y, m, d), "Destiny": sumName(name), "Soul Urge": sumName(name, "v"),
       "Personality": sumName(name, "c"), "Expression": sumName(name), "Personal Year": personalYear(m, d),
-    };
-    setNums(profile); setOut(""); setLoading(true);
+    });
+    setSel("Life Path"); setOut("");
+  };
+  const portrait = async () => {
+    if (!paid) return askUpgrade("The fully woven written portrait lives in Illuminate — your numbers and their meanings are always free.");
+    setOut(""); setLoading(true);
     try {
-      setOut(await askLuminae(`Write a personalised numerology reading for a seeker named ${name}, born ${birth.dob}. Their numbers: ${Object.entries(profile).map(([k, v]) => `${k} ${v}`).join(", ")}. Explain each number in plain, warm language (no assumed prior knowledge), beginning with the Life Path as the most important. Weave them into one portrait of who they are becoming.`));
-    } catch (e) { setOut("The numbers are shown above, beloved — the written reading will return in a moment. Please try again."); }
+      setOut(await askLuminae(`Write a personalised numerology reading for a seeker named ${name}, born ${birth.dob}. Their numbers: ${Object.entries(nums).map(([k, v]) => `${k} ${v}`).join(", ")}. Explain each number in plain, warm language (no assumed prior knowledge, but never condescending — some seekers are adepts), beginning with the Life Path as the most important. Weave them into one portrait of who they are becoming.`));
+    } catch (e) { setOut("The written weaving will return in a moment, beloved — your numbers above hold true. Please try again."); }
     setLoading(false);
   };
 
+  const sumDigits = (str) => { const ds = str.replace(/\D/g, ""); return ds ? reduceNum(ds.split("").reduce((s, c) => s + Number(c), 0)) : null; };
+  const phoneNum = sumDigits(phone);
+  const homeNum = (() => {
+    const cleaned = home.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (!cleaned) return null;
+    const total = cleaned.split("").reduce((s, c) => s + (/[0-9]/.test(c) ? Number(c) : (LETTER_VAL[c] || 0)), 0);
+    return total ? reduceNum(total) : null;
+  })();
+  const lpFrom = (dob) => { if (!dob) return null; const [y, m, d] = dob.split("-").map(Number); return lifePath(y, m, d); };
+  const lpA = lpFrom(birth.dob), lpB = lpFrom(dobB);
+  const verdict = lpA && lpB ? pairVerdict(lpA, lpB) : null;
+  const switchTab = (t) => { setTab(t); setOut(""); };
+  const numTile = (k, v, on, click) => (
+    <Panel key={k} hover={!!click} onClick={click} style={{ textAlign: "center", padding: 13, borderColor: on ? T.teal + "88" : "rgba(201,168,76,0.14)", background: on ? "radial-gradient(120% 150% at 50% 0%, #7fd4e022, transparent 60%), linear-gradient(160deg, #14182b, #0e0e1b)" : undefined, boxShadow: on ? "0 0 18px #7fd4e022" : "none" }}>
+      <div className="lum-serif gold-shimmer" style={{ fontSize: 32, fontWeight: 600 }}>{v}</div>
+      <div className="lum-sans" style={{ fontSize: 10, color: on ? T.teal : T.dim, letterSpacing: ".08em", textTransform: "uppercase", marginTop: 2 }}>{k}</div>
+    </Panel>
+  );
+
   return (
-    <div className="fade-up" style={{ maxWidth: 560 }}>
+    <div className="fade-up" style={{ maxWidth: 580 }}>
       <Eyebrow colour={T.teal}>Numerology</Eyebrow>
       <H>The language of numbers</H>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 14 }}>Your full birth name and birthdate hold a sacred blueprint.</p>
-      <Panel style={{ margin: "16px 0", padding: 18, display: "grid", gap: 10 }}>
-        <input placeholder="Full birth name" value={name} onChange={(e) => setName(e.target.value)} className="lum-sans" style={inp} />
-        <input type="date" value={birth.dob} onChange={(e) => setBirth({ ...birth, dob: e.target.value })} className="lum-sans" style={inp} aria-label="Date of birth" />
-        <Btn onClick={calc} disabled={!name.trim() || !birth.dob}>Reveal my numbers ✧ {!paid && "🔒"}</Btn>
-      </Panel>
-      {nums && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10, marginBottom: 18 }}>
-          {Object.entries(nums).map(([k, v]) => (
-            <Panel key={k} style={{ textAlign: "center", padding: 14 }}>
-              <div className="lum-serif gold-shimmer" style={{ fontSize: 34, fontWeight: 600 }}>{v}</div>
-              <div className="lum-sans" style={{ fontSize: 10.5, color: T.dim, letterSpacing: ".08em", textTransform: "uppercase", marginTop: 2 }}>{k}</div>
-            </Panel>
-          ))}
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5, lineHeight: 1.6 }}>Names, birthdays, front doors, phone numbers — the whole world hums in number. Every meaning here is open to you, free; no experience required, none assumed.</p>
+
+      <div style={{ display: "flex", gap: 8, margin: "16px 0", flexWrap: "wrap" }}>
+        <Btn small kind={tab === "profile" ? "gold" : "ghost"} onClick={() => switchTab("profile")}>Soul Profile</Btn>
+        <Btn small kind={tab === "phone" ? "gold" : "ghost"} onClick={() => switchTab("phone")}>Phone</Btn>
+        <Btn small kind={tab === "home" ? "gold" : "ghost"} onClick={() => switchTab("home")}>Home</Btn>
+        <Btn small kind={tab === "pair" ? "gold" : "ghost"} onClick={() => switchTab("pair")}>Partnership</Btn>
+      </div>
+
+      {tab === "profile" && (
+        <div style={{ display: "grid", gap: 14 }}>
+          <Panel style={{ padding: 18, display: "grid", gap: 10, borderColor: T.teal + "33" }}>
+            <input placeholder="Full birth name (as first given)" value={name} onChange={(e) => setName(e.target.value)} className="lum-sans" style={inp} />
+            <input type="date" value={birth.dob} onChange={(e) => setBirth({ ...birth, dob: e.target.value })} className="lum-sans" style={inp} aria-label="Date of birth" />
+            <Btn onClick={calc} disabled={!name.trim() || !birth.dob}>Reveal my numbers ✧</Btn>
+          </Panel>
+          {nums && (
+            <>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
+                {Object.entries(nums).map(([k, v]) => numTile(k, v, sel === k, () => setSel(k)))}
+              </div>
+              <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, marginTop: -6 }}>Tap any number to read its meaning — {CORE_KEYS[sel]}.</div>
+              <NumberMeaningCard n={nums[sel]} context={`Your ${sel}`} />
+              {!out && !loading && <Btn onClick={portrait}>Weave my full written portrait ✧ {!paid && "🔒"}</Btn>}
+              {loading && <Channeling text="Reading your blueprint…" />}
+              {out && <Panel style={{ padding: 26 }}><ReadingText text={out} /></Panel>}
+            </>
+          )}
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <LearnBtn id="masters" onOpen={setArticle}>Master numbers</LearnBtn>
+            <LearnBtn id="karmic" onOpen={setArticle}>Karmic debt numbers</LearnBtn>
+          </div>
         </div>
       )}
-      {loading && <Channeling text="Reading your blueprint…" />}
-      {out && <Panel style={{ padding: 26 }}><ReadingText text={out} /></Panel>}
+
+      {tab === "phone" && (
+        <div style={{ display: "grid", gap: 14 }}>
+          <Panel style={{ padding: 18, display: "grid", gap: 10, borderColor: T.teal + "33" }}>
+            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6 }}>Your phone number is a frequency you answer every day. Enter it — spaces and dashes are fine.</div>
+            <input placeholder="e.g. 0412 345 678" value={phone} onChange={(e) => setPhone(e.target.value)} className="lum-sans" style={inp} inputMode="tel" />
+          </Panel>
+          {phoneNum && <NumberMeaningCard n={phoneNum} context="Your phone's vibration" spin={`Through this line flow ${PHONE_SPIN[phoneNum]}`} />}
+          <div><LearnBtn id="livednumbers" onOpen={setArticle}>Homes, phones & lived numbers</LearnBtn></div>
+        </div>
+      )}
+
+      {tab === "home" && (
+        <div style={{ display: "grid", gap: 14 }}>
+          <Panel style={{ padding: 18, display: "grid", gap: 10, borderColor: T.teal + "33" }}>
+            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6 }}>Enter your house or unit number — letters count too (12B adds B's value of 2).</div>
+            <input placeholder="e.g. 47, or 12B" value={home} onChange={(e) => setHome(e.target.value)} className="lum-sans" style={inp} />
+          </Panel>
+          {homeNum && <NumberMeaningCard n={homeNum} context="Your home's vibration" spin={HOME_SPIN[homeNum]} />}
+          <div><LearnBtn id="livednumbers" onOpen={setArticle}>Homes, phones & lived numbers</LearnBtn></div>
+        </div>
+      )}
+
+      {tab === "pair" && (
+        <div style={{ display: "grid", gap: 14 }}>
+          <Panel style={{ padding: 18, display: "grid", gap: 10, borderColor: T.teal + "33" }}>
+            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6 }}>Two birthdays, two Life Paths, one dance. For lovers, friends, business partners — any two souls.</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+              <div>
+                <div className="lum-sans" style={{ fontSize: 10.5, color: T.faint, letterSpacing: ".1em", marginBottom: 4 }}>YOU</div>
+                <input type="date" value={birth.dob} onChange={(e) => setBirth({ ...birth, dob: e.target.value })} className="lum-sans" style={inp} aria-label="Your date of birth" />
+              </div>
+              <div>
+                <div className="lum-sans" style={{ fontSize: 10.5, color: T.faint, letterSpacing: ".1em", marginBottom: 4 }}>THEM</div>
+                <input type="date" value={dobB} onChange={(e) => setDobB(e.target.value)} className="lum-sans" style={inp} aria-label="Their date of birth" />
+              </div>
+            </div>
+          </Panel>
+          {verdict && (
+            <>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: 10, alignItems: "center" }}>
+                {numTile("Your path", lpA, false)}
+                <div style={{ fontSize: 22, textAlign: "center" }}>{verdict.icon}</div>
+                {numTile("Their path", lpB, false)}
+              </div>
+              <Panel style={{ padding: 20, borderColor: T.teal + "55", background: "radial-gradient(130% 160% at 50% 0%, #7fd4e01a, transparent 55%), linear-gradient(165deg, #14182b, #0e0e1b)" }}>
+                <div className="lum-serif" style={{ fontSize: 22, color: T.ink, textAlign: "center", textShadow: "0 0 20px #7fd4e055" }}>{verdict.icon} {verdict.kind}</div>
+                <p className="lum-serif" style={{ color: T.ink, fontSize: 15.5, fontStyle: "italic", lineHeight: 1.75, margin: "12px 0" }}>{verdict.text}</p>
+                <div className="lum-sans" style={{ color: T.dim, fontSize: 13, lineHeight: 1.65 }}><span style={{ color: T.teal }}>The {NUM_MEANINGS[lpA].title} ({lpA})</span> — {NUM_MEANINGS[lpA].bond}</div>
+                <div className="lum-sans" style={{ color: T.dim, fontSize: 13, lineHeight: 1.65, marginTop: 8 }}><span style={{ color: T.teal }}>The {NUM_MEANINGS[lpB].title} ({lpB})</span> — {NUM_MEANINGS[lpB].bond}</div>
+                {(lpA > 9 || lpB > 9) && <div className="lum-sans" style={{ color: T.goldHi, fontSize: 12.5, marginTop: 12 }}>✧ A master number stands in this pairing — expect higher voltage in whichever weather you share, and build grounding rituals for two.</div>}
+                <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 12 }}>No pairing is doomed and none is guaranteed — the numbers describe the dance floor, never the dancers' skill.</p>
+              </Panel>
+            </>
+          )}
+          <div><LearnBtn id="pairs" onOpen={setArticle}>Numerology for two</LearnBtn></div>
+        </div>
+      )}
+
+      {article && <ArticleOverlay id={article} onOpen={setArticle} onClose={() => setArticle(null)} />}
     </div>
   );
 };
@@ -1536,6 +1971,162 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
 /* ============================================================
    ANGEL REALM
    ============================================================ */
+
+/* --- Daily Angel Card ritual: the seven step forward, veil their faces,
+       shuffle in the heavens, gather into one pile — and one card rises,
+       blooming to full screen, its message written as if by hand --- */
+let pendingAngelDraw = false; // set by the Home tile so the ritual auto-begins on arrival
+
+const angelOfTheDay = () => {
+  const d = new Date();
+  return ARCHANGELS[(d.getFullYear() * 372 + (d.getMonth() + 1) * 31 + d.getDate()) % ARCHANGELS.length];
+};
+
+const AngelCardRitual = ({ paid }) => {
+  const N = ARCHANGELS.length;
+  const [stage, setStage] = useState("idle"); // idle | fan | backs | shuffle | gather | reveal | zoom | done
+  const [slots, setSlots] = useState([...Array(N).keys()]);
+  const [message, setMessage] = useState("");
+  const [wordCount, setWordCount] = useState(0);
+  const chosen = useMemo(angelOfTheDay, []);
+  const chosenIdx = ARCHANGELS.indexOf(chosen);
+  const timers = useRef([]);
+  const after = (ms, fn) => timers.current.push(setTimeout(fn, ms));
+  const tidy = useMemo(() => ARCHANGELS.map(() => ({ deg: Math.random() * 10 - 5, x: Math.random() * 8 - 4, y: Math.random() * 6 - 3 })), []);
+
+  const compose = (a) =>
+    `${a.name} steps forward for you today, beloved. ${a.invocation} Let ${a.domain.toLowerCase()} be your compass through the hours ahead — hold ${a.crystal.toLowerCase()} if it is near, and breathe in ${a.colour.toLowerCase()} light whenever you need to come home to yourself. Walk gently. You are so deeply loved.`;
+
+  const begin = () => {
+    setMessage(""); setWordCount(0); setSlots([...Array(N).keys()]);
+    setStage("fan");
+    after(2100, () => setStage("backs"));
+    after(3100, () => setStage("shuffle"));
+    [3200, 3850, 4500, 5150].forEach((t) => after(t, () => setSlots((s) => [...s].sort(() => Math.random() - 0.5))));
+    after(5900, () => setStage("gather"));
+    after(6000, async () => {
+      let text = compose(chosen);
+      if (paid) {
+        try { text = await askLuminae(`Channel today's Daily Angel Card message (110-150 words) from ${chosen.name}, archangel of ${chosen.domain}. Today is ${new Date().toDateString()}. The seeker has just drawn ${chosen.name}'s card — speak to them directly and warmly. End with the invocation feeling woven in naturally.`); } catch (e) { /* fallback stands */ }
+      }
+      setMessage(text);
+    });
+    after(7100, () => setStage("reveal"));
+    after(9100, () => setStage("zoom"));
+  };
+
+  useEffect(() => { if (pendingAngelDraw) { pendingAngelDraw = false; begin(); } }, []);
+
+  const words = useMemo(() => (message ? message.split(/\s+/) : []), [message]);
+  useEffect(() => {
+    if (stage !== "zoom" || !words.length) return;
+    const iv = setInterval(() => setWordCount((c) => (c >= words.length ? (clearInterval(iv), c) : c + 1)), 220);
+    return () => clearInterval(iv);
+  }, [stage, words.length]);
+
+  const finish = () => { stopSpeaking(); setStage("done"); };
+  const CARD_W = 66, CARD_H = 104, R = 112;
+  const pos = (slot) => {
+    const ang = (slot / N) * Math.PI * 2 - Math.PI / 2;
+    return { x: Math.round(Math.cos(ang) * R), y: Math.round(Math.sin(ang) * R), deg: Math.round((ang * 180) / Math.PI + 90) };
+  };
+  const inCircle = stage === "fan" || stage === "backs" || stage === "shuffle";
+  const running = stage !== "idle" && stage !== "done";
+
+  return (
+    <Panel style={{ margin: "16px 0", padding: 18, borderColor: T.goldHi + "44", background: "radial-gradient(120% 150% at 50% -20%, #241f42 0%, #12101f 55%, #0d0d18 100%)", overflow: "hidden", position: "relative" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+        <div>
+          <Eyebrow colour={T.goldHi}>Daily Angel Card · Free</Eyebrow>
+          <div className="lum-serif" style={{ fontSize: 20, color: T.ink }}>Which angel walks with you today?</div>
+        </div>
+        {!running && <Btn small onClick={begin}>{stage === "done" ? "Behold again ✧" : "Draw ✧"}</Btn>}
+      </div>
+
+      {stage === "done" && (
+        <div className="fade-up" style={{ display: "flex", gap: 14, alignItems: "center", marginTop: 14 }}>
+          <img src={chosen.img} alt={chosen.name} style={{ width: 54, height: 86, objectFit: "cover", objectPosition: "50% 14%", borderRadius: 8, border: `1px solid ${chosen.hex}77`, boxShadow: `0 0 14px ${chosen.hex}44` }} />
+          <div>
+            <div className="lum-serif" style={{ fontSize: 17.5, color: T.ink }}>{chosen.name}</div>
+            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 2 }}>{chosen.domain} — walking beside you until midnight ✧</div>
+          </div>
+        </div>
+      )}
+
+      {running && stage !== "zoom" && (
+        <div style={{ position: "relative", height: 336, marginTop: 6 }}>
+          {[...Array(18)].map((_, i) => (
+            <span key={i} aria-hidden style={{ position: "absolute", left: `${(i * 53 + 7) % 100}%`, top: `${(i * 37 + 11) % 100}%`, width: 2, height: 2, borderRadius: "50%", background: T.goldHi, animation: `twinkle ${2 + (i % 5) * 0.7}s ease-in-out ${(i % 7) * 0.4}s infinite` }} />
+          ))}
+          {ARCHANGELS.map((a, i) => {
+            const p = pos(slots[i]);
+            const isChosen = i === chosenIdx;
+            const faceUp = stage === "fan" || (isChosen && stage === "reveal");
+            const gathered = stage === "gather" || stage === "reveal";
+            const x = inCircle ? p.x : gathered ? tidy[i].x : 0;
+            const y = inCircle ? p.y : gathered ? tidy[i].y : 0;
+            const deg = inCircle ? p.deg : gathered ? tidy[i].deg : 0;
+            const scale = stage === "reveal" && isChosen ? 1.5 : 1;
+            return (
+              <div key={a.name} style={{ position: "absolute", left: "50%", top: "50%", zIndex: isChosen ? 20 : 10, animation: stage === "fan" ? `cardIn .55s ease ${i * 0.08}s both` : "none", transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) rotate(${deg}deg) scale(${scale})`, transition: "transform .6s cubic-bezier(.35,.9,.35,1), filter .5s ease", filter: stage === "reveal" && !isChosen ? "brightness(.45)" : "none" }}>
+                <div style={{ width: CARD_W, height: CARD_H, position: "relative", transformStyle: "preserve-3d", transition: "transform .65s", transform: faceUp ? "rotateY(0deg)" : "rotateY(180deg)" }}>
+                  <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden", borderRadius: 9, overflow: "hidden", border: `1px solid ${a.hex}88`, boxShadow: stage === "reveal" && isChosen ? `0 0 28px ${a.hex}aa` : `0 0 10px ${a.hex}33` }}>
+                    <img src={a.img} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 14%" }} />
+                    <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "10px 3px 3px", background: "linear-gradient(transparent, rgba(6,6,14,.9))", textAlign: "center" }}>
+                      <span className="lum-sans" style={{ fontSize: 7, letterSpacing: ".14em", textTransform: "uppercase", color: "#f2ecdf" }}>{a.name.replace("Archangel ", "")}</span>
+                    </div>
+                  </div>
+                  <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden", transform: "rotateY(180deg)", borderRadius: 9, border: "1px solid #d4b04c66", background: "radial-gradient(circle at 50% 36%, #2b2547, #14121f 72%)", boxShadow: "0 5px 16px rgba(0,0,0,.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ width: 30, height: 30, borderRadius: "50%", border: "1px solid #d4b04c55", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <span style={{ color: T.goldHi, fontSize: 15, textShadow: `0 0 12px ${T.goldHi}` }}>✧</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          <div className="lum-sans" style={{ position: "absolute", bottom: -2, left: 0, right: 0, textAlign: "center", fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", color: T.faint }}>
+            {stage === "fan" && "The seven step forward…"}
+            {stage === "backs" && "They veil their faces…"}
+            {stage === "shuffle" && "The heavens shuffle…"}
+            {stage === "gather" && "One pile. One truth."}
+            {stage === "reveal" && "Your card rises ✧"}
+          </div>
+        </div>
+      )}
+
+      {stage === "zoom" && (
+        <div style={{ position: "fixed", inset: 0, zIndex: 95, background: "rgba(8,8,18,.98)", overflow: "hidden" }}>
+          <img src={chosen.img} alt={chosen.name} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 18%", animation: "bloomFull 1.15s cubic-bezier(.2,.75,.25,1) both" }} />
+          <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(rgba(8,8,18,.15) 26%, rgba(8,8,18,.9) 74%), radial-gradient(120% 55% at 50% 0%, ${chosen.hex}30, transparent 55%)` }} />
+          {[...Array(12)].map((_, i) => (
+            <span key={i} aria-hidden style={{ position: "absolute", left: `${(i * 47 + 8) % 100}%`, bottom: `${(i * 29 + 5) % 60}%`, width: 3, height: 3, borderRadius: "50%", background: chosen.hex, opacity: .8, animation: `twinkle ${2.4 + (i % 4) * 0.8}s ease-in-out ${(i % 5) * 0.5}s infinite` }} />
+          ))}
+          <button onClick={finish} aria-label="Close" style={{ position: "absolute", top: 14, right: 18, zIndex: 3, background: "none", border: "none", color: "#f2ecdf", fontSize: 26, cursor: "pointer", textShadow: "0 0 10px #000" }}>✕</button>
+          <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, zIndex: 2, padding: "0 22px 32px", textAlign: "center" }}>
+            <div style={{ maxWidth: 580, margin: "0 auto" }}>
+              <Eyebrow colour={chosen.hex}>Your angel today</Eyebrow>
+              <div className="lum-serif gold-shimmer" style={{ fontSize: 31, fontWeight: 600, margin: "2px 0 3px" }}>{chosen.name}</div>
+              <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginBottom: 14 }}>{chosen.domain} · {chosen.colour} · {chosen.crystal}</div>
+              <p className="lum-serif" onClick={() => setWordCount(words.length)} style={{ color: T.ink, fontSize: 18.5, fontStyle: "italic", lineHeight: 1.8, minHeight: 90, margin: 0, cursor: wordCount < words.length ? "pointer" : "default" }}>
+                {words.length === 0
+                  ? <span style={{ color: chosen.hex, opacity: .9 }}>{chosen.name.replace("Archangel ", "")} draws close…</span>
+                  : words.slice(0, wordCount).map((w, i) => <span key={i} className="ink-word">{w}</span>)}
+              </p>
+              {words.length > 0 && wordCount >= words.length && (
+                <div className="fade-up" style={{ marginTop: 16, display: "flex", gap: 10, justifyContent: "center", alignItems: "center", flexWrap: "wrap" }}>
+                  <SpeakBtn text={message} colour={chosen.hex} />
+                  <Btn small onClick={finish}>Amen ✧</Btn>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </Panel>
+  );
+};
+
 const AngelScreen = ({ paid, askUpgrade }) => {
   const [num, setNum] = useState("");
   const [lookup, setLookup] = useState(null);
@@ -1543,8 +2134,6 @@ const AngelScreen = ({ paid, askUpgrade }) => {
   const [angel, setAngel] = useState(null);
   const [msg, setMsg] = useState(""); const [loadingA, setLoadingA] = useState(false);
   const [michael, setMichael] = useState(false);
-  const [drawing, setDrawing] = useState(false);
-  const todaysAngel = ARCHANGELS[new Date().getDate() % ARCHANGELS.length];
 
   const find = () => {
     const clean = num.replace(/\D/g, "");
@@ -1574,17 +2163,12 @@ const AngelScreen = ({ paid, askUpgrade }) => {
       <Eyebrow>Angel Realm</Eyebrow>
       <H>You are never alone</H>
 
-      {drawing && <AngelDrawRitual archangel={todaysAngel} onClose={() => setDrawing(false)} />}
-
-      <Panel style={{ margin: "16px 0", padding: 18, textAlign: "center", borderColor: T.gold + "44" }}>
-        <div className="lum-sans" style={{ fontSize: 12, color: T.gold, letterSpacing: ".14em", marginBottom: 8 }}>TODAY'S ANGEL MESSAGE</div>
-        <div className="lum-sans" style={{ fontSize: 13, color: T.dim, marginBottom: 14 }}>Draw a card from the deck and let your angel speak.</div>
-        <Btn onClick={() => paid ? setDrawing(true) : askUpgrade("Daily channelled Archangel messages live in Illuminate.")}>Draw your angel card {!paid && "🔒"}</Btn>
-      </Panel>
+      <AngelCardRitual paid={paid} />
 
       <Panel style={{ margin: "16px 0", padding: 18, borderColor: "#3b6fd455", background: "linear-gradient(160deg, #16203a, #10101f)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-          <div>
+          <img src="/images/angels/archangel-michael.webp" alt="" style={{ width: 56, height: 56, borderRadius: "50%", objectFit: "cover", objectPosition: "50% 26%", border: "1.5px solid #3b6fd488", boxShadow: "0 0 16px #3b6fd466", flexShrink: 0 }} />
+          <div style={{ flex: 1 }}>
             <div className="lum-serif" style={{ fontSize: 20, color: "#9cb8ee" }}>🛡️ Call on Michael</div>
             <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim }}>For moments of fear or overwhelm — protection is one breath away.</div>
           </div>
@@ -1627,15 +2211,31 @@ const AngelScreen = ({ paid, askUpgrade }) => {
         {ARCHANGELS.map((a) => {
           const open = angel?.name === a.name;
           return (
-            <Panel key={a.name} hover onClick={() => !open && dailyMessage(a)} style={{ padding: "14px 18px", borderColor: a.hex + "44" }}>
+            <Panel key={a.name} hover onClick={() => !open && dailyMessage(a)} style={{ padding: "16px 18px", borderColor: a.hex + (open ? "77" : "44"), background: `radial-gradient(130% 170% at 0% 0%, ${a.hex}1f, transparent 52%), linear-gradient(165deg, #16152b, #0e0e1b)`, boxShadow: open ? `0 0 28px ${a.hex}2e` : "none", transition: "box-shadow .45s ease, border-color .45s ease" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-                <AngelFigure colour={a.hex} size={open ? 84 : 48} />
+                <div style={{ position: "relative", flexShrink: 0 }}>
+                  <div aria-hidden style={{ position: "absolute", inset: -9, borderRadius: "50%", background: `radial-gradient(circle, ${a.hex}66, transparent 70%)`, animation: open ? "haloPulse 2.6s ease-in-out infinite" : "none", opacity: open ? 1 : .5 }} />
+                  {a.img ? (
+                    <img src={a.img} alt={a.name} style={{ position: "relative", display: "block", width: open ? 92 : 54, height: open ? 92 : 54, borderRadius: "50%", objectFit: "cover", objectPosition: "50% 16%", border: `1.5px solid ${a.hex}aa`, boxShadow: `0 0 16px ${a.hex}66`, transition: "width .35s, height .35s" }} />
+                  ) : (
+                    <AngelFigure colour={a.hex} size={open ? 92 : 54} />
+                  )}
+                </div>
                 <div style={{ flex: 1 }}>
-                  <span className="lum-serif" style={{ fontSize: 18, color: T.ink }}>{a.name}</span>
+                  <span className="lum-serif" style={{ fontSize: 19, color: T.ink, textShadow: open ? `0 0 20px ${a.hex}88` : "none" }}>{a.name}</span>
                   <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginTop: 2 }}>{a.domain} · {a.colour} · {a.crystal}</div>
                 </div>
-                <div style={{ width: 14, height: 14, borderRadius: "50%", background: a.hex, boxShadow: `0 0 12px ${a.hex}`, flexShrink: 0 }} />
+                <div style={{ width: 13, height: 13, borderRadius: "50%", background: a.hex, boxShadow: `0 0 14px ${a.hex}`, flexShrink: 0, animation: open ? "twinkle 2.4s ease-in-out infinite" : "none" }} />
               </div>
+              {open && a.img && (
+                <div className="fade-up" style={{ position: "relative", marginTop: 14, borderRadius: 16, overflow: "hidden", border: `1px solid ${a.hex}66`, boxShadow: `0 10px 32px rgba(0,0,0,.5), 0 0 34px ${a.hex}26` }}>
+                  <img src={a.img} alt="" style={{ display: "block", width: "100%", maxHeight: 370, objectFit: "cover", objectPosition: "50% 12%" }} />
+                  <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(rgba(10,10,20,0) 52%, rgba(10,10,20,.78)), radial-gradient(100% 60% at 50% 0%, ${a.hex}24, transparent 58%)` }} />
+                  <div className="lum-serif" style={{ position: "absolute", left: 14, right: 14, bottom: 10, textAlign: "center", fontStyle: "italic", fontSize: 15, color: "#f2ecdf", textShadow: "0 1px 10px rgba(0,0,0,.9)" }}>
+                    {a.domain} · <span style={{ color: a.hex }}>{a.colour}</span>
+                  </div>
+                </div>
+              )}
               {open && (loadingA
                 ? <div className="lum-serif" style={{ color: a.hex, fontStyle: "italic", marginTop: 10 }}>Channelling today's message…</div>
                 : msg && (
@@ -1653,7 +2253,7 @@ const AngelScreen = ({ paid, askUpgrade }) => {
 };
 
 /* ============================================================
-   CRYSTAL GUIDE
+   DAILY QUOTES
    ============================================================ */
 const QuotesScreen = () => {
   const [text, author] = dailyQuote();
@@ -1681,6 +2281,9 @@ const QuotesScreen = () => {
   );
 };
 
+/* ============================================================
+   CRYSTAL GUIDE
+   ============================================================ */
 const CrystalScreen = ({ paid, askUpgrade }) => {
   const [mood, setMood] = useState(null);
   const [rec, setRec] = useState(""); const [loading, setLoading] = useState(false);
@@ -1747,14 +2350,55 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
   const [myTracks, setMyTracks] = useState([]);
   const [uploadErr, setUploadErr] = useState("");
   const [ownHarp, setOwnHarp] = useState(null);
-  const [playlist, setPlaylist] = useState([]);
-  const [plPlaying, setPlPlaying] = useState(-1);
-  const plRef = useRef([]); plRef.current = playlist;
+  const [harpRec, setHarpRec] = useState(null); // hosted harp recording
+  // Named, reorderable journeys (playlists), saved on the seeker's device.
+  const [playlists, setPlaylists] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("lum-playlists") || "[]"); } catch (e) { return []; }
+  });
+  const [activeId, setActiveId] = useState(null);
+  const [newName, setNewName] = useState("");
+  const [plPlaying, setPlPlaying] = useState(-1);       // index within the playing journey
+  const [playingPlId, setPlayingPlId] = useState(null); // which journey is playing
+  const plRef = useRef([]);
   const plTimer = useRef(null);
+  const timerRef = useRef(0); timerRef.current = timer; // current sleep-timer choice
+  const MINS = [5, 10, 15, 30, 60];
+  const activePl = playlists.find((pl) => pl.id === activeId) || null;
 
-  const resolve = (track) => (track.id === "harp" && ownHarp)
-    ? { ...ownHarp, id: "harp", name: "Angelic Harp" }
-    : track;
+  // Persist journeys. Uploaded audio buffers can't be serialised — flag them
+  // so they show in the list but prompt a re-add after a refresh.
+  useEffect(() => {
+    try {
+      const safe = playlists.map((pl) => ({ id: pl.id, name: pl.name, items: pl.items.map((it) => {
+        const { buffer, ...rest } = it.track || {};
+        return { key: it.key, mins: it.mins, track: buffer ? { ...rest, needsReupload: true } : rest };
+      }) }));
+      localStorage.setItem("lum-playlists", JSON.stringify(safe));
+    } catch (e) {}
+  }, [playlists]);
+
+  // The Angelic Harp plays a real recording when one is available — a
+  // seeker's own upload first, then the hosted Moonlit Canopy Drift —
+  // and gently falls back to the live-synth harp otherwise.
+  const resolve = (track) => {
+    if (track.id !== "harp") return track;
+    const rec = ownHarp || harpRec;
+    return rec ? { ...rec, id: "harp", name: "Angelic Harp" } : track;
+  };
+
+  // Load + decode the hosted harp recording once, on mount.
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const res = await fetch(encodeURI(HARP_RECORDING.src));
+        if (!res.ok) return;
+        const audio = await engine.decode(await res.arrayBuffer());
+        if (alive) setHarpRec({ type: "buffer", buffer: audio, name: HARP_RECORDING.title });
+      } catch (e) { /* fall back to the live-synth harp */ }
+    })();
+    return () => { alive = false; };
+  }, [engine]);
   const trigger = (track, music) => {
     const t = resolve(track);
     if (t.type === "buffer") engine.playBuffer(t.buffer, { music });
@@ -1762,30 +2406,71 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
   };
   const stopPlaylist = () => {
     clearTimeout(plTimer.current);
-    setPlPlaying(-1); setPlaying(null); engine.stop();
+    setPlPlaying(-1); setPlayingPlId(null); setPlaying(null); engine.stop();
   };
-  const playPlaylistAt = (i) => {
-    const list = plRef.current;
-    if (i >= list.length) { stopPlaylist(); return; }
-    const item = list[i];
-    trigger(item, withMusic);
-    setPlaying(item); setPlPlaying(i);
+  const playStep = (i) => {
+    const items = plRef.current;
+    if (i >= items.length) { stopPlaylist(); return; }
+    const item = items[i];
+    const last = i === items.length - 1;
+    if (item.track?.needsReupload) { // can't play a refreshed-away upload — glide past it
+      setPlPlaying(i); clearTimeout(plTimer.current);
+      if (last) { stopPlaylist(); return; }
+      plTimer.current = setTimeout(() => playStep(i + 1), 400); return;
+    }
+    trigger(item.track, withMusic);
+    setPlaying(item.track); setPlPlaying(i);
     clearTimeout(plTimer.current);
-    plTimer.current = setTimeout(() => playPlaylistAt(i + 1), item.mins * 60000);
+    // On the final track with a sleep timer set (e.g. "All night"), let it keep
+    // flowing — it loops seamlessly — until the timer ends the night.
+    if (last && timerRef.current) return;
+    plTimer.current = setTimeout(() => playStep(i + 1), item.mins * 60000);
+  };
+  const playPlaylist = (plId) => {
+    if (!paid) return askUpgrade("Journeys live in Illuminate — flow a whole bedtime ritual.");
+    const pl = playlists.find((p) => p.id === plId); if (!pl || !pl.items.length) return;
+    plRef.current = pl.items; setPlayingPlId(plId);
+    if (timer) engine.setSleepTimer(timer, () => stopPlaylist()); // the night's end
+    playStep(0);
+  };
+  const createPlaylist = (name) => {
+    if (!paid) return askUpgrade("Journeys live in Illuminate — craft your own bedtime or meditation ritual.");
+    const id = "pl" + Date.now();
+    setPlaylists((p) => [...p, { id, name: (name || "").trim() || "Untitled Journey", items: [] }]);
+    setActiveId(id);
+  };
+  const renamePlaylist = (plId, name) => setPlaylists((p) => p.map((pl) => pl.id === plId ? { ...pl, name } : pl));
+  const deletePlaylist = (plId) => {
+    if (playingPlId === plId) stopPlaylist();
+    setPlaylists((p) => p.filter((pl) => pl.id !== plId));
+    setActiveId((cur) => cur === plId ? null : cur);
   };
   const addToPlaylist = (track) => {
-    if (!paid) return askUpgrade("Playlists live in Illuminate — queue a whole bedtime journey.");
-    setPlaylist((p) => [...p, { ...resolve(track), key: track.id + Date.now(), name: track.name, mins: 15 }]);
+    if (!paid) return askUpgrade("Journeys live in Illuminate — craft your own bedtime or meditation ritual.");
+    let id = activeId;
+    if (!id || !playlists.find((x) => x.id === id)) {
+      id = "pl" + Date.now();
+      setPlaylists((p) => [...p, { id, name: "My Journey", items: [] }]);
+      setActiveId(id);
+    }
+    const entry = { key: track.id + "-" + Date.now(), mins: 15, track };
+    setPlaylists((p) => p.map((pl) => pl.id === id ? { ...pl, items: [...pl.items, entry] } : pl));
   };
-  const cycleMins = (key) => setPlaylist((p) => p.map((it) => {
-    if (it.key !== key) return it;
-    const opts = [5, 10, 15, 30, 60];
-    return { ...it, mins: opts[(opts.indexOf(it.mins) + 1) % opts.length] };
+  const cycleMins = (plId, key) => setPlaylists((p) => p.map((pl) => pl.id !== plId ? pl : {
+    ...pl, items: pl.items.map((it) => it.key !== key ? it : { ...it, mins: MINS[(MINS.indexOf(it.mins) + 1) % MINS.length] }),
   }));
+  const moveItem = (plId, i, dir) => setPlaylists((p) => p.map((pl) => {
+    if (pl.id !== plId) return pl;
+    const j = i + dir; if (j < 0 || j >= pl.items.length) return pl;
+    const items = pl.items.slice(); const t = items[i]; items[i] = items[j]; items[j] = t;
+    return { ...pl, items };
+  }));
+  const removeItem = (plId, key) => setPlaylists((p) => p.map((pl) => pl.id !== plId ? pl : { ...pl, items: pl.items.filter((it) => it.key !== key) }));
   useEffect(() => () => clearTimeout(plTimer.current), []);
   const play = (track, locked) => {
     if (locked) return askUpgrade("Unlock the full Sound Sanctuary — unlimited, ad-free, forever.");
     if (!paid && freePlays >= 3 && playing?.id !== track.id) return askUpgrade("You've enjoyed your 3 free tracks today. Illuminate is unlimited — everything you love, without the interruptions.");
+    if (playingPlId !== null) { clearTimeout(plTimer.current); setPlPlaying(-1); setPlayingPlId(null); }
     if (playing?.id === track.id) { engine.stop(); setPlaying(null); return; }
     trigger(track, withMusic);
     setPlaying(track);
@@ -1813,7 +2498,11 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
   };
   const chooseTimer = (mins) => {
     setTimer(mins);
-    if (playing) engine.setSleepTimer(mins, () => setPlaying(null));
+    if (playingPlId !== null) {
+      engine.setSleepTimer(mins, () => stopPlaylist());
+      const pl = playlists.find((p) => p.id === playingPlId);
+      if (mins && pl && plPlaying === pl.items.length - 1) clearTimeout(plTimer.current); // let the final track flow on
+    } else if (playing) engine.setSleepTimer(mins, () => setPlaying(null));
   };
   useEffect(() => () => { clearTimeout(plTimer.current); engine.stop(); }, [engine]);
 
@@ -1846,29 +2535,64 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
         Live, pure tones generated in sacred ratios — no recordings, no ads, no interruptions.
         {!paid && <span style={{ color: T.gold }}> Free tier: 3 tracks per day ({3 - Math.min(freePlays, 3)} remaining).</span>}
       </p>
-      {playlist.length > 0 && (
-        <Panel style={{ margin: "14px 0", padding: 16, borderColor: T.goldHi + "55" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-            <div className="lum-serif" style={{ fontSize: 19, color: T.goldHi }}>✧ Your Journey</div>
-            <div style={{ display: "flex", gap: 6 }}>
-              {plPlaying < 0
-                ? <Btn small onClick={() => playPlaylistAt(0)}>▶ Begin</Btn>
-                : <>
-                    <Btn small kind="ghost" onClick={() => playPlaylistAt(plPlaying + 1)}>⏭ Next</Btn>
-                    <Btn small kind="ghost" onClick={stopPlaylist}>◼ End</Btn>
-                  </>}
+      {/* ✧ Journeys — named, reorderable playlists, saved on the device */}
+      <Panel style={{ margin: "14px 0", padding: 16, borderColor: T.goldHi + "55" }}>
+        <div className="lum-serif" style={{ fontSize: 19, color: T.goldHi }}>✧ Your Journeys</div>
+        <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, margin: "3px 0 12px" }}>Craft a bedtime or meditation journey — name it, add tracks, then set the order and how long each one flows.</div>
+        <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+          <input value={newName} onChange={(e) => setNewName(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter" && newName.trim()) { createPlaylist(newName); setNewName(""); } }}
+            placeholder="New journey name…  e.g. Bedtime" className="lum-sans" style={{ ...inp, flex: 1 }} />
+          <Btn small onClick={() => { if (newName.trim()) { createPlaylist(newName); setNewName(""); } else { createPlaylist(""); } }}>＋ Create</Btn>
+        </div>
+        {playlists.length > 0 && (
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: activePl ? 14 : 0 }}>
+            {playlists.map((pl) => (
+              <button key={pl.id} onClick={() => setActiveId(pl.id)} className="lum-sans" style={{
+                background: activeId === pl.id ? "rgba(201,168,76,.18)" : "rgba(233,230,242,.05)",
+                border: `1px solid ${activeId === pl.id ? T.goldHi : "rgba(233,230,242,.14)"}`,
+                color: activeId === pl.id ? T.goldHi : T.dim, borderRadius: 14, padding: "5px 12px", fontSize: 12, cursor: "pointer",
+              }}>{playingPlId === pl.id ? "✧ " : ""}{pl.name} · {pl.items.length}</button>
+            ))}
+          </div>
+        )}
+        {activePl && (
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, marginBottom: 8 }}>
+              <input value={activePl.name} onChange={(e) => renamePlaylist(activePl.id, e.target.value)} aria-label="Journey name"
+                className="lum-serif" style={{ background: "none", border: "none", borderBottom: "1px solid rgba(233,230,242,.14)", color: T.ink, fontSize: 16, padding: "2px 0", flex: 1, minWidth: 0 }} />
+              <div style={{ display: "flex", gap: 6 }}>
+                {playingPlId === activePl.id && plPlaying >= 0
+                  ? <><Btn small kind="ghost" onClick={() => playStep(plPlaying + 1)}>⏭ Next</Btn><Btn small kind="ghost" onClick={stopPlaylist}>◼ End</Btn></>
+                  : <Btn small onClick={() => playPlaylist(activePl.id)}>▶ Begin</Btn>}
+              </div>
+            </div>
+            {activePl.items.length === 0
+              ? <div className="lum-sans" style={{ fontSize: 12, color: T.faint, padding: "8px 0" }}>Empty for now — tap ＋ on any track below to add it to “{activePl.name}”.</div>
+              : activePl.items.map((it, i) => {
+                const on = playingPlId === activePl.id && plPlaying === i;
+                const last = i === activePl.items.length - 1;
+                return (
+                  <div key={it.key} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 0", borderTop: i ? "1px solid rgba(233,230,242,.07)" : "none" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                      <button onClick={() => moveItem(activePl.id, i, -1)} disabled={i === 0} aria-label="Move up" className="lum-sans" style={{ background: "none", border: "none", color: i === 0 ? T.faint : T.dim, cursor: i === 0 ? "default" : "pointer", fontSize: 10, lineHeight: 1, padding: 0 }}>▲</button>
+                      <button onClick={() => moveItem(activePl.id, i, 1)} disabled={last} aria-label="Move down" className="lum-sans" style={{ background: "none", border: "none", color: last ? T.faint : T.dim, cursor: last ? "default" : "pointer", fontSize: 10, lineHeight: 1, padding: 0 }}>▼</button>
+                    </div>
+                    <span className="lum-sans" style={{ flex: 1, minWidth: 0, fontSize: 13.5, color: on ? T.goldHi : (it.track?.needsReupload ? T.faint : T.ink) }}>
+                      {on ? "✧ " : `${i + 1}. `}{it.track?.name}{it.track?.needsReupload ? " · re-add upload" : ""}
+                    </span>
+                    <button onClick={() => cycleMins(activePl.id, it.key)} className="lum-sans" style={{ background: "rgba(201,168,76,.1)", border: "1px solid rgba(201,168,76,.3)", color: T.goldHi, borderRadius: 13, padding: "3px 10px", fontSize: 11.5, cursor: "pointer" }}>{it.mins} min</button>
+                    <button onClick={() => removeItem(activePl.id, it.key)} aria-label="Remove" className="lum-sans" style={{ background: "none", border: "none", color: T.faint, cursor: "pointer", fontSize: 14 }}>✕</button>
+                  </div>
+                );
+              })}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 10 }}>
+              <span className="lum-sans" style={{ fontSize: 11, color: T.faint }}>Each step flows for its minutes, then the next begins. With “All night,” the final track plays on until dawn.</span>
+              <button onClick={() => deletePlaylist(activePl.id)} className="lum-sans" style={{ background: "none", border: "none", color: T.faint, fontSize: 11, cursor: "pointer" }}>Delete journey</button>
             </div>
           </div>
-          {playlist.map((it, i) => (
-            <div key={it.key} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 0", borderTop: i ? "1px solid rgba(233,230,242,.07)" : "none" }}>
-              <span className="lum-sans" style={{ fontSize: 13.5, color: plPlaying === i ? T.goldHi : T.ink, flex: 1 }}>{plPlaying === i ? "✧ " : ""}{it.name}</span>
-              <button onClick={() => cycleMins(it.key)} className="lum-sans" style={{ background: "rgba(201,168,76,.1)", border: "1px solid rgba(201,168,76,.3)", color: T.goldHi, borderRadius: 13, padding: "3px 10px", fontSize: 11.5, cursor: "pointer" }}>{it.mins} min</button>
-              <button onClick={() => setPlaylist((p) => p.filter((x) => x.key !== it.key))} aria-label="Remove" className="lum-sans" style={{ background: "none", border: "none", color: T.faint, cursor: "pointer", fontSize: 14 }}>✕</button>
-            </div>
-          ))}
-          <div className="lum-sans" style={{ fontSize: 11, color: T.faint, marginTop: 8 }}>Each step flows for its set minutes, then the next begins — tap ＋ on any track to add it.</div>
-        </Panel>
-      )}
+        )}
+      </Panel>
       <div style={{ display: "flex", gap: 8, alignItems: "center", margin: "14px 0 22px", flexWrap: "wrap" }}>
         <span className="lum-sans" style={{ fontSize: 12, color: T.faint, letterSpacing: ".1em" }}>SLEEP TIMER</span>
         {[0, 30, 60, 480].map((m) => (
@@ -1902,7 +2626,11 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
       <Eyebrow colour={T.gold}>Sacred Instruments</Eyebrow>
       <div style={{ display: "grid", gap: 9, marginBottom: 24 }}>
         {INSTRUMENTS.map((s) => {
-          const t = s.id === "harp" && ownHarp ? { ...s, desc: `Your own recording · "${ownHarp.name}" ✦` } : s;
+          let t = s;
+          if (s.id === "harp") {
+            if (ownHarp) t = { ...s, desc: `Your own recording · "${ownHarp.name}" ✦` };
+            else if (harpRec) t = { ...s, desc: `${harpRec.name} · a flowing harp recording ✦` };
+          }
           return <Row key={s.id} accent={T.gold} track={t} locked={!s.free && !paid} />;
         })}
       </div>
@@ -2183,10 +2911,11 @@ const VisionScreen = ({ kind, paid, askUpgrade }) => {
   const read = async () => {
     setLoading(true); setOut("");
     try {
-      const res = await fetch("/api/luminae", {
-        method: "POST", headers: { "Content-Type": "application/json" },
+      if (!apiKey()) { setOut("The sanctuary needs your sacred key, beloved — set VITE_ANTHROPIC_API_KEY in a .env file."); setLoading(false); return; }
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST", headers: anthropicHeaders(),
         body: JSON.stringify({
-          model: "claude-sonnet-4-20250514", max_tokens: 1000,
+          model: ANTHROPIC_MODEL, max_tokens: 1000,
           system: LUMINAE_VOICE + ` You are giving a ${isIris ? "traditional iridology reflection, gently describing what the iris zones are traditionally said to reflect" : "palmistry reading of the heart line, head line, life line, fate line, mounts and hand shape where visible"}. This is for holistic wellness reflection and spiritual insight only — it is never medical advice, and you must say so warmly at the end. If the image is unclear, lovingly ask for a clearer photo instead of guessing.`,
           messages: [{ role: "user", content: [
             { type: "image", source: { type: "base64", media_type: img.media, data: img.data } },
@@ -2327,6 +3056,19 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             </div>
           )}
         </Panel>
+        <Panel hover onClick={() => { pendingAngelDraw = true; go("angels"); }} style={{ marginBottom: 14, padding: 0, overflow: "hidden", borderColor: "#9cb8ee44", background: "linear-gradient(160deg, #141b33, #0e0e1c)" }}>
+          <div style={{ display: "flex", alignItems: "stretch", minHeight: 96 }}>
+            <div style={{ position: "relative", width: 104, flexShrink: 0 }}>
+              <img src="/images/angels/archangel-michael.webp" alt="Archangel Michael" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 24%" }} />
+              <div aria-hidden style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(14,14,28,0) 50%, #10101d 98%)" }} />
+            </div>
+            <div style={{ padding: "15px 18px", flex: 1 }}>
+              <Eyebrow colour="#9cb8ee">Daily Angel Card · Free</Eyebrow>
+              <div className="lum-serif" style={{ fontSize: 21, color: T.ink }}>Which angel walks with you today?</div>
+              <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Seven cards shuffle in the heavens — one steps forward ✧</div>
+            </div>
+          </div>
+        </Panel>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           <Panel hover onClick={() => go("crystals")} style={{ padding: 16 }}>
             <Eyebrow colour={T.sage}>Today's Crystal</Eyebrow>
@@ -2402,12 +3144,12 @@ export default function Luminae() {
     tarot: <TarotScreen paid={paid} deckId={deckId} setDeckId={setDeckId} requestRitual={requestRitual} askUpgrade={askUpgrade} onAfterReading={onAfterReading} />,
     sounds: <SoundScreen paid={paid} askUpgrade={askUpgrade} engine={engine} />,
     angels: <AngelScreen paid={paid} askUpgrade={askUpgrade} />,
-    quotes: <QuotesScreen />,
     astrology: <AstrologyScreen paid={paid} askUpgrade={askUpgrade} birth={birth} setBirth={setBirth} />,
     numerology: <NumerologyScreen paid={paid} askUpgrade={askUpgrade} birth={birth} setBirth={setBirth} />,
     soul: <SoulScreen paid={paid} askUpgrade={askUpgrade} />,
     dreams: <DreamScreen paid={paid} askUpgrade={askUpgrade} journal={journal} setJournal={setJournal} />,
     meditate: <MeditationScreen paid={paid} askUpgrade={askUpgrade} engine={engine} />,
+    quotes: <QuotesScreen />,
     crystals: <CrystalScreen paid={paid} askUpgrade={askUpgrade} />,
     iris: <VisionScreen kind="iris" paid={paid} askUpgrade={askUpgrade} />,
     palm: <VisionScreen kind="palm" paid={paid} askUpgrade={askUpgrade} />,

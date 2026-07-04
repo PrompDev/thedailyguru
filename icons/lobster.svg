@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#1d1438"/>
+      <stop offset="100%" stop-color="#0d0d1a"/>
+    </radialGradient>
+    <linearGradient id="shell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff6b4a"/>
+      <stop offset="55%" stop-color="#e8412a"/>
+      <stop offset="100%" stop-color="#b5241a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="256" height="256" rx="52" fill="url(#bg)"/>
+
+  <g fill="url(#shell)" stroke="#7a1410" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <!-- antennae -->
+    <path d="M118 70 C96 38 74 26 52 22" fill="none" stroke-width="5"/>
+    <path d="M138 70 C160 38 182 26 204 22" fill="none" stroke-width="5"/>
+
+    <!-- big claws -->
+    <g>
+      <path d="M104 92 C78 80 56 84 44 102 C34 116 40 134 56 138 C44 128 50 112 64 110 C78 108 92 112 102 120 Z"/>
+      <path d="M152 92 C178 80 200 84 212 102 C222 116 216 134 200 138 C212 128 206 112 192 110 C178 108 164 112 154 120 Z"/>
+    </g>
+
+    <!-- head/carapace -->
+    <ellipse cx="128" cy="112" rx="34" ry="30"/>
+
+    <!-- body segments -->
+    <path d="M100 132 H156 L150 156 H106 Z"/>
+    <path d="M104 156 H152 L146 180 H110 Z"/>
+    <path d="M108 180 H148 L142 204 H114 Z"/>
+
+    <!-- tail fan -->
+    <path d="M114 204 L128 236 L142 204 C138 218 132 224 128 224 C124 224 118 218 114 204 Z"/>
+
+    <!-- legs -->
+    <path d="M100 138 C84 144 74 156 70 170" fill="none" stroke-width="4"/>
+    <path d="M156 138 C172 144 182 156 186 170" fill="none" stroke-width="4"/>
+    <path d="M104 162 C90 168 82 180 80 192" fill="none" stroke-width="4"/>
+    <path d="M152 162 C166 168 174 180 176 192" fill="none" stroke-width="4"/>
+  </g>
+
+  <!-- eyes -->
+  <circle cx="116" cy="104" r="6" fill="#1a0c0a"/>
+  <circle cx="140" cy="104" r="6" fill="#1a0c0a"/>
+  <circle cx="114" cy="102" r="2" fill="#ffd9c2"/>
+  <circle cx="138" cy="102" r="2" fill="#ffd9c2"/>
+</svg>
