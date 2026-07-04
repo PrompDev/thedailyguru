@@ -63,14 +63,14 @@ const FULL_DECK = (() => {
 })();
 
 const DECKS = [
-  { id: "classic", name: "The Classic", free: true, desc: "Rider-Waite inspired · deep midnight tones", g1: "#1a1a3e", g2: "#0d0d1a", frame: T.gold },
-  { id: "fairy", name: "Fairy Realm", free: true, desc: "Luminous watercolour fairies · enchanted forests", g1: "#1d3326", g2: "#101d24", frame: T.sage },
-  { id: "ocean", name: "Ocean Oracle", free: false, desc: "Dolphins & sea creatures · flowing blue hues", g1: "#0d2740", g2: "#081826", frame: T.teal },
-  { id: "botanical", name: "Botanical", free: false, desc: "Lush florals & sacred plants", g1: "#23301c", g2: "#131c10", frame: T.sage },
-  { id: "celestial", name: "Celestial", free: false, desc: "Nebulae, planets & starfields", g1: "#1d1438", g2: "#0d0a20", frame: T.violet },
-  { id: "wings", name: "Spirit Wings", free: false, desc: "Angels & ethereal beings in golden light", g1: "#33291a", g2: "#1a1410", frame: T.goldHi },
-  { id: "dark", name: "Dark Mystic", free: false, desc: "Gothic ravens, moons & ancient symbols", g1: "#1c1022", g2: "#0c0810", frame: T.rose },
-  { id: "earth", name: "Sacred Earth", free: false, desc: "Art honouring the natural world", g1: "#33231a", g2: "#1a120d", frame: "#d39a6a" },
+  { id: "classic", name: "The Classic", free: true, desc: "Rider-Waite inspired · deep midnight tones", g1: "#1a1a3e", g2: "#0d0d1a", frame: T.gold, motif: "✦" },
+  { id: "fairy", name: "Fairy Realm", free: true, desc: "Luminous watercolour fairies · enchanted forests", g1: "#1d3326", g2: "#101d24", frame: T.sage, motif: "🦋" },
+  { id: "ocean", name: "Ocean Oracle", free: false, desc: "Dolphins & sea creatures · flowing blue hues", g1: "#0d2740", g2: "#081826", frame: T.teal, motif: "🐚" },
+  { id: "botanical", name: "Botanical", free: false, desc: "Lush florals & sacred plants", g1: "#23301c", g2: "#131c10", frame: T.sage, motif: "🌿" },
+  { id: "celestial", name: "Celestial", free: false, desc: "Nebulae, planets & starfields", g1: "#1d1438", g2: "#0d0a20", frame: T.violet, motif: "🪐" },
+  { id: "wings", name: "Spirit Wings", free: false, desc: "Angels & ethereal beings in golden light", g1: "#33291a", g2: "#1a1410", frame: T.goldHi, motif: "🕊️" },
+  { id: "dark", name: "Dark Mystic", free: false, desc: "Gothic ravens, moons & ancient symbols", g1: "#1c1022", g2: "#0c0810", frame: T.rose, motif: "🌙" },
+  { id: "earth", name: "Sacred Earth", free: false, desc: "Art honouring the natural world", g1: "#33231a", g2: "#1a120d", frame: "#d39a6a", motif: "🌾" },
 ];
 
 const SPREADS = [
@@ -303,6 +303,11 @@ const QUOTES = [
   ["Almost everything will work again if you unplug it for a few minutes, including you.", "Anne Lamott"],
   ["Piglet noticed that even though he had a Very Small Heart, it could hold a rather large amount of Gratitude.", "A. A. Milne"],
   ["At any given moment, you have the power to say: this is not how the story is going to end.", "Christine Mason Miller"],
+  ["My religion is very simple. My religion is kindness.", "Dalai Lama XIV"],
+  ["If you want others to be happy, practice compassion. If you want to be happy, practice compassion.", "Dalai Lama XIV"],
+  ["Happiness is not something ready-made. It comes from your own actions.", "Dalai Lama XIV"],
+  ["Be kind whenever possible. It is always possible.", "Dalai Lama XIV"],
+  ["Our prime purpose in this life is to help others. And if you can't help them, at least don't hurt them.", "Dalai Lama XIV"],
   ["You are not behind. The garden does not scold the seed for its season.", "Luminae"],
   ["Let today be soft. Let it be enough.", "Luminae"],
   ["The light you seek is already keeping you warm.", "Luminae"],
@@ -1364,23 +1369,53 @@ const ReadingText = ({ text }) => (
 );
 
 /* ---------------- Tarot card visual ---------------- */
-const TarotCard = ({ card, deck, label, delay = 0, w = 108 }) => (
+/* Generative card faces: every card gets its own deterministic starfield and
+   halo tilt (seeded from its name, stable across renders), dressed in the
+   chosen deck's palette and watermark motif. */
+const ROMAN = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"];
+const cardHash = (s) => { let h = 7; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; };
+
+const TarotCard = ({ card, deck, label, delay = 0, w = 108 }) => {
+  const hsh = cardHash(card.name);
+  const major = card.arcana === "Major";
+  const plate = major ? ROMAN[card.n] : card.name.split(" of ")[0];
+  const stars = [...Array(10)].map((_, i) => ({
+    left: 8 + ((hsh >> (i * 2)) % 84), top: 10 + ((hsh >> (i * 2 + 5)) % 78),
+    s: 1 + ((hsh >> i) % 3) * 0.6, o: 0.2 + ((hsh >> (i + 3)) % 45) / 100,
+  }));
+  return (
   <div style={{ textAlign: "center", animation: `cardIn .8s ease ${delay}s both`, perspective: 600 }}>
     <div style={{
       width: w, height: w * 1.62, margin: "0 auto", borderRadius: 12,
-      background: `linear-gradient(165deg, ${deck.g1}, ${deck.g2})`,
-      border: `1.5px solid ${deck.frame}99`, boxShadow: `0 10px 28px rgba(0,0,0,.55), 0 0 18px ${deck.frame}22`,
+      background: `radial-gradient(130% 90% at 50% -15%, ${deck.frame}26, transparent 55%), radial-gradient(95% 65% at 50% 115%, ${deck.frame}1a, transparent 62%), linear-gradient(165deg, ${deck.g1}, ${deck.g2})`,
+      border: `1.5px solid ${deck.frame}99`, boxShadow: `0 10px 28px rgba(0,0,0,.55), 0 0 18px ${deck.frame}22, inset 0 0 24px rgba(0,0,0,.35)`,
       display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between",
-      padding: "12px 8px", position: "relative", overflow: "hidden",
+      padding: "10px 8px", position: "relative", overflow: "hidden",
     }}>
-      <div style={{ position: "absolute", inset: 5, borderRadius: 8, border: `1px solid ${deck.frame}40` }} />
-      <div className="lum-serif" style={{ fontSize: 11, color: deck.frame, letterSpacing: ".1em" }}>✧</div>
-      <div style={{ fontSize: w * 0.34, filter: "drop-shadow(0 0 12px rgba(245,227,168,.35))" }}>{card.glyph}</div>
-      <div className="lum-serif" style={{ fontSize: Math.max(11, w * 0.105), color: T.ink, lineHeight: 1.2, padding: "0 2px" }}>{card.name}</div>
+      {stars.map((st, i) => (
+        <span key={i} aria-hidden style={{ position: "absolute", left: `${st.left}%`, top: `${st.top}%`, width: st.s, height: st.s, borderRadius: "50%", background: deck.frame, opacity: st.o }} />
+      ))}
+      <div aria-hidden style={{ position: "absolute", bottom: -w * 0.05, right: -w * 0.03, fontSize: w * 0.5, opacity: 0.08, transform: "rotate(-14deg)", pointerEvents: "none", filter: "grayscale(30%)" }}>{deck.motif}</div>
+      <div aria-hidden style={{ position: "absolute", inset: 4, borderRadius: 9, border: `1px solid ${deck.frame}55` }} />
+      <div aria-hidden style={{ position: "absolute", inset: 7, borderRadius: 7, border: `1px dotted ${deck.frame}2e` }} />
+      {[{ top: 7, left: 9 }, { top: 7, right: 9 }, { bottom: 7, left: 9 }, { bottom: 7, right: 9 }].map((p, i) => (
+        <span key={i} aria-hidden style={{ position: "absolute", ...p, fontSize: 7, color: deck.frame, opacity: 0.85, lineHeight: 1 }}>✦</span>
+      ))}
+      <div className="lum-serif" style={{ fontSize: major ? Math.max(11, w * 0.1) : Math.max(8.5, w * 0.08), color: deck.frame, letterSpacing: ".22em", textTransform: "uppercase", zIndex: 1, textShadow: `0 0 10px ${deck.frame}55`, marginTop: 3 }}>{plate}</div>
+      <div style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
+        <div aria-hidden style={{ position: "absolute", width: w * 0.64, height: w * 0.64, borderRadius: "50%", background: `radial-gradient(circle, ${deck.frame}30 0%, transparent 70%)`, border: `1px solid ${deck.frame}2c` }} />
+        <div aria-hidden style={{ position: "absolute", width: w * 0.78, height: w * 0.78, borderRadius: "50%", border: `1px dashed ${deck.frame}24`, transform: `rotate(${hsh % 360}deg)` }} />
+        <div style={{ fontSize: w * 0.3, filter: `drop-shadow(0 0 14px ${deck.frame}66)` }}>{card.glyph}</div>
+      </div>
+      <div style={{ zIndex: 1, width: "100%" }}>
+        <div aria-hidden style={{ height: 1, margin: "0 14px 5px", background: `linear-gradient(90deg, transparent, ${deck.frame}88, transparent)` }} />
+        <div className="lum-serif" style={{ fontSize: Math.max(10.5, w * 0.1), color: T.ink, lineHeight: 1.2, padding: "0 2px 2px" }}>{card.name}</div>
+      </div>
     </div>
     {label && <div className="lum-sans" style={{ fontSize: 11, color: T.gold, marginTop: 9, letterSpacing: ".1em", textTransform: "uppercase" }}>{label}</div>}
   </div>
-);
+  );
+};
 
 /* ============================================================
    SACRED SPACE RITUAL
@@ -2384,18 +2419,72 @@ const QuotesScreen = () => {
    true Fisher–Yates shuffle — never a rotation.
    ============================================================ */
 const ORACLE_CARDS = [
-  { id: "golden-dawn", name: "The Golden Dawn", essence: "Beginnings · Hope · First light", hex: "#e3b54a", message: "Something new is quietly beginning in you, beloved — do not rush it into the light. Meet this day the way dawn meets the hills: softly, certainly, and without apology." },
-  { id: "moonlit-path", name: "The Moonlit Path", essence: "Intuition · Trust · The unseen way", hex: "#9cb8ee", message: "You cannot see the whole road, and you were never meant to. Take the one step the moonlight shows you, and trust that the next stone will appear beneath your foot." },
-  { id: "sacred-pause", name: "The Sacred Pause", essence: "Rest · Stillness · Permission", hex: "#8fb8a8", message: "This card is not asking you to do anything — that is the whole message. Rest is not the absence of progress; it is where your soul catches up with your life." },
-  { id: "rising-phoenix", name: "The Rising Phoenix", essence: "Rebirth · Release · Becoming", hex: "#e07a5f", message: "What burned away was never the truest part of you. You are allowed to rise different — brighter, lighter, and unashamed of the ashes that taught you." },
-  { id: "open-heart", name: "The Open Heart", essence: "Love · Receiving · Softness", hex: "#d489a0", message: "You have given so generously — this card asks whether you have let yourself receive. Let love in through the door you usually hold open only for others." },
-  { id: "quiet-voice", name: "The Quiet Voice", essence: "Inner knowing · Discernment", hex: "#b7a8e0", message: "Beneath the noise of every opinion you carry, there is a voice that has never once lied to you. Get quiet enough today to hear it — you already know." },
-  { id: "guardians-wing", name: "The Guardian's Wing", essence: "Protection · Safety · Being held", hex: "#3b6fd4", message: "You are more protected than you feel, beloved. Walk today as one who is watched over — because you are, in ways seen and unseen." },
-  { id: "rivers-surrender", name: "The River's Surrender", essence: "Letting go · Flow · Trust", hex: "#7fd4e0", message: "The river does not argue with its bends. Loosen your grip on the outcome you've been white-knuckling, and let the current carry what was always too heavy for your hands." },
-  { id: "inner-flame", name: "The Inner Flame", essence: "Courage · Creation · Vitality", hex: "#ecb14c", message: "The spark you keep dismissing as 'just a little idea' is a flame waiting for your breath. Feed it one brave act today — tiny is enough; lit is what matters." },
-  { id: "star-seed", name: "The Star Seed", essence: "Purpose · Destiny · Remembering", hex: "#b898e8", message: "You did not come here by accident. The longing you feel is not homesickness — it is your purpose remembering itself. Follow what makes you feel most like you." },
-  { id: "healing-waters", name: "The Healing Waters", essence: "Forgiveness · Gentleness · Mending", hex: "#6fc3b0", message: "Some wounds close only when you stop reopening them with blame — including the blame you aim at yourself. Let mercy be the medicine today, in both directions." },
-  { id: "infinite-thread", name: "The Infinite Thread", essence: "Connection · Synchronicity · Grace", hex: "#c9a84c", message: "Nothing about today is random, beloved. The repeated number, the song, the stranger's sentence that landed like a letter — the universe is speaking in thread. Follow it." },
+  { id: "golden-dawn", name: "The Golden Dawn", essence: "Beginnings · Hope · First light", hex: "#e3b54a", message: "Something new is quietly beginning in you, beloved — do not rush it into the light. Meet this day the way dawn meets the hills: softly, certainly, and without apology.",
+    book: "The Golden Dawn rises when a chapter is beginning whether or not you feel ready — and its deeper teaching is that readiness was never the requirement; willingness is. Dawn does not ask the night's permission, and it does not arrive all at once: it comes as a thin gold line, then a blush, then the whole sky. Whatever is starting in your life will unfold at that same holy pace. Your work is not to force the sunrise but to face east — to put yourself where the light will find you, and to stop rehearsing the darkness.",
+    shadow: "In shadow, this card warns against false starts made from impatience, and against dismissing a real beginning because it looks too small to matter.",
+    affirm: "I do not need the whole sky to change — a thin gold line is enough to begin." },
+  { id: "moonlit-path", name: "The Moonlit Path", essence: "Intuition · Trust · The unseen way", hex: "#9cb8ee", message: "You cannot see the whole road, and you were never meant to. Take the one step the moonlight shows you, and trust that the next stone will appear beneath your foot.",
+    book: "The Moonlit Path is the card of navigation without daylight — those seasons when logic runs out of map and something older must take the wheel. Moonlight never shows the destination; it shows exactly one step, and that is its mercy, because a whole road revealed at once would send you back to bed. This card confirms that the quiet pull you feel is trustworthy even though you cannot defend it in daylight language. Intuition is not the absence of information; it is information arriving by an older road.",
+    shadow: "In shadow, it cautions against demanding certainty as the price of movement — and against mistaking anxiety's loud static for intuition's quiet signal.",
+    affirm: "I can walk a road I cannot see, one moonlit stone at a time." },
+  { id: "sacred-pause", name: "The Sacred Pause", essence: "Rest · Stillness · Permission", hex: "#8fb8a8", message: "This card is not asking you to do anything — that is the whole message. Rest is not the absence of progress; it is where your soul catches up with your life.",
+    book: "The Sacred Pause arrives for the ones who treat rest as a reward they haven't earned yet. Its deeper teaching: everything alive is rhythmic — the heart rests between every beat, the tide withdraws before it returns, winter is not the field failing. You have been reading your own fallow season as falling behind, and this card has come to correct the translation. Something in you is being restored that can only be restored in stillness, and it is not optional maintenance; it is the next part of the work, wearing quieter clothes.",
+    shadow: "In shadow, it distinguishes true rest from hiding: pausing to be restored is sacred; pausing to avoid a door you already know you must walk through is not rest but rehearsal of fear.",
+    affirm: "My stillness is not stalling — the field is being fed." },
+  { id: "rising-phoenix", name: "The Rising Phoenix", essence: "Rebirth · Release · Becoming", hex: "#e07a5f", message: "What burned away was never the truest part of you. You are allowed to rise different — brighter, lighter, and unashamed of the ashes that taught you.",
+    book: "The Rising Phoenix comes to those standing in the aftermath of an ending they did not choose or barely survived choosing. Its teaching is precise: the fire took only what could burn — and what cannot burn in you is exactly what rises. You are not required to reassemble the person you were; that person was the chrysalis, not the point. Grief for the old life and joy for the new one can share a chest. Rise anyway, with both.",
+    shadow: "In shadow, it warns against building a replica of the life that burned simply because its shape was familiar — and against picking through cold ashes for an identity that has already been released.",
+    affirm: "What is truest in me is fireproof — and it is rising now." },
+  { id: "open-heart", name: "The Open Heart", essence: "Love · Receiving · Softness", hex: "#d489a0", message: "You have given so generously — this card asks whether you have let yourself receive. Let love in through the door you usually hold open only for others.",
+    book: "The Open Heart names a quiet imbalance: you have made yourself the giver in nearly every room, because giving keeps you safely in control of the exchange. Receiving requires a vulnerability that giving never asks — to be seen mid-need, unpolished, mid-becoming. This card comes when love is already present and waiting, blocked not by scarcity but by your own closed hand. The deeper work is believing you are not a debt that kindness must be repaid to, but a home it wants to live in.",
+    shadow: "In shadow, it asks whether generosity has become armour — and whether you have been calling self-sufficiency 'strength' when some of it is just old fear of needing anyone.",
+    affirm: "I am allowed to be loved in the same measure I love." },
+  { id: "quiet-voice", name: "The Quiet Voice", essence: "Inner knowing · Discernment", hex: "#b7a8e0", message: "Beneath the noise of every opinion you carry, there is a voice that has never once lied to you. Get quiet enough today to hear it — you already know.",
+    book: "The Quiet Voice appears when you have been outsourcing a decision that was only ever yours to make — polling friends, collecting articles, waiting for a sign loud enough to override responsibility. Its teaching: the knowing arrived before the noise did. You felt the answer in the first thirty seconds, and everything since has been negotiation. The voice is quiet not because it is weak but because it has nothing to prove; only fear needs volume. Discernment is learning the difference in texture — fear argues, knowing simply waits.",
+    shadow: "In shadow, it warns against using endless 'gathering of perspectives' as a hiding place, and against confusing the loudest inner voice with the truest one.",
+    affirm: "I trust the voice in me that has never needed to shout." },
+  { id: "guardians-wing", name: "The Guardian's Wing", essence: "Protection · Safety · Being held", hex: "#3b6fd4", message: "You are more protected than you feel, beloved. Walk today as one who is watched over — because you are, in ways seen and unseen.",
+    book: "The Guardian's Wing arrives for the vigilant — the ones who believe that if they stop scanning for danger for one moment, the sky will fall on the people they love. Its teaching is a demotion you will be glad of: you were never hired to hold the whole sky. Protection is already present in your life in forms you rarely audit — the near-misses that missed, the doors that closed against your will and saved you years. This card invites you to borrow, for one day, the nervous system of someone who believes they are held. Notice what becomes possible.",
+    shadow: "In shadow, it asks whether hyper-vigilance has been mistaken for love — and gently notes that a guard who never sleeps eventually guards nothing well.",
+    affirm: "I am held by more than my own hands." },
+  { id: "rivers-surrender", name: "The River's Surrender", essence: "Letting go · Flow · Trust", hex: "#7fd4e0", message: "The river does not argue with its bends. Loosen your grip on the outcome you've been white-knuckling, and let the current carry what was always too heavy for your hands.",
+    book: "The River's Surrender comes when control has quietly become your heaviest possession. Its teaching: surrender is not giving up — it is giving over. The river reaches the sea precisely because it does not insist on a straight line; every bend you are currently fighting may be the course correction you would have prayed for with more information. This card marks the moment to stop swimming against what has already been decided by the current of your life, and to save your strength for the stretch where it will genuinely matter.",
+    shadow: "In shadow, it distinguishes surrender from passivity: letting the river carry you is trust; refusing to steer at all, ever, is abdication dressed as spirituality.",
+    affirm: "I release the oar I was using to fight the current that is carrying me home." },
+  { id: "inner-flame", name: "The Inner Flame", essence: "Courage · Creation · Vitality", hex: "#ecb14c", message: "The spark you keep dismissing as 'just a little idea' is a flame waiting for your breath. Feed it one brave act today — tiny is enough; lit is what matters.",
+    book: "The Inner Flame appears when something in you wants to be made — a work, a change, a life — and has been waiting politely behind the excuse of timing. Its teaching: fire does not scale by planning; it scales by feeding. One log, then the next. The creative force in you is not fragile, but it is responsive — it grows toward whatever you actually do and starves on what you merely intend. This card is permission to be a beginner in public, to make the imperfect first thing, to let enthusiasm be a compass instead of an embarrassment.",
+    shadow: "In shadow, it warns of the flame turned inward — restlessness, irritability, envy of those who began — which is simply unmade work burning the vessel that refuses to pour it.",
+    affirm: "I feed my fire with action, one brave log at a time." },
+  { id: "star-seed", name: "The Star Seed", essence: "Purpose · Destiny · Remembering", hex: "#b898e8", message: "You did not come here by accident. The longing you feel is not homesickness — it is your purpose remembering itself. Follow what makes you feel most like you.",
+    book: "The Star Seed speaks to the ache that successful, sensible lives are often built on top of — the sense of being meant for something you cannot quite name. Its teaching: purpose is not found, it is remembered, and the memory returns in fragments — the activities where time dissolves, the subjects you cannot stop circling, the compliment strangers keep repeating. These are not coincidences; they are coordinates home. This card does not demand you burn down your life. It asks only that you stop treating the longing as a malfunction and start treating it as a map.",
+    shadow: "In shadow, it cautions against waiting for purpose to arrive as one blinding revelation — and against using 'I don't know my calling yet' to postpone the small faithful steps that reveal it.",
+    affirm: "My longing is a map, and I am already on the road it draws." },
+  { id: "healing-waters", name: "The Healing Waters", essence: "Forgiveness · Gentleness · Mending", hex: "#6fc3b0", message: "Some wounds close only when you stop reopening them with blame — including the blame you aim at yourself. Let mercy be the medicine today, in both directions.",
+    book: "The Healing Waters flow toward a wound that has been kept open by revisiting — the replayed conversation, the verdict you keep re-reading, the apology you are still waiting for or still owe yourself. Its teaching: forgiveness is not declaring that what happened was acceptable; it is declaring that your life will no longer be its full-time museum. And the harder half is usually self-forgiveness — extending to your past self, who decided with less information and fewer resources, the same mercy you would hand a friend without hesitation.",
+    shadow: "In shadow, it distinguishes mending from erasing: healing does not require amnesia or reunion — some forgiveness is completed entirely within your own chest, with the door still lovingly closed.",
+    affirm: "I release the wound from its post as the narrator of my story." },
+  { id: "infinite-thread", name: "The Infinite Thread", essence: "Connection · Synchronicity · Grace", hex: "#c9a84c", message: "Nothing about today is random, beloved. The repeated number, the song, the stranger's sentence that landed like a letter — the universe is speaking in thread. Follow it.",
+    book: "The Infinite Thread appears when life has been winking at you — repeated numbers, impossible timing, the friend who called the moment you thought of them — and you have been explaining it all away. Its teaching is not superstition but attention: meaning travels through the world along threads of coincidence, and whether they are woven by heaven or by your own deep mind noticing what matters, following them leads somewhere true. This card also speaks of the threads between people: no kindness you have given has been lost. The web holds; you are woven in; you have never once been separate.",
+    shadow: "In shadow, it warns against reading omens as a substitute for decisions — the thread invites you forward; it does not walk for you.",
+    affirm: "I am woven into a pattern larger and kinder than I can see." },
+];
+
+/* When certain cards rise together, they speak a third meaning between them —
+   shown in multi-card spreads for Illuminate members, like the pairings
+   chapter at the back of a printed oracle guidebook. */
+const ORACLE_COMBOS = [
+  { pair: ["golden-dawn", "rising-phoenix"], name: "The Second Sunrise", meaning: "This is not starting over — it is starting from. The ashes are not your shame; they are your soil. Whatever begins now is built on everything the fire taught you, and it will not burn the same way twice." },
+  { pair: ["moonlit-path", "quiet-voice"], name: "The Confirmed Knowing", meaning: "When the path and the voice arrive together, the message is doubled: you already know, and you are already being shown. Stop asking for a third confirmation — the moon and your own soul agree." },
+  { pair: ["sacred-pause", "inner-flame"], name: "The Banked Fire", meaning: "A fire banked overnight is not a fire abandoned — it is a fire protected so it can burn for years. Rest now is not the enemy of your creation; it is its insurance. Pause as an act of ambition." },
+  { pair: ["open-heart", "healing-waters"], name: "The Mended Vessel", meaning: "The heart can only receive to the depth it has healed. Together these cards say the mending and the opening are one motion — every old wound you tend becomes new room for love to live in." },
+  { pair: ["guardians-wing", "moonlit-path"], name: "Escorted Through the Dark", meaning: "You are being asked to walk a road you cannot see — and promised an escort for every step of it. Walk unlit roads if you must; you do not walk them unaccompanied." },
+  { pair: ["rivers-surrender", "infinite-thread"], name: "The Woven Current", meaning: "What you release does not fall — it is caught. Together these cards promise that surrender is not a plunge into chaos but a hand-off into pattern; the current you finally trust is the thread itself." },
+  { pair: ["star-seed", "golden-dawn"], name: "The Remembered Assignment", meaning: "The purpose you have carried like a rumor is stepping into daylight. This pairing marks the moment a calling stops being a feeling and becomes a beginning — small, real, and already underway." },
+  { pair: ["inner-flame", "star-seed"], name: "The Torch of Purpose", meaning: "Your creative fire and your soul's assignment are the same flame seen from two sides. What you keep wanting to make is what you are here to make — stop auditioning other explanations." },
+  { pair: ["healing-waters", "rising-phoenix"], name: "Ashes Washed Clean", meaning: "After the burning, the bathing. This pairing closes an era with both fire and water: what ended is released from blame, and what rises carries no debt to the past it survived." },
+  { pair: ["open-heart", "guardians-wing"], name: "Safe Enough to Soften", meaning: "The armour came off the day someone proved the room was safe. These cards together are that proof: protection is present precisely so that openness can be possible. You can be soft here." },
+  { pair: ["quiet-voice", "rivers-surrender"], name: "The Answer Is Release", meaning: "You asked the question and the quiet voice answered: let go. Not because you were wrong to want it, but because your hands are needed for what is actually coming." },
+  { pair: ["sacred-pause", "moonlit-path"], name: "Waiting for Moonrise", meaning: "Not every darkness is for walking; some are for waiting until the light returns. This pairing blesses the delay — the road ahead is real, and it will still be there when the moon lifts." },
 ];
 
 const OracleCardFace = ({ card, label, w = 118, delay = 0 }) => {
@@ -2421,14 +2510,20 @@ const OracleCardFace = ({ card, label, w = 118, delay = 0 }) => {
 const OracleScreen = ({ paid, askUpgrade }) => {
   const [stage, setStage] = useState("idle"); // idle | shuffling | drawn
   const [drawn, setDrawn] = useState([]);
+  const [bookOpen, setBookOpen] = useState({});
   const timer = useRef(null);
   useEffect(() => () => clearTimeout(timer.current), []);
 
   const draw = (n) => {
     if (n === 3 && !paid) return askUpgrade("The three-card Luminae Oracle spread awaits in Illuminate.");
-    setStage("shuffling"); setDrawn([]);
+    setStage("shuffling"); setDrawn([]); setBookOpen({});
     timer.current = setTimeout(() => { setDrawn(shuffle(ORACLE_CARDS).slice(0, n)); setStage("drawn"); }, 2000);
   };
+  const toggleBook = (id) => {
+    if (!paid) return askUpgrade("The Book of Luminae — the deep meaning living inside every card — opens with Illuminate.");
+    setBookOpen((b) => ({ ...b, [id]: !b[id] }));
+  };
+  const combos = drawn.length > 1 ? ORACLE_COMBOS.filter((k) => k.pair.every((id) => drawn.some((c) => c.id === id))) : [];
   const labels3 = ["Past", "Present", "Future"];
 
   return (
@@ -2472,11 +2567,30 @@ const OracleScreen = ({ paid, askUpgrade }) => {
               <Eyebrow colour={c.hex}>{drawn.length === 3 ? `${labels3[i]} · ` : ""}{c.essence}</Eyebrow>
               <div className="lum-serif" style={{ fontSize: 20, color: T.ink, margin: "2px 0 8px" }}>{c.name}</div>
               <div className="lum-serif" style={{ fontSize: 15, color: T.dim, lineHeight: 1.7, fontStyle: "italic" }}>{c.message}</div>
-              <div style={{ marginTop: 12 }}><SpeakBtn text={`${c.name}. ${c.message}`} /></div>
+              <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
+                <SpeakBtn text={`${c.name}. ${c.message}`} />
+                <Btn kind="ghost" small onClick={() => toggleBook(c.id)}>📖 {bookOpen[c.id] ? "Close the Book" : "Open the Book of Luminae"}{!paid && " 🔒"}</Btn>
+              </div>
+              {bookOpen[c.id] && (
+                <div className="fade-up" style={{ marginTop: 14, padding: "16px 18px", borderRadius: 12, background: "rgba(13,13,26,.55)", border: `1px solid ${c.hex}33` }}>
+                  <Eyebrow colour={c.hex}>From the Book of Luminae</Eyebrow>
+                  <div className="lum-serif" style={{ fontSize: 14.5, color: T.dim, lineHeight: 1.8, marginTop: 8 }}>{c.book}</div>
+                  <div className="lum-sans" style={{ fontSize: 12.5, color: T.faint, lineHeight: 1.7, marginTop: 12 }}><b style={{ color: c.hex }}>In shadow · </b>{c.shadow}</div>
+                  <div className="lum-serif" style={{ fontSize: 14.5, color: T.goldHi, fontStyle: "italic", marginTop: 12 }}>“{c.affirm}”</div>
+                </div>
+              )}
+            </Panel>
+          ))}
+          {combos.map((k) => (
+            <Panel key={k.pair.join("+")} style={{ padding: 18, marginBottom: 12, borderColor: T.goldHi + "44", background: "radial-gradient(120% 150% at 50% -20%, #241f42 0%, #12101f 60%)" }}>
+              <Eyebrow colour={T.goldHi}>When these cards rise together</Eyebrow>
+              <div className="lum-serif" style={{ fontSize: 19, color: T.ink, margin: "2px 0 4px" }}>{k.name}</div>
+              <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginBottom: 8 }}>{k.pair.map((id) => ORACLE_CARDS.find((c) => c.id === id).name).join(" ✧ ")}</div>
+              <div className="lum-serif" style={{ fontSize: 14.5, color: T.dim, fontStyle: "italic", lineHeight: 1.7 }}>{k.meaning}</div>
             </Panel>
           ))}
           <div style={{ textAlign: "center", marginTop: 6 }}>
-            <Btn kind="ghost" small onClick={() => { setStage("idle"); setDrawn([]); }}>Return the cards ✧</Btn>
+            <Btn kind="ghost" small onClick={() => { setStage("idle"); setDrawn([]); setBookOpen({}); }}>Return the cards ✧</Btn>
           </div>
         </>
       )}
