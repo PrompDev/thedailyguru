@@ -125,6 +125,46 @@ const CRYSTALS = [
   { name: "Carnelian", chakra: "Sacral", use: "Creative fire, courage, vitality and motivation.", pair: "417 Hz" },
 ];
 
+/* ---------------- Daily Quotes ---------------- */
+const QUOTES = [
+  ["The universe is not outside of you. Look inside yourself; everything that you want, you already are.", "Rumi"],
+  ["You are the sky. Everything else is just the weather.", "Pema Chödrön"],
+  ["Nothing in the universe can stop you from letting go and being free.", "Mooji"],
+  ["What lies behind us and what lies before us are tiny matters compared to what lies within us.", "Ralph Waldo Emerson"],
+  ["The wound is the place where the Light enters you.", "Rumi"],
+  ["Peace comes from within. Do not seek it without.", "Buddha"],
+  ["Your sacred space is where you can find yourself again and again.", "Joseph Campbell"],
+  ["The soul always knows what to do to heal itself. The challenge is to silence the mind.", "Caroline Myss"],
+  ["Every heart sings a song, incomplete, until another heart whispers back.", "Plato"],
+  ["Be soft. Do not let the world make you hard.", "Kurt Vonnegut"],
+  ["You are not a drop in the ocean. You are the entire ocean in a drop.", "Rumi"],
+  ["The privilege of a lifetime is to become who you truly are.", "Carl Jung"],
+  ["When you do things from your soul, you feel a river moving in you, a joy.", "Rumi"],
+  ["The quieter you become, the more you are able to hear.", "Rumi"],
+  ["Trust the timing of your life. Every step is preparing you for the next.", "Unknown"],
+  ["Healing takes courage, and we all have courage, even if we have to dig a little to find it.", "Tori Amos"],
+  ["Surround yourself with those who see the greatness within you, even when you don't see it yourself.", "Unknown"],
+  ["What we plant in the soil of contemplation, we shall reap in the harvest of action.", "Meister Eckhart"],
+  ["You have been given this life because you are strong enough to live it.", "Unknown"],
+  ["The most powerful relationship you will ever have is the relationship with yourself.", "Steve Maraboli"],
+  ["Let yourself be silently drawn by the strange pull of what you really love.", "Rumi"],
+  ["Gratitude turns what we have into enough.", "Unknown"],
+  ["The soul that sees beauty may sometimes walk alone.", "Johann Wolfgang von Goethe"],
+  ["Within you there is a stillness and a sanctuary to which you can retreat at any time.", "Hermann Hesse"],
+  ["Everything that happens to you is your teacher. The secret is to learn to sit at the feet of your own life.", "Polly Berrien Berends"],
+  ["You are the universe experiencing itself.", "Alan Watts"],
+  ["May you trust that a small, quiet voice within you will guide you home.", "Unknown"],
+  ["Wherever you are, be there totally.", "Eckhart Tolle"],
+  ["Light tomorrow with today.", "Elizabeth Barrett Browning"],
+  ["What you seek is seeking you.", "Rumi"],
+  ["Beloved, you carry your own weather. Choose the golden light within.", "Luminae"],
+];
+function dailyQuote(date = new Date()) {
+  const start = Date.UTC(date.getFullYear(), 0, 0);
+  const dayOfYear = Math.floor((date.getTime() - start) / 86400000);
+  return QUOTES[dayOfYear % QUOTES.length];
+}
+
 /* ---------------- Sound Sanctuary ---------------- */
 const SOLFEGGIO = [
   { hz: 174, label: "Pain Relief & Security" },
@@ -1453,6 +1493,32 @@ const AngelScreen = ({ paid, askUpgrade }) => {
 /* ============================================================
    CRYSTAL GUIDE
    ============================================================ */
+const QuotesScreen = () => {
+  const [text, author] = dailyQuote();
+  const past = [...Array(6)].map((_, i) => dailyQuote(new Date(Date.now() - (i + 1) * 86400000)));
+
+  return (
+    <div className="fade-up" style={{ maxWidth: 560 }}>
+      <Eyebrow>Daily Quotes</Eyebrow>
+      <H>A little light for today</H>
+      <Panel style={{ margin: "16px 0", padding: 26, textAlign: "center" }}>
+        <div className="lum-serif" style={{ fontSize: 21, color: T.ink, fontStyle: "italic", lineHeight: 1.6 }}>“{text}”</div>
+        <div className="lum-sans" style={{ fontSize: 13, color: T.gold, marginTop: 14, letterSpacing: ".04em" }}>— {author}</div>
+        <div style={{ marginTop: 18 }}><SpeakBtn text={`${text} — ${author}`} /></div>
+      </Panel>
+      <Eyebrow>Recent Days</Eyebrow>
+      <div style={{ display: "grid", gap: 10, marginTop: 10 }}>
+        {past.map(([t, a], i) => (
+          <Panel key={i} style={{ padding: 16 }}>
+            <div className="lum-serif" style={{ fontSize: 15, color: T.dim, fontStyle: "italic", lineHeight: 1.55 }}>“{t}”</div>
+            <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, marginTop: 6 }}>— {a}</div>
+          </Panel>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const CrystalScreen = ({ paid, askUpgrade }) => {
   const [mood, setMood] = useState(null);
   const [rec, setRec] = useState(""); const [loading, setLoading] = useState(false);
@@ -2140,6 +2206,7 @@ const NAV = [
   { id: "more", icon: "☰", label: "More" },
 ];
 const MORE = [
+  { id: "quotes", name: "Daily Quotes", icon: "🕯️", note: "A little light for today · Free", free: true },
   { id: "astrology", name: "Astrology", icon: "♒", note: "Weekly horoscope & natal chart" },
   { id: "numerology", name: "Numerology", icon: "7", note: "Life Path, Destiny, Soul Urge…" },
   { id: "soul", name: "Soul Type Profile", icon: "✨", note: "Blue Ray · Indigo · Starseed…" },
@@ -2173,6 +2240,7 @@ export default function Luminae() {
     tarot: <TarotScreen paid={paid} deckId={deckId} setDeckId={setDeckId} requestRitual={requestRitual} askUpgrade={askUpgrade} onAfterReading={onAfterReading} />,
     sounds: <SoundScreen paid={paid} askUpgrade={askUpgrade} engine={engine} />,
     angels: <AngelScreen paid={paid} askUpgrade={askUpgrade} />,
+    quotes: <QuotesScreen />,
     astrology: <AstrologyScreen paid={paid} askUpgrade={askUpgrade} birth={birth} setBirth={setBirth} />,
     numerology: <NumerologyScreen paid={paid} askUpgrade={askUpgrade} birth={birth} setBirth={setBirth} />,
     soul: <SoulScreen paid={paid} askUpgrade={askUpgrade} />,
