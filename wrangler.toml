@@ -1,6 +1,17 @@
 name = "thedailyguru"
 main = "worker.js"
 compatibility_date = "2026-07-01"
+account_id = "a49cc77a6fe0d7347e84ea914e617aac"
+
+routes = [
+  { pattern = "thedailyguru.cc", custom_domain = true },
+  { pattern = "www.thedailyguru.cc", custom_domain = true },
+]
+
+# Ensures Cloudflare Workers Builds (and local deploys) compile the Vite app
+# into ./dist before uploading. Without this, CI has no dist/ and deploy fails.
+[build]
+command = "npm run build"
 
 [assets]
 directory = "./dist"
