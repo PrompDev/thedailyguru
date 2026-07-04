@@ -1138,8 +1138,9 @@ const OracleOrb = ({ size = 150, tint = "#e8c97a", onClick, label }) => {
 
 /* --- a luminous angel figure, tinted to each Archangel's colour
        (placeholder line-art; painted artwork ships at launch) --- */
-const AngelFigure = ({ colour, size = 46 }) => {
+const AngelFigure = ({ colour, size = 46, img }) => {
   const id = "ag" + colour.replace("#", "");
+  if (img) return <img src={img} alt="" aria-hidden style={{ width: size, height: size, objectFit: "contain", flexShrink: 0, transition: "width .3s, height .3s" }} />;
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" aria-hidden style={{ flexShrink: 0, transition: "width .3s, height .3s" }}>
       <defs>
@@ -1155,6 +1156,145 @@ const AngelFigure = ({ colour, size = 46 }) => {
       <circle cx="50" cy="31" r="7.5" fill="#f2ecdf" opacity="0.92" />
       <path d="M50 40 C58 50 61 64 57 82 C52 88 48 88 43 82 C39 64 42 50 50 40 Z" fill="#f2ecdf" opacity="0.55" stroke={colour} strokeOpacity="0.7" strokeWidth="1" />
     </svg>
+  );
+};
+
+/* ---------------- Angel card draw ritual ---------------- */
+const ArchangelCardBack = () => (
+  <div style={{
+    width: 70, height: 108, borderRadius: 12, background: `linear-gradient(165deg, ${T.card}, ${T.card2})`,
+    border: `1.5px solid ${T.gold}77`, display: "flex", alignItems: "center", justifyContent: "center",
+    boxShadow: "0 8px 20px rgba(0,0,0,.5)",
+  }}>
+    <span className="lum-serif" style={{ fontSize: 26, color: T.gold }}>✧</span>
+  </div>
+);
+
+const FlippingAngelCard = ({ archangel }) => {
+  const [flipped, setFlipped] = useState(false);
+  useEffect(() => { const t = setTimeout(() => setFlipped(true), 50); return () => clearTimeout(t); }, []);
+  return (
+    <div style={{ width: 70, height: 108, perspective: 600 }}>
+      <div style={{
+        position: "relative", width: "100%", height: "100%", transformStyle: "preserve-3d",
+        transition: "transform .7s cubic-bezier(.4,0,.2,1)", transform: `rotateY(${flipped ? 180 : 0}deg)`,
+      }}>
+        <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden" }}><ArchangelCardBack /></div>
+        <div style={{
+          position: "absolute", inset: 0, backfaceVisibility: "hidden", transform: "rotateY(180deg)",
+          display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12,
+          background: `linear-gradient(165deg, ${archangel.hex}33, #141428)`, border: `1.5px solid ${archangel.hex}99`,
+        }}>
+          <AngelFigure colour={archangel.hex} img={archangel.img} size={40} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const HandwrittenText = ({ text, colour = T.goldHi }) => {
+  const words = useMemo(() => text.split(/\s+/), [text]);
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    setCount(0);
+    const id = setInterval(() => {
+      setCount((c) => {
+        if (c + 1 >= words.length) { clearInterval(id); return words.length; }
+        return c + 1;
+      });
+    }, 110);
+    return () => clearInterval(id);
+  }, [words]);
+  const done = count >= words.length;
+  return (
+    <p className="lum-serif" style={{ color: T.ink, fontSize: 18, fontStyle: "italic", lineHeight: 1.75, textAlign: "center", minHeight: "3.5em" }}>
+      {words.slice(0, count).join(" ")}{!done && <span style={{ color: colour }}>▍</span>}
+    </p>
+  );
+};
+
+const AngelDrawRitual = ({ archangel, onClose }) => {
+  const [phase, setPhase] = useState("shuffle"); // shuffle -> deck -> flip -> reveal -> message
+  const [spin, setSpin] = useState(0);
+  const [msg, setMsg] = useState("");
+  const [msgReady, setMsgReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    askLuminae(`Channel today's short message (120-160 words) from ${archangel.name}, the archangel of ${archangel.domain}. Today is ${new Date().toDateString()}. End with their invocation feeling woven in naturally.`)
+      .then((t) => { if (!cancelled) { setMsg(t); setMsgReady(true); } })
+      .catch(() => { if (!cancelled) { setMsg(archangel.invocation); setMsgReady(true); } });
+    return () => { cancelled = true; };
+  }, [archangel]);
+
+  useEffect(() => {
+    const timers = [
+      setTimeout(() => setSpin(540), 30),
+      setTimeout(() => setPhase("deck"), 1500),
+      setTimeout(() => setPhase("flip"), 2300),
+      setTimeout(() => setPhase("reveal"), 3000),
+      setTimeout(() => setPhase("message"), 3600),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  const n = ARCHANGELS.length;
+  const topIndex = ARCHANGELS.findIndex((a) => a.name === archangel.name);
+  const showRing = phase === "shuffle" || phase === "deck" || phase === "flip";
+
+  return (
+    <div className="fade-up" style={{
+      position: "fixed", inset: 0, zIndex: 120, background: "rgba(6,6,14,.96)",
+      display: "flex", flexDirection: "column", alignItems: "center",
+      justifyContent: showRing ? "center" : "flex-start", overflowY: "auto", padding: "48px 20px",
+    }}>
+      {showRing && (
+        <div style={{ position: "relative", width: 260, height: 260, transform: `rotate(${phase === "shuffle" ? spin : 0}deg)`, transition: "transform 1.5s cubic-bezier(.4,0,.2,1)" }}>
+          {ARCHANGELS.map((a, i) => {
+            const angle = (360 / n) * i;
+            const isTop = i === topIndex;
+            const atCenter = phase === "deck" || phase === "flip";
+            const radius = atCenter ? 0 : 96;
+            const stackY = atCenter ? i * 2 : 0;
+            const jitter = atCenter ? ((i % 3) - 1) * 6 : 0;
+            return (
+              <div key={a.name} style={{
+                position: "absolute", left: "50%", top: "50%",
+                transform: `translate(-50%,-50%) rotate(${angle}deg) translate(${radius}px, ${-stackY}px) rotate(${-angle + jitter}deg)`,
+                transition: "transform .8s cubic-bezier(.4,0,.2,1)", zIndex: isTop ? 50 : i,
+              }}>
+                <div style={{ transform: `rotate(${phase === "shuffle" ? -spin : 0}deg)`, transition: "transform 1.5s cubic-bezier(.4,0,.2,1)" }}>
+                  {phase === "flip" && isTop ? <FlippingAngelCard archangel={a} /> : <ArchangelCardBack />}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {(phase === "reveal" || phase === "message") && (
+        <div className="fade-up" style={{ textAlign: "center" }}>
+          <AngelFigure colour={archangel.hex} img={archangel.img} size={168} />
+          <div className="lum-serif gold-shimmer" style={{ fontSize: 30, marginTop: 14 }}>{archangel.name}</div>
+          <div className="lum-sans" style={{ color: T.dim, fontSize: 12, marginTop: 4, letterSpacing: ".1em", textTransform: "uppercase" }}>{archangel.domain}</div>
+        </div>
+      )}
+
+      {phase === "message" && (
+        <div style={{ maxWidth: 480, marginTop: 22 }}>
+          {!msgReady
+            ? <div className="lum-serif" style={{ color: archangel.hex, fontStyle: "italic", textAlign: "center" }}>Channelling…</div>
+            : <HandwrittenText text={msg} colour={archangel.hex} />}
+        </div>
+      )}
+
+      {phase === "message" && msgReady && (
+        <div className="fade-up" style={{ marginTop: 22, display: "flex", gap: 12 }}>
+          <SpeakBtn text={msg} colour={archangel.hex} />
+          <Btn small kind="ghost" onClick={onClose}>Return to the sanctuary</Btn>
+        </div>
+      )}
+    </div>
   );
 };
 
@@ -1403,6 +1543,8 @@ const AngelScreen = ({ paid, askUpgrade }) => {
   const [angel, setAngel] = useState(null);
   const [msg, setMsg] = useState(""); const [loadingA, setLoadingA] = useState(false);
   const [michael, setMichael] = useState(false);
+  const [drawing, setDrawing] = useState(false);
+  const todaysAngel = ARCHANGELS[new Date().getDate() % ARCHANGELS.length];
 
   const find = () => {
     const clean = num.replace(/\D/g, "");
@@ -1431,6 +1573,14 @@ const AngelScreen = ({ paid, askUpgrade }) => {
     <div className="fade-up" style={{ maxWidth: 600 }}>
       <Eyebrow>Angel Realm</Eyebrow>
       <H>You are never alone</H>
+
+      {drawing && <AngelDrawRitual archangel={todaysAngel} onClose={() => setDrawing(false)} />}
+
+      <Panel style={{ margin: "16px 0", padding: 18, textAlign: "center", borderColor: T.gold + "44" }}>
+        <div className="lum-sans" style={{ fontSize: 12, color: T.gold, letterSpacing: ".14em", marginBottom: 8 }}>TODAY'S ANGEL MESSAGE</div>
+        <div className="lum-sans" style={{ fontSize: 13, color: T.dim, marginBottom: 14 }}>Draw a card from the deck and let your angel speak.</div>
+        <Btn onClick={() => paid ? setDrawing(true) : askUpgrade("Daily channelled Archangel messages live in Illuminate.")}>Draw your angel card {!paid && "🔒"}</Btn>
+      </Panel>
 
       <Panel style={{ margin: "16px 0", padding: 18, borderColor: "#3b6fd455", background: "linear-gradient(160deg, #16203a, #10101f)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
