@@ -238,11 +238,98 @@ const QUOTES = [
   ["Light tomorrow with today.", "Elizabeth Barrett Browning"],
   ["What you seek is seeking you.", "Rumi"],
   ["Beloved, you carry your own weather. Choose the golden light within.", "Luminae"],
+  ["Tell me, what is it you plan to do with your one wild and precious life?", "Mary Oliver"],
+  ["Instructions for living a life: Pay attention. Be astonished. Tell about it.", "Mary Oliver"],
+  ["Try to be a rainbow in someone's cloud.", "Maya Angelou"],
+  ["We delight in the beauty of the butterfly, but rarely admit the changes it has gone through to achieve that beauty.", "Maya Angelou"],
+  ["My mission in life is not merely to survive, but to thrive.", "Maya Angelou"],
+  ["Go confidently in the direction of your dreams. Live the life you have imagined.", "Henry David Thoreau"],
+  ["Heaven is under our feet as well as over our heads.", "Henry David Thoreau"],
+  ["Not until we are lost do we begin to understand ourselves.", "Henry David Thoreau"],
+  ["Keep your face always toward the sunshine, and shadows will fall behind you.", "Walt Whitman"],
+  ["I am larger, better than I thought; I did not know I held so much goodness.", "Walt Whitman"],
+  ["Hope is the thing with feathers that perches in the soul.", "Emily Dickinson"],
+  ["Dwell in possibility.", "Emily Dickinson"],
+  ["Out of suffering have emerged the strongest souls; the most massive characters are seared with scars.", "Kahlil Gibran"],
+  ["Your pain is the breaking of the shell that encloses your understanding.", "Kahlil Gibran"],
+  ["In one drop of water are found all the secrets of all the oceans.", "Kahlil Gibran"],
+  ["Nature does not hurry, yet everything is accomplished.", "Lao Tzu"],
+  ["A journey of a thousand miles begins with a single step.", "Lao Tzu"],
+  ["When I let go of what I am, I become what I might be.", "Lao Tzu"],
+  ["Knowing others is intelligence; knowing yourself is true wisdom.", "Lao Tzu"],
+  ["The soul becomes dyed with the colour of its thoughts.", "Marcus Aurelius"],
+  ["Very little is needed to make a happy life; it is all within yourself, in your way of thinking.", "Marcus Aurelius"],
+  ["What stands in the way becomes the way.", "Marcus Aurelius"],
+  ["When you arise in the morning, think of what a precious privilege it is to be alive — to breathe, to think, to enjoy, to love.", "Marcus Aurelius"],
+  ["As long as you live, keep learning how to live.", "Seneca"],
+  ["Wherever there is a human being, there is an opportunity for a kindness.", "Seneca"],
+  ["The only journey is the one within.", "Rainer Maria Rilke"],
+  ["Let everything happen to you: beauty and terror. Just keep going. No feeling is final.", "Rainer Maria Rilke"],
+  ["Be patient toward all that is unsolved in your heart and try to love the questions themselves.", "Rainer Maria Rilke"],
+  ["Faith is the bird that feels the light and sings when the dawn is still dark.", "Rabindranath Tagore"],
+  ["Clouds come floating into my life, no longer to carry rain or usher storm, but to add colour to my sunset sky.", "Rabindranath Tagore"],
+  ["Let your life lightly dance on the edges of Time like dew on the tip of a leaf.", "Rabindranath Tagore"],
+  ["Although the world is full of suffering, it is also full of the overcoming of it.", "Helen Keller"],
+  ["Keep your face to the sunshine and you cannot see a shadow.", "Helen Keller"],
+  ["The best and most beautiful things in the world cannot be seen or even touched — they must be felt with the heart.", "Helen Keller"],
+  ["Whoever is happy will make others happy too.", "Anne Frank"],
+  ["How wonderful it is that nobody need wait a single moment before starting to improve the world.", "Anne Frank"],
+  ["In the middle of winter I at last discovered that there was in me an invincible summer.", "Albert Camus"],
+  ["Adopt the pace of nature: her secret is patience.", "Ralph Waldo Emerson"],
+  ["Walk as if you are kissing the Earth with your feet.", "Thich Nhat Hanh"],
+  ["Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.", "Thich Nhat Hanh"],
+  ["Smile, breathe and go slowly.", "Thich Nhat Hanh"],
+  ["Realize deeply that the present moment is all you ever have.", "Eckhart Tolle"],
+  ["Acknowledging the good that you already have in your life is the foundation for all abundance.", "Eckhart Tolle"],
+  ["Sell your cleverness and buy bewilderment.", "Rumi"],
+  ["Raise your words, not your voice. It is rain that grows flowers, not thunder.", "Rumi"],
+  ["Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.", "Rumi"],
+  ["Where there is ruin, there is hope for a treasure.", "Rumi"],
+  ["This being human is a guest house. Every morning a new arrival.", "Rumi"],
+  ["The breeze at dawn has secrets to tell you. Don't go back to sleep.", "Rumi"],
+  ["Everything in the universe is within you. Ask all from yourself.", "Rumi"],
+  ["Be like a tree and let the dead leaves drop.", "Rumi"],
+  ["It always seems impossible until it's done.", "Nelson Mandela"],
+  ["May your choices reflect your hopes, not your fears.", "Nelson Mandela"],
+  ["Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow.'", "Mary Anne Radmacher"],
+  ["Act as if what you do makes a difference. It does.", "William James"],
+  ["The great use of life is to spend it for something that will outlast it.", "William James"],
+  ["Turn your face to the sun and the shadows fall behind you.", "Māori proverb"],
+  ["I wish I could show you, when you are lonely or in darkness, the astonishing light of your own being.", "Hafiz"],
+  ["And still, after all this time, the Sun never says to the Earth, 'You owe me.' Look what happens with a love like that. It lights the whole sky.", "Hafiz"],
+  ["For a seed to achieve its greatest expression, it must come completely undone.", "Cynthia Occelli"],
+  ["Nothing ever goes away until it has taught us what we need to know.", "Pema Chödrön"],
+  ["Owning our story and loving ourselves through that process is the bravest thing that we'll ever do.", "Brené Brown"],
+  ["Almost everything will work again if you unplug it for a few minutes, including you.", "Anne Lamott"],
+  ["Piglet noticed that even though he had a Very Small Heart, it could hold a rather large amount of Gratitude.", "A. A. Milne"],
+  ["At any given moment, you have the power to say: this is not how the story is going to end.", "Christine Mason Miller"],
+  ["You are not behind. The garden does not scold the seed for its season.", "Luminae"],
+  ["Let today be soft. Let it be enough.", "Luminae"],
+  ["The light you seek is already keeping you warm.", "Luminae"],
 ];
+/* ---------------- Shuffle & day-seeded picks ----------------
+   shuffle(): Fisher–Yates — a genuinely fair shuffle, every ordering equally
+   likely, freshly random on every single draw.
+   daySeeded(): deterministic "random" for a calendar day — the whole family
+   sees the same daily pick, but the day-to-day sequence never settles into a
+   predictable rotation. Different salts keep quote/angel/crystal days apart. */
+const shuffle = (arr) => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+const daySeeded = (date = new Date(), salt = 0) => {
+  let h = (date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate()) ^ Math.imul(salt, 0x9e3779b9);
+  h = Math.imul(h ^ (h >>> 16), 2246822507);
+  h = Math.imul(h ^ (h >>> 13), 3266489909);
+  return ((h ^= h >>> 16) >>> 0) / 4294967296;
+};
+
 function dailyQuote(date = new Date()) {
-  const start = Date.UTC(date.getFullYear(), 0, 0);
-  const dayOfYear = Math.floor((date.getTime() - start) / 86400000);
-  return QUOTES[dayOfYear % QUOTES.length];
+  return QUOTES[Math.floor(daySeeded(date, 7) * QUOTES.length)];
 }
 
 /* ---------------- Zodiac & moon ---------------- */
@@ -1233,6 +1320,15 @@ const LockTag = () => (
   <span className="lum-sans" style={{ fontSize: 10, letterSpacing: ".14em", color: T.goldHi, border: `1px solid ${T.gold}66`, borderRadius: 12, padding: "3px 9px", textTransform: "uppercase" }}>🔒 Illuminate</span>
 );
 
+const HomeBtn = ({ onClick }) => (
+  <button onClick={onClick} className="lum-sans" aria-label="Back to home" style={{
+    position: "fixed", top: 10, left: 12, zIndex: 999, cursor: "pointer",
+    fontSize: 11.5, letterSpacing: ".08em", color: T.goldHi,
+    background: "rgba(13,13,26,.6)", border: "1px solid rgba(201,168,76,.4)",
+    borderRadius: 10, padding: "4px 12px", backdropFilter: "blur(6px)",
+  }}>✧ Home</button>
+);
+
 const VersionBadge = () => {
   const stamp = new Date(__BUILD_TIME__).toLocaleString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
   return (
@@ -1479,7 +1575,7 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
 
   const draw = () => {
     requestRitual(async () => {
-      const shuffled = [...FULL_DECK].sort(() => Math.random() - 0.5);
+      const shuffled = shuffle(FULL_DECK);
       const cards = shuffled.slice(0, spread.cards);
       setDrawn(cards); setReading(""); setErr(""); setStage("reading"); setLoading(true);
       try {
@@ -1977,10 +2073,9 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
        blooming to full screen, its message written as if by hand --- */
 let pendingAngelDraw = false; // set by the Home tile so the ritual auto-begins on arrival
 
-const angelOfTheDay = () => {
-  const d = new Date();
-  return ARCHANGELS[(d.getFullYear() * 372 + (d.getMonth() + 1) * 31 + d.getDate()) % ARCHANGELS.length];
-};
+/* One angel per day for the whole family — but daySeeded scrambles the
+   sequence, so it never falls into a predictable weekly rotation. */
+const angelOfTheDay = () => ARCHANGELS[Math.floor(daySeeded(new Date(), 3) * ARCHANGELS.length)];
 
 const AngelCardRitual = ({ paid }) => {
   const N = ARCHANGELS.length;
@@ -2002,7 +2097,7 @@ const AngelCardRitual = ({ paid }) => {
     setStage("fan");
     after(2100, () => setStage("backs"));
     after(3100, () => setStage("shuffle"));
-    [3200, 3850, 4500, 5150].forEach((t) => after(t, () => setSlots((s) => [...s].sort(() => Math.random() - 0.5))));
+    [3200, 3850, 4500, 5150].forEach((t) => after(t, () => setSlots((s) => shuffle(s))));
     after(5900, () => setStage("gather"));
     after(6000, async () => {
       let text = compose(chosen);
@@ -2277,6 +2372,114 @@ const QuotesScreen = () => {
           </Panel>
         ))}
       </div>
+    </div>
+  );
+};
+
+/* ============================================================
+   LUMINAE ORACLE CARDS
+   Artwork lives at public/images/oracle/<id>.webp — drop a file in with a
+   card's id as its name and it appears automatically; until then the app
+   paints a gradient placeholder so the deck always works. Every draw is a
+   true Fisher–Yates shuffle — never a rotation.
+   ============================================================ */
+const ORACLE_CARDS = [
+  { id: "golden-dawn", name: "The Golden Dawn", essence: "Beginnings · Hope · First light", hex: "#e3b54a", message: "Something new is quietly beginning in you, beloved — do not rush it into the light. Meet this day the way dawn meets the hills: softly, certainly, and without apology." },
+  { id: "moonlit-path", name: "The Moonlit Path", essence: "Intuition · Trust · The unseen way", hex: "#9cb8ee", message: "You cannot see the whole road, and you were never meant to. Take the one step the moonlight shows you, and trust that the next stone will appear beneath your foot." },
+  { id: "sacred-pause", name: "The Sacred Pause", essence: "Rest · Stillness · Permission", hex: "#8fb8a8", message: "This card is not asking you to do anything — that is the whole message. Rest is not the absence of progress; it is where your soul catches up with your life." },
+  { id: "rising-phoenix", name: "The Rising Phoenix", essence: "Rebirth · Release · Becoming", hex: "#e07a5f", message: "What burned away was never the truest part of you. You are allowed to rise different — brighter, lighter, and unashamed of the ashes that taught you." },
+  { id: "open-heart", name: "The Open Heart", essence: "Love · Receiving · Softness", hex: "#d489a0", message: "You have given so generously — this card asks whether you have let yourself receive. Let love in through the door you usually hold open only for others." },
+  { id: "quiet-voice", name: "The Quiet Voice", essence: "Inner knowing · Discernment", hex: "#b7a8e0", message: "Beneath the noise of every opinion you carry, there is a voice that has never once lied to you. Get quiet enough today to hear it — you already know." },
+  { id: "guardians-wing", name: "The Guardian's Wing", essence: "Protection · Safety · Being held", hex: "#3b6fd4", message: "You are more protected than you feel, beloved. Walk today as one who is watched over — because you are, in ways seen and unseen." },
+  { id: "rivers-surrender", name: "The River's Surrender", essence: "Letting go · Flow · Trust", hex: "#7fd4e0", message: "The river does not argue with its bends. Loosen your grip on the outcome you've been white-knuckling, and let the current carry what was always too heavy for your hands." },
+  { id: "inner-flame", name: "The Inner Flame", essence: "Courage · Creation · Vitality", hex: "#ecb14c", message: "The spark you keep dismissing as 'just a little idea' is a flame waiting for your breath. Feed it one brave act today — tiny is enough; lit is what matters." },
+  { id: "star-seed", name: "The Star Seed", essence: "Purpose · Destiny · Remembering", hex: "#b898e8", message: "You did not come here by accident. The longing you feel is not homesickness — it is your purpose remembering itself. Follow what makes you feel most like you." },
+  { id: "healing-waters", name: "The Healing Waters", essence: "Forgiveness · Gentleness · Mending", hex: "#6fc3b0", message: "Some wounds close only when you stop reopening them with blame — including the blame you aim at yourself. Let mercy be the medicine today, in both directions." },
+  { id: "infinite-thread", name: "The Infinite Thread", essence: "Connection · Synchronicity · Grace", hex: "#c9a84c", message: "Nothing about today is random, beloved. The repeated number, the song, the stranger's sentence that landed like a letter — the universe is speaking in thread. Follow it." },
+];
+
+const OracleCardFace = ({ card, label, w = 118, delay = 0 }) => {
+  const [artOk, setArtOk] = useState(true);
+  const h = Math.round(w * 1.62);
+  return (
+    <div className="fade-up" style={{ animationDelay: `${delay}s`, width: w, textAlign: "center" }}>
+      {label && <div className="lum-sans" style={{ fontSize: 10, letterSpacing: ".14em", color: T.dim, textTransform: "uppercase", marginBottom: 6 }}>{label}</div>}
+      <div style={{ position: "relative", width: w, height: h, borderRadius: 12, overflow: "hidden", border: `1.5px solid ${card.hex}88`, boxShadow: `0 10px 28px rgba(0,0,0,.55), 0 0 18px ${card.hex}33`, background: `linear-gradient(165deg, ${card.hex}33, #12101f 70%)` }}>
+        {artOk && <img src={`/images/oracle/${card.id}.webp`} alt={card.name} onError={() => setArtOk(false)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />}
+        {!artOk && (
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 7, padding: "0 6px" }}>
+            <div style={{ fontSize: 24, color: card.hex }}>✧</div>
+            <div className="lum-serif" style={{ fontSize: 12.5, color: T.ink, lineHeight: 1.35 }}>{card.name}</div>
+          </div>
+        )}
+        <div aria-hidden style={{ position: "absolute", inset: 5, borderRadius: 8, border: `1px solid ${card.hex}55`, pointerEvents: "none" }} />
+      </div>
+    </div>
+  );
+};
+
+const OracleScreen = ({ paid, askUpgrade }) => {
+  const [stage, setStage] = useState("idle"); // idle | shuffling | drawn
+  const [drawn, setDrawn] = useState([]);
+  const timer = useRef(null);
+  useEffect(() => () => clearTimeout(timer.current), []);
+
+  const draw = (n) => {
+    if (n === 3 && !paid) return askUpgrade("The three-card Luminae Oracle spread awaits in Illuminate.");
+    setStage("shuffling"); setDrawn([]);
+    timer.current = setTimeout(() => { setDrawn(shuffle(ORACLE_CARDS).slice(0, n)); setStage("drawn"); }, 2000);
+  };
+  const labels3 = ["Past", "Present", "Future"];
+
+  return (
+    <div className="fade-up" style={{ maxWidth: 560 }}>
+      <Eyebrow>Oracle Cards</Eyebrow>
+      <H>The Luminae deck</H>
+      <p className="lum-serif" style={{ color: T.dim, fontSize: 14.5, fontStyle: "italic", lineHeight: 1.7, margin: "10px 0 16px" }}>
+        Twelve cards, born of golden light. Every draw is a true shuffle — the deck is
+        freshly mixed each time, so the card that rises is the one that was meant for this moment.
+      </p>
+
+      {stage === "idle" && (
+        <Panel style={{ padding: 24, textAlign: "center" }}>
+          <div style={{ display: "flex", justifyContent: "center", gap: 6, marginBottom: 18 }}>
+            {[-6, 0, 6].map((d, i) => (
+              <div key={i} aria-hidden style={{ width: 64, height: 104, borderRadius: 10, transform: `rotate(${d}deg)`, background: "linear-gradient(165deg, #241f42, #12101f)", border: `1px solid ${T.gold}55`, boxShadow: "0 8px 20px rgba(0,0,0,.5)", display: "flex", alignItems: "center", justifyContent: "center", color: T.gold, fontSize: 15 }}>✧</div>
+            ))}
+          </div>
+          <div className="lum-serif" style={{ fontSize: 19, color: T.ink, marginBottom: 16 }}>Breathe once, soften your question, and draw.</div>
+          <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
+            <Btn onClick={() => draw(1)}>Draw one card ✧</Btn>
+            <Btn kind="ghost" onClick={() => draw(3)}>Past · Present · Future {!paid && "🔒"}</Btn>
+          </div>
+        </Panel>
+      )}
+
+      {stage === "shuffling" && (
+        <Panel style={{ padding: 34, textAlign: "center" }}>
+          <div className="lum-serif gold-shimmer" style={{ fontSize: 21 }}>The cards are listening…</div>
+          <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginTop: 8 }}>shuffling all twelve, truly at random ✧</div>
+        </Panel>
+      )}
+
+      {stage === "drawn" && (
+        <>
+          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", margin: "6px 0 14px" }}>
+            {drawn.map((c, i) => <OracleCardFace key={c.id} card={c} label={drawn.length === 3 ? labels3[i] : null} delay={i * 0.3} />)}
+          </div>
+          {drawn.map((c, i) => (
+            <Panel key={c.id} style={{ padding: 18, marginBottom: 12, borderColor: c.hex + "44" }}>
+              <Eyebrow colour={c.hex}>{drawn.length === 3 ? `${labels3[i]} · ` : ""}{c.essence}</Eyebrow>
+              <div className="lum-serif" style={{ fontSize: 20, color: T.ink, margin: "2px 0 8px" }}>{c.name}</div>
+              <div className="lum-serif" style={{ fontSize: 15, color: T.dim, lineHeight: 1.7, fontStyle: "italic" }}>{c.message}</div>
+              <div style={{ marginTop: 12 }}><SpeakBtn text={`${c.name}. ${c.message}`} /></div>
+            </Panel>
+          ))}
+          <div style={{ textAlign: "center", marginTop: 6 }}>
+            <Btn kind="ghost" small onClick={() => { setStage("idle"); setDrawn([]); }}>Return the cards ✧</Btn>
+          </div>
+        </>
+      )}
     </div>
   );
 };
@@ -3069,6 +3272,11 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             </div>
           </div>
         </Panel>
+        <Panel hover onClick={() => go("oracle")} style={{ marginBottom: 14, padding: "15px 18px", borderColor: T.violet + "44", background: "linear-gradient(160deg, #1d1633, #0e0e1c)" }}>
+          <Eyebrow colour={T.violet}>Oracle Cards · Free</Eyebrow>
+          <div className="lum-serif" style={{ fontSize: 21, color: T.ink }}>Draw from the Luminae deck</div>
+          <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Twelve cards, truly shuffled — pull one whenever your heart asks ✧</div>
+        </Panel>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           <Panel hover onClick={() => go("crystals")} style={{ padding: 16 }}>
             <Eyebrow colour={T.sage}>Today's Crystal</Eyebrow>
@@ -3110,6 +3318,7 @@ const NAV = [
   { id: "more", icon: "☰", label: "More" },
 ];
 const MORE = [
+  { id: "oracle", name: "Oracle Cards", icon: "🔮", note: "The Luminae deck · truly shuffled · Free", free: true },
   { id: "quotes", name: "Daily Quotes", icon: "🕯️", note: "A little light for today · Free", free: true },
   { id: "astrology", name: "Astrology", icon: "♒", note: "Weekly horoscope & natal chart" },
   { id: "numerology", name: "Numerology", icon: "7", note: "Life Path, Destiny, Soul Urge…" },
@@ -3150,6 +3359,7 @@ export default function Luminae() {
     dreams: <DreamScreen paid={paid} askUpgrade={askUpgrade} journal={journal} setJournal={setJournal} />,
     meditate: <MeditationScreen paid={paid} askUpgrade={askUpgrade} engine={engine} />,
     quotes: <QuotesScreen />,
+    oracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} />,
     crystals: <CrystalScreen paid={paid} askUpgrade={askUpgrade} />,
     iris: <VisionScreen kind="iris" paid={paid} askUpgrade={askUpgrade} />,
     palm: <VisionScreen kind="palm" paid={paid} askUpgrade={askUpgrade} />,
@@ -3190,6 +3400,7 @@ export default function Luminae() {
       <GlobalStyle />
       <Stars />
       <VersionBadge />
+      {screen !== "home" && <HomeBtn onClick={() => go("home")} />}
       {firstOpen && <SacredGate first onReady={() => setFirstOpen(false)} />}
       {ritual && !firstOpen && <SacredGate onReady={() => { const cb = ritual; setRitual(null); cb(); }} />}
       {upgrade && <UpgradeModal reason={upgrade} onClose={() => setUpgrade(null)} onChoose={(t) => { setTier(t); setUpgrade(null); setInterstitial(false); }} />}
