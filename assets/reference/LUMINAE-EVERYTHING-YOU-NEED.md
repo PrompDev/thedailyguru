@@ -3,7 +3,10 @@
 
 ---
 
-## 🎨 THE 12 ORACLE CARD IMAGES TO GENERATE
+## 🎨 THE ORACLE CARD IMAGES
+
+> ✅ **All 44 cards are now generated and live** (as of July 2026). The 12 prompts below are
+> kept as the style reference; cards 13–44 were generated the same way. Full deck: `LUMINAE-ORACLE-DECK-44.md`.
 
 ### Step 1 — paste this LOCKED STYLE BLOCK into every single prompt (never change it):
 
@@ -63,9 +66,10 @@ per card, choose winners at the END (don't perfect as you go).
 
 ## 🃏 DECK FACTS
 
-- **Oracle deck target: 44 cards** (the classic size; 36–48 is normal). 12 are live now —
-  we grow in waves (+8 whenever art is ready). Claude drafts each new card's words
-  (name, essence, message, Book entry) for your approval.
+- **Oracle deck: 44 cards — COMPLETE & LIVE.** All 44 (the classic size) now have words
+  AND art, and true-shuffle on every draw. Cards 13–44 were drafted in the deck's voice and
+  painted with `google/nano-banana-2`. Master reference (every word + art prompt):
+  **`LUMINAE-ORACLE-DECK-44.md`** (on the Desktop and in the repo).
 - **Tarot = 78 cards fixed** — that's why tarot uses the fancy generative faces instead
   of paintings. If you ever want painted tarot: do ONE deck's 22 Major Arcana first.
 - **Paid tier already has**: the 📖 Book of Luminae (deep meaning + shadow + affirmation
@@ -81,7 +85,7 @@ per card, choose winners at the END (don't perfect as you go).
 | What | Where |
 |---|---|
 | **The entire app + all art prompts + all assets** | GitHub: `github.com/PrompDev/thedailyguru` (branch **main**) — every change is pushed there |
-| **The live site** | **https://thedailyguru.cc** (auto-deploys from GitHub main; version badge top-right shows what's live — currently **v1.6.0**) |
+| **The live site** | **https://thedailyguru.cc** (auto-deploys from GitHub main; version badge top-right shows what's live — currently **v1.7.0**) |
 | **Art prompts (repo copy)** | `assets/reference/oracle-art-prompts.md` in the repo → also on GitHub |
 | **Shared audio/pictures** | "Shared_Oracle Pictures" Google Drive folder |
 | **Mum's access** | She works from GitHub main on her phone — always current, because every change gets pushed |
