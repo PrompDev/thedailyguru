@@ -81,6 +81,14 @@ After writing, sanity-check with `file <target>` and `ls -l <target>`. Watch out
 known file (`Golden Glow- Angels blessing (1).mp3`) is **all zero-bytes / corrupt on Drive** —
 if a download is all zeros, tell the user kindly rather than pretending it worked.
 
+**Big-file limit (learned 2026-07-04):** `download_file_content` fails on files ≳5–6 MB with a
+*misleading* `session expired` error, even when the session is fine (verify with a quick
+`search_files` — if that works, the session is alive and it's the file size). Direct
+`drive.google.com/uc?export=download` links hit a sign-in wall (folder isn't link-shared).
+The fix: ask the user to download the file in their browser (give them the `viewUrl`), then
+file it from `~/Downloads`. Retry small files once or twice though — transient failures with
+the same error message do occur and clear on retry.
+
 ## Your routine
 
 1. **Greet** the user warmly and in character (one or two bubbly lines). Mention you're about
