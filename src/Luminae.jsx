@@ -3048,26 +3048,10 @@ const AngelCardRitual = ({ paid }) => {
 };
 
 const AngelScreen = ({ paid, askUpgrade }) => {
-  const [num, setNum] = useState("");
-  const [lookup, setLookup] = useState(null);
-  const [personal, setPersonal] = useState(""); const [loadingP, setLoadingP] = useState(false);
   const [angel, setAngel] = useState(null);
   const [msg, setMsg] = useState(""); const [loadingA, setLoadingA] = useState(false);
   const [michael, setMichael] = useState(false);
 
-  const find = () => {
-    const clean = num.replace(/\D/g, "");
-    setPersonal("");
-    setLookup({ n: clean, meaning: ANGEL_NUMBERS[clean] || null });
-  };
-  const personalise = async () => {
-    if (!paid) return askUpgrade("Personalised angel number readings live in Illuminate.");
-    setLoadingP(true);
-    try {
-      setPersonal(await askLuminae(`A seeker keeps seeing the angel number ${lookup.n}. General meaning: ${lookup.meaning || "an uncommon sequence — interpret it through numerology"}. Write a short (150-200 word) personal message from their angels about why this number is appearing for them right now, and one gentle action to take.`));
-    } catch (e) { setPersonal("The angels are near even when the words pause. Please try again in a moment."); }
-    setLoadingP(false);
-  };
   const dailyMessage = async (a) => {
     setAngel(a); setMsg("");
     if (!paid) return askUpgrade("Daily channelled Archangel messages live in Illuminate.");
@@ -3098,30 +3082,6 @@ const AngelScreen = ({ paid, askUpgrade }) => {
           <div className="fade-up" style={{ marginTop: 14 }}>
             <p className="lum-serif" style={{ color: T.ink, fontSize: 17, fontStyle: "italic", lineHeight: 1.7, margin: "0 0 12px" }}>“{ARCHANGELS[0].invocation}” Breathe. You are wrapped in blue flame. Nothing unloving may remain.</p>
             <SpeakBtn text={ARCHANGELS[0].invocation + " Breathe. You are wrapped in blue flame. Nothing unloving may remain."} colour="#9cb8ee" />
-          </div>
-        )}
-      </Panel>
-
-      <Panel style={{ marginBottom: 18, padding: 18 }}>
-        <div className="lum-sans" style={{ fontSize: 12, color: T.gold, letterSpacing: ".14em", marginBottom: 10 }}>ANGEL NUMBER LOOKUP · FREE</div>
-        <div style={{ display: "flex", gap: 8 }}>
-          <input placeholder="e.g. 1111" inputMode="numeric" value={num} onChange={(e) => setNum(e.target.value)} onKeyDown={(e) => e.key === "Enter" && find()} className="lum-sans" style={{ ...inp, flex: 1 }} />
-          <Btn small onClick={find}>Reveal</Btn>
-        </div>
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 10 }}>
-          {["111", "444", "555", "777", "1111", "1212"].map((q) => (
-            <button key={q} onClick={() => { setNum(q); setLookup({ n: q, meaning: ANGEL_NUMBERS[q] }); setPersonal(""); }} className="lum-sans" style={{ background: "rgba(201,168,76,.1)", border: "1px solid rgba(201,168,76,.3)", color: T.goldHi, borderRadius: 16, padding: "5px 12px", fontSize: 12, cursor: "pointer" }}>{q}</button>
-          ))}
-        </div>
-        {lookup && (
-          <div className="fade-up" style={{ marginTop: 16 }}>
-            <div className="lum-serif gold-shimmer" style={{ fontSize: 40, fontWeight: 600 }}>{lookup.n}</div>
-            <p className="lum-serif" style={{ color: T.ink, fontSize: 17, fontStyle: "italic", lineHeight: 1.65, margin: "6px 0 12px" }}>
-              {lookup.meaning || "An uncommon sequence — your angels speak to you in a language all your own. Ask for a personal reading below."}
-            </p>
-            {!personal && !loadingP && <Btn small kind="violet" onClick={personalise}>Why am I seeing this? {!paid && "🔒"}</Btn>}
-            {loadingP && <div className="lum-serif" style={{ color: T.violet, fontStyle: "italic" }}>Listening to your angels…</div>}
-            {personal && <Panel style={{ marginTop: 10, borderColor: T.violet + "44" }}><ReadingText text={personal} /></Panel>}
           </div>
         )}
       </Panel>
@@ -3188,6 +3148,61 @@ const AngelScreen = ({ paid, askUpgrade }) => {
           );
         })}
       </div>
+    </div>
+  );
+};
+
+/* ============================================================
+   ANGEL NUMBERS
+   ============================================================ */
+const AngelNumberScreen = ({ paid, askUpgrade }) => {
+  const [num, setNum] = useState("");
+  const [lookup, setLookup] = useState(null);
+  const [personal, setPersonal] = useState(""); const [loadingP, setLoadingP] = useState(false);
+
+  const find = () => {
+    const clean = num.replace(/\D/g, "");
+    setPersonal("");
+    setLookup({ n: clean, meaning: ANGEL_NUMBERS[clean] || null });
+  };
+  const personalise = async () => {
+    if (!paid) return askUpgrade("Personalised angel number readings live in Illuminate.");
+    setLoadingP(true);
+    try {
+      setPersonal(await askLuminae(`A seeker keeps seeing the angel number ${lookup.n}. General meaning: ${lookup.meaning || "an uncommon sequence — interpret it through numerology"}. Write a short (150-200 word) personal message from their angels about why this number is appearing for them right now, and one gentle action to take.`));
+    } catch (e) { setPersonal("The angels are near even when the words pause. Please try again in a moment."); }
+    setLoadingP(false);
+  };
+
+  return (
+    <div className="fade-up" style={{ maxWidth: 600 }}>
+      <Eyebrow>Angel Numbers</Eyebrow>
+      <H>Messages in the numbers</H>
+      <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "2px 0 18px" }}>When a number keeps finding you — on clocks, receipts, licence plates — your angels may be speaking. Enter a sequence to hear what it carries.</p>
+
+      <Panel style={{ marginBottom: 18, padding: 18 }}>
+        <div className="lum-sans" style={{ fontSize: 12, color: T.gold, letterSpacing: ".14em", marginBottom: 10 }}>ANGEL NUMBER LOOKUP · FREE</div>
+        <div style={{ display: "flex", gap: 8 }}>
+          <input placeholder="e.g. 1111" inputMode="numeric" value={num} onChange={(e) => setNum(e.target.value)} onKeyDown={(e) => e.key === "Enter" && find()} className="lum-sans" style={{ ...inp, flex: 1 }} />
+          <Btn small onClick={find}>Reveal</Btn>
+        </div>
+        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 10 }}>
+          {["111", "444", "555", "777", "1111", "1212"].map((q) => (
+            <button key={q} onClick={() => { setNum(q); setLookup({ n: q, meaning: ANGEL_NUMBERS[q] }); setPersonal(""); }} className="lum-sans" style={{ background: "rgba(201,168,76,.1)", border: "1px solid rgba(201,168,76,.3)", color: T.goldHi, borderRadius: 16, padding: "5px 12px", fontSize: 12, cursor: "pointer" }}>{q}</button>
+          ))}
+        </div>
+        {lookup && (
+          <div className="fade-up" style={{ marginTop: 16 }}>
+            <div className="lum-serif gold-shimmer" style={{ fontSize: 40, fontWeight: 600 }}>{lookup.n}</div>
+            <p className="lum-serif" style={{ color: T.ink, fontSize: 17, fontStyle: "italic", lineHeight: 1.65, margin: "6px 0 12px" }}>
+              {lookup.meaning || "An uncommon sequence — your angels speak to you in a language all your own. Ask for a personal reading below."}
+            </p>
+            {!personal && !loadingP && <Btn small kind="violet" onClick={personalise}>Why am I seeing this? {!paid && "🔒"}</Btn>}
+            {loadingP && <div className="lum-serif" style={{ color: T.violet, fontStyle: "italic" }}>Listening to your angels…</div>}
+            {personal && <Panel style={{ marginTop: 10, borderColor: T.violet + "44" }}><ReadingText text={personal} /></Panel>}
+          </div>
+        )}
+      </Panel>
     </div>
   );
 };
@@ -4499,6 +4514,7 @@ const MORE = [
   { id: "quotes", name: "Daily Quotes", icon: "🕯️", note: "A little light for today · Free", free: true },
   { id: "astrology", name: "Astrology", icon: "♒", note: "Weekly horoscope & natal chart" },
   { id: "numerology", name: "Numerology", icon: "7", note: "Life Path, Destiny, Soul Urge…" },
+  { id: "angelnumbers", name: "Angel Numbers", icon: "🔢", note: "111 · 444 · 1111 — what your angels mean · Free", free: true },
   { id: "soul", name: "Soul Type Profile", icon: "✨", note: "Blue Ray · Indigo · Starseed…" },
   { id: "dreams", name: "Dream Journal", icon: "🌙", note: "Conversational interpretation" },
   { id: "meditate", name: "Guided Meditation", icon: "🧘", note: "Violet Flame, Gold Light & more" },
@@ -4532,6 +4548,7 @@ export default function Luminae() {
     angels: <AngelScreen paid={paid} askUpgrade={askUpgrade} />,
     astrology: <AstrologyScreen paid={paid} askUpgrade={askUpgrade} birth={birth} setBirth={setBirth} />,
     numerology: <NumerologyScreen paid={paid} askUpgrade={askUpgrade} birth={birth} setBirth={setBirth} />,
+    angelnumbers: <AngelNumberScreen paid={paid} askUpgrade={askUpgrade} />,
     soul: <SoulScreen paid={paid} askUpgrade={askUpgrade} />,
     dreams: <DreamScreen paid={paid} askUpgrade={askUpgrade} journal={journal} setJournal={setJournal} />,
     meditate: <MeditationScreen paid={paid} askUpgrade={askUpgrade} engine={engine} />,
