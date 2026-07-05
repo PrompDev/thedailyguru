@@ -2118,6 +2118,7 @@ const AngelCardRitual = ({ paid }) => {
   const [slots, setSlots] = useState([...Array(N).keys()]);
   const [message, setMessage] = useState("");
   const [wordCount, setWordCount] = useState(0);
+  const [beheld, setBeheld] = useState(false); // zoom sub-phase: false = behold the whole angel; true = message revealed beneath
   const chosen = useMemo(angelOfTheDay, []);
   const chosenIdx = ARCHANGELS.indexOf(chosen);
   const timers = useRef([]);
@@ -2148,11 +2149,20 @@ const AngelCardRitual = ({ paid }) => {
   useEffect(() => { if (pendingAngelDraw) { pendingAngelDraw = false; begin(); } }, []);
 
   const words = useMemo(() => (message ? message.split(/\s+/) : []), [message]);
+
+  // Let the whole angel be seen first: once the portrait blooms full-screen,
+  // hold on it for a few moments before the message rises in beneath it.
   useEffect(() => {
-    if (stage !== "zoom" || !words.length) return;
-    const iv = setInterval(() => setWordCount((c) => (c >= words.length ? (clearInterval(iv), c) : c + 1)), 220);
+    if (stage !== "zoom") { setBeheld(false); return; }
+    const t = setTimeout(() => setBeheld(true), 3200);
+    return () => clearTimeout(t);
+  }, [stage]);
+
+  useEffect(() => {
+    if (stage !== "zoom" || !beheld || !words.length) return;
+    const iv = setInterval(() => setWordCount((c) => (c >= words.length ? (clearInterval(iv), c) : c + 1)), 200);
     return () => clearInterval(iv);
-  }, [stage, words.length]);
+  }, [stage, beheld, words.length]);
 
   const finish = () => { stopSpeaking(); setStage("done"); };
   const CARD_W = 66, CARD_H = 104, R = 112;
@@ -2226,21 +2236,33 @@ const AngelCardRitual = ({ paid }) => {
       )}
 
       {stage === "zoom" && (
-        <div style={{ position: "fixed", inset: 0, zIndex: 95, background: "rgba(8,8,18,.98)", overflow: "hidden" }}>
-          <img src={chosen.img} alt={chosen.name} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 18%", animation: "bloomFull 1.15s cubic-bezier(.2,.75,.25,1) both" }} />
-          <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(rgba(8,8,18,.15) 26%, rgba(8,8,18,.9) 74%), radial-gradient(120% 55% at 50% 0%, ${chosen.hex}30, transparent 55%)` }} />
-          {[...Array(12)].map((_, i) => (
-            <span key={i} aria-hidden style={{ position: "absolute", left: `${(i * 47 + 8) % 100}%`, bottom: `${(i * 29 + 5) % 60}%`, width: 3, height: 3, borderRadius: "50%", background: chosen.hex, opacity: .8, animation: `twinkle ${2.4 + (i % 4) * 0.8}s ease-in-out ${(i % 5) * 0.5}s infinite` }} />
-          ))}
-          <button onClick={finish} aria-label="Close" style={{ position: "absolute", top: 14, right: 18, zIndex: 3, background: "none", border: "none", color: "#f2ecdf", fontSize: 26, cursor: "pointer", textShadow: "0 0 10px #000" }}>✕</button>
-          <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, zIndex: 2, padding: "0 22px 32px", textAlign: "center" }}>
-            <div style={{ maxWidth: 580, margin: "0 auto" }}>
+        <div style={{ position: "fixed", inset: 0, zIndex: 95, background: "rgba(8,8,18,.985)", display: "flex", flexDirection: "column", overflow: "hidden" }}>
+          <button onClick={finish} aria-label="Close" style={{ position: "absolute", top: 14, right: 18, zIndex: 6, background: "none", border: "none", color: "#f2ecdf", fontSize: 26, cursor: "pointer", textShadow: "0 0 10px #000" }}>✕</button>
+
+          {/* The whole angel — shown complete (contain), glowing in its own colour.
+              Fills the screen at first, then lifts to the top to make room for the message. */}
+          <div style={{ position: "relative", flex: `0 0 ${beheld ? "56%" : "100%"}`, minHeight: 0, overflow: "hidden", transition: "flex-basis 1s cubic-bezier(.4,.85,.3,1)" }}>
+            <div aria-hidden style={{ position: "absolute", inset: 0, background: `radial-gradient(115% 80% at 50% 34%, ${chosen.hex}2b, transparent 62%)` }} />
+            <img src={chosen.img} alt={chosen.name} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "bloomFull 1.2s cubic-bezier(.2,.75,.25,1) both" }} />
+            {[...Array(10)].map((_, i) => (
+              <span key={i} aria-hidden style={{ position: "absolute", left: `${(i * 47 + 8) % 100}%`, top: `${(i * 29 + 6) % 92}%`, width: 3, height: 3, borderRadius: "50%", background: chosen.hex, opacity: .7, animation: `twinkle ${2.4 + (i % 4) * 0.8}s ease-in-out ${(i % 5) * 0.5}s infinite` }} />
+            ))}
+            <div aria-hidden style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: "32%", background: "linear-gradient(rgba(8,8,18,0), rgba(8,8,18,.94))", opacity: beheld ? 1 : .45, transition: "opacity .8s ease" }} />
+            <div className="lum-sans" style={{ position: "absolute", left: 0, right: 0, bottom: 16, textAlign: "center", fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: chosen.hex, opacity: beheld ? 0 : .92, transition: "opacity .55s ease", pointerEvents: "none" }}>
+              {chosen.name.replace("Archangel ", "")} draws close ✧
+            </div>
+          </div>
+
+          {/* The message — rises in only after the angel has had its moment; the
+              portrait stays whole and visible above, so nothing needs scrolling. */}
+          <div style={{ flex: "1 1 0", minHeight: 0, overflowY: "auto", opacity: beheld ? 1 : 0, transform: beheld ? "none" : "translateY(16px)", transition: "opacity .85s ease .12s, transform .85s ease .12s", pointerEvents: beheld ? "auto" : "none", display: "flex", flexDirection: "column", justifyContent: "center", padding: "8px 22px 26px" }}>
+            <div style={{ maxWidth: 580, margin: "0 auto", width: "100%", textAlign: "center" }}>
               <Eyebrow colour={chosen.hex}>Your angel today</Eyebrow>
-              <div className="lum-serif gold-shimmer" style={{ fontSize: 31, fontWeight: 600, margin: "2px 0 3px" }}>{chosen.name}</div>
-              <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginBottom: 14 }}>{chosen.domain} · {chosen.colour} · {chosen.crystal}</div>
-              <p className="lum-serif" onClick={() => setWordCount(words.length)} style={{ color: T.ink, fontSize: 18.5, fontStyle: "italic", lineHeight: 1.8, minHeight: 90, margin: 0, cursor: wordCount < words.length ? "pointer" : "default" }}>
+              <div className="lum-serif gold-shimmer" style={{ fontSize: 29, fontWeight: 600, margin: "2px 0 3px" }}>{chosen.name}</div>
+              <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginBottom: 13 }}>{chosen.domain} · {chosen.colour} · {chosen.crystal}</div>
+              <p className="lum-serif" onClick={() => setWordCount(words.length)} style={{ color: T.ink, fontSize: 17.5, fontStyle: "italic", lineHeight: 1.75, minHeight: 56, margin: 0, cursor: wordCount < words.length ? "pointer" : "default" }}>
                 {words.length === 0
-                  ? <span style={{ color: chosen.hex, opacity: .9 }}>{chosen.name.replace("Archangel ", "")} draws close…</span>
+                  ? <span style={{ color: chosen.hex, opacity: .9 }}>{chosen.name.replace("Archangel ", "")} is here…</span>
                   : words.slice(0, wordCount).map((w, i) => <span key={i} className="ink-word">{w}</span>)}
               </p>
               {words.length > 0 && wordCount >= words.length && (
