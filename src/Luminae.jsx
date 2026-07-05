@@ -2073,11 +2073,18 @@ const HomeBtn = ({ onClick }) => (
   }}>✧ Home</button>
 );
 
-const VersionBadge = () => {
+const VersionBadge = ({ onReveal }) => {
   const stamp = new Date(__BUILD_TIME__).toLocaleString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+  const taps = useRef(0), timer = useRef(null);
+  const hit = () => {
+    taps.current += 1;
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => { taps.current = 0; }, 1200);
+    if (taps.current >= 5) { taps.current = 0; onReveal && onReveal(); }
+  };
   return (
-    <div className="lum-sans" style={{
-      position: "fixed", top: 10, right: 12, zIndex: 999, pointerEvents: "none",
+    <div onClick={hit} className="lum-sans" style={{
+      position: "fixed", top: 10, right: 12, zIndex: 999, pointerEvents: "auto", cursor: "default", userSelect: "none",
       fontSize: 10.5, letterSpacing: ".03em", color: T.faint,
       background: "rgba(13,13,26,.55)", border: "1px solid rgba(201,168,76,.18)",
       borderRadius: 10, padding: "3px 9px",
@@ -4558,6 +4565,7 @@ const MORE = [
 export default function Luminae() {
   const [screen, setScreen] = useState("home");
   const [tier, setTier] = useState("seeker");
+  const [devPreview, setDevPreview] = useState(() => { try { return new URLSearchParams(window.location.search).has("preview"); } catch (e) { return false; } });
   const [firstOpen, setFirstOpen] = useState(true);
   const [ritual, setRitual] = useState(null); // pending callback
   const [upgrade, setUpgrade] = useState(null);
@@ -4612,6 +4620,17 @@ export default function Luminae() {
           <div className="lum-serif gold-shimmer" style={{ fontSize: 24, fontWeight: 600, textTransform: "capitalize" }}>{tier === "seeker" ? "Seeker · Free" : tier === "oracle" ? "Oracle · Lifetime" : "Illuminate"}</div>
           {!paid && <div style={{ marginTop: 12 }}><Btn small onClick={() => askUpgrade("Everything you love — readings, sound healing, meditation, angel guidance — in one sacred, ad-free space.")}>Illuminate from $12/mo</Btn></div>}
           {paid && <Btn small kind="ghost" onClick={() => setTier("seeker")} style={{ marginTop: 12 }}>Preview free tier</Btn>}
+          {devPreview && (
+            <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid rgba(201,168,76,.2)" }}>
+              <div className="lum-sans" style={{ fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: T.gold, marginBottom: 9 }}>Owner preview · not shown to visitors</div>
+              <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
+                {["seeker", "oracle", "illuminate"].map((t) => (
+                  <Btn key={t} small kind={tier === t ? undefined : "ghost"} onClick={() => setTier(t)} style={{ textTransform: "capitalize" }}>{t}</Btn>
+                ))}
+              </div>
+              <div className="lum-sans" style={{ fontSize: 10.5, color: T.faint, marginTop: 9, lineHeight: 1.5 }}>Switch tier to unlock &amp; test paid features. Tap the version badge (top-right) 5× to hide this.</div>
+            </div>
+          )}
         </Panel>
         <p className="lum-serif" style={{ color: T.faint, fontSize: 13, fontStyle: "italic", lineHeight: 1.8, marginTop: 20, textAlign: "center" }}>
           Luminae is built with deep respect for the spiritual traditions it draws from. All readings are for educational, reflective, and spiritual purposes — not medical advice, psychological diagnosis, or definitive prediction. Hold every insight with an open heart and your own discernment.
@@ -4625,7 +4644,7 @@ export default function Luminae() {
     <div className="lum-sans" style={{ minHeight: "100vh", background: T.bg, color: T.ink, position: "relative" }}>
       <GlobalStyle />
       <Stars />
-      <VersionBadge />
+      <VersionBadge onReveal={() => setDevPreview((v) => !v)} />
       {screen !== "home" && <HomeBtn onClick={() => go("home")} />}
       {firstOpen && <SacredGate first onReady={() => setFirstOpen(false)} />}
       {ritual && !firstOpen && <SacredGate onReady={() => { const cb = ritual; setRitual(null); cb(); }} />}
