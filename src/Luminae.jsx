@@ -669,7 +669,7 @@ const SOUL_STATEMENTS = [
 ];
 const RESONANCE = [["Deeply true", 2], ["Somewhat", 1], ["Not really me", 0]];
 
-/* ---------------- Daily Quotes ---------------- */
+/* ---------------- Inspirational Quotes ---------------- */
 const QUOTES = [
   ["The universe is not outside of you. Look inside yourself; everything that you want, you already are.", "Rumi"],
   ["You are the sky. Everything else is just the weather.", "Pema Chödrön"],
@@ -3208,30 +3208,62 @@ const AngelNumberScreen = ({ paid, askUpgrade }) => {
 };
 
 /* ============================================================
-   DAILY QUOTES
+   INSPIRATIONAL QUOTES  (flip-card deck — draw as many as you like)
    ============================================================ */
 const QuotesScreen = () => {
-  const [text, author] = dailyQuote();
-  const past = [...Array(6)].map((_, i) => dailyQuote(new Date(Date.now() - (i + 1) * 86400000)));
+  const DECK = 8;                       // face-down cards shown as "the deck"
+  const CARD_W = 74, CARD_H = 112;
+  const [order, setOrder] = useState(() => shuffle(QUOTES.map((_, i) => i)));
+  const [pos, setPos] = useState(0);
+  const [picked, setPicked] = useState(null);   // { text, author, card }
+
+  const draw = (card) => {
+    if (picked) return;
+    let p = pos, ord = order;
+    if (p >= ord.length) { ord = shuffle(QUOTES.map((_, i) => i)); p = 0; setOrder(ord); }
+    const [text, author] = QUOTES[ord[p]];
+    setPos(p + 1);
+    setPicked({ text, author, card });
+  };
+  const again = () => setPicked(null);
 
   return (
     <div className="fade-up" style={{ maxWidth: 560 }}>
-      <Eyebrow>Daily Quotes</Eyebrow>
-      <H>A little light for today</H>
-      <Panel style={{ margin: "16px 0", padding: 26, textAlign: "center" }}>
-        <div className="lum-serif" style={{ fontSize: 21, color: T.ink, fontStyle: "italic", lineHeight: 1.6 }}>“{text}”</div>
-        <div className="lum-sans" style={{ fontSize: 13, color: T.gold, marginTop: 14, letterSpacing: ".04em" }}>— {author}</div>
-        <div style={{ marginTop: 18 }}><SpeakBtn text={`${text} — ${author}`} /></div>
-      </Panel>
-      <Eyebrow>Recent Days</Eyebrow>
-      <div style={{ display: "grid", gap: 10, marginTop: 10 }}>
-        {past.map(([t, a], i) => (
-          <Panel key={i} style={{ padding: 16 }}>
-            <div className="lum-serif" style={{ fontSize: 15, color: T.dim, fontStyle: "italic", lineHeight: 1.55 }}>“{t}”</div>
-            <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, marginTop: 6 }}>— {a}</div>
-          </Panel>
-        ))}
+      <Eyebrow>Inspirational Quotes</Eyebrow>
+      <H>Turn a card, receive a little light</H>
+      <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "2px 0 6px" }}>
+        Take a breath, choose a card, and turn it over for a message meant for this moment. Draw as many as your heart needs.
+      </p>
+
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, margin: "22px 0 8px" }}>
+        {[...Array(DECK)].map((_, i) => {
+          const isPicked = picked && picked.card === i;
+          const dimmed = picked && !isPicked;
+          return (
+            <div key={i} onClick={() => draw(i)} style={{ width: CARD_W, height: CARD_H, perspective: 800, cursor: picked ? "default" : "pointer", opacity: dimmed ? 0.28 : 1, transform: isPicked ? "scale(1.08)" : "none", transition: "opacity .5s ease, transform .5s ease" }}>
+              <div style={{ position: "relative", width: "100%", height: "100%", transformStyle: "preserve-3d", transition: "transform .7s ease", transform: isPicked ? "rotateY(0deg)" : "rotateY(180deg)" }}>
+                <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", background: "radial-gradient(120% 120% at 50% 30%, #2a2440, #14121f)", border: `1px solid ${T.gold}77`, boxShadow: `0 0 22px ${T.gold}44`, color: T.goldHi, fontSize: 30 }}>✦</div>
+                <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden", transform: "rotateY(180deg)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(160deg, #191830, #0e0d18)", border: `1px solid ${T.gold}33`, boxShadow: "inset 0 0 22px rgba(0,0,0,.5)", color: `${T.gold}aa`, fontSize: 22 }}>✧</div>
+              </div>
+            </div>
+          );
+        })}
       </div>
+
+      {picked ? (
+        <div className="fade-up">
+          <Panel style={{ padding: 26, textAlign: "center", borderColor: T.gold + "44" }}>
+            <div className="lum-serif" style={{ fontSize: 21, color: T.ink, fontStyle: "italic", lineHeight: 1.6 }}>“{picked.text}”</div>
+            <div className="lum-sans" style={{ fontSize: 13, color: T.gold, marginTop: 14, letterSpacing: ".04em" }}>— {picked.author}</div>
+            <div style={{ marginTop: 18, display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
+              <SpeakBtn text={`${picked.text} — ${picked.author}`} />
+              <Btn small kind="ghost" onClick={again}>Draw another ✧</Btn>
+            </div>
+          </Panel>
+        </div>
+      ) : (
+        <p className="lum-sans" style={{ textAlign: "center", color: T.faint, fontSize: 12.5, marginTop: 4 }}>Tap a card to turn it over ✧</p>
+      )}
     </div>
   );
 };
@@ -4485,10 +4517,10 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>🎵 528 Hz</div>
             <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>The Love Frequency</div>
           </Panel>
-          <Panel hover onClick={() => go("soul")} style={{ padding: 16, borderColor: T.violet + "33" }}>
-            <Eyebrow colour={T.violet}>Soul Type</Eyebrow>
-            <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>✨ Which light?</div>
-            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Blue Ray · Indigo · Starseed…</div>
+          <Panel hover onClick={() => go("quotes")} style={{ padding: 16, borderColor: T.gold + "33" }}>
+            <Eyebrow colour={T.gold}>Inspirational Quotes</Eyebrow>
+            <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>🕯️ Turn a card</div>
+            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Draw a little light — anytime</div>
           </Panel>
         </div>
         <p className="lum-serif" style={{ color: T.faint, fontSize: 14, fontStyle: "italic", textAlign: "center", marginTop: 26, lineHeight: 1.7 }}>
@@ -4511,7 +4543,7 @@ const NAV = [
 ];
 const MORE = [
   { id: "oracle", name: "Oracle Cards", icon: "🔮", note: "The Luminae deck · truly shuffled · Free", free: true },
-  { id: "quotes", name: "Daily Quotes", icon: "🕯️", note: "A little light for today · Free", free: true },
+  { id: "quotes", name: "Inspirational Quotes", icon: "🕯️", note: "Turn a card for a little light · Free", free: true },
   { id: "astrology", name: "Astrology", icon: "♒", note: "Weekly horoscope & natal chart" },
   { id: "numerology", name: "Numerology", icon: "7", note: "Life Path, Destiny, Soul Urge…" },
   { id: "angelnumbers", name: "Angel Numbers", icon: "🔢", note: "111 · 444 · 1111 — what your angels mean · Free", free: true },
