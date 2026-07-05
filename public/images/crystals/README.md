@@ -1,60 +1,61 @@
 # Luminae Crystal Library — artwork slots
 
-Drop a crystal's photo/art here and it appears in the app automatically — no code
-changes. Until a file exists, the app shows a luminous coloured gem in the stone's own
-colour, so the guide works either way.
+Drop a crystal's photo/art here and it appears in the app automatically. Until then, a luminous
+coloured gem in the stone's own colour is shown.
 
-**Format:** square-ish `.webp` (e.g. 400×400), the stone on a soft dark background.
+**Format:** square-ish `.webp` (e.g. 400×400).
 
-**Exact filenames the app looks for** (`<slug>.webp`):
+**Filenames the app looks for** (`<slug>.webp`), A–Z:
 
 | File | Crystal | Chakra |
 |---|---|---|
-| `amethyst.webp` | Amethyst | Third Eye & Crown |
-| `rose-quartz.webp` | Rose Quartz | Heart |
-| `black-tourmaline.webp` | Black Tourmaline | Root |
-| `clear-quartz.webp` | Clear Quartz | Crown & All |
-| `citrine.webp` | Citrine | Solar Plexus |
-| `selenite.webp` | Selenite | Crown |
-| `labradorite.webp` | Labradorite | Third Eye & Throat |
-| `moonstone.webp` | Moonstone | Crown & Sacral |
-| `black-obsidian.webp` | Black Obsidian | Root |
-| `green-aventurine.webp` | Green Aventurine | Heart |
-| `lapis-lazuli.webp` | Lapis Lazuli | Throat & Third Eye |
-| `carnelian.webp` | Carnelian | Sacral |
-| `smoky-quartz.webp` | Smoky Quartz | Root |
-| `tiger-s-eye.webp` | Tiger's Eye | Solar Plexus |
-| `malachite.webp` | Malachite | Heart |
-| `sodalite.webp` | Sodalite | Throat & Third Eye |
-| `fluorite.webp` | Fluorite | Third Eye & Crown |
-| `hematite.webp` | Hematite | Root |
-| `aquamarine.webp` | Aquamarine | Throat |
 | `amazonite.webp` | Amazonite | Throat & Heart |
-| `rhodonite.webp` | Rhodonite | Heart |
-| `sunstone.webp` | Sunstone | Sacral & Solar Plexus |
-| `garnet.webp` | Garnet | Root |
-| `pyrite.webp` | Pyrite | Solar Plexus |
-| `kyanite.webp` | Kyanite | Throat & Third Eye |
-| `celestite.webp` | Celestite | Third Eye & Crown |
+| `amethyst.webp` | Amethyst | Third Eye & Crown |
+| `ametrine.webp` | Ametrine | Crown & Solar Plexus |
 | `angelite.webp` | Angelite | Throat & Crown |
-| `prehnite.webp` | Prehnite | Heart & Solar Plexus |
-| `chrysocolla.webp` | Chrysocolla | Throat & Heart |
 | `apatite.webp` | Apatite | Throat & Third Eye |
-| `rhodochrosite.webp` | Rhodochrosite | Heart |
+| `aquamarine.webp` | Aquamarine | Throat |
+| `aragonite.webp` | Aragonite | Root |
+| `black-obsidian.webp` | Black Obsidian | Root |
+| `black-tourmaline.webp` | Black Tourmaline | Root |
+| `bloodstone.webp` | Bloodstone | Root |
+| `blue-lace-agate.webp` | Blue Lace Agate | Throat |
+| `carnelian.webp` | Carnelian | Sacral |
+| `celestite.webp` | Celestite | Third Eye & Crown |
+| `chrysocolla.webp` | Chrysocolla | Throat & Heart |
+| `chrysoprase.webp` | Chrysoprase | Heart |
+| `citrine.webp` | Citrine | Solar Plexus |
+| `clear-quartz.webp` | Clear Quartz | Crown & All |
+| `fluorite.webp` | Fluorite | Third Eye & Crown |
+| `garnet.webp` | Garnet | Root |
+| `green-aventurine.webp` | Green Aventurine | Heart |
+| `hematite.webp` | Hematite | Root |
+| `howlite.webp` | Howlite | Crown |
+| `iolite.webp` | Iolite | Third Eye |
+| `jade.webp` | Jade | Heart |
+| `kyanite.webp` | Kyanite | Throat & Third Eye |
+| `labradorite.webp` | Labradorite | Third Eye & Throat |
+| `lapis-lazuli.webp` | Lapis Lazuli | Throat & Third Eye |
 | `larimar.webp` | Larimar | Throat |
 | `lepidolite.webp` | Lepidolite | Third Eye & Crown |
-| `howlite.webp` | Howlite | Crown |
-| `aragonite.webp` | Aragonite | Root |
-| `shungite.webp` | Shungite | Root |
-| `jade.webp` | Jade | Heart |
-| `bloodstone.webp` | Bloodstone | Root |
-| `unakite.webp` | Unakite | Heart |
-| `blue-lace-agate.webp` | Blue Lace Agate | Throat |
-| `red-jasper.webp` | Red Jasper | Root |
-| `chrysoprase.webp` | Chrysoprase | Heart |
-| `turquoise.webp` | Turquoise | Throat |
-| `peridot.webp` | Peridot | Heart & Solar Plexus |
-| `iolite.webp` | Iolite | Third Eye |
-| `opal.webp` | Opal | Crown & Heart |
+| `malachite.webp` | Malachite | Heart |
+| `moldavite.webp` | Moldavite | Heart, Third Eye & Crown |
+| `moonstone.webp` | Moonstone | Crown & Sacral |
 | `onyx.webp` | Onyx | Root |
-| `ametrine.webp` | Ametrine | Crown & Solar Plexus |
+| `opal.webp` | Opal | Crown & Heart |
+| `peridot.webp` | Peridot | Heart & Solar Plexus |
+| `prehnite.webp` | Prehnite | Heart & Solar Plexus |
+| `pyrite.webp` | Pyrite | Solar Plexus |
+| `red-jasper.webp` | Red Jasper | Root |
+| `rhodochrosite.webp` | Rhodochrosite | Heart |
+| `rhodonite.webp` | Rhodonite | Heart |
+| `rose-quartz.webp` | Rose Quartz | Heart |
+| `selenite.webp` | Selenite | Crown |
+| `shungite.webp` | Shungite | Root |
+| `smoky-quartz.webp` | Smoky Quartz | Root |
+| `sodalite.webp` | Sodalite | Throat & Third Eye |
+| `sunstone.webp` | Sunstone | Sacral & Solar Plexus |
+| `tektite.webp` | Tektite | Crown & Root |
+| `tiger-s-eye.webp` | Tiger's Eye | Solar Plexus |
+| `turquoise.webp` | Turquoise | Throat |
+| `unakite.webp` | Unakite | Heart |
