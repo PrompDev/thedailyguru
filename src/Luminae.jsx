@@ -1245,6 +1245,7 @@ const GlobalStyle = () => (
       0%,100% { transform: scale(1); box-shadow: 0 0 60px 18px rgba(201,168,76,0.28), 0 0 130px 50px rgba(184,152,232,0.12), inset 0 0 50px rgba(245,227,168,0.5); }
       50% { transform: scale(1.06); box-shadow: 0 0 90px 30px rgba(201,168,76,0.42), 0 0 170px 70px rgba(184,152,232,0.18), inset 0 0 70px rgba(245,227,168,0.7); }
     }
+    @keyframes orbAura { 0%, 100% { opacity: .6; transform: scale(1); } 50% { opacity: .92; transform: scale(1.05); } }
     @keyframes cardIn { from { opacity: 0; transform: translateY(18px) rotateY(85deg); } to { opacity: 1; transform: translateY(0) rotateY(0); } }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes twinkle { 0%,100% { opacity: .25; } 50% { opacity: .9; } }
@@ -1509,34 +1510,18 @@ const SpeakBtn = ({ text, colour = T.goldHi, slow, label = "🕊 Hear it spoken 
        turning rays, expanding rings, a glistening sweep across the
        surface, and sparks of light drifting outward. Soft, but alive. --- */
 const OracleOrb = ({ size = 150, tint = "#e8c97a", onClick, label }) => {
-  const sparks = useMemo(() => Array.from({ length: 14 }, (_, i) => {
-    const a = (i / 14) * Math.PI * 2 + Math.random() * 0.5;
-    const d = size * (0.75 + Math.random() * 0.55);
-    return { tx: Math.cos(a) * d, ty: Math.sin(a) * d, delay: Math.random() * 6, dur: 4 + Math.random() * 4, s: 2 + Math.random() * 2.5 };
-  }), [size]);
   const wrap = size * 2.3;
-  const mask = "radial-gradient(circle, transparent 28%, black 40%, transparent 74%)";
   const body = (
     <div style={{ position: "relative", width: wrap, height: wrap, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div aria-hidden style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "repeating-conic-gradient(from 0deg, rgba(232,201,122,0.16) 0deg 5deg, transparent 5deg 21deg)", WebkitMaskImage: mask, maskImage: mask, animation: "orbRays 55s linear infinite" }} />
-      <div aria-hidden style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "repeating-conic-gradient(from 9deg, rgba(245,227,168,0.09) 0deg 3deg, transparent 3deg 29deg)", WebkitMaskImage: mask, maskImage: mask, animation: "orbRaysRev 80s linear infinite" }} />
-      {[0, 1, 2].map((i) => (
-        <div key={i} aria-hidden style={{ position: "absolute", width: size, height: size, borderRadius: "50%", border: "1px solid rgba(232,201,122,0.35)", animation: `orbRing 6.5s ease-out ${i * 2.2}s infinite` }} />
-      ))}
-      {sparks.map((s, i) => (
-        <div key={i} aria-hidden style={{
-          position: "absolute", width: s.s, height: s.s, borderRadius: "50%", background: "#f5e3a8",
-          boxShadow: "0 0 6px 1px rgba(245,227,168,.8)",
-          "--tx": `${s.tx}px`, "--ty": `${s.ty}px`,
-          animation: `sparkleDrift ${s.dur}s ease-out ${s.delay}s infinite`,
-        }} />
-      ))}
+      {/* Soft aura radiating outward — smooth and steady, no spinning rays or strobing sparks */}
+      <div aria-hidden style={{ position: "absolute", width: wrap, height: wrap, borderRadius: "50%", pointerEvents: "none", background: `radial-gradient(circle, ${tint}5c 0%, ${tint}26 30%, ${T.gold}12 50%, transparent 70%)`, animation: "orbAura 6s ease-in-out infinite" }} />
+      {/* The bright golden orb, gently breathing */}
       <div style={{
         width: size, height: size, borderRadius: "50%", position: "relative", overflow: "hidden",
         background: `radial-gradient(circle at 35% 30%, #fdf3cf, ${tint} 42%, ${T.gold} 72%, #5e4a1d)`,
-        animation: "orbBreath 5s ease-in-out infinite",
+        animation: "orbBreath 6s ease-in-out infinite",
       }}>
-        <div aria-hidden style={{ position: "absolute", inset: -size * 0.2, background: "linear-gradient(115deg, transparent 42%, rgba(255,250,228,.55) 50%, transparent 58%)", animation: "glisten 7s ease-in-out infinite" }} />
+        <div aria-hidden style={{ position: "absolute", inset: -size * 0.2, background: "linear-gradient(115deg, transparent 45%, rgba(255,250,228,.32) 50%, transparent 55%)", animation: "glisten 10s ease-in-out infinite" }} />
       </div>
     </div>
   );
@@ -2695,7 +2680,7 @@ const OracleScreen = ({ paid, askUpgrade }) => {
       <Eyebrow>Oracle Cards</Eyebrow>
       <H>The Luminae deck</H>
       <p className="lum-serif" style={{ color: T.dim, fontSize: 14.5, fontStyle: "italic", lineHeight: 1.7, margin: "10px 0 16px" }}>
-        Twelve cards, born of golden light. Every draw is a true shuffle — the deck is
+        Forty-four cards, born of golden light. Every draw is a true shuffle — the deck is
         freshly mixed each time, so the card that rises is the one that was meant for this moment.
       </p>
 
@@ -2717,7 +2702,7 @@ const OracleScreen = ({ paid, askUpgrade }) => {
       {stage === "shuffling" && (
         <Panel style={{ padding: 34, textAlign: "center" }}>
           <div className="lum-serif gold-shimmer" style={{ fontSize: 21 }}>The cards are listening…</div>
-          <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginTop: 8 }}>shuffling all twelve, truly at random ✧</div>
+          <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginTop: 8 }}>shuffling all forty-four, truly at random ✧</div>
         </Panel>
       )}
 
@@ -3553,7 +3538,7 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
         <Panel hover onClick={() => go("oracle")} style={{ marginBottom: 14, padding: "15px 18px", borderColor: T.violet + "44", background: "linear-gradient(160deg, #1d1633, #0e0e1c)" }}>
           <Eyebrow colour={T.violet}>Oracle Cards · Free</Eyebrow>
           <div className="lum-serif" style={{ fontSize: 21, color: T.ink }}>Draw from the Luminae deck</div>
-          <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Twelve cards, truly shuffled — pull one whenever your heart asks ✧</div>
+          <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Forty-four cards, truly shuffled — pull one whenever your heart asks ✧</div>
         </Panel>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           <Panel hover onClick={() => go("crystals")} style={{ padding: 16 }}>
