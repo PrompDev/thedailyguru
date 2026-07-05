@@ -2380,9 +2380,9 @@ const AngelScreen = ({ paid, askUpgrade }) => {
                 <div style={{ width: 13, height: 13, borderRadius: "50%", background: a.hex, boxShadow: `0 0 14px ${a.hex}`, flexShrink: 0, animation: open ? "twinkle 2.4s ease-in-out infinite" : "none" }} />
               </div>
               {open && a.img && (
-                <div className="fade-up" style={{ position: "relative", marginTop: 14, borderRadius: 16, overflow: "hidden", border: `1px solid ${a.hex}66`, boxShadow: `0 10px 32px rgba(0,0,0,.5), 0 0 34px ${a.hex}26` }}>
-                  <img src={a.img} alt="" style={{ display: "block", width: "100%", maxHeight: 370, objectFit: "cover", objectPosition: "50% 12%" }} />
-                  <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(rgba(10,10,20,0) 52%, rgba(10,10,20,.78)), radial-gradient(100% 60% at 50% 0%, ${a.hex}24, transparent 58%)` }} />
+                <div className="fade-up" style={{ position: "relative", marginTop: 14, height: 430, borderRadius: 16, overflow: "hidden", border: `1px solid ${a.hex}66`, background: `radial-gradient(120% 80% at 50% 32%, ${a.hex}22, transparent 62%), linear-gradient(165deg, ${a.hex}14, #0b0a14 72%)`, boxShadow: `0 10px 32px rgba(0,0,0,.5), 0 0 34px ${a.hex}26` }}>
+                  <img src={a.img} alt={a.name} style={{ display: "block", width: "100%", height: "100%", objectFit: "contain" }} />
+                  <div aria-hidden style={{ position: "absolute", inset: 0, background: "linear-gradient(rgba(10,10,20,0) 66%, rgba(10,10,20,.82))" }} />
                   <div className="lum-serif" style={{ position: "absolute", left: 14, right: 14, bottom: 10, textAlign: "center", fontStyle: "italic", fontSize: 15, color: "#f2ecdf", textShadow: "0 1px 10px rgba(0,0,0,.9)" }}>
                     {a.domain} · <span style={{ color: a.hex }}>{a.colour}</span>
                   </div>
