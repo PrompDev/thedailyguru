@@ -5155,13 +5155,48 @@ export default function Luminae() {
   const [deckId, setDeckId] = useState("classic");
   const [birth, setBirth] = useState({ dob: "", time: "", place: "" });
   const [journal, setJournal] = useState([]);
+  const [updateReady, setUpdateReady] = useState(false);
   const engine = useMemo(() => createAudioEngine(), []);
   const paid = FREE_PREVIEW || tier !== "seeker";
 
   const requestRitual = useCallback((cb) => setRitual(() => cb), []);
   const askUpgrade = useCallback((reason) => setUpgrade(reason), []);
   const onAfterReading = useCallback(() => { if (tier === "seeker") setTimeout(() => setInterstitial(true), 1200); }, [tier]);
-  const go = (id) => setScreen(id);
+  const go = (id) => {
+    try { if (id !== screen) window.history.pushState({ screen: id }, ""); } catch (e) {}
+    setScreen(id);
+  };
+
+  // Back gesture / browser Back steps one screen back instead of leaving the site.
+  useEffect(() => {
+    try { window.history.replaceState({ screen: "home" }, ""); } catch (e) {}
+    const onPop = (e) => setScreen((e.state && e.state.screen) || "home");
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  // Auto-update: notice when a newer build is deployed and offer a one-tap refresh,
+  // so a cached tab never sticks on an old version.
+  useEffect(() => {
+    let current = null;
+    try { const s = document.querySelector('script[type="module"][src*="/assets/index-"]'); current = s && s.getAttribute("src"); } catch (e) {}
+    if (!current) return;
+    let stopped = false;
+    const check = async () => {
+      try {
+        const r = await fetch("/", { cache: "no-store" });
+        const html = await r.text();
+        const m = html.match(/\/assets\/index-[\w-]+\.js/);
+        if (m && m[0] !== current && !stopped) setUpdateReady(true);
+      } catch (e) {}
+    };
+    const onVis = () => { if (document.visibilityState === "visible") check(); };
+    document.addEventListener("visibilitychange", onVis);
+    window.addEventListener("focus", check);
+    const iv = setInterval(check, 90000);
+    check();
+    return () => { stopped = true; document.removeEventListener("visibilitychange", onVis); window.removeEventListener("focus", check); clearInterval(iv); };
+  }, []);
 
   const screenEl = {
     home: <HomeScreen tier={tier} go={go} requestRitual={requestRitual} deckId={deckId} onAfterReading={onAfterReading} />,
@@ -5231,6 +5266,12 @@ export default function Luminae() {
       <Stars />
       <VersionBadge onReveal={() => setDevPreview((v) => !v)} />
       {screen !== "home" && <HomeBtn onClick={() => go("home")} />}
+      {updateReady && (
+        <div role="button" tabIndex={0} onClick={() => window.location.reload()} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") window.location.reload(); }}
+          style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "linear-gradient(90deg,#c9a84c,#e7d08a)", color: "#171728", textAlign: "center", padding: "9px 16px", cursor: "pointer", fontSize: 12.5, fontWeight: 600, letterSpacing: ".02em", boxShadow: "0 2px 14px rgba(0,0,0,.4)" }}>
+          ✨ A new version of Luminae is ready — tap to refresh
+        </div>
+      )}
       {firstOpen && <SacredGate first onReady={() => setFirstOpen(false)} />}
       {ritual && !firstOpen && <SacredGate onReady={() => { const cb = ritual; setRitual(null); cb(); }} />}
       {upgrade && <UpgradeModal reason={upgrade} onClose={() => setUpgrade(null)} onChoose={(t) => { setTier(t); setUpgrade(null); setInterstitial(false); }} />}
