@@ -2153,7 +2153,7 @@ const TarotCard = ({ card, deck, label, delay = 0, w = 108 }) => {
   const major = card.arcana === "Major";
   const [artOk, setArtOk] = useState(major);
   useEffect(() => setArtOk(major), [card.name]);
-  const plate = major ? ROMAN[card.n] : card.name.split(" of ")[0];
+  const plate = major ? card.n : card.name.split(" of ")[0];
   const stars = [...Array(10)].map((_, i) => ({
     left: 8 + ((hsh >> (i * 2)) % 84), top: 10 + ((hsh >> (i * 2 + 5)) % 78),
     s: 1 + ((hsh >> i) % 3) * 0.6, o: 0.2 + ((hsh >> (i + 3)) % 45) / 100,
@@ -2172,7 +2172,7 @@ const TarotCard = ({ card, deck, label, delay = 0, w = 108 }) => {
           <img src={`/images/tarot/majors/${tarotSlug(card.name)}.webp`} alt={card.name} onError={() => setArtOk(false)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
           <div aria-hidden style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(8,8,16,.72) 0%, transparent 20%, transparent 72%, rgba(8,8,16,.9) 100%)" }} />
           <div aria-hidden style={{ position: "absolute", inset: 4, borderRadius: 9, border: `1px solid ${deck.frame}77` }} />
-          <div className="lum-serif" style={{ position: "absolute", top: 6, left: 0, right: 0, textAlign: "center", fontSize: Math.max(11, w * 0.1), color: deck.frame, letterSpacing: ".2em", textShadow: "0 1px 6px #000, 0 0 10px #000" }}>{ROMAN[card.n]}</div>
+          <div className="lum-serif" style={{ position: "absolute", top: 6, left: 0, right: 0, textAlign: "center", fontSize: Math.max(11, w * 0.1), color: deck.frame, letterSpacing: ".2em", textShadow: "0 1px 6px #000, 0 0 10px #000" }}>{card.n}</div>
           <div className="lum-serif" style={{ position: "absolute", bottom: 7, left: 5, right: 5, textAlign: "center", fontSize: Math.max(10.5, w * 0.098), color: T.ink, lineHeight: 1.15, textShadow: "0 1px 6px #000, 0 0 10px #000" }}>{card.name}</div>
         </div>
       )}
