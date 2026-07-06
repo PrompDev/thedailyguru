@@ -5030,6 +5030,14 @@ const DECK_SHOWCASE = [
   { screen: "gaiaoracle", name: "Gaia Oracle", count: "33 cards", img: "/images/gaia/the-living-earth.webp" },
   { screen: "tarot", name: "Tarot", count: "78 cards", img: "/images/tarot/majors/the-star.webp" },
 ];
+const EXCLUSIVE = [
+  { screen: "iris", name: "Iridology", note: "Read the story in your eyes", img: "/images/features/iris.webp" },
+  { screen: "palm", name: "Palmistry", note: "The map held in your hand", img: "/images/features/palm.webp" },
+];
+const SOUND_MED = [
+  { screen: "sounds", name: "Sound Healing", note: "Singing bowls & sacred frequencies", img: "/images/features/sound.webp" },
+  { screen: "meditate", name: "Guided Meditation", note: "Violet Flame, Gold Light & more", img: "/images/features/meditation.webp" },
+];
 
 const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
   const [daily, setDaily] = useState(null);
@@ -5112,6 +5120,36 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             </div>
           </div>
         </div>
+        <div style={{ marginBottom: 14 }}>
+          <Eyebrow colour={T.goldHi}>Exclusive Features</Eyebrow>
+          <div className="lum-serif" style={{ fontSize: 21, color: T.ink, marginBottom: 12 }}>Look deeper into you</div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 11 }}>
+            {EXCLUSIVE.map((d) => (
+              <button key={d.screen} onClick={() => go(d.screen)} aria-label={`Open ${d.name}`} className="deck-tile" style={{ position: "relative", border: "none", padding: 0, borderRadius: 15, overflow: "hidden", cursor: "pointer", aspectRatio: "3 / 4", background: "#0e0e1e", boxShadow: "0 8px 22px rgba(0,0,0,.4)" }}>
+                <img src={d.img} alt={d.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "26px 12px 11px", textAlign: "left", background: "linear-gradient(transparent, rgba(6,6,16,.93) 64%)" }}>
+                  <div className="lum-serif" style={{ fontSize: 16, color: "#fff", lineHeight: 1.15 }}>{d.name}</div>
+                  <div className="lum-sans" style={{ fontSize: 10.5, letterSpacing: ".03em", color: T.goldHi, marginTop: 3 }}>{d.note}</div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+        <div style={{ marginBottom: 14 }}>
+          <Eyebrow colour={T.teal}>Sound &amp; Meditation</Eyebrow>
+          <div className="lum-serif" style={{ fontSize: 21, color: T.ink, marginBottom: 12 }}>Sink into stillness</div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 11 }}>
+            {SOUND_MED.map((d) => (
+              <button key={d.screen} onClick={() => go(d.screen)} aria-label={`Open ${d.name}`} className="deck-tile" style={{ position: "relative", border: "none", padding: 0, borderRadius: 15, overflow: "hidden", cursor: "pointer", aspectRatio: "3 / 4", background: "#0e0e1e", boxShadow: "0 8px 22px rgba(0,0,0,.4)" }}>
+                <img src={d.img} alt={d.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "26px 12px 11px", textAlign: "left", background: "linear-gradient(transparent, rgba(6,6,16,.93) 64%)" }}>
+                  <div className="lum-serif" style={{ fontSize: 16, color: "#fff", lineHeight: 1.15 }}>{d.name}</div>
+                  <div className="lum-sans" style={{ fontSize: 10.5, letterSpacing: ".03em", color: T.goldHi, marginTop: 3 }}>{d.note}</div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           <Panel hover onClick={() => go("crystals")} style={{ padding: 16 }}>
             <Eyebrow colour={T.sage}>Today's Crystal</Eyebrow>
@@ -5123,10 +5161,10 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>🛡️ Call on Michael</div>
             <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>One breath away</div>
           </Panel>
-          <Panel hover onClick={() => go("sounds")} style={{ padding: 16, borderColor: T.teal + "33" }}>
-            <Eyebrow colour={T.teal}>Sound Sanctuary</Eyebrow>
-            <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>🎵 528 Hz</div>
-            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>The Love Frequency</div>
+          <Panel hover onClick={() => go("angelnumbers")} style={{ padding: 16, borderColor: T.goldHi + "33" }}>
+            <Eyebrow colour={T.goldHi}>Angel Numbers</Eyebrow>
+            <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>🔢 111 · 444</div>
+            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>What your angels mean</div>
           </Panel>
           <Panel hover onClick={() => go("quotes")} style={{ padding: 16, borderColor: T.gold + "33" }}>
             <Eyebrow colour={T.gold}>Inspirational Quotes</Eyebrow>
