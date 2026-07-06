@@ -4912,6 +4912,10 @@ const MORE = [
   { id: "palm", name: "Palm Reading", icon: "🖐", note: "Heart, head, life & fate lines" },
 ];
 
+// FREE PREVIEW: unlock everything during the testing/feedback phase.
+// Flip to false to re-enable the paywall when it's time to monetise.
+const FREE_PREVIEW = true;
+
 export default function Luminae() {
   const [screen, setScreen] = useState("home");
   const [tier, setTier] = useState("seeker");
@@ -4924,7 +4928,7 @@ export default function Luminae() {
   const [birth, setBirth] = useState({ dob: "", time: "", place: "" });
   const [journal, setJournal] = useState([]);
   const engine = useMemo(() => createAudioEngine(), []);
-  const paid = tier !== "seeker";
+  const paid = FREE_PREVIEW || tier !== "seeker";
 
   const requestRitual = useCallback((cb) => setRitual(() => cb), []);
   const askUpgrade = useCallback((reason) => setUpgrade(reason), []);
