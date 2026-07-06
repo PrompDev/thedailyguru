@@ -2206,7 +2206,7 @@ const ReadingText = ({ text }) => (
 const ROMAN = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"];
 const cardHash = (s) => { let h = 7; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; };
 
-const TarotCard = ({ card, deck, label, delay = 0, w = 108 }) => {
+const TarotCard = ({ card, deck, label, delay = 0, w = 108, rev = false }) => {
   const hsh = cardHash(card.name);
   const major = card.arcana === "Major";
   const [artOk, setArtOk] = useState(true);
@@ -2227,7 +2227,7 @@ const TarotCard = ({ card, deck, label, delay = 0, w = 108 }) => {
     }}>
       {artOk && (
         <div style={{ position: "absolute", inset: 0, zIndex: 4, borderRadius: 12, overflow: "hidden" }}>
-          <img src={`/images/tarot/${major ? "majors" : "minors"}/${tarotSlug(card.name)}.webp`} alt={card.name} onError={() => setArtOk(false)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          <img src={`/images/tarot/${major ? "majors" : "minors"}/${tarotSlug(card.name)}.webp`} alt={card.name} onError={() => setArtOk(false)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transform: rev ? "rotate(180deg)" : "none" }} />
           <div aria-hidden style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(8,8,16,.72) 0%, transparent 20%, transparent 72%, rgba(8,8,16,.9) 100%)" }} />
           <div aria-hidden style={{ position: "absolute", inset: 4, borderRadius: 9, border: `1px solid ${deck.frame}77` }} />
           <div className="lum-serif" style={{ position: "absolute", top: 6, left: 0, right: 0, textAlign: "center", fontSize: Math.max(11, w * 0.1), color: deck.frame, letterSpacing: ".2em", textShadow: "0 1px 6px #000, 0 0 10px #000" }}>{plate}</div>
@@ -2247,14 +2247,14 @@ const TarotCard = ({ card, deck, label, delay = 0, w = 108 }) => {
       <div style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
         <div aria-hidden style={{ position: "absolute", width: w * 0.64, height: w * 0.64, borderRadius: "50%", background: `radial-gradient(circle, ${deck.frame}30 0%, transparent 70%)`, border: `1px solid ${deck.frame}2c` }} />
         <div aria-hidden style={{ position: "absolute", width: w * 0.78, height: w * 0.78, borderRadius: "50%", border: `1px dashed ${deck.frame}24`, transform: `rotate(${hsh % 360}deg)` }} />
-        <div style={{ fontSize: w * 0.3, filter: `drop-shadow(0 0 14px ${deck.frame}66)` }}>{card.glyph}</div>
+        <div style={{ fontSize: w * 0.3, filter: `drop-shadow(0 0 14px ${deck.frame}66)`, transform: rev ? "rotate(180deg)" : "none" }}>{card.glyph}</div>
       </div>
       <div style={{ zIndex: 1, width: "100%" }}>
         <div aria-hidden style={{ height: 1, margin: "0 14px 5px", background: `linear-gradient(90deg, transparent, ${deck.frame}88, transparent)` }} />
         <div className="lum-serif" style={{ fontSize: Math.max(10.5, w * 0.1), color: T.ink, lineHeight: 1.2, padding: "0 2px 2px" }}>{card.name}</div>
       </div>
     </div>
-    {label && <div className="lum-sans" style={{ fontSize: 11, color: T.gold, marginTop: 9, letterSpacing: ".1em", textTransform: "uppercase" }}>{label}</div>}
+    {(label || rev) && <div className="lum-sans" style={{ fontSize: 11, color: T.gold, marginTop: 9, letterSpacing: ".1em", textTransform: "uppercase" }}>{label}{label && rev ? " · " : ""}{rev && <span style={{ color: T.rose }}>Reversed ⟲</span>}</div>}
   </div>
   );
 };
@@ -2422,6 +2422,7 @@ const SacredGate = ({ onReady, first }) => (
 const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAfterReading }) => {
   const [stage, setStage] = useState("spreads"); // spreads | decks | intention | reading
   const [majorsOnly, setMajorsOnly] = useState(false);
+  const [reversals, setReversals] = useState(true);
   const [spread, setSpread] = useState(null);
   const [intention, setIntention] = useState("");
   const [drawn, setDrawn] = useState([]);
@@ -2438,12 +2439,12 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
   const draw = () => {
     requestRitual(async () => {
       const shuffled = shuffle(majorsOnly ? MAJORS_DECK : FULL_DECK);
-      const cards = shuffled.slice(0, spread.cards);
+      const cards = shuffled.slice(0, spread.cards).map((c) => ({ ...c, rev: reversals && Math.random() < 0.32 }));
       setDrawn(cards); setReading(""); setErr(""); setStage("reading"); setLoading(true);
       try {
-        const desc = cards.map((c, i) => `${spread.pos[i]}: ${c.name} (themes: ${c.keys})`).join("\n");
+        const desc = cards.map((c, i) => `${spread.pos[i]}: ${c.name}${c.rev ? " (reversed)" : ""} (themes: ${c.keys})`).join("\n");
         const text = await askLuminae(
-          `Give a tarot reading for the "${spread.name}" spread.\nSeeker's intention: "${intention || "an open heart, no specific question"}"\nCards drawn:\n${desc}\n\nWeave the cards together into one flowing reading that speaks to each position and closes with a gentle blessing or invitation.`
+          `Give a tarot reading for the "${spread.name}" spread.\nSeeker's intention: "${intention || "an open heart, no specific question"}"\nCards drawn:\n${desc}\n\nRead any card marked (reversed) in its reversed sense — the same energy turned inward, blocked, delayed, or softened, and framed kindly. Weave the cards together into one flowing reading that speaks to each position and closes with a gentle blessing or invitation.`
         );
         setReading(text);
       } catch (e) {
@@ -2496,6 +2497,13 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
         </span>
         <span className="lum-sans" style={{ flexShrink: 0, fontSize: 11.5, letterSpacing: ".1em", textTransform: "uppercase", color: majorsOnly ? "#0b0a14" : T.dim, background: majorsOnly ? T.goldHi : "transparent", border: `1px solid ${majorsOnly ? T.goldHi : T.dim}`, borderRadius: 20, padding: "4px 13px" }}>{majorsOnly ? "On" : "Off"}</span>
       </button>
+      <button onClick={() => setReversals((v) => !v)} aria-pressed={reversals} className="lum-sans" style={{ width: "100%", marginTop: 10, textAlign: "left", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "11px 15px", borderRadius: 12, cursor: "pointer", background: T.card2, border: `1px solid ${reversals ? T.goldHi : "rgba(201,168,76,.25)"}` }}>
+        <span>
+          <span className="lum-serif" style={{ display: "block", fontSize: 15, color: T.ink }}>Read reversals</span>
+          <span className="lum-sans" style={{ fontSize: 11.5, color: T.dim }}>Let some cards fall reversed, for shadow &amp; nuance</span>
+        </span>
+        <span className="lum-sans" style={{ flexShrink: 0, fontSize: 11.5, letterSpacing: ".1em", textTransform: "uppercase", color: reversals ? "#0b0a14" : T.dim, background: reversals ? T.goldHi : "transparent", border: `1px solid ${reversals ? T.goldHi : T.dim}`, borderRadius: 20, padding: "4px 13px" }}>{reversals ? "On" : "Off"}</span>
+      </button>
       <div style={{ marginTop: 18 }}><Btn onClick={draw}>Enter the reading ✧</Btn></div>
     </div>
   );
@@ -2506,7 +2514,7 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
       <Eyebrow>{spread.name}</Eyebrow>
       {intention && <p className="lum-serif" style={{ color: T.moon, fontStyle: "italic", fontSize: 16, margin: "0 0 18px" }}>“{intention}”</p>}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", margin: "10px 0 26px" }}>
-        {drawn.map((c, i) => <TarotCard key={i} card={c} deck={deck} label={spread.pos[i]} delay={i * 0.25} w={drawn.length > 5 ? 84 : 104} />)}
+        {drawn.map((c, i) => <TarotCard key={i} card={c} deck={deck} rev={c.rev} label={spread.pos[i]} delay={i * 0.25} w={drawn.length > 5 ? 84 : 104} />)}
       </div>
       {loading ? <Channeling /> : err ? (
         <Panel style={{ borderColor: T.rose + "55" }}>
@@ -2521,12 +2529,21 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
           return (
             <Panel key={i} style={{ padding: "14px 18px", borderColor: T.gold + "33" }}>
               <div className="lum-sans" style={{ fontSize: 10.5, color: T.gold, letterSpacing: ".14em", textTransform: "uppercase" }}>{spread.pos[i]}</div>
-              <div className="lum-serif" style={{ fontSize: 18, color: T.ink, margin: "2px 0 6px" }}>{c.name}</div>
+              <div className="lum-serif" style={{ fontSize: 18, color: T.ink, margin: "2px 0 6px" }}>{c.name}{c.rev && <span className="lum-sans" style={{ color: T.rose, fontSize: 11.5, letterSpacing: ".08em", textTransform: "uppercase", marginLeft: 9 }}>Reversed ⟲</span>}</div>
               {m ? (
                 <>
                   <p className="lum-serif" style={{ fontSize: 15, fontStyle: "italic", color: T.goldHi, lineHeight: 1.5, margin: "0 0 9px" }}>{m.essence}</p>
-                  <p className="lum-serif" style={{ fontSize: 14, color: T.ink, lineHeight: 1.68, margin: "0 0 9px" }}>{m.upright}</p>
-                  <p className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6, margin: 0 }}><b style={{ color: T.rose }}>Reversed · </b>{m.reversed}</p>
+                  {c.rev ? (
+                    <>
+                      <p className="lum-serif" style={{ fontSize: 14, color: T.ink, lineHeight: 1.68, margin: "0 0 9px" }}><b style={{ color: T.rose }}>Reversed · </b>{m.reversed}</p>
+                      <p className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6, margin: 0 }}><b style={{ color: T.gold }}>Upright · </b>{m.upright}</p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="lum-serif" style={{ fontSize: 14, color: T.ink, lineHeight: 1.68, margin: "0 0 9px" }}>{m.upright}</p>
+                      <p className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6, margin: 0 }}><b style={{ color: T.rose }}>Reversed · </b>{m.reversed}</p>
+                    </>
+                  )}
                 </>
               ) : (
                 <p className="lum-sans" style={{ fontSize: 13, color: T.dim, lineHeight: 1.5, margin: 0 }}>{c.keys}</p>
@@ -2535,6 +2552,34 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
           );
         })}
       </div>
+    </div>
+  );
+
+  if (stage === "guide") return (
+    <div className="fade-up" style={{ maxWidth: 520 }}>
+      <Back onClick={() => setStage("spreads")} />
+      <Eyebrow>Tarot</Eyebrow>
+      <H>How to read your cards</H>
+      <div style={{ display: "grid", gap: 12, marginTop: 16 }}>
+        <Panel style={{ padding: "16px 18px" }}>
+          <Eyebrow colour={T.gold}>Begin in stillness</Eyebrow>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 14.5, lineHeight: 1.7, margin: "6px 0 0" }}>Take a slow breath. Hold your question gently, or simply stay open — the cards answer a soft heart, not a demand. There are no wrong cards.</p>
+        </Panel>
+        <Panel style={{ padding: "16px 18px" }}>
+          <Eyebrow colour={T.gold}>Upright &amp; reversed</Eyebrow>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 14.5, lineHeight: 1.7, margin: "6px 0 0" }}>A card drawn upright speaks in its fullest, most open voice. A <b>reversed</b> card (turned upside-down) is the same energy turned inward — blocked, softening, or still becoming. Never a curse, only a different shade of the same truth. You choose: flip <b>“Read reversals”</b> on or off before any reading.</p>
+        </Panel>
+        <Panel style={{ padding: "16px 18px", borderColor: T.violet + "55" }}>
+          <Eyebrow colour={T.violet}>Trust your intuition first</Eyebrow>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 14.5, lineHeight: 1.7, margin: "6px 0 0" }}>The meanings here are a doorway, never a verdict. If a card stirs a feeling, a memory, or a sudden knowing the moment you see it — <b>trust that</b>. Your intuition knows your life; the words only know the card. When the two disagree, follow your inner voice.</p>
+        </Panel>
+        <Panel style={{ padding: "16px 18px" }}>
+          <Eyebrow colour={T.gold}>Let the cards talk to each other</Eyebrow>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 14.5, lineHeight: 1.7, margin: "6px 0 0" }}>A reading is a conversation, not a list. Notice the story the cards tell together — and the one image or word that won’t quite let you go. That is usually the message.</p>
+        </Panel>
+        <p className="lum-serif" style={{ color: T.faint, fontStyle: "italic", fontSize: 13.5, textAlign: "center", lineHeight: 1.7, marginTop: 4 }}>Tarot is a mirror for reflection, not a fixed fortune. You always hold the pen. ✧</p>
+      </div>
+      <div style={{ marginTop: 20, textAlign: "center" }}><Btn onClick={() => setStage("spreads")}>Choose a spread ✧</Btn></div>
     </div>
   );
 
@@ -2557,6 +2602,7 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
           </Panel>
         ))}
       </div>
+      <button onClick={() => setStage("guide")} className="lum-sans" style={{ width: "100%", marginTop: 16, padding: "12px", borderRadius: 12, cursor: "pointer", background: "transparent", border: "1px dashed rgba(201,168,76,.35)", color: T.gold, fontSize: 13, letterSpacing: ".04em" }}>✧ New to tarot? How to read your cards</button>
     </div>
   );
 };
