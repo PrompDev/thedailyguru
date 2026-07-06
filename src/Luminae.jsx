@@ -5166,21 +5166,29 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             ))}
           </div>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-          <Panel hover onClick={() => go("crystals")} style={{ padding: 16 }}>
+        <Panel hover onClick={() => go("astrology")} style={{ marginBottom: 14, padding: 0, overflow: "hidden", borderColor: T.goldHi + "44", background: "linear-gradient(160deg, #1e1836, #0e0e1c)" }}>
+          <div style={{ display: "flex", alignItems: "stretch", minHeight: 112 }}>
+            <div style={{ position: "relative", width: 128, flexShrink: 0 }}>
+              <img src="/images/features/zodiac.webp" alt="Zodiac wheel" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+              <div aria-hidden style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(14,14,28,0) 52%, #10101d 98%)" }} />
+            </div>
+            <div style={{ padding: "15px 18px", flex: 1, alignSelf: "center" }}>
+              <Eyebrow colour={T.goldHi}>Weekly Horoscope · Free</Eyebrow>
+              <div className="lum-serif" style={{ fontSize: 21, color: T.ink }}>Your stars this week</div>
+              <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Every sign's forecast &amp; your natal birth chart ✧</div>
+            </div>
+          </div>
+        </Panel>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+          <Panel hover onClick={() => go("crystals")} style={{ padding: 15 }}>
             <Eyebrow colour={T.sage}>Today's Crystal</Eyebrow>
-            <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>💎 {crystal.name}</div>
-            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>{crystal.chakra}</div>
+            <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>💎 {crystal.name}</div>
+            <div className="lum-sans" style={{ fontSize: 11, color: T.dim, marginTop: 4 }}>{crystal.chakra}</div>
           </Panel>
-          <Panel hover onClick={() => go("angels")} style={{ padding: 16, borderColor: "#3b6fd444" }}>
+          <Panel hover onClick={() => go("angels")} style={{ padding: 15, borderColor: "#3b6fd444" }}>
             <Eyebrow colour="#9cb8ee">Protection</Eyebrow>
-            <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>🛡️ Call on Michael</div>
-            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>One breath away</div>
-          </Panel>
-          <Panel hover onClick={() => go("angelnumbers")} style={{ padding: 16, borderColor: T.goldHi + "33" }}>
-            <Eyebrow colour={T.goldHi}>Angel Numbers</Eyebrow>
-            <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>🔢 111 · 444</div>
-            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>What your angels mean</div>
+            <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>🛡️ Michael</div>
+            <div className="lum-sans" style={{ fontSize: 11, color: T.dim, marginTop: 4 }}>One breath away</div>
           </Panel>
           <Panel hover onClick={() => go("quotes")} style={{ padding: 16, borderColor: T.gold + "33" }}>
             <Eyebrow colour={T.gold}>Inspirational Quotes</Eyebrow>
