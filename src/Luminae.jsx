@@ -5277,7 +5277,7 @@ export default function Luminae() {
       {upgrade && <UpgradeModal reason={upgrade} onClose={() => setUpgrade(null)} onChoose={(t) => { setTier(t); setUpgrade(null); setInterstitial(false); }} />}
       {interstitial && tier === "seeker" && <Interstitial onDone={() => setInterstitial(false)} />}
 
-      <main style={{ position: "relative", zIndex: 1, maxWidth: 680, margin: "0 auto", padding: `28px 20px ${tier === "seeker" ? 150 : 110}px` }}>
+      <main style={{ position: "relative", zIndex: 1, maxWidth: 680, margin: "0 auto", padding: `${screen === "home" ? 28 : 56}px 20px ${tier === "seeker" ? 150 : 110}px` }}>
         {screenEl}
       </main>
 
