@@ -3126,7 +3126,7 @@ const AngelCardRitual = ({ paid }) => {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
         <div>
           <Eyebrow colour={T.goldHi}>Daily Angel Card · Free</Eyebrow>
-          <div className="lum-serif" style={{ fontSize: 20, color: T.ink }}>Which angel walks with you today?</div>
+          <div className="lum-serif" style={{ fontSize: 20, color: T.ink }}>Allow the angels to guide you</div>
         </div>
         {!running && <Btn small onClick={begin}>{stage === "done" ? "Behold again ✧" : "Draw ✧"}</Btn>}
       </div>
@@ -5037,7 +5037,26 @@ const EXCLUSIVE = [
 const SOUND_MED = [
   { screen: "sounds", name: "Sound Healing", note: "Singing bowls & sacred frequencies", img: "/images/features/sound.webp" },
   { screen: "meditate", name: "Guided Meditation", note: "Violet Flame, Gold Light & more", img: "/images/features/meditation.webp" },
+  { screen: "relaxsleep", name: "Relaxation & Sleep", note: "Drift into deep, easy rest", img: "/images/features/relaxsleep.webp" },
+  { screen: "playlist", name: "My Playlist", note: "Your favourites in one place", img: "/images/features/playlist.webp" },
 ];
+const ARCHANGEL_FACES = [
+  "/images/angels/archangel-michael.webp",
+  "/images/angels/archangel-gabriel.webp",
+  "/images/angels/archangel-raphael-1.webp",
+  "/images/angels/archangel-uriel-1.webp",
+  "/images/angels/archangel-chamuel.webp",
+  "/images/angels/archangel-jophiel.webp",
+  "/images/angels/archangel-zadkiel.webp",
+];
+const ComingSoonScreen = ({ title, note, img }) => (
+  <div className="fade-up" style={{ maxWidth: 460, margin: "0 auto", textAlign: "center" }}>
+    <Eyebrow>Coming soon</Eyebrow>
+    <H>{title}</H>
+    {img && <img src={img} alt="" style={{ width: "100%", maxWidth: 300, borderRadius: 18, margin: "18px auto", display: "block", boxShadow: "0 12px 34px rgba(0,0,0,.5)" }} />}
+    <p className="lum-serif" style={{ color: T.dim, fontSize: 15, fontStyle: "italic", lineHeight: 1.75 }}>{note}</p>
+  </div>
+);
 
 const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
   const [daily, setDaily] = useState(null);
@@ -5085,17 +5104,14 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             </div>
           )}
         </Panel>
-        <Panel hover onClick={() => { pendingAngelDraw = true; go("angels"); }} style={{ marginBottom: 14, padding: 0, overflow: "hidden", borderColor: "#9cb8ee44", background: "linear-gradient(160deg, #141b33, #0e0e1c)" }}>
-          <div style={{ display: "flex", alignItems: "stretch", minHeight: 96 }}>
-            <div style={{ position: "relative", width: 104, flexShrink: 0 }}>
-              <img src="/images/angels/archangel-michael.webp" alt="Archangel Michael" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 24%" }} />
-              <div aria-hidden style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(14,14,28,0) 50%, #10101d 98%)" }} />
-            </div>
-            <div style={{ padding: "15px 18px", flex: 1 }}>
-              <Eyebrow colour="#9cb8ee">Daily Angel Card · Free</Eyebrow>
-              <div className="lum-serif" style={{ fontSize: 21, color: T.ink }}>Which angel walks with you today?</div>
-              <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Seven cards shuffle in the heavens — one steps forward ✧</div>
-            </div>
+        <Panel hover onClick={() => { pendingAngelDraw = true; go("angels"); }} style={{ marginBottom: 14, padding: "15px 18px", borderColor: "#9cb8ee44", background: "linear-gradient(160deg, #141b33, #0e0e1c)" }}>
+          <Eyebrow colour="#9cb8ee">Archangel Messages · Free</Eyebrow>
+          <div className="lum-serif" style={{ fontSize: 21, color: T.ink, marginTop: 2 }}>Allow the angels to guide you</div>
+          <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4, marginBottom: 12 }}>Seven archangels shuffle in the heavens — draw a card and receive a gentle message ✧</div>
+          <div style={{ display: "flex", gap: 6 }}>
+            {ARCHANGEL_FACES.map((src, i) => (
+              <img key={i} src={src} alt="" loading="lazy" style={{ flex: 1, minWidth: 0, aspectRatio: "1", objectFit: "cover", objectPosition: "50% 18%", borderRadius: 10, border: "1px solid rgba(156,184,238,.3)" }} />
+            ))}
           </div>
         </Panel>
         <div style={{ marginBottom: 14 }}>
@@ -5114,7 +5130,7 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             <div aria-hidden style={{ display: "flex", alignItems: "center", justifyContent: "center", aspectRatio: "3 / 4", borderRadius: 15, border: "1px dashed rgba(201,168,76,.35)", background: "rgba(201,168,76,.05)" }}>
               <div style={{ textAlign: "center", padding: 8 }}>
                 <div style={{ fontSize: 30, marginBottom: 6, opacity: .85 }}>🦄</div>
-                <div className="lum-serif" style={{ fontSize: 15, color: T.ink }}>Mystical Beings</div>
+                <div className="lum-serif" style={{ fontSize: 15, color: T.ink }}>Mystical Realm</div>
                 <div className="lum-sans" style={{ fontSize: 10, letterSpacing: ".08em", color: T.goldHi, marginTop: 2 }}>coming soon</div>
               </div>
             </div>
@@ -5282,6 +5298,8 @@ export default function Luminae() {
     oceanoracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} cards={OCEAN_CARDS} comboSet={[]} folder="ocean" eyebrow="Whispers of the Deep" title="Whispers of the Deep" intro="Twenty-two cards from the ocean realm — mermaids, dolphins, whales, otters and the tides. Every draw is a true shuffle, so the whisper that surfaces is the one meant for this moment." spreadReason="The three-card ocean spread awaits in Illuminate." />,
     gaiaoracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} cards={GAIA_CARDS} comboSet={[]} folder="gaia" eyebrow="Gaia Oracle" title="The Gaia Oracle" intro="Thirty-three cards of the living Earth — the sun and moon, the seasons and storms, trees, rivers and mountains. Every draw is a true shuffle, so the whisper of nature that rises is the one meant for this moment." spreadReason="The three-card Gaia spread awaits in Illuminate." />,
     crystals: <CrystalScreen paid={paid} askUpgrade={askUpgrade} />,
+    relaxsleep: <ComingSoonScreen title="Relaxation & Sleep" img="/images/features/relaxsleep.webp" note="Soothing music and sleep meditations are being lovingly recorded — drifting your way very soon. 🌙" />,
+    playlist: <ComingSoonScreen title="My Playlist" img="/images/features/playlist.webp" note="A place to gather your favourite sounds and meditations, all in one spot — coming soon. 💫" />,
     iris: <VisionScreen kind="iris" paid={paid} askUpgrade={askUpgrade} />,
     palm: <VisionScreen kind="palm" paid={paid} askUpgrade={askUpgrade} />,
     more: (
