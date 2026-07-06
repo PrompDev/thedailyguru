@@ -2080,6 +2080,10 @@ const GlobalStyle = () => (
     @keyframes sparkleDrift { 0% { transform: translate(0, 0) scale(.3); opacity: 0; } 22% { opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) scale(1); opacity: 0; } }
     @keyframes inkIn { from { opacity: 0; filter: blur(6px); transform: translateY(4px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
     @keyframes bloomFull { from { transform: scale(.15); border-radius: 22px; opacity: .3; } to { transform: scale(1); border-radius: 0; opacity: 1; } }
+    .deck-tile { transition: transform .18s ease, box-shadow .18s ease; }
+    .deck-tile:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,.55); }
+    .deck-tile:active { transform: scale(.975); }
+    @media (prefers-reduced-motion: reduce) { .deck-tile { transition: none; } }
     @keyframes haloPulse { 0%, 100% { transform: scale(1); opacity: .5; } 50% { transform: scale(1.16); opacity: .95; } }
     .ink-word { display: inline-block; animation: inkIn .6s ease both; margin-right: .3em; }
     .fade-up { animation: fadeUp .6s ease both; }
@@ -5019,6 +5023,14 @@ const Interstitial = ({ onDone }) => {
 /* ============================================================
    HOME
    ============================================================ */
+const DECK_SHOWCASE = [
+  { screen: "oracle", name: "Luminae Oracle", count: "44 cards", img: "/images/oracle/cleansing-rain.webp" },
+  { screen: "fairyoracle", name: "Fairy Oracle", count: "44 cards", img: "/images/fairy/the-blossom-festival.webp" },
+  { screen: "oceanoracle", name: "Whispers of the Deep", count: "22 cards", img: "/images/ocean/the-mermaids-mirror.webp" },
+  { screen: "gaiaoracle", name: "Gaia Oracle", count: "33 cards", img: "/images/gaia/the-living-earth.webp" },
+  { screen: "tarot", name: "Tarot", count: "78 cards", img: "/images/tarot/majors/the-star.webp" },
+];
+
 const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
   const [daily, setDaily] = useState(null);
   const [dailyText, setDailyText] = useState(""); const [loading, setLoading] = useState(false);
@@ -5078,11 +5090,28 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             </div>
           </div>
         </Panel>
-        <Panel hover onClick={() => go("oracle")} style={{ marginBottom: 14, padding: "15px 18px", borderColor: T.violet + "44", background: "linear-gradient(160deg, #1d1633, #0e0e1c)" }}>
-          <Eyebrow colour={T.violet}>Oracle Cards · Free</Eyebrow>
-          <div className="lum-serif" style={{ fontSize: 21, color: T.ink }}>Draw from the Luminae deck</div>
-          <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Forty-four cards, truly shuffled — pull one whenever your heart asks ✧</div>
-        </Panel>
+        <div style={{ marginBottom: 14 }}>
+          <Eyebrow colour={T.gold}>Choose your deck · all Free</Eyebrow>
+          <div className="lum-serif" style={{ fontSize: 21, color: T.ink, marginBottom: 12 }}>Tarot &amp; Oracle Readings</div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 11 }}>
+            {DECK_SHOWCASE.map((d) => (
+              <button key={d.screen} onClick={() => go(d.screen)} aria-label={`Open ${d.name}`} className="deck-tile" style={{ position: "relative", border: "none", padding: 0, borderRadius: 15, overflow: "hidden", cursor: "pointer", aspectRatio: "3 / 4", background: "#0e0e1e", boxShadow: "0 8px 22px rgba(0,0,0,.4)" }}>
+                <img src={d.img} alt={d.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "26px 12px 11px", textAlign: "left", background: "linear-gradient(transparent, rgba(6,6,16,.93) 64%)" }}>
+                  <div className="lum-serif" style={{ fontSize: 15, color: "#fff", lineHeight: 1.15 }}>{d.name}</div>
+                  <div className="lum-sans" style={{ fontSize: 10, letterSpacing: ".08em", color: T.goldHi, marginTop: 2 }}>{d.count} · Draw →</div>
+                </div>
+              </button>
+            ))}
+            <div aria-hidden style={{ display: "flex", alignItems: "center", justifyContent: "center", aspectRatio: "3 / 4", borderRadius: 15, border: "1px dashed rgba(201,168,76,.35)", background: "rgba(201,168,76,.05)" }}>
+              <div style={{ textAlign: "center", padding: 8 }}>
+                <div style={{ fontSize: 30, marginBottom: 6, opacity: .85 }}>🦄</div>
+                <div className="lum-serif" style={{ fontSize: 15, color: T.ink }}>Mystical Beings</div>
+                <div className="lum-sans" style={{ fontSize: 10, letterSpacing: ".08em", color: T.goldHi, marginTop: 2 }}>coming soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           <Panel hover onClick={() => go("crystals")} style={{ padding: 16 }}>
             <Eyebrow colour={T.sage}>Today's Crystal</Eyebrow>
