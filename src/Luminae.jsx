@@ -5150,6 +5150,17 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
               </button>
             ))}
           </div>
+          <button onClick={() => go("dreams")} aria-label="Open Dream Journal" className="deck-tile" style={{ display: "flex", alignItems: "stretch", width: "100%", marginTop: 11, padding: 0, border: "1px solid #9a86d044", borderRadius: 15, overflow: "hidden", cursor: "pointer", background: "linear-gradient(160deg, #191333, #0e0e1c)", textAlign: "left" }}>
+            <div style={{ position: "relative", width: 116, flexShrink: 0 }}>
+              <img src="/images/features/dreamjournal.webp" alt="Dream Journal" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+              <div aria-hidden style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(14,14,28,0) 50%, #100e1d 98%)" }} />
+            </div>
+            <div style={{ padding: "14px 16px", flex: 1, alignSelf: "center" }}>
+              <Eyebrow colour="#b9a3f0">Dream Journal</Eyebrow>
+              <div className="lum-serif" style={{ fontSize: 20, color: T.ink }}>Capture your dreams</div>
+              <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Write them down and explore what they may mean ✧</div>
+            </div>
+          </button>
         </div>
         <div style={{ marginBottom: 14 }}>
           <Eyebrow colour={T.teal}>Sound &amp; Meditation</Eyebrow>
