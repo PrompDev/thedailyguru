@@ -2138,7 +2138,7 @@ const Panel = ({ children, style, onClick, hover }) => (
 );
 
 const Eyebrow = ({ children, colour = T.gold }) => (
-  <div className="lum-sans" style={{ fontSize: 11, letterSpacing: ".22em", textTransform: "uppercase", color: colour, marginBottom: 8 }}>{children}</div>
+  <div className="lum-sans" style={{ fontSize: 12, letterSpacing: ".22em", textTransform: "uppercase", color: colour, marginBottom: 8 }}>{children}</div>
 );
 
 const H = ({ children, size = 30, style }) => (
@@ -2146,13 +2146,13 @@ const H = ({ children, size = 30, style }) => (
 );
 
 const LockTag = () => (
-  <span className="lum-sans" style={{ fontSize: 10, letterSpacing: ".14em", color: T.goldHi, border: `1px solid ${T.gold}66`, borderRadius: 12, padding: "3px 9px", textTransform: "uppercase" }}>🔒 Illuminate</span>
+  <span className="lum-sans" style={{ fontSize: 11, letterSpacing: ".14em", color: T.goldHi, border: `1px solid ${T.gold}66`, borderRadius: 12, padding: "3px 9px", textTransform: "uppercase" }}>🔒 Illuminate</span>
 );
 
 const HomeBtn = ({ onClick }) => (
   <button onClick={onClick} className="lum-sans" aria-label="Back to home" style={{
     position: "fixed", top: 10, left: 12, zIndex: 999, cursor: "pointer",
-    fontSize: 11.5, letterSpacing: ".08em", color: T.goldHi,
+    fontSize: 12.5, letterSpacing: ".08em", color: T.goldHi,
     background: "rgba(13,13,26,.6)", border: "1px solid rgba(201,168,76,.4)",
     borderRadius: 10, padding: "4px 12px", backdropFilter: "blur(6px)",
   }}>✧ Home</button>
@@ -2170,7 +2170,7 @@ const VersionBadge = ({ onReveal }) => {
   return (
     <div onClick={hit} className="lum-sans" style={{
       position: "fixed", top: 10, right: 12, zIndex: 999, pointerEvents: "auto", cursor: "default", userSelect: "none",
-      fontSize: 10.5, letterSpacing: ".03em", color: T.faint,
+      fontSize: 11.5, letterSpacing: ".03em", color: T.faint,
       background: "rgba(13,13,26,.55)", border: "1px solid rgba(201,168,76,.18)",
       borderRadius: 10, padding: "3px 9px",
     }}>v{__APP_VERSION__} · {stamp}</div>
@@ -2178,7 +2178,7 @@ const VersionBadge = ({ onReveal }) => {
 };
 
 const Back = ({ onClick, label = "Back" }) => (
-  <button onClick={onClick} className="lum-sans" style={{ background: "none", border: "none", color: T.dim, fontSize: 13, cursor: "pointer", padding: "6px 0", letterSpacing: ".06em", marginBottom: 6 }}>← {label}</button>
+  <button onClick={onClick} className="lum-sans" style={{ background: "none", border: "none", color: T.dim, fontSize: 14, cursor: "pointer", padding: "6px 0", letterSpacing: ".06em", marginBottom: 6 }}>← {label}</button>
 );
 
 const Channeling = ({ text = "Channeling your reading…" }) => (
@@ -2189,12 +2189,12 @@ const Channeling = ({ text = "Channeling your reading…" }) => (
       animation: "orbBreath 2.6s ease-in-out infinite",
     }} />
     <div className="lum-serif" style={{ color: T.goldHi, fontSize: 20, fontStyle: "italic" }}>{text}</div>
-    <div className="lum-sans" style={{ color: T.faint, fontSize: 12, marginTop: 8 }}>Held in golden light, for the highest good of all</div>
+    <div className="lum-sans" style={{ color: T.faint, fontSize: 13, marginTop: 8 }}>Held in golden light, for the highest good of all</div>
   </div>
 );
 
 const ReadingText = ({ text }) => (
-  <div className="lum-sans fade-up" style={{ color: T.ink, fontSize: 15, lineHeight: 1.85, whiteSpace: "pre-wrap" }}>
+  <div className="lum-sans fade-up" style={{ color: T.ink, fontSize: 16, lineHeight: 1.85, whiteSpace: "pre-wrap" }}>
     {text.split(/\n{2,}/).map((p, i) => <p key={i} style={{ margin: "0 0 16px" }}>{p.replace(/^#+\s*/gm, "")}</p>)}
   </div>
 );
@@ -2254,7 +2254,7 @@ const TarotCard = ({ card, deck, label, delay = 0, w = 108, rev = false }) => {
         <div className="lum-serif" style={{ fontSize: Math.max(10.5, w * 0.1), color: T.ink, lineHeight: 1.2, padding: "0 2px 2px" }}>{card.name}</div>
       </div>
     </div>
-    {(label || rev) && <div className="lum-sans" style={{ fontSize: 11, color: T.gold, marginTop: 9, letterSpacing: ".1em", textTransform: "uppercase" }}>{label}{label && rev ? " · " : ""}{rev && <span style={{ color: T.rose }}>Reversed ⟲</span>}</div>}
+    {(label || rev) && <div className="lum-sans" style={{ fontSize: 12, color: T.gold, marginTop: 9, letterSpacing: ".1em", textTransform: "uppercase" }}>{label}{label && rev ? " · " : ""}{rev && <span style={{ color: T.rose }}>Reversed ⟲</span>}</div>}
   </div>
   );
 };
@@ -2341,7 +2341,7 @@ const SpeakBtn = ({ text, colour = T.goldHi, slow, label = "🕊 Hear it spoken 
     if (c) { ctl.current = c; setOn(true); onStart && onStart(); }
   };
   return (
-    <button onClick={toggle} className="lum-sans" style={{ background: "none", border: `1px solid ${colour}55`, color: colour, borderRadius: 18, padding: "7px 16px", fontSize: 12, cursor: "pointer", letterSpacing: ".05em" }}>
+    <button onClick={toggle} className="lum-sans" style={{ background: "none", border: `1px solid ${colour}55`, color: colour, borderRadius: 18, padding: "7px 16px", fontSize: 13, cursor: "pointer", letterSpacing: ".05em" }}>
       {on ? "◼ Rest the voice" : label}
     </button>
   );
@@ -2370,7 +2370,7 @@ const OracleOrb = ({ size = 150, tint = "#e8c97a", onClick, label }) => {
   return (
     <button onClick={onClick} aria-label={label} style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}>
       {body}
-      {label && <div className="lum-sans" style={{ color: T.faint, fontSize: 11.5, letterSpacing: ".18em", marginTop: 4, textTransform: "uppercase" }}>{label}</div>}
+      {label && <div className="lum-sans" style={{ color: T.faint, fontSize: 12.5, letterSpacing: ".18em", marginTop: 4, textTransform: "uppercase" }}>{label}</div>}
     </button>
   );
 };
@@ -2411,7 +2411,7 @@ const SacredGate = ({ onReady, first }) => (
       </p>
       <div style={{ marginBottom: 22 }}><SpeakBtn text={PROTECTION_PRAYER} /></div>
       <Btn onClick={() => { stopSpeaking(); onReady(); }}>I am ready</Btn>
-      {first && <div className="lum-sans" style={{ color: T.faint, fontSize: 12, marginTop: 18 }}>Luminae is a sacred space. Every reading opens in protection.</div>}
+      {first && <div className="lum-sans" style={{ color: T.faint, fontSize: 13, marginTop: 18 }}>Luminae is a sacred space. Every reading opens in protection.</div>}
     </div>
   </div>
 );
@@ -2460,7 +2460,7 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
       <Back onClick={() => setStage("spreads")} />
       <Eyebrow>Your Deck</Eyebrow>
       <H>Choose your companion</H>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 14, marginBottom: 20 }}>All artwork is original to Luminae. Switch any time.</p>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 15, marginBottom: 20 }}>All artwork is original to Luminae. Switch any time.</p>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {DECKS.map((d) => {
           const locked = !d.free && !paid;
@@ -2471,9 +2471,9 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
               <div style={{ height: 86, borderRadius: 10, background: `linear-gradient(150deg, ${d.g1}, ${d.g2})`, border: `1px solid ${d.frame}66`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 10 }}>
                 <span className="lum-serif" style={{ color: d.frame, fontSize: 26 }}>✧ ✦ ✧</span>
               </div>
-              <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>{d.name} {active && <span style={{ color: T.goldHi, fontSize: 13 }}>· chosen</span>}</div>
-              <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, margin: "4px 0 8px", lineHeight: 1.45 }}>{d.desc}</div>
-              {locked ? <LockTag /> : <span className="lum-sans" style={{ fontSize: 10, color: T.sage, letterSpacing: ".12em" }}>FREE</span>}
+              <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>{d.name} {active && <span style={{ color: T.goldHi, fontSize: 14 }}>· chosen</span>}</div>
+              <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, margin: "4px 0 8px", lineHeight: 1.45 }}>{d.desc}</div>
+              {locked ? <LockTag /> : <span className="lum-sans" style={{ fontSize: 11, color: T.sage, letterSpacing: ".12em" }}>FREE</span>}
             </Panel>
           );
         })}
@@ -2486,23 +2486,23 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
       <Back onClick={() => setStage("spreads")} />
       <Eyebrow>{spread.name}</Eyebrow>
       <H>Set your intention</H>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 14, lineHeight: 1.7 }}>{spread.note} Hold your question gently in your heart, or simply remain open.</p>
-      {spread.deep && <p className="lum-serif" style={{ color: T.rose, fontStyle: "italic", fontSize: 16 }}>This is a powerful spread — save it for important moments.</p>}
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7 }}>{spread.note} Hold your question gently in your heart, or simply remain open.</p>
+      {spread.deep && <p className="lum-serif" style={{ color: T.rose, fontStyle: "italic", fontSize: 17 }}>This is a powerful spread — save it for important moments.</p>}
       <textarea value={intention} onChange={(e) => setIntention(e.target.value)} rows={3} placeholder="What is on your heart? (optional)"
-        className="lum-sans" style={{ width: "100%", background: T.card2, border: "1px solid rgba(201,168,76,.25)", borderRadius: 12, color: T.ink, padding: 14, fontSize: 14, resize: "vertical", marginTop: 14 }} />
+        className="lum-sans" style={{ width: "100%", background: T.card2, border: "1px solid rgba(201,168,76,.25)", borderRadius: 12, color: T.ink, padding: 14, fontSize: 15, resize: "vertical", marginTop: 14 }} />
       <button onClick={() => setMajorsOnly((v) => !v)} aria-pressed={majorsOnly} className="lum-sans" style={{ width: "100%", marginTop: 16, textAlign: "left", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "11px 15px", borderRadius: 12, cursor: "pointer", background: T.card2, border: `1px solid ${majorsOnly ? T.goldHi : "rgba(201,168,76,.25)"}` }}>
         <span>
-          <span className="lum-serif" style={{ display: "block", fontSize: 15, color: T.ink }}>Major Arcana only</span>
-          <span className="lum-sans" style={{ fontSize: 11.5, color: T.dim }}>Read with just the 22 great archetypes</span>
+          <span className="lum-serif" style={{ display: "block", fontSize: 16, color: T.ink }}>Major Arcana only</span>
+          <span className="lum-sans" style={{ fontSize: 12.5, color: T.dim }}>Read with just the 22 great archetypes</span>
         </span>
-        <span className="lum-sans" style={{ flexShrink: 0, fontSize: 11.5, letterSpacing: ".1em", textTransform: "uppercase", color: majorsOnly ? "#0b0a14" : T.dim, background: majorsOnly ? T.goldHi : "transparent", border: `1px solid ${majorsOnly ? T.goldHi : T.dim}`, borderRadius: 20, padding: "4px 13px" }}>{majorsOnly ? "On" : "Off"}</span>
+        <span className="lum-sans" style={{ flexShrink: 0, fontSize: 12.5, letterSpacing: ".1em", textTransform: "uppercase", color: majorsOnly ? "#0b0a14" : T.dim, background: majorsOnly ? T.goldHi : "transparent", border: `1px solid ${majorsOnly ? T.goldHi : T.dim}`, borderRadius: 20, padding: "4px 13px" }}>{majorsOnly ? "On" : "Off"}</span>
       </button>
       <button onClick={() => setReversals((v) => !v)} aria-pressed={reversals} className="lum-sans" style={{ width: "100%", marginTop: 10, textAlign: "left", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "11px 15px", borderRadius: 12, cursor: "pointer", background: T.card2, border: `1px solid ${reversals ? T.goldHi : "rgba(201,168,76,.25)"}` }}>
         <span>
-          <span className="lum-serif" style={{ display: "block", fontSize: 15, color: T.ink }}>Read reversals</span>
-          <span className="lum-sans" style={{ fontSize: 11.5, color: T.dim }}>Let some cards fall reversed, for shadow &amp; nuance</span>
+          <span className="lum-serif" style={{ display: "block", fontSize: 16, color: T.ink }}>Read reversals</span>
+          <span className="lum-sans" style={{ fontSize: 12.5, color: T.dim }}>Let some cards fall reversed, for shadow &amp; nuance</span>
         </span>
-        <span className="lum-sans" style={{ flexShrink: 0, fontSize: 11.5, letterSpacing: ".1em", textTransform: "uppercase", color: reversals ? "#0b0a14" : T.dim, background: reversals ? T.goldHi : "transparent", border: `1px solid ${reversals ? T.goldHi : T.dim}`, borderRadius: 20, padding: "4px 13px" }}>{reversals ? "On" : "Off"}</span>
+        <span className="lum-sans" style={{ flexShrink: 0, fontSize: 12.5, letterSpacing: ".1em", textTransform: "uppercase", color: reversals ? "#0b0a14" : T.dim, background: reversals ? T.goldHi : "transparent", border: `1px solid ${reversals ? T.goldHi : T.dim}`, borderRadius: 20, padding: "4px 13px" }}>{reversals ? "On" : "Off"}</span>
       </button>
       <div style={{ marginTop: 18 }}><Btn onClick={draw}>Enter the reading ✧</Btn></div>
     </div>
@@ -2512,14 +2512,14 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
     <div className="fade-up">
       <Back onClick={() => setStage("spreads")} label="New reading" />
       <Eyebrow>{spread.name}</Eyebrow>
-      {intention && <p className="lum-serif" style={{ color: T.moon, fontStyle: "italic", fontSize: 16, margin: "0 0 18px" }}>“{intention}”</p>}
+      {intention && <p className="lum-serif" style={{ color: T.moon, fontStyle: "italic", fontSize: 17, margin: "0 0 18px" }}>“{intention}”</p>}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", margin: "10px 0 26px" }}>
         {drawn.map((c, i) => <TarotCard key={i} card={c} deck={deck} rev={c.rev} label={spread.pos[i]} delay={i * 0.25} w={drawn.length > 5 ? 84 : 104} />)}
       </div>
       {loading ? <Channeling /> : err ? (
         <Panel style={{ borderColor: T.rose + "55" }}>
-          <p className="lum-sans" style={{ color: T.ink, fontSize: 14, lineHeight: 1.7, margin: 0 }}>{err}</p>
-          <div style={{ marginTop: 12 }}>{drawn.map((c, i) => <div key={i} className="lum-sans" style={{ color: T.dim, fontSize: 13, margin: "4px 0" }}><b style={{ color: T.gold }}>{spread.pos[i]}</b> · {c.name} — {c.keys}</div>)}</div>
+          <p className="lum-sans" style={{ color: T.ink, fontSize: 15, lineHeight: 1.7, margin: 0 }}>{err}</p>
+          <div style={{ marginTop: 12 }}>{drawn.map((c, i) => <div key={i} className="lum-sans" style={{ color: T.dim, fontSize: 14, margin: "4px 0" }}><b style={{ color: T.gold }}>{spread.pos[i]}</b> · {c.name} — {c.keys}</div>)}</div>
         </Panel>
       ) : <Panel style={{ padding: 26 }}><ReadingText text={reading} /></Panel>}
       <div style={{ marginTop: 24 }}><Eyebrow>Each card's meaning</Eyebrow></div>
@@ -2528,25 +2528,25 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
           const m = MAJOR_MEANINGS[c.name] || MINOR_MEANINGS[c.name];
           return (
             <Panel key={i} style={{ padding: "14px 18px", borderColor: T.gold + "33" }}>
-              <div className="lum-sans" style={{ fontSize: 10.5, color: T.gold, letterSpacing: ".14em", textTransform: "uppercase" }}>{spread.pos[i]}</div>
-              <div className="lum-serif" style={{ fontSize: 18, color: T.ink, margin: "2px 0 6px" }}>{c.name}{c.rev && <span className="lum-sans" style={{ color: T.rose, fontSize: 11.5, letterSpacing: ".08em", textTransform: "uppercase", marginLeft: 9 }}>Reversed ⟲</span>}</div>
+              <div className="lum-sans" style={{ fontSize: 11.5, color: T.gold, letterSpacing: ".14em", textTransform: "uppercase" }}>{spread.pos[i]}</div>
+              <div className="lum-serif" style={{ fontSize: 18, color: T.ink, margin: "2px 0 6px" }}>{c.name}{c.rev && <span className="lum-sans" style={{ color: T.rose, fontSize: 12.5, letterSpacing: ".08em", textTransform: "uppercase", marginLeft: 9 }}>Reversed ⟲</span>}</div>
               {m ? (
                 <>
-                  <p className="lum-serif" style={{ fontSize: 15, fontStyle: "italic", color: T.goldHi, lineHeight: 1.5, margin: "0 0 9px" }}>{m.essence}</p>
+                  <p className="lum-serif" style={{ fontSize: 16, fontStyle: "italic", color: T.goldHi, lineHeight: 1.5, margin: "0 0 9px" }}>{m.essence}</p>
                   {c.rev ? (
                     <>
-                      <p className="lum-serif" style={{ fontSize: 14, color: T.ink, lineHeight: 1.68, margin: "0 0 9px" }}><b style={{ color: T.rose }}>Reversed · </b>{m.reversed}</p>
-                      <p className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6, margin: 0 }}><b style={{ color: T.gold }}>Upright · </b>{m.upright}</p>
+                      <p className="lum-serif" style={{ fontSize: 15, color: T.ink, lineHeight: 1.68, margin: "0 0 9px" }}><b style={{ color: T.rose }}>Reversed · </b>{m.reversed}</p>
+                      <p className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.6, margin: 0 }}><b style={{ color: T.gold }}>Upright · </b>{m.upright}</p>
                     </>
                   ) : (
                     <>
-                      <p className="lum-serif" style={{ fontSize: 14, color: T.ink, lineHeight: 1.68, margin: "0 0 9px" }}>{m.upright}</p>
-                      <p className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6, margin: 0 }}><b style={{ color: T.rose }}>Reversed · </b>{m.reversed}</p>
+                      <p className="lum-serif" style={{ fontSize: 15, color: T.ink, lineHeight: 1.68, margin: "0 0 9px" }}>{m.upright}</p>
+                      <p className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.6, margin: 0 }}><b style={{ color: T.rose }}>Reversed · </b>{m.reversed}</p>
                     </>
                   )}
                 </>
               ) : (
-                <p className="lum-sans" style={{ fontSize: 13, color: T.dim, lineHeight: 1.5, margin: 0 }}>{c.keys}</p>
+                <p className="lum-sans" style={{ fontSize: 14, color: T.dim, lineHeight: 1.5, margin: 0 }}>{c.keys}</p>
               )}
             </Panel>
           );
@@ -2563,21 +2563,21 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
       <div style={{ display: "grid", gap: 12, marginTop: 16 }}>
         <Panel style={{ padding: "16px 18px" }}>
           <Eyebrow colour={T.gold}>Begin in stillness</Eyebrow>
-          <p className="lum-serif" style={{ color: T.ink, fontSize: 14.5, lineHeight: 1.7, margin: "6px 0 0" }}>Take a slow breath. Hold your question gently, or simply stay open — the cards answer a soft heart, not a demand. There are no wrong cards.</p>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 15.5, lineHeight: 1.7, margin: "6px 0 0" }}>Take a slow breath. Hold your question gently, or simply stay open — the cards answer a soft heart, not a demand. There are no wrong cards.</p>
         </Panel>
         <Panel style={{ padding: "16px 18px" }}>
           <Eyebrow colour={T.gold}>Upright &amp; reversed</Eyebrow>
-          <p className="lum-serif" style={{ color: T.ink, fontSize: 14.5, lineHeight: 1.7, margin: "6px 0 0" }}>A card drawn upright speaks in its fullest, most open voice. A <b>reversed</b> card (turned upside-down) is the same energy turned inward — blocked, softening, or still becoming. Never a curse, only a different shade of the same truth. You choose: flip <b>“Read reversals”</b> on or off before any reading.</p>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 15.5, lineHeight: 1.7, margin: "6px 0 0" }}>A card drawn upright speaks in its fullest, most open voice. A <b>reversed</b> card (turned upside-down) is the same energy turned inward — blocked, softening, or still becoming. Never a curse, only a different shade of the same truth. You choose: flip <b>“Read reversals”</b> on or off before any reading.</p>
         </Panel>
         <Panel style={{ padding: "16px 18px", borderColor: T.violet + "55" }}>
           <Eyebrow colour={T.violet}>Trust your intuition first</Eyebrow>
-          <p className="lum-serif" style={{ color: T.ink, fontSize: 14.5, lineHeight: 1.7, margin: "6px 0 0" }}>The meanings here are a doorway, never a verdict. If a card stirs a feeling, a memory, or a sudden knowing the moment you see it — <b>trust that</b>. Your intuition knows your life; the words only know the card. When the two disagree, follow your inner voice.</p>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 15.5, lineHeight: 1.7, margin: "6px 0 0" }}>The meanings here are a doorway, never a verdict. If a card stirs a feeling, a memory, or a sudden knowing the moment you see it — <b>trust that</b>. Your intuition knows your life; the words only know the card. When the two disagree, follow your inner voice.</p>
         </Panel>
         <Panel style={{ padding: "16px 18px" }}>
           <Eyebrow colour={T.gold}>Let the cards talk to each other</Eyebrow>
-          <p className="lum-serif" style={{ color: T.ink, fontSize: 14.5, lineHeight: 1.7, margin: "6px 0 0" }}>A reading is a conversation, not a list. Notice the story the cards tell together — and the one image or word that won’t quite let you go. That is usually the message.</p>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 15.5, lineHeight: 1.7, margin: "6px 0 0" }}>A reading is a conversation, not a list. Notice the story the cards tell together — and the one image or word that won’t quite let you go. That is usually the message.</p>
         </Panel>
-        <p className="lum-serif" style={{ color: T.faint, fontStyle: "italic", fontSize: 13.5, textAlign: "center", lineHeight: 1.7, marginTop: 4 }}>Tarot is a mirror for reflection, not a fixed fortune. You always hold the pen. ✧</p>
+        <p className="lum-serif" style={{ color: T.faint, fontStyle: "italic", fontSize: 14.5, textAlign: "center", lineHeight: 1.7, marginTop: 4 }}>Tarot is a mirror for reflection, not a fixed fortune. You always hold the pen. ✧</p>
       </div>
       <div style={{ marginTop: 20, textAlign: "center" }}><Btn onClick={() => setStage("spreads")}>Choose a spread ✧</Btn></div>
     </div>
@@ -2590,19 +2590,19 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
         <H>The cards await</H>
         <Btn kind="ghost" small onClick={() => setStage("decks")}>Deck: {deck.name} ✧</Btn>
       </div>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 14, marginBottom: 20 }}>Choose a spread, beloved seeker.</p>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 15, marginBottom: 20 }}>Choose a spread, beloved seeker.</p>
       <div style={{ display: "grid", gap: 12 }}>
         {SPREADS.map((sp) => (
           <Panel key={sp.id} hover onClick={() => begin(sp)} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px" }}>
             <div>
               <div className="lum-serif" style={{ fontSize: 20, color: T.ink }}>{sp.name}</div>
-              <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 3 }}>{sp.cards} card{sp.cards > 1 ? "s" : ""} · {sp.note}</div>
+              <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, marginTop: 3 }}>{sp.cards} card{sp.cards > 1 ? "s" : ""} · {sp.note}</div>
             </div>
             {!sp.free && !paid ? <LockTag /> : <span style={{ color: T.gold, fontSize: 18 }}>→</span>}
           </Panel>
         ))}
       </div>
-      <button onClick={() => setStage("guide")} className="lum-sans" style={{ width: "100%", marginTop: 16, padding: "12px", borderRadius: 12, cursor: "pointer", background: "transparent", border: "1px dashed rgba(201,168,76,.35)", color: T.gold, fontSize: 13, letterSpacing: ".04em" }}>✧ New to tarot? How to read your cards</button>
+      <button onClick={() => setStage("guide")} className="lum-sans" style={{ width: "100%", marginTop: 16, padding: "12px", borderRadius: 12, cursor: "pointer", background: "transparent", border: "1px dashed rgba(201,168,76,.35)", color: T.gold, fontSize: 14, letterSpacing: ".04em" }}>✧ New to tarot? How to read your cards</button>
     </div>
   );
 };
@@ -2612,7 +2612,7 @@ const TarotScreen = ({ paid, deckId, setDeckId, requestRitual, askUpgrade, onAft
    ============================================================ */
 /* ---------------- The Library reader & learn-more buttons ---------------- */
 const LearnBtn = ({ id, onOpen, children }) => (
-  <button onClick={() => onOpen(id)} className="lum-sans" style={{ background: "rgba(232,201,122,.07)", border: "1px solid rgba(232,201,122,.35)", borderRadius: 20, color: T.goldHi, fontSize: 12, padding: "7px 14px", cursor: "pointer", letterSpacing: ".05em" }}>
+  <button onClick={() => onOpen(id)} className="lum-sans" style={{ background: "rgba(232,201,122,.07)", border: "1px solid rgba(232,201,122,.35)", borderRadius: 20, color: T.goldHi, fontSize: 13, padding: "7px 14px", cursor: "pointer", letterSpacing: ".05em" }}>
     📜 {children || "Learn more"} ✧
   </button>
 );
@@ -2624,7 +2624,7 @@ const ArticleOverlay = ({ id, onOpen, onClose }) => {
   return (
     <div className="fade-up" style={{ position: "fixed", inset: 0, zIndex: 96, background: "rgba(9,9,20,.985)", overflowY: "auto", padding: "24px 20px 70px" }}>
       <div style={{ maxWidth: 630, margin: "0 auto" }}>
-        <button onClick={onClose} className="lum-sans" style={{ background: "none", border: "none", color: T.dim, fontSize: 13, cursor: "pointer", padding: "6px 0", letterSpacing: ".06em", marginBottom: 6 }}>← Return</button>
+        <button onClick={onClose} className="lum-sans" style={{ background: "none", border: "none", color: T.dim, fontSize: 14, cursor: "pointer", padding: "6px 0", letterSpacing: ".06em", marginBottom: 6 }}>← Return</button>
         <Eyebrow colour={art.colour}>{art.cat} · The Library · {art.min} min</Eyebrow>
         <H size={30}>{art.title}</H>
         <div style={{ marginTop: 16 }}>
@@ -2632,15 +2632,15 @@ const ArticleOverlay = ({ id, onOpen, onClose }) => {
             ? <div key={i} className="lum-serif" style={{ color: T.goldHi, fontSize: 21, margin: "24px 0 8px" }}>{p.slice(3)}</div>
             : <p key={i} className="lum-serif" style={{ color: T.ink, fontSize: 17.5, lineHeight: 1.85, margin: "0 0 15px" }}>{p}</p>)}
         </div>
-        <div className="lum-sans" style={{ color: T.faint, fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", margin: "26px 0 10px" }}>Keep reading</div>
+        <div className="lum-sans" style={{ color: T.faint, fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", margin: "26px 0 10px" }}>Keep reading</div>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
           {related.map((a) => (
-            <button key={a.id} onClick={() => onOpen(a.id)} className="lum-sans" style={{ background: "rgba(233,230,242,.05)", border: `1px solid ${a.colour}44`, borderRadius: 14, color: T.ink, fontSize: 12.5, padding: "9px 14px", cursor: "pointer", textAlign: "left" }}>
+            <button key={a.id} onClick={() => onOpen(a.id)} className="lum-sans" style={{ background: "rgba(233,230,242,.05)", border: `1px solid ${a.colour}44`, borderRadius: 14, color: T.ink, fontSize: 13.5, padding: "9px 14px", cursor: "pointer", textAlign: "left" }}>
               <span style={{ color: a.colour }}>{a.cat}</span> · {a.title}
             </button>
           ))}
         </div>
-        <p className="lum-serif" style={{ fontStyle: "italic", color: T.faint, fontSize: 14, marginTop: 28 }}>From the Luminae Library — written for first steps and old souls alike. ✧</p>
+        <p className="lum-serif" style={{ fontStyle: "italic", color: T.faint, fontSize: 15, marginTop: 28 }}>From the Luminae Library — written for first steps and old souls alike. ✧</p>
         <Btn small onClick={onClose} style={{ marginTop: 4 }}>Return ✧</Btn>
       </div>
     </div>
@@ -2649,7 +2649,7 @@ const ArticleOverlay = ({ id, onOpen, onClose }) => {
 
 /* ---------------- Sign lore card ---------------- */
 const Chip = ({ label, value, hue }) => (
-  <div className="lum-sans" style={{ border: `1px solid ${hue}55`, background: `${hue}12`, borderRadius: 14, padding: "6px 12px", fontSize: 11.5, color: T.ink }}>
+  <div className="lum-sans" style={{ border: `1px solid ${hue}55`, background: `${hue}12`, borderRadius: 14, padding: "6px 12px", fontSize: 12.5, color: T.ink }}>
     <span style={{ color: hue, letterSpacing: ".1em", textTransform: "uppercase", fontSize: 9.5 }}>{label}</span> {value}
   </div>
 );
@@ -2660,10 +2660,10 @@ const SignLoreCard = ({ name }) => {
   const hue = ELEMENT_HUE[L.element];
   const row = (icon, label, text) => (
     <div style={{ display: "flex", gap: 10, alignItems: "flex-start", marginTop: 10 }}>
-      <span style={{ fontSize: 15, flexShrink: 0, width: 22, textAlign: "center" }}>{icon}</span>
+      <span style={{ fontSize: 16, flexShrink: 0, width: 22, textAlign: "center" }}>{icon}</span>
       <div>
-        <span className="lum-sans" style={{ fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: hue }}>{label}</span>
-        <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.6, marginTop: 1 }}>{text}</div>
+        <span className="lum-sans" style={{ fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", color: hue }}>{label}</span>
+        <div className="lum-sans" style={{ fontSize: 14.5, color: T.dim, lineHeight: 1.6, marginTop: 1 }}>{text}</div>
       </div>
     </div>
   );
@@ -2676,7 +2676,7 @@ const SignLoreCard = ({ name }) => {
         </div>
         <div>
           <div className="lum-serif" style={{ fontSize: 26, color: T.ink, textShadow: `0 0 22px ${hue}66` }}>{name}</div>
-          <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, letterSpacing: ".08em" }}>{L.dates}</div>
+          <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, letterSpacing: ".08em" }}>{L.dates}</div>
         </div>
       </div>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 14 }}>
@@ -2685,12 +2685,12 @@ const SignLoreCard = ({ name }) => {
         <Chip label="Ruler" value={L.ruler} hue={hue} />
         <Chip label="Stone" value={L.stone} hue={hue} />
       </div>
-      <p className="lum-serif" style={{ color: T.ink, fontSize: 16.5, fontStyle: "italic", lineHeight: 1.75, margin: "14px 0 4px" }}>{L.essence}</p>
+      <p className="lum-serif" style={{ color: T.ink, fontSize: 17.5, fontStyle: "italic", lineHeight: 1.75, margin: "14px 0 4px" }}>{L.essence}</p>
       {row("☀", "In their light", L.light)}
       {row("🌑", "Shadow work", L.shadow)}
       {row("💞", "In love", L.love)}
       {row("⚒", "In work", L.work)}
-      <div className="lum-serif" style={{ marginTop: 14, fontSize: 15.5, fontStyle: "italic", color: hue, textAlign: "center" }}>“{L.mantra}”</div>
+      <div className="lum-serif" style={{ marginTop: 14, fontSize: 16.5, fontStyle: "italic", color: hue, textAlign: "center" }}>“{L.mantra}”</div>
     </Panel>
   );
 };
@@ -2729,18 +2729,18 @@ const AstrologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
     <div className="fade-up" style={{ maxWidth: 580 }}>
       <Eyebrow colour={T.violet}>Astrology</Eyebrow>
       <H>Written in the stars</H>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5, lineHeight: 1.6 }}>Whether this is your first sky-map or your thousandth — the heavens hold a seat for you.</p>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 14.5, lineHeight: 1.6 }}>Whether this is your first sky-map or your thousandth — the heavens hold a seat for you.</p>
 
       <Panel style={{ margin: "16px 0", padding: 18, borderColor: T.violet + "44", background: "radial-gradient(130% 160% at 88% 0%, #b898e81c, transparent 55%), linear-gradient(165deg, #16152b, #0e0e1b)" }}>
-        <div className="lum-sans" style={{ fontSize: 11, color: T.dim, marginBottom: 10, letterSpacing: ".16em" }}>YOUR BIRTH DETAILS</div>
+        <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginBottom: 10, letterSpacing: ".16em" }}>YOUR BIRTH DETAILS</div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
           <input type="date" value={birth.dob} onChange={(e) => setBirth({ ...birth, dob: e.target.value })} className="lum-sans" style={inp} aria-label="Date of birth" />
           <input type="time" value={birth.time} onChange={(e) => setBirth({ ...birth, time: e.target.value })} className="lum-sans" style={inp} aria-label="Time of birth" />
           <input placeholder="Place of birth" value={birth.place} onChange={(e) => setBirth({ ...birth, place: e.target.value })} className="lum-sans" style={{ ...inp, gridColumn: "1 / -1" }} />
         </div>
         {sign && <div className="lum-serif" style={{ color: T.goldHi, fontSize: 20, marginTop: 12 }}>{sign.glyph} {sign.name} Sun</div>}
-        <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 6, lineHeight: 1.6 }}>{moon.icon} <span style={{ color: T.moon }}>{moon.name}</span> — {MOON_MEANINGS[moon.name]}</div>
-        {!birth.time && <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, marginTop: 8 }}>Add a birth time when you find it — it unlocks your Rising sign and houses. No time? You're still fully welcome here.</div>}
+        <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, marginTop: 6, lineHeight: 1.6 }}>{moon.icon} <span style={{ color: T.moon }}>{moon.name}</span> — {MOON_MEANINGS[moon.name]}</div>
+        {!birth.time && <div className="lum-sans" style={{ fontSize: 12.5, color: T.faint, marginTop: 8 }}>Add a birth time when you find it — it unlocks your Rising sign and houses. No time? You're still fully welcome here.</div>}
       </Panel>
 
       <div style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
@@ -2758,11 +2758,11 @@ const AstrologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
             <LearnBtn id="elements" onOpen={setArticle}>The four elements</LearnBtn>
           </div>
         </div>
-      ) : <p className="lum-sans" style={{ color: T.faint, fontSize: 14 }}>Enter your date of birth above, beloved — your sun sign will step forward.</p>)}
+      ) : <p className="lum-sans" style={{ color: T.faint, fontSize: 15 }}>Enter your date of birth above, beloved — your sun sign will step forward.</p>)}
 
       {tab === "twelve" && (
         <div style={{ display: "grid", gap: 14 }}>
-          <p className="lum-sans" style={{ color: T.dim, fontSize: 13 }}>Every sign, no gate — read for the people you love.</p>
+          <p className="lum-sans" style={{ color: T.dim, fontSize: 14 }}>Every sign, no gate — read for the people you love.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 8 }}>
             {SIGN_ORDER.map((n) => {
               const hue = ELEMENT_HUE[SIGN_LORE[n].element]; const on = browse === n;
@@ -2782,15 +2782,15 @@ const AstrologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
       )}
 
       {tab === "weekly" && (!sign
-        ? <p className="lum-sans" style={{ color: T.faint, fontSize: 14 }}>Enter your date of birth above to reveal your week.</p>
+        ? <p className="lum-sans" style={{ color: T.faint, fontSize: 15 }}>Enter your date of birth above to reveal your week.</p>
         : <div>
             {!out && !loading && <Btn onClick={weekly}>Reveal my week ✧</Btn>}
             {loading && <Channeling text="Reading the heavens…" />}
-            {out && <Panel style={{ padding: 26 }}><ReadingText text={out} />{note && <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 12 }}>🌙 {note}</p>}</Panel>}
+            {out && <Panel style={{ padding: 26 }}><ReadingText text={out} />{note && <p className="lum-sans" style={{ color: T.faint, fontSize: 12.5, marginTop: 12 }}>🌙 {note}</p>}</Panel>}
           </div>)}
 
       {tab === "natal" && (!sign
-        ? <p className="lum-sans" style={{ color: T.faint, fontSize: 14 }}>Enter your date of birth above to open your chart.</p>
+        ? <p className="lum-sans" style={{ color: T.faint, fontSize: 15 }}>Enter your date of birth above to open your chart.</p>
         : <div>
             {!out && !loading && (
               <div style={{ display: "grid", gap: 12 }}>
@@ -2803,12 +2803,12 @@ const AstrologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
             )}
             {loading && <Channeling text="Unrolling your sky-map…" />}
             {out && <Panel style={{ padding: 26 }}><ReadingText text={out} /></Panel>}
-            {paid && <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 14 }}>Production note: precise planetary placements will use ephemeris data (AstrologyAPI) at launch.</p>}
+            {paid && <p className="lum-sans" style={{ color: T.faint, fontSize: 12.5, marginTop: 14 }}>Production note: precise planetary placements will use ephemeris data (AstrologyAPI) at launch.</p>}
           </div>)}
 
       <div style={{ marginTop: 26 }}>
         <Eyebrow colour={T.violet}>The Astrology Library</Eyebrow>
-        <p className="lum-sans" style={{ color: T.dim, fontSize: 12.5, lineHeight: 1.6, margin: "6px 0 12px" }}>Eight deep readings — from the whole cast of planets to the signs, houses, aspects and the sky in motion. Free, and written for first steps and old souls alike.</p>
+        <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5, lineHeight: 1.6, margin: "6px 0 12px" }}>Eight deep readings — from the whole cast of planets to the signs, houses, aspects and the sky in motion. Free, and written for first steps and old souls alike.</p>
         <div style={{ display: "flex", gap: 9, flexWrap: "wrap" }}>
           <LearnBtn id="bigthree" onOpen={setArticle}>Sun, Moon & Rising</LearnBtn>
           <LearnBtn id="signs" onOpen={setArticle}>The twelve signs</LearnBtn>
@@ -2825,7 +2825,7 @@ const AstrologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
     </div>
   );
 };
-const inp = { background: "#141428", border: "1px solid rgba(201,168,76,.25)", borderRadius: 10, color: "#e9e6f2", padding: "11px 13px", fontSize: 14, width: "100%", colorScheme: "dark" };
+const inp = { background: "#141428", border: "1px solid rgba(201,168,76,.25)", borderRadius: 10, color: "#e9e6f2", padding: "11px 13px", fontSize: 15, width: "100%", colorScheme: "dark" };
 
 /* ============================================================
    NUMEROLOGY
@@ -2852,14 +2852,14 @@ const NumberMeaningCard = ({ n, context, spin }) => {
           <div className="lum-serif" style={{ position: "relative", width: 62, height: 62, borderRadius: "50%", border: "1.5px solid #7fd4e088", background: "radial-gradient(circle at 35% 30%, #7fd4e033, #14121f 75%)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, fontWeight: 600, color: T.teal, textShadow: "0 0 16px #7fd4e0" }}>{n}</div>
         </div>
         <div>
-          <div className="lum-serif" style={{ fontSize: 23, color: T.ink, textShadow: "0 0 20px #7fd4e055" }}>{M.title}{master && <span className="lum-sans" style={{ fontSize: 10, letterSpacing: ".14em", color: T.goldHi, border: `1px solid ${T.gold}66`, borderRadius: 10, padding: "2px 8px", marginLeft: 10, verticalAlign: "middle", textTransform: "uppercase" }}>Master</span>}</div>
-          {context && <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 2 }}>{context}</div>}
+          <div className="lum-serif" style={{ fontSize: 23, color: T.ink, textShadow: "0 0 20px #7fd4e055" }}>{M.title}{master && <span className="lum-sans" style={{ fontSize: 11, letterSpacing: ".14em", color: T.goldHi, border: `1px solid ${T.gold}66`, borderRadius: 10, padding: "2px 8px", marginLeft: 10, verticalAlign: "middle", textTransform: "uppercase" }}>Master</span>}</div>
+          {context && <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 2 }}>{context}</div>}
         </div>
       </div>
-      <p className="lum-serif" style={{ color: T.ink, fontSize: 16, fontStyle: "italic", lineHeight: 1.7, margin: "13px 0 4px" }}>{M.essence}</p>
-      {spin && <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5, lineHeight: 1.65, margin: "8px 0 0" }}>{spin}</p>}
-      <div className="lum-sans" style={{ color: T.dim, fontSize: 13, marginTop: 10 }}><span style={{ color: T.teal, fontSize: 10, letterSpacing: ".14em", textTransform: "uppercase" }}>In their light</span> {M.light}</div>
-      <div className="lum-serif" style={{ marginTop: 12, fontSize: 15, fontStyle: "italic", color: T.teal, textAlign: "center" }}>“{M.invitation}”</div>
+      <p className="lum-serif" style={{ color: T.ink, fontSize: 17, fontStyle: "italic", lineHeight: 1.7, margin: "13px 0 4px" }}>{M.essence}</p>
+      {spin && <p className="lum-sans" style={{ color: T.dim, fontSize: 14.5, lineHeight: 1.65, margin: "8px 0 0" }}>{spin}</p>}
+      <div className="lum-sans" style={{ color: T.dim, fontSize: 14, marginTop: 10 }}><span style={{ color: T.teal, fontSize: 11, letterSpacing: ".14em", textTransform: "uppercase" }}>In their light</span> {M.light}</div>
+      <div className="lum-serif" style={{ marginTop: 12, fontSize: 16, fontStyle: "italic", color: T.teal, textAlign: "center" }}>“{M.invitation}”</div>
     </Panel>
     </div>
   );
@@ -2909,7 +2909,7 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
   const numTile = (k, v, on, click) => (
     <Panel key={k} hover={!!click} onClick={click} style={{ textAlign: "center", padding: 13, borderColor: on ? T.teal + "88" : "rgba(201,168,76,0.14)", background: on ? "radial-gradient(120% 150% at 50% 0%, #7fd4e022, transparent 60%), linear-gradient(160deg, #14182b, #0e0e1b)" : undefined, boxShadow: on ? "0 0 18px #7fd4e022" : "none" }}>
       <div className="lum-serif gold-shimmer" style={{ fontSize: 32, fontWeight: 600 }}>{v}</div>
-      <div className="lum-sans" style={{ fontSize: 10, color: on ? T.teal : T.dim, letterSpacing: ".08em", textTransform: "uppercase", marginTop: 2 }}>{k}</div>
+      <div className="lum-sans" style={{ fontSize: 11, color: on ? T.teal : T.dim, letterSpacing: ".08em", textTransform: "uppercase", marginTop: 2 }}>{k}</div>
     </Panel>
   );
 
@@ -2917,7 +2917,7 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
     <div className="fade-up" style={{ maxWidth: 580 }}>
       <Eyebrow colour={T.teal}>Numerology</Eyebrow>
       <H>The language of numbers</H>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5, lineHeight: 1.6 }}>Names, birthdays, front doors, phone numbers — the whole world hums in number. Every meaning here is open to you, free; no experience required, none assumed.</p>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 14.5, lineHeight: 1.6 }}>Names, birthdays, front doors, phone numbers — the whole world hums in number. Every meaning here is open to you, free; no experience required, none assumed.</p>
 
       <div style={{ display: "flex", gap: 8, margin: "16px 0", flexWrap: "wrap" }}>
         <Btn small kind={tab === "profile" ? "gold" : "ghost"} onClick={() => switchTab("profile")}>Soul Profile</Btn>
@@ -2929,7 +2929,7 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
       {tab === "profile" && (
         <div style={{ display: "grid", gap: 14 }}>
           <Panel style={{ padding: 18, display: "grid", gap: 10, borderColor: T.teal + "33" }}>
-            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6 }}>Enter your <b style={{ color: T.ink }}>full birth name</b> (exactly as first given at birth — middle names and all) and your <b style={{ color: T.ink }}>date of birth</b>. Together they reveal your core numbers.</div>
+            <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.6 }}>Enter your <b style={{ color: T.ink }}>full birth name</b> (exactly as first given at birth — middle names and all) and your <b style={{ color: T.ink }}>date of birth</b>. Together they reveal your core numbers.</div>
             <input placeholder="Full birth name (as first given)" value={name} onChange={(e) => setName(e.target.value)} className="lum-sans" style={inp} />
             <input type="date" value={birth.dob} onChange={(e) => setBirth({ ...birth, dob: e.target.value })} className="lum-sans" style={inp} aria-label="Date of birth" />
             <Btn onClick={calc} disabled={!name.trim() || !birth.dob}>Reveal my numbers ✧</Btn>
@@ -2939,7 +2939,7 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
                 {Object.entries(nums).map(([k, v]) => numTile(k, v, sel === k, () => setSel(k)))}
               </div>
-              <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, marginTop: -6 }}>Tap any number to read its meaning — {CORE_KEYS[sel]}.</div>
+              <div className="lum-sans" style={{ fontSize: 12.5, color: T.faint, marginTop: -6 }}>Tap any number to read its meaning — {CORE_KEYS[sel]}.</div>
               <NumberMeaningCard n={nums[sel]} context={`Your ${sel}`} />
               {!out && !loading && <Btn onClick={portrait}>Weave my full written portrait ✧ {!paid && "🔒"}</Btn>}
               {loading && <Channeling text="Reading your blueprint…" />}
@@ -2957,7 +2957,7 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
       {tab === "phone" && (
         <div style={{ display: "grid", gap: 14 }}>
           <Panel style={{ padding: 18, display: "grid", gap: 10, borderColor: T.teal + "33" }}>
-            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6 }}>Your phone number is a frequency you answer every day. Enter it — spaces and dashes are fine.</div>
+            <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.6 }}>Your phone number is a frequency you answer every day. Enter it — spaces and dashes are fine.</div>
             <input placeholder="e.g. 0412 345 678" value={phone} onChange={(e) => setPhone(e.target.value)} className="lum-sans" style={inp} inputMode="tel" />
           </Panel>
           {phoneNum && <NumberMeaningCard n={phoneNum} context="Your phone's vibration" spin={`Through this line flow ${PHONE_SPIN[phoneNum]}`} />}
@@ -2968,7 +2968,7 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
       {tab === "home" && (
         <div style={{ display: "grid", gap: 14 }}>
           <Panel style={{ padding: 18, display: "grid", gap: 10, borderColor: T.teal + "33" }}>
-            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6 }}>Enter your house or unit number — letters count too (12B adds B's value of 2).</div>
+            <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.6 }}>Enter your house or unit number — letters count too (12B adds B's value of 2).</div>
             <input placeholder="e.g. 47, or 12B" value={home} onChange={(e) => setHome(e.target.value)} className="lum-sans" style={inp} />
           </Panel>
           {homeNum && <NumberMeaningCard n={homeNum} context="Your home's vibration" spin={HOME_SPIN[homeNum]} />}
@@ -2979,14 +2979,14 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
       {tab === "pair" && (
         <div style={{ display: "grid", gap: 14 }}>
           <Panel style={{ padding: 18, display: "grid", gap: 10, borderColor: T.teal + "33" }}>
-            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.6 }}>Two birthdays, two Life Paths, one dance. For lovers, friends, business partners — any two souls.</div>
+            <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.6 }}>Two birthdays, two Life Paths, one dance. For lovers, friends, business partners — any two souls.</div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
               <div>
-                <div className="lum-sans" style={{ fontSize: 10.5, color: T.faint, letterSpacing: ".1em", marginBottom: 4 }}>YOU</div>
+                <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, letterSpacing: ".1em", marginBottom: 4 }}>YOU</div>
                 <input type="date" value={birth.dob} onChange={(e) => setBirth({ ...birth, dob: e.target.value })} className="lum-sans" style={inp} aria-label="Your date of birth" />
               </div>
               <div>
-                <div className="lum-sans" style={{ fontSize: 10.5, color: T.faint, letterSpacing: ".1em", marginBottom: 4 }}>THEM</div>
+                <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, letterSpacing: ".1em", marginBottom: 4 }}>THEM</div>
                 <input type="date" value={dobB} onChange={(e) => setDobB(e.target.value)} className="lum-sans" style={inp} aria-label="Their date of birth" />
               </div>
             </div>
@@ -3000,11 +3000,11 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
               </div>
               <Panel style={{ padding: 20, borderColor: T.teal + "55", background: "radial-gradient(130% 160% at 50% 0%, #7fd4e01a, transparent 55%), linear-gradient(165deg, #14182b, #0e0e1b)" }}>
                 <div className="lum-serif" style={{ fontSize: 22, color: T.ink, textAlign: "center", textShadow: "0 0 20px #7fd4e055" }}>{verdict.icon} {verdict.kind}</div>
-                <p className="lum-serif" style={{ color: T.ink, fontSize: 15.5, fontStyle: "italic", lineHeight: 1.75, margin: "12px 0" }}>{verdict.text}</p>
-                <div className="lum-sans" style={{ color: T.dim, fontSize: 13, lineHeight: 1.65 }}><span style={{ color: T.teal }}>The {NUM_MEANINGS[lpA].title} ({lpA})</span> — {NUM_MEANINGS[lpA].bond}</div>
-                <div className="lum-sans" style={{ color: T.dim, fontSize: 13, lineHeight: 1.65, marginTop: 8 }}><span style={{ color: T.teal }}>The {NUM_MEANINGS[lpB].title} ({lpB})</span> — {NUM_MEANINGS[lpB].bond}</div>
-                {(lpA > 9 || lpB > 9) && <div className="lum-sans" style={{ color: T.goldHi, fontSize: 12.5, marginTop: 12 }}>✧ A master number stands in this pairing — expect higher voltage in whichever weather you share, and build grounding rituals for two.</div>}
-                <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 12 }}>No pairing is doomed and none is guaranteed — the numbers describe the dance floor, never the dancers' skill.</p>
+                <p className="lum-serif" style={{ color: T.ink, fontSize: 16.5, fontStyle: "italic", lineHeight: 1.75, margin: "12px 0" }}>{verdict.text}</p>
+                <div className="lum-sans" style={{ color: T.dim, fontSize: 14, lineHeight: 1.65 }}><span style={{ color: T.teal }}>The {NUM_MEANINGS[lpA].title} ({lpA})</span> — {NUM_MEANINGS[lpA].bond}</div>
+                <div className="lum-sans" style={{ color: T.dim, fontSize: 14, lineHeight: 1.65, marginTop: 8 }}><span style={{ color: T.teal }}>The {NUM_MEANINGS[lpB].title} ({lpB})</span> — {NUM_MEANINGS[lpB].bond}</div>
+                {(lpA > 9 || lpB > 9) && <div className="lum-sans" style={{ color: T.goldHi, fontSize: 13.5, marginTop: 12 }}>✧ A master number stands in this pairing — expect higher voltage in whichever weather you share, and build grounding rituals for two.</div>}
+                <p className="lum-sans" style={{ color: T.faint, fontSize: 12.5, marginTop: 12 }}>No pairing is doomed and none is guaranteed — the numbers describe the dance floor, never the dancers' skill.</p>
               </Panel>
             </>
           )}
@@ -3014,7 +3014,7 @@ const NumerologyScreen = ({ paid, askUpgrade, birth, setBirth }) => {
 
       <div style={{ marginTop: 26 }}>
         <Eyebrow colour={T.teal}>The Numerology Library</Eyebrow>
-        <p className="lum-sans" style={{ color: T.dim, fontSize: 12.5, lineHeight: 1.6, margin: "6px 0 12px" }}>Nine deep readings — from the meaning of every number to the cycles that shape a life. Free, and written for first steps and old souls alike.</p>
+        <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5, lineHeight: 1.6, margin: "6px 0 12px" }}>Nine deep readings — from the meaning of every number to the cycles that shape a life. Free, and written for first steps and old souls alike.</p>
         <div style={{ display: "flex", gap: 9, flexWrap: "wrap" }}>
           <LearnBtn id="nine" onOpen={setArticle}>The nine numbers</LearnBtn>
           <LearnBtn id="corenumbers" onOpen={setArticle}>Your five core numbers</LearnBtn>
@@ -3132,7 +3132,7 @@ const AngelCardRitual = ({ paid }) => {
           <img src={chosen.img} alt={chosen.name} style={{ width: 54, height: 86, objectFit: "cover", objectPosition: "50% 14%", borderRadius: 8, border: `1px solid ${chosen.hex}77`, boxShadow: `0 0 14px ${chosen.hex}44` }} />
           <div>
             <div className="lum-serif" style={{ fontSize: 17.5, color: T.ink }}>{chosen.name}</div>
-            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 2 }}>{chosen.domain} — walking beside you until midnight ✧</div>
+            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 2 }}>{chosen.domain} — walking beside you until midnight ✧</div>
           </div>
         </div>
       )}
@@ -3162,14 +3162,14 @@ const AngelCardRitual = ({ paid }) => {
                   </div>
                   <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden", transform: "rotateY(180deg)", borderRadius: 9, border: "1px solid #d4b04c66", background: "radial-gradient(circle at 50% 36%, #2b2547, #14121f 72%)", boxShadow: "0 5px 16px rgba(0,0,0,.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <div style={{ width: 30, height: 30, borderRadius: "50%", border: "1px solid #d4b04c55", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <span style={{ color: T.goldHi, fontSize: 15, textShadow: `0 0 12px ${T.goldHi}` }}>✧</span>
+                      <span style={{ color: T.goldHi, fontSize: 16, textShadow: `0 0 12px ${T.goldHi}` }}>✧</span>
                     </div>
                   </div>
                 </div>
               </div>
             );
           })}
-          <div className="lum-sans" style={{ position: "absolute", bottom: -2, left: 0, right: 0, textAlign: "center", fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", color: T.faint }}>
+          <div className="lum-sans" style={{ position: "absolute", bottom: -2, left: 0, right: 0, textAlign: "center", fontSize: 12, letterSpacing: ".16em", textTransform: "uppercase", color: T.faint }}>
             {stage === "fan" && "The seven step forward…"}
             {stage === "backs" && "They veil their faces…"}
             {stage === "shuffle" && "The heavens shuffle…"}
@@ -3192,7 +3192,7 @@ const AngelCardRitual = ({ paid }) => {
               <span key={i} aria-hidden style={{ position: "absolute", left: `${(i * 47 + 8) % 100}%`, top: `${(i * 29 + 6) % 92}%`, width: 3, height: 3, borderRadius: "50%", background: chosen.hex, opacity: .7, animation: `twinkle ${2.4 + (i % 4) * 0.8}s ease-in-out ${(i % 5) * 0.5}s infinite` }} />
             ))}
             <div aria-hidden style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: "32%", background: "linear-gradient(rgba(8,8,18,0), rgba(8,8,18,.94))", opacity: beheld ? 1 : .45, transition: "opacity .8s ease" }} />
-            <div className="lum-sans" style={{ position: "absolute", left: 0, right: 0, bottom: 16, textAlign: "center", fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: chosen.hex, opacity: beheld ? 0 : .92, transition: "opacity .55s ease", pointerEvents: "none" }}>
+            <div className="lum-sans" style={{ position: "absolute", left: 0, right: 0, bottom: 16, textAlign: "center", fontSize: 13, letterSpacing: ".18em", textTransform: "uppercase", color: chosen.hex, opacity: beheld ? 0 : .92, transition: "opacity .55s ease", pointerEvents: "none" }}>
               {chosen.name.replace("Archangel ", "")} draws close ✧
             </div>
           </div>
@@ -3203,7 +3203,7 @@ const AngelCardRitual = ({ paid }) => {
             <div style={{ maxWidth: 580, margin: "0 auto", width: "100%", textAlign: "center" }}>
               <Eyebrow colour={chosen.hex}>Your angel today</Eyebrow>
               <div className="lum-serif gold-shimmer" style={{ fontSize: 29, fontWeight: 600, margin: "2px 0 3px" }}>{chosen.name}</div>
-              <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginBottom: 13 }}>{chosen.domain} · {chosen.colour} · {chosen.crystal}</div>
+              <div className="lum-sans" style={{ fontSize: 13, color: T.dim, marginBottom: 13 }}>{chosen.domain} · {chosen.colour} · {chosen.crystal}</div>
               <p className="lum-serif" onClick={() => setWordCount(words.length)} style={{ color: T.ink, fontSize: 17.5, fontStyle: "italic", lineHeight: 1.75, minHeight: 56, margin: 0, cursor: wordCount < words.length ? "pointer" : "default" }}>
                 {words.length === 0
                   ? <span style={{ color: chosen.hex, opacity: .9 }}>{chosen.name.replace("Archangel ", "")} is here…</span>
@@ -3252,7 +3252,7 @@ const AngelScreen = ({ paid, askUpgrade }) => {
           <img src="/images/angels/archangel-michael.webp" alt="" style={{ width: 56, height: 56, borderRadius: "50%", objectFit: "cover", objectPosition: "50% 26%", border: "1.5px solid #3b6fd488", boxShadow: "0 0 16px #3b6fd466", flexShrink: 0 }} />
           <div style={{ flex: 1 }}>
             <div className="lum-serif" style={{ fontSize: 20, color: "#9cb8ee" }}>🛡️ Call on Michael</div>
-            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim }}>For moments of fear or overwhelm — protection is one breath away.</div>
+            <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim }}>For moments of fear or overwhelm — protection is one breath away.</div>
           </div>
           <Btn small kind="ghost" onClick={() => setMichael(!michael)} style={{ borderColor: "#3b6fd488", color: "#9cb8ee" }}>{michael ? "Amen ✧" : "Call now"}</Btn>
         </div>
@@ -3281,7 +3281,7 @@ const AngelScreen = ({ paid, askUpgrade }) => {
                 </div>
                 <div style={{ flex: 1 }}>
                   <span className="lum-serif" style={{ fontSize: 19, color: T.ink, textShadow: open ? `0 0 20px ${a.hex}88` : "none" }}>{a.name}</span>
-                  <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginTop: 2 }}>{a.domain} · {a.colour} · {a.crystal}</div>
+                  <div className="lum-sans" style={{ fontSize: 13, color: T.dim, marginTop: 2 }}>{a.domain} · {a.colour} · {a.crystal}</div>
                 </div>
                 <div style={{ width: 13, height: 13, borderRadius: "50%", background: a.hex, boxShadow: `0 0 14px ${a.hex}`, flexShrink: 0, animation: open ? "twinkle 2.4s ease-in-out infinite" : "none" }} />
               </div>
@@ -3289,26 +3289,26 @@ const AngelScreen = ({ paid, askUpgrade }) => {
                 <div className="fade-up" style={{ position: "relative", marginTop: 14, height: 430, borderRadius: 16, overflow: "hidden", border: `1px solid ${a.hex}66`, background: `radial-gradient(120% 80% at 50% 32%, ${a.hex}22, transparent 62%), linear-gradient(165deg, ${a.hex}14, #0b0a14 72%)`, boxShadow: `0 10px 32px rgba(0,0,0,.5), 0 0 34px ${a.hex}26` }}>
                   <img src={a.img} alt={a.name} style={{ display: "block", width: "100%", height: "100%", objectFit: "contain" }} />
                   <div aria-hidden style={{ position: "absolute", inset: 0, background: "linear-gradient(rgba(10,10,20,0) 66%, rgba(10,10,20,.82))" }} />
-                  <div className="lum-serif" style={{ position: "absolute", left: 14, right: 14, bottom: 10, textAlign: "center", fontStyle: "italic", fontSize: 15, color: "#f2ecdf", textShadow: "0 1px 10px rgba(0,0,0,.9)" }}>
+                  <div className="lum-serif" style={{ position: "absolute", left: 14, right: 14, bottom: 10, textAlign: "center", fontStyle: "italic", fontSize: 16, color: "#f2ecdf", textShadow: "0 1px 10px rgba(0,0,0,.9)" }}>
                     {a.domain} · <span style={{ color: a.hex }}>{a.colour}</span>
                   </div>
                 </div>
               )}
               {open && (
                 <div className="fade-up" style={{ marginTop: 14 }}>
-                  <p className="lum-serif" style={{ color: T.ink, fontSize: 15.5, lineHeight: 1.75, margin: 0 }}>{a.about}</p>
-                  <div className="lum-sans" style={{ fontSize: 11, color: a.hex, letterSpacing: ".16em", textTransform: "uppercase", margin: "16px 0 9px" }}>Here for you when…</div>
+                  <p className="lum-serif" style={{ color: T.ink, fontSize: 16.5, lineHeight: 1.75, margin: 0 }}>{a.about}</p>
+                  <div className="lum-sans" style={{ fontSize: 12, color: a.hex, letterSpacing: ".16em", textTransform: "uppercase", margin: "16px 0 9px" }}>Here for you when…</div>
                   <div style={{ display: "grid", gap: 7 }}>
                     {a.callOn.map((c, i) => (
-                      <div key={i} className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.5, display: "flex", gap: 9 }}>
+                      <div key={i} className="lum-sans" style={{ fontSize: 14.5, color: T.dim, lineHeight: 1.5, display: "flex", gap: 9 }}>
                         <span aria-hidden style={{ color: a.hex, flexShrink: 0 }}>✦</span><span>{c}</span>
                       </div>
                     ))}
                   </div>
-                  <div className="lum-sans" style={{ fontSize: 12.5, color: T.faint, lineHeight: 1.6, marginTop: 14 }}><b style={{ color: T.dim }}>How to know {a.name.replace("Archangel ", "")} is near — </b>{a.signs}</div>
+                  <div className="lum-sans" style={{ fontSize: 13.5, color: T.faint, lineHeight: 1.6, marginTop: 14 }}><b style={{ color: T.dim }}>How to know {a.name.replace("Archangel ", "")} is near — </b>{a.signs}</div>
                   <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(13,13,26,.5)", border: `1px solid ${a.hex}33` }}>
-                    <div className="lum-sans" style={{ fontSize: 10.5, color: a.hex, letterSpacing: ".16em", textTransform: "uppercase", marginBottom: 7 }}>A prayer to call on {a.name.replace("Archangel ", "")}</div>
-                    <p className="lum-serif" style={{ color: T.ink, fontSize: 15, fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>“{a.invocation}”</p>
+                    <div className="lum-sans" style={{ fontSize: 11.5, color: a.hex, letterSpacing: ".16em", textTransform: "uppercase", marginBottom: 7 }}>A prayer to call on {a.name.replace("Archangel ", "")}</div>
+                    <p className="lum-serif" style={{ color: T.ink, fontSize: 16, fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>“{a.invocation}”</p>
                     <div style={{ marginTop: 10 }}><SpeakBtn text={a.invocation} colour={a.hex} /></div>
                   </div>
                 </div>
@@ -3317,8 +3317,8 @@ const AngelScreen = ({ paid, askUpgrade }) => {
                 ? <div className="lum-serif" style={{ color: a.hex, fontStyle: "italic", marginTop: 14 }}>Channelling today's message…</div>
                 : msg && (
                   <div className="fade-up" style={{ marginTop: 16 }}>
-                    <div className="lum-sans" style={{ fontSize: 10.5, color: a.hex, letterSpacing: ".16em", textTransform: "uppercase", marginBottom: 8 }}>Today's channelled message</div>
-                    <p className="lum-serif" style={{ color: T.ink, fontSize: 15.5, fontStyle: "italic", lineHeight: 1.7, margin: "0 0 12px" }}>{msg}</p>
+                    <div className="lum-sans" style={{ fontSize: 11.5, color: a.hex, letterSpacing: ".16em", textTransform: "uppercase", marginBottom: 8 }}>Today's channelled message</div>
+                    <p className="lum-serif" style={{ color: T.ink, fontSize: 16.5, fontStyle: "italic", lineHeight: 1.7, margin: "0 0 12px" }}>{msg}</p>
                     <SpeakBtn text={msg} colour={a.hex} />
                   </div>
                 ))}
@@ -3356,17 +3356,17 @@ const AngelNumberScreen = ({ paid, askUpgrade }) => {
     <div className="fade-up" style={{ maxWidth: 600 }}>
       <Eyebrow>Angel Numbers</Eyebrow>
       <H>Messages in the numbers</H>
-      <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "2px 0 18px" }}>When a number keeps finding you — on clocks, receipts, licence plates — your angels may be speaking. Enter a sequence to hear what it carries.</p>
+      <p className="lum-serif" style={{ color: T.dim, fontSize: 16, lineHeight: 1.7, margin: "2px 0 18px" }}>When a number keeps finding you — on clocks, receipts, licence plates — your angels may be speaking. Enter a sequence to hear what it carries.</p>
 
       <Panel style={{ marginBottom: 18, padding: 18 }}>
-        <div className="lum-sans" style={{ fontSize: 12, color: T.gold, letterSpacing: ".14em", marginBottom: 10 }}>ANGEL NUMBER LOOKUP · FREE</div>
+        <div className="lum-sans" style={{ fontSize: 13, color: T.gold, letterSpacing: ".14em", marginBottom: 10 }}>ANGEL NUMBER LOOKUP · FREE</div>
         <div style={{ display: "flex", gap: 8 }}>
           <input placeholder="e.g. 1111" inputMode="numeric" value={num} onChange={(e) => setNum(e.target.value)} onKeyDown={(e) => e.key === "Enter" && find()} className="lum-sans" style={{ ...inp, flex: 1 }} />
           <Btn small onClick={find}>Reveal</Btn>
         </div>
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 10 }}>
           {["111", "444", "555", "777", "1111", "1212"].map((q) => (
-            <button key={q} onClick={() => { setNum(q); setLookup({ n: q, meaning: ANGEL_NUMBERS[q] }); setPersonal(""); }} className="lum-sans" style={{ background: "rgba(201,168,76,.1)", border: "1px solid rgba(201,168,76,.3)", color: T.goldHi, borderRadius: 16, padding: "5px 12px", fontSize: 12, cursor: "pointer" }}>{q}</button>
+            <button key={q} onClick={() => { setNum(q); setLookup({ n: q, meaning: ANGEL_NUMBERS[q] }); setPersonal(""); }} className="lum-sans" style={{ background: "rgba(201,168,76,.1)", border: "1px solid rgba(201,168,76,.3)", color: T.goldHi, borderRadius: 16, padding: "5px 12px", fontSize: 13, cursor: "pointer" }}>{q}</button>
           ))}
         </div>
         {lookup && (
@@ -3409,7 +3409,7 @@ const QuotesScreen = () => {
     <div className="fade-up" style={{ maxWidth: 560 }}>
       <Eyebrow>Inspirational Quotes</Eyebrow>
       <H>Turn a card, receive a little light</H>
-      <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "2px 0 6px" }}>
+      <p className="lum-serif" style={{ color: T.dim, fontSize: 16, lineHeight: 1.7, margin: "2px 0 6px" }}>
         Take a breath, choose a card, and turn it over for a message meant for this moment. Draw as many as your heart needs.
       </p>
 
@@ -3432,7 +3432,7 @@ const QuotesScreen = () => {
         <div className="fade-up">
           <Panel style={{ padding: 26, textAlign: "center", borderColor: T.gold + "44" }}>
             <div className="lum-serif" style={{ fontSize: 21, color: T.ink, fontStyle: "italic", lineHeight: 1.6 }}>“{picked.text}”</div>
-            <div className="lum-sans" style={{ fontSize: 13, color: T.gold, marginTop: 14, letterSpacing: ".04em" }}>— {picked.author}</div>
+            <div className="lum-sans" style={{ fontSize: 14, color: T.gold, marginTop: 14, letterSpacing: ".04em" }}>— {picked.author}</div>
             <div style={{ marginTop: 18, display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
               <SpeakBtn text={`${picked.text} — ${picked.author}`} />
               <Btn small kind="ghost" onClick={again}>Draw another ✧</Btn>
@@ -3440,7 +3440,7 @@ const QuotesScreen = () => {
           </Panel>
         </div>
       ) : (
-        <p className="lum-sans" style={{ textAlign: "center", color: T.faint, fontSize: 12.5, marginTop: 4 }}>Tap a card to turn it over ✧</p>
+        <p className="lum-sans" style={{ textAlign: "center", color: T.faint, fontSize: 13.5, marginTop: 4 }}>Tap a card to turn it over ✧</p>
       )}
     </div>
   );
@@ -4209,13 +4209,13 @@ const OracleCardFace = ({ card, label, w = 118, delay = 0, folder = "oracle" }) 
   const h = Math.round(w * 1.62);
   return (
     <div className="fade-up" style={{ animationDelay: `${delay}s`, width: w, textAlign: "center" }}>
-      {label && <div className="lum-sans" style={{ fontSize: 10, letterSpacing: ".14em", color: T.dim, textTransform: "uppercase", marginBottom: 6 }}>{label}</div>}
+      {label && <div className="lum-sans" style={{ fontSize: 11, letterSpacing: ".14em", color: T.dim, textTransform: "uppercase", marginBottom: 6 }}>{label}</div>}
       <div style={{ position: "relative", width: w, height: h, borderRadius: 12, overflow: "hidden", border: `1.5px solid ${card.hex}88`, boxShadow: `0 10px 28px rgba(0,0,0,.55), 0 0 18px ${card.hex}33`, background: `linear-gradient(165deg, ${card.hex}33, #12101f 70%)` }}>
         {artOk && <img src={`/images/${folder}/${card.id}.webp`} alt={card.name} onError={() => setArtOk(false)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />}
         {!artOk && (
           <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 7, padding: "0 6px" }}>
             <div style={{ fontSize: 24, color: card.hex }}>✧</div>
-            <div className="lum-serif" style={{ fontSize: 12.5, color: T.ink, lineHeight: 1.35 }}>{card.name}</div>
+            <div className="lum-serif" style={{ fontSize: 13.5, color: T.ink, lineHeight: 1.35 }}>{card.name}</div>
           </div>
         )}
         <div aria-hidden style={{ position: "absolute", inset: 5, borderRadius: 8, border: `1px solid ${card.hex}55`, pointerEvents: "none" }} />
@@ -4247,7 +4247,7 @@ const OracleScreen = ({ paid, askUpgrade, cards = ORACLE_CARDS, comboSet = ORACL
     <div className="fade-up" style={{ maxWidth: 560 }}>
       <Eyebrow>{eyebrow}</Eyebrow>
       <H>{title}</H>
-      <p className="lum-serif" style={{ color: T.dim, fontSize: 14.5, fontStyle: "italic", lineHeight: 1.7, margin: "10px 0 16px" }}>
+      <p className="lum-serif" style={{ color: T.dim, fontSize: 15.5, fontStyle: "italic", lineHeight: 1.7, margin: "10px 0 16px" }}>
         {intro}
       </p>
 
@@ -4255,7 +4255,7 @@ const OracleScreen = ({ paid, askUpgrade, cards = ORACLE_CARDS, comboSet = ORACL
         <Panel style={{ padding: 24, textAlign: "center" }}>
           <div style={{ display: "flex", justifyContent: "center", gap: 6, marginBottom: 18 }}>
             {[-6, 0, 6].map((d, i) => (
-              <div key={i} aria-hidden style={{ width: 64, height: 104, borderRadius: 10, transform: `rotate(${d}deg)`, background: "linear-gradient(165deg, #241f42, #12101f)", border: `1px solid ${T.gold}55`, boxShadow: "0 8px 20px rgba(0,0,0,.5)", display: "flex", alignItems: "center", justifyContent: "center", color: T.gold, fontSize: 15 }}>✧</div>
+              <div key={i} aria-hidden style={{ width: 64, height: 104, borderRadius: 10, transform: `rotate(${d}deg)`, background: "linear-gradient(165deg, #241f42, #12101f)", border: `1px solid ${T.gold}55`, boxShadow: "0 8px 20px rgba(0,0,0,.5)", display: "flex", alignItems: "center", justifyContent: "center", color: T.gold, fontSize: 16 }}>✧</div>
             ))}
           </div>
           <div className="lum-serif" style={{ fontSize: 19, color: T.ink, marginBottom: 16 }}>Breathe once, soften your question, and draw.</div>
@@ -4269,7 +4269,7 @@ const OracleScreen = ({ paid, askUpgrade, cards = ORACLE_CARDS, comboSet = ORACL
       {stage === "shuffling" && (
         <Panel style={{ padding: 34, textAlign: "center" }}>
           <div className="lum-serif gold-shimmer" style={{ fontSize: 21 }}>The cards are listening…</div>
-          <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginTop: 8 }}>shuffling all forty-four, truly at random ✧</div>
+          <div className="lum-sans" style={{ fontSize: 13, color: T.dim, marginTop: 8 }}>shuffling all forty-four, truly at random ✧</div>
         </Panel>
       )}
 
@@ -4282,7 +4282,7 @@ const OracleScreen = ({ paid, askUpgrade, cards = ORACLE_CARDS, comboSet = ORACL
             <Panel key={c.id} style={{ padding: 18, marginBottom: 12, borderColor: c.hex + "44" }}>
               <Eyebrow colour={c.hex}>{drawn.length === 3 ? `${labels3[i]} · ` : ""}{c.essence}</Eyebrow>
               <div className="lum-serif" style={{ fontSize: 20, color: T.ink, margin: "2px 0 8px" }}>{c.name}</div>
-              <div className="lum-serif" style={{ fontSize: 15, color: T.dim, lineHeight: 1.7, fontStyle: "italic" }}>{c.message}</div>
+              <div className="lum-serif" style={{ fontSize: 16, color: T.dim, lineHeight: 1.7, fontStyle: "italic" }}>{c.message}</div>
               <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
                 <SpeakBtn text={`${c.name}. ${c.message}`} />
                 <Btn kind="ghost" small onClick={() => toggleBook(c.id)}>📖 {bookOpen[c.id] ? "Close the Book" : "Open the Book of Luminae"}{!paid && " 🔒"}</Btn>
@@ -4290,9 +4290,9 @@ const OracleScreen = ({ paid, askUpgrade, cards = ORACLE_CARDS, comboSet = ORACL
               {bookOpen[c.id] && (
                 <div className="fade-up" style={{ marginTop: 14, padding: "16px 18px", borderRadius: 12, background: "rgba(13,13,26,.55)", border: `1px solid ${c.hex}33` }}>
                   <Eyebrow colour={c.hex}>From the Book of Luminae</Eyebrow>
-                  <div className="lum-serif" style={{ fontSize: 14.5, color: T.dim, lineHeight: 1.8, marginTop: 8 }}>{c.book}</div>
-                  <div className="lum-sans" style={{ fontSize: 12.5, color: T.faint, lineHeight: 1.7, marginTop: 12 }}><b style={{ color: c.hex }}>In shadow · </b>{c.shadow}</div>
-                  <div className="lum-serif" style={{ fontSize: 14.5, color: T.goldHi, fontStyle: "italic", marginTop: 12 }}>“{c.affirm}”</div>
+                  <div className="lum-serif" style={{ fontSize: 15.5, color: T.dim, lineHeight: 1.8, marginTop: 8 }}>{c.book}</div>
+                  <div className="lum-sans" style={{ fontSize: 13.5, color: T.faint, lineHeight: 1.7, marginTop: 12 }}><b style={{ color: c.hex }}>In shadow · </b>{c.shadow}</div>
+                  <div className="lum-serif" style={{ fontSize: 15.5, color: T.goldHi, fontStyle: "italic", marginTop: 12 }}>“{c.affirm}”</div>
                 </div>
               )}
             </Panel>
@@ -4301,8 +4301,8 @@ const OracleScreen = ({ paid, askUpgrade, cards = ORACLE_CARDS, comboSet = ORACL
             <Panel key={k.pair.join("+")} style={{ padding: 18, marginBottom: 12, borderColor: T.goldHi + "44", background: "radial-gradient(120% 150% at 50% -20%, #241f42 0%, #12101f 60%)" }}>
               <Eyebrow colour={T.goldHi}>When these cards rise together</Eyebrow>
               <div className="lum-serif" style={{ fontSize: 19, color: T.ink, margin: "2px 0 4px" }}>{k.name}</div>
-              <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginBottom: 8 }}>{k.pair.map((id) => ORACLE_CARDS.find((c) => c.id === id).name).join(" ✧ ")}</div>
-              <div className="lum-serif" style={{ fontSize: 14.5, color: T.dim, fontStyle: "italic", lineHeight: 1.7 }}>{k.meaning}</div>
+              <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginBottom: 8 }}>{k.pair.map((id) => ORACLE_CARDS.find((c) => c.id === id).name).join(" ✧ ")}</div>
+              <div className="lum-serif" style={{ fontSize: 15.5, color: T.dim, fontStyle: "italic", lineHeight: 1.7 }}>{k.meaning}</div>
             </Panel>
           ))}
           <div style={{ textAlign: "center", marginTop: 6 }}>
@@ -4370,15 +4370,15 @@ const CrystalScreen = ({ paid, askUpgrade }) => {
       <H>Allies of the Earth</H>
 
       <Panel style={{ margin: "16px 0", padding: 20, borderColor: T.sage + "44" }}>
-        <div className="lum-sans" style={{ fontSize: 11, color: T.sage, letterSpacing: ".18em", marginBottom: 8 }}>TODAY'S CRYSTAL</div>
+        <div className="lum-sans" style={{ fontSize: 12, color: T.sage, letterSpacing: ".18em", marginBottom: 8 }}>TODAY'S CRYSTAL</div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <CrystalGem c={daily} size={54} />
           <div>
             <div className="lum-serif" style={{ fontSize: 24, color: T.ink }}>{daily.name}</div>
-            <div className="lum-sans" style={{ fontSize: 12, color: T.gold, marginTop: 2 }}>{daily.chakra} chakra · {daily.pair}</div>
+            <div className="lum-sans" style={{ fontSize: 13, color: T.gold, marginTop: 2 }}>{daily.chakra} chakra · {daily.pair}</div>
           </div>
         </div>
-        <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, lineHeight: 1.65, marginTop: 10 }}>{daily.meaning}</div>
+        <div className="lum-sans" style={{ fontSize: 14.5, color: T.dim, lineHeight: 1.65, marginTop: 10 }}>{daily.meaning}</div>
       </Panel>
 
       <Panel style={{ marginBottom: 18, padding: 18 }}>
@@ -4388,7 +4388,7 @@ const CrystalScreen = ({ paid, askUpgrade }) => {
             <button key={m} onClick={() => recommend(m)} className="lum-sans" style={{
               background: mood === m ? "rgba(142,201,160,.18)" : "rgba(233,230,242,.05)",
               border: `1px solid ${mood === m ? T.sage : "rgba(233,230,242,.15)"}`,
-              color: mood === m ? T.sage : T.dim, borderRadius: 18, padding: "8px 15px", fontSize: 13, cursor: "pointer",
+              color: mood === m ? T.sage : T.dim, borderRadius: 18, padding: "8px 15px", fontSize: 14, cursor: "pointer",
             }}>{m} {!paid && "🔒"}</button>
           ))}
         </div>
@@ -4397,7 +4397,7 @@ const CrystalScreen = ({ paid, askUpgrade }) => {
       </Panel>
 
       <Eyebrow colour={T.sage}>The Library · {CRYSTALS.length} crystals</Eyebrow>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 12.5, lineHeight: 1.6, margin: "6px 0 2px" }}>✧ Tap any crystal to open its meaning — then <b style={{ color: T.sage }}>“read the full entry”</b> to dive into its origins, history and deeper properties.</p>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5, lineHeight: 1.6, margin: "6px 0 2px" }}>✧ Tap any crystal to open its meaning — then <b style={{ color: T.sage }}>“read the full entry”</b> to dive into its origins, history and deeper properties.</p>
 
       {/* Search by name or property */}
       <div style={{ position: "relative", margin: "10px 0 10px" }}>
@@ -4412,12 +4412,12 @@ const CrystalScreen = ({ paid, askUpgrade }) => {
             <button key={p} onClick={() => setProp(on ? null : p)} className="lum-sans" style={{
               background: on ? "rgba(142,201,160,.2)" : "rgba(233,230,242,.05)",
               border: `1px solid ${on ? T.sage : "rgba(233,230,242,.14)"}`,
-              color: on ? T.sage : T.dim, borderRadius: 15, padding: "5px 11px", fontSize: 11.5, cursor: "pointer",
+              color: on ? T.sage : T.dim, borderRadius: 15, padding: "5px 11px", fontSize: 12.5, cursor: "pointer",
             }}>{p}</button>
           );
         })}
       </div>
-      <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, marginBottom: 10 }}>
+      <div className="lum-sans" style={{ fontSize: 12.5, color: T.faint, marginBottom: 10 }}>
         {filtered.length === CRYSTALS.length ? `Showing all ${CRYSTALS.length}` : `${filtered.length} ${filtered.length === 1 ? "match" : "matches"}`}
         {prop && ` · ${prop}`}
       </div>
@@ -4430,23 +4430,23 @@ const CrystalScreen = ({ paid, askUpgrade }) => {
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <CrystalGem c={c} size={isOpen ? 60 : 40} />
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div className="lum-serif" style={{ fontSize: 16.5, color: T.ink }}>{c.name}</div>
-                  <div className="lum-sans" style={{ fontSize: 10.5, color: T.gold, marginTop: 2 }}>{c.chakra} · {c.pair}</div>
-                  {!isOpen && <div className="lum-sans" style={{ fontSize: 11, color: T.dim, lineHeight: 1.5, marginTop: 4, overflow: "hidden", textOverflow: "ellipsis", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>{c.use}</div>}
+                  <div className="lum-serif" style={{ fontSize: 17.5, color: T.ink }}>{c.name}</div>
+                  <div className="lum-sans" style={{ fontSize: 11.5, color: T.gold, marginTop: 2 }}>{c.chakra} · {c.pair}</div>
+                  {!isOpen && <div className="lum-sans" style={{ fontSize: 12, color: T.dim, lineHeight: 1.5, marginTop: 4, overflow: "hidden", textOverflow: "ellipsis", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>{c.use}</div>}
                 </div>
               </div>
               {isOpen && (
                 <div className="fade-up" style={{ marginTop: 12 }}>
-                  <div className="lum-serif" style={{ fontSize: 14.5, color: T.dim, lineHeight: 1.8 }}>{c.meaning}</div>
-                  <div className="lum-sans" style={{ fontSize: 12.5, color: T.ink, lineHeight: 1.7, marginTop: 12 }}><b style={{ color: c.hex }}>How to work with it · </b>{c.work}</div>
-                  <div className="lum-serif" style={{ fontSize: 14, color: T.goldHi, fontStyle: "italic", marginTop: 12 }}>“{c.affirm}”</div>
+                  <div className="lum-serif" style={{ fontSize: 15.5, color: T.dim, lineHeight: 1.8 }}>{c.meaning}</div>
+                  <div className="lum-sans" style={{ fontSize: 13.5, color: T.ink, lineHeight: 1.7, marginTop: 12 }}><b style={{ color: c.hex }}>How to work with it · </b>{c.work}</div>
+                  <div className="lum-serif" style={{ fontSize: 15, color: T.goldHi, fontStyle: "italic", marginTop: 12 }}>“{c.affirm}”</div>
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 14 }}>
                     {c.keywords.map((k) => (
                       <button key={k} onClick={(e) => { e.stopPropagation(); setProp(k); setQuery(""); setOpen(null); }} className="lum-sans"
-                        style={{ background: "rgba(142,201,160,.1)", border: `1px solid ${T.sage}44`, color: T.sage, borderRadius: 13, padding: "3px 9px", fontSize: 10.5, cursor: "pointer" }}>{k}</button>
+                        style={{ background: "rgba(142,201,160,.1)", border: `1px solid ${T.sage}44`, color: T.sage, borderRadius: 13, padding: "3px 9px", fontSize: 11.5, cursor: "pointer" }}>{k}</button>
                     ))}
                   </div>
-                  <div className="lum-sans" style={{ fontSize: 11, color: T.faint, marginTop: 12, lineHeight: 1.7 }}>
+                  <div className="lum-sans" style={{ fontSize: 12, color: T.faint, marginTop: 12, lineHeight: 1.7 }}>
                     <b style={{ color: T.dim }}>Colour</b> {c.colour} &nbsp;·&nbsp; <b style={{ color: T.dim }}>Element</b> {c.element} &nbsp;·&nbsp; <b style={{ color: T.dim }}>Zodiac</b> {c.zodiac}
                   </div>
                   {c.deep && (
@@ -4458,8 +4458,8 @@ const CrystalScreen = ({ paid, askUpgrade }) => {
                         <div className="fade-up" style={{ marginTop: 14, display: "grid", gap: 14 }}>
                           {[["Origins & formation", c.deep.origin], ["Through history & lore", c.deep.lore], ["For the heart & mind", c.deep.mind], ["For the spirit", c.deep.spirit], ["For the body", c.deep.body], ["Cleansing & charging", c.deep.care]].map(([h, t]) => (
                             <div key={h}>
-                              <div className="lum-sans" style={{ fontSize: 10.5, color: c.hex, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 5 }}>{h}</div>
-                              <div className="lum-serif" style={{ fontSize: 14, color: T.dim, lineHeight: 1.8 }}>{t}</div>
+                              <div className="lum-sans" style={{ fontSize: 11.5, color: c.hex, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 5 }}>{h}</div>
+                              <div className="lum-serif" style={{ fontSize: 15, color: T.dim, lineHeight: 1.8 }}>{t}</div>
                             </div>
                           ))}
                         </div>
@@ -4478,7 +4478,7 @@ const CrystalScreen = ({ paid, askUpgrade }) => {
         )}
       </div>
 
-      <p className="lum-sans" style={{ color: T.faint, fontSize: 12, marginTop: 16, lineHeight: 1.6 }}>To cleanse: moonlight, selenite, sound, or smoke. To charge: sunlight (briefly), intention, or the full moon. {moonPhase().name === "Full Moon" ? "✨ The moon is full tonight — a perfect time to charge your stones." : ""}</p>
+      <p className="lum-sans" style={{ color: T.faint, fontSize: 13, marginTop: 16, lineHeight: 1.6 }}>To cleanse: moonlight, selenite, sound, or smoke. To charge: sunlight (briefly), intention, or the full moon. {moonPhase().name === "Full Moon" ? "✨ The moon is full tonight — a perfect time to charge your stones." : ""}</p>
     </div>
   );
 };
@@ -4656,14 +4656,14 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
       <Panel hover onClick={() => play(track, locked)} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "13px 18px", borderColor: active ? accent : undefined, background: active ? `linear-gradient(160deg, ${T.card}, #1c1c38)` : undefined }}>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div className="lum-serif" style={{ fontSize: 17.5, color: active ? T.goldHi : T.ink }}>{track.name}</div>
-          <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 2 }}>{track.desc}</div>
+          <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 2 }}>{track.desc}</div>
         </div>
         {locked ? <LockTag /> : (
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <button onClick={(e) => { e.stopPropagation(); addToPlaylist(track); }} aria-label={`Add ${track.name} to playlist`} className="lum-sans" style={{ background: "none", border: "1px solid rgba(233,230,242,.18)", color: T.dim, width: 28, height: 28, borderRadius: "50%", cursor: "pointer", fontSize: 15, lineHeight: 1 }}>＋</button>
+            <button onClick={(e) => { e.stopPropagation(); addToPlaylist(track); }} aria-label={`Add ${track.name} to playlist`} className="lum-sans" style={{ background: "none", border: "1px solid rgba(233,230,242,.18)", color: T.dim, width: 28, height: 28, borderRadius: "50%", cursor: "pointer", fontSize: 16, lineHeight: 1 }}>＋</button>
             <div style={{ position: "relative", width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center" }}>
               {active && <div style={{ position: "absolute", inset: 0, borderRadius: "50%", border: `1.5px solid ${accent}`, animation: "pulseRing 1.8s ease-out infinite" }} />}
-              <span style={{ color: accent, fontSize: 16 }}>{active ? "■" : "▶"}</span>
+              <span style={{ color: accent, fontSize: 17 }}>{active ? "■" : "▶"}</span>
             </div>
           </div>
         )}
@@ -4675,14 +4675,14 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
     <div className="fade-up" style={{ maxWidth: 600 }}>
       <Eyebrow colour={T.teal}>Sound Sanctuary</Eyebrow>
       <H>Let the frequencies hold you</H>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 14 }}>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 15 }}>
         Live, pure tones generated in sacred ratios — no recordings, no ads, no interruptions.
         {!paid && <span style={{ color: T.gold }}> Free tier: 3 tracks per day ({3 - Math.min(freePlays, 3)} remaining).</span>}
       </p>
       {/* ✧ Journeys — named, reorderable playlists, saved on the device */}
       <Panel style={{ margin: "14px 0", padding: 16, borderColor: T.goldHi + "55" }}>
         <div className="lum-serif" style={{ fontSize: 19, color: T.goldHi }}>✧ Your Journeys</div>
-        <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, margin: "3px 0 12px" }}>Craft a bedtime or meditation journey — name it, add tracks, then set the order and how long each one flows.</div>
+        <div className="lum-sans" style={{ fontSize: 12.5, color: T.faint, margin: "3px 0 12px" }}>Craft a bedtime or meditation journey — name it, add tracks, then set the order and how long each one flows.</div>
         <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
           <input value={newName} onChange={(e) => setNewName(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter" && newName.trim()) { createPlaylist(newName); setNewName(""); } }}
@@ -4695,7 +4695,7 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
               <button key={pl.id} onClick={() => setActiveId(pl.id)} className="lum-sans" style={{
                 background: activeId === pl.id ? "rgba(201,168,76,.18)" : "rgba(233,230,242,.05)",
                 border: `1px solid ${activeId === pl.id ? T.goldHi : "rgba(233,230,242,.14)"}`,
-                color: activeId === pl.id ? T.goldHi : T.dim, borderRadius: 14, padding: "5px 12px", fontSize: 12, cursor: "pointer",
+                color: activeId === pl.id ? T.goldHi : T.dim, borderRadius: 14, padding: "5px 12px", fontSize: 13, cursor: "pointer",
               }}>{playingPlId === pl.id ? "✧ " : ""}{pl.name} · {pl.items.length}</button>
             ))}
           </div>
@@ -4704,7 +4704,7 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, marginBottom: 8 }}>
               <input value={activePl.name} onChange={(e) => renamePlaylist(activePl.id, e.target.value)} aria-label="Journey name"
-                className="lum-serif" style={{ background: "none", border: "none", borderBottom: "1px solid rgba(233,230,242,.14)", color: T.ink, fontSize: 16, padding: "2px 0", flex: 1, minWidth: 0 }} />
+                className="lum-serif" style={{ background: "none", border: "none", borderBottom: "1px solid rgba(233,230,242,.14)", color: T.ink, fontSize: 17, padding: "2px 0", flex: 1, minWidth: 0 }} />
               <div style={{ display: "flex", gap: 6 }}>
                 {playingPlId === activePl.id && plPlaying >= 0
                   ? <><Btn small kind="ghost" onClick={() => playStep(plPlaying + 1)}>⏭ Next</Btn><Btn small kind="ghost" onClick={stopPlaylist}>◼ End</Btn></>
@@ -4712,38 +4712,38 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
               </div>
             </div>
             {activePl.items.length === 0
-              ? <div className="lum-sans" style={{ fontSize: 12, color: T.faint, padding: "8px 0" }}>Empty for now — tap ＋ on any track below to add it to “{activePl.name}”.</div>
+              ? <div className="lum-sans" style={{ fontSize: 13, color: T.faint, padding: "8px 0" }}>Empty for now — tap ＋ on any track below to add it to “{activePl.name}”.</div>
               : activePl.items.map((it, i) => {
                 const on = playingPlId === activePl.id && plPlaying === i;
                 const last = i === activePl.items.length - 1;
                 return (
                   <div key={it.key} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 0", borderTop: i ? "1px solid rgba(233,230,242,.07)" : "none" }}>
                     <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
-                      <button onClick={() => moveItem(activePl.id, i, -1)} disabled={i === 0} aria-label="Move up" className="lum-sans" style={{ background: "none", border: "none", color: i === 0 ? T.faint : T.dim, cursor: i === 0 ? "default" : "pointer", fontSize: 10, lineHeight: 1, padding: 0 }}>▲</button>
-                      <button onClick={() => moveItem(activePl.id, i, 1)} disabled={last} aria-label="Move down" className="lum-sans" style={{ background: "none", border: "none", color: last ? T.faint : T.dim, cursor: last ? "default" : "pointer", fontSize: 10, lineHeight: 1, padding: 0 }}>▼</button>
+                      <button onClick={() => moveItem(activePl.id, i, -1)} disabled={i === 0} aria-label="Move up" className="lum-sans" style={{ background: "none", border: "none", color: i === 0 ? T.faint : T.dim, cursor: i === 0 ? "default" : "pointer", fontSize: 11, lineHeight: 1, padding: 0 }}>▲</button>
+                      <button onClick={() => moveItem(activePl.id, i, 1)} disabled={last} aria-label="Move down" className="lum-sans" style={{ background: "none", border: "none", color: last ? T.faint : T.dim, cursor: last ? "default" : "pointer", fontSize: 11, lineHeight: 1, padding: 0 }}>▼</button>
                     </div>
-                    <span className="lum-sans" style={{ flex: 1, minWidth: 0, fontSize: 13.5, color: on ? T.goldHi : (it.track?.needsReupload ? T.faint : T.ink) }}>
+                    <span className="lum-sans" style={{ flex: 1, minWidth: 0, fontSize: 14.5, color: on ? T.goldHi : (it.track?.needsReupload ? T.faint : T.ink) }}>
                       {on ? "✧ " : `${i + 1}. `}{it.track?.name}{it.track?.needsReupload ? " · re-add upload" : ""}
                     </span>
-                    <button onClick={() => cycleMins(activePl.id, it.key)} className="lum-sans" style={{ background: "rgba(201,168,76,.1)", border: "1px solid rgba(201,168,76,.3)", color: T.goldHi, borderRadius: 13, padding: "3px 10px", fontSize: 11.5, cursor: "pointer" }}>{it.mins} min</button>
-                    <button onClick={() => removeItem(activePl.id, it.key)} aria-label="Remove" className="lum-sans" style={{ background: "none", border: "none", color: T.faint, cursor: "pointer", fontSize: 14 }}>✕</button>
+                    <button onClick={() => cycleMins(activePl.id, it.key)} className="lum-sans" style={{ background: "rgba(201,168,76,.1)", border: "1px solid rgba(201,168,76,.3)", color: T.goldHi, borderRadius: 13, padding: "3px 10px", fontSize: 12.5, cursor: "pointer" }}>{it.mins} min</button>
+                    <button onClick={() => removeItem(activePl.id, it.key)} aria-label="Remove" className="lum-sans" style={{ background: "none", border: "none", color: T.faint, cursor: "pointer", fontSize: 15 }}>✕</button>
                   </div>
                 );
               })}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 10 }}>
-              <span className="lum-sans" style={{ fontSize: 11, color: T.faint }}>Each step flows for its minutes, then the next begins. With “All night,” the final track plays on until dawn.</span>
-              <button onClick={() => deletePlaylist(activePl.id)} className="lum-sans" style={{ background: "none", border: "none", color: T.faint, fontSize: 11, cursor: "pointer" }}>Delete journey</button>
+              <span className="lum-sans" style={{ fontSize: 12, color: T.faint }}>Each step flows for its minutes, then the next begins. With “All night,” the final track plays on until dawn.</span>
+              <button onClick={() => deletePlaylist(activePl.id)} className="lum-sans" style={{ background: "none", border: "none", color: T.faint, fontSize: 12, cursor: "pointer" }}>Delete journey</button>
             </div>
           </div>
         )}
       </Panel>
       <div style={{ display: "flex", gap: 8, alignItems: "center", margin: "14px 0 22px", flexWrap: "wrap" }}>
-        <span className="lum-sans" style={{ fontSize: 12, color: T.faint, letterSpacing: ".1em" }}>SLEEP TIMER</span>
+        <span className="lum-sans" style={{ fontSize: 13, color: T.faint, letterSpacing: ".1em" }}>SLEEP TIMER</span>
         {[0, 30, 60, 480].map((m) => (
           <button key={m} onClick={() => chooseTimer(m)} className="lum-sans" style={{
             background: timer === m ? "rgba(127,212,224,.16)" : "rgba(233,230,242,.05)",
             border: `1px solid ${timer === m ? T.teal : "rgba(233,230,242,.14)"}`,
-            color: timer === m ? T.teal : T.dim, borderRadius: 16, padding: "5px 13px", fontSize: 12, cursor: "pointer",
+            color: timer === m ? T.teal : T.dim, borderRadius: 16, padding: "5px 13px", fontSize: 13, cursor: "pointer",
           }}>{m === 0 ? "Off" : m === 480 ? "All night" : `${m} min`}</button>
         ))}
       </div>
@@ -4763,14 +4763,14 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
         })}
       </div>
       <Eyebrow colour={T.rose}>Your Own Tracks</Eyebrow>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 13, lineHeight: 1.65, margin: "0 0 12px" }}>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 14, lineHeight: 1.65, margin: "0 0 12px" }}>
         Made a tune in another app, or licensed one you love? Bring it in. It will loop with a gentle crossfade — no audible seam — and the weave toggle above carries a hidden 528 Hz beneath it.
       </p>
       <div style={{ display: "grid", gap: 9, marginBottom: 12 }}>
         {myTracks.map((t) => (
           <div key={t.id}>
             <Row accent={T.rose} track={t} locked={false} />
-            <button onClick={() => setOwnHarp(ownHarp?.id === t.id ? null : t)} className="lum-sans" style={{ background: "none", border: "none", color: ownHarp?.id === t.id ? T.goldHi : T.faint, fontSize: 11.5, cursor: "pointer", padding: "5px 4px 0", letterSpacing: ".04em" }}>
+            <button onClick={() => setOwnHarp(ownHarp?.id === t.id ? null : t)} className="lum-sans" style={{ background: "none", border: "none", color: ownHarp?.id === t.id ? T.goldHi : T.faint, fontSize: 12.5, cursor: "pointer", padding: "5px 4px 0", letterSpacing: ".04em" }}>
               {ownHarp?.id === t.id ? "★ This is your Angelic Harp — tap to restore the built-in" : "☆ Use this as the app's Angelic Harp"}
             </button>
           </div>
@@ -4778,11 +4778,11 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
       </div>
       <label style={{ cursor: "pointer" }}>
         <input type="file" accept="audio/*" onChange={onUpload} style={{ display: "none" }} />
-        <span className="lum-sans" style={{ background: "rgba(192,123,138,.14)", border: `1px solid ${T.rose}66`, color: T.rose, borderRadius: 20, padding: "10px 22px", fontSize: 13, display: "inline-block" }}>＋ Add a track</span>
+        <span className="lum-sans" style={{ background: "rgba(192,123,138,.14)", border: `1px solid ${T.rose}66`, color: T.rose, borderRadius: 20, padding: "10px 22px", fontSize: 14, display: "inline-block" }}>＋ Add a track</span>
       </label>
-      {uploadErr && <p className="lum-sans" style={{ color: T.rose, fontSize: 12.5, marginTop: 10 }}>{uploadErr}</p>}
-      <p className="lum-sans" style={{ color: T.faint, fontSize: 11, marginTop: 10 }}>Preview note: tracks live for this session only — at launch they upload to your library and stay.</p>
-      <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 16 }}>Production note: cedar flute, shamanic drum & full recordings ship as hosted audio at launch. These live-generated tones are real and yours to enjoy now — headphones recommended, volume low and gentle.</p>
+      {uploadErr && <p className="lum-sans" style={{ color: T.rose, fontSize: 13.5, marginTop: 10 }}>{uploadErr}</p>}
+      <p className="lum-sans" style={{ color: T.faint, fontSize: 12, marginTop: 10 }}>Preview note: tracks live for this session only — at launch they upload to your library and stay.</p>
+      <p className="lum-sans" style={{ color: T.faint, fontSize: 12.5, marginTop: 16 }}>Production note: cedar flute, shamanic drum & full recordings ship as hosted audio at launch. These live-generated tones are real and yours to enjoy now — headphones recommended, volume low and gentle.</p>
     </div>
   );
 };
@@ -4816,7 +4816,7 @@ const MeditationScreen = ({ paid, askUpgrade, engine }) => {
             <SpeakBtn slow text={script} colour={T.violet} label="🕊 Begin spoken practice"
               onStart={() => { if (bg) engine.play({ id: "medbg", type: "layer", parts: ["pad"] }); }}
               onStop={() => engine.stop()} />
-            <button onClick={() => setBg(!bg)} className="lum-sans" style={{ background: bg ? "rgba(184,152,232,.14)" : "rgba(233,230,242,.05)", border: `1px solid ${bg ? T.violet : "rgba(233,230,242,.15)"}`, color: bg ? T.violet : T.dim, borderRadius: 18, padding: "7px 14px", fontSize: 12, cursor: "pointer" }}>
+            <button onClick={() => setBg(!bg)} className="lum-sans" style={{ background: bg ? "rgba(184,152,232,.14)" : "rgba(233,230,242,.05)", border: `1px solid ${bg ? T.violet : "rgba(233,230,242,.15)"}`, color: bg ? T.violet : T.dim, borderRadius: 18, padding: "7px 14px", fontSize: 13, cursor: "pointer" }}>
               {bg ? "♫ gentle music behind the voice" : "♫ voice alone"}
             </button>
           </div>
@@ -4825,7 +4825,7 @@ const MeditationScreen = ({ paid, askUpgrade, engine }) => {
           </Panel>
         </>
       )}
-      <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 14 }}>The spoken voice is your device's in this preview — full-length recordings in a soft human voice ship at launch.</p>
+      <p className="lum-sans" style={{ color: T.faint, fontSize: 12.5, marginTop: 14 }}>The spoken voice is your device's in this preview — full-length recordings in a soft human voice ship at launch.</p>
     </div>
   );
 
@@ -4835,14 +4835,14 @@ const MeditationScreen = ({ paid, askUpgrade, engine }) => {
       <H>Come home to yourself</H>
       <Panel style={{ margin: "16px 0", padding: 18, borderColor: T.violet + "55", background: "linear-gradient(160deg, #1d1438, #121022)" }}>
         <div className="lum-serif" style={{ fontSize: 19, color: T.violet }}>🔥 The Violet Flame</div>
-        <p className="lum-sans" style={{ fontSize: 13, color: T.dim, lineHeight: 1.7, margin: "6px 0 0" }}>Saint Germain's sacred transmutation flame transforms dense, heavy energy into light. Powerful for soul clearing, karma release, and energetic renewal.</p>
+        <p className="lum-sans" style={{ fontSize: 14, color: T.dim, lineHeight: 1.7, margin: "6px 0 0" }}>Saint Germain's sacred transmutation flame transforms dense, heavy energy into light. Powerful for soul clearing, karma release, and energetic renewal.</p>
       </Panel>
       <div style={{ display: "grid", gap: 10 }}>
         {MEDITATIONS.map((m) => (
           <Panel key={m.name} hover onClick={() => begin(m)} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 18px" }}>
             <div>
               <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>{m.name}</div>
-              <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginTop: 2 }}>{m.mins} min · {m.note}</div>
+              <div className="lum-sans" style={{ fontSize: 13, color: T.dim, marginTop: 2 }}>{m.mins} min · {m.note}</div>
             </div>
             {!m.free && !paid ? <LockTag /> : <span style={{ color: T.violet }}>→</span>}
           </Panel>
@@ -4883,9 +4883,9 @@ const DreamScreen = ({ paid, askUpgrade, journal, setJournal }) => {
     <div className="fade-up" style={{ maxWidth: 560 }}>
       <Eyebrow colour={T.moon}>Dream Journal</Eyebrow>
       <H>What did the night bring you?</H>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 13.5 }}>Describe your dream in your own words. Your guide will ask before interpreting — your feelings shape the meaning. {moonPhase().icon} {moonPhase().name} tonight.</p>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 14.5 }}>Describe your dream in your own words. Your guide will ask before interpreting — your feelings shape the meaning. {moonPhase().icon} {moonPhase().name} tonight.</p>
       <Panel style={{ margin: "14px 0", padding: 16, minHeight: 200, maxHeight: 380, overflowY: "auto" }}>
-        {msgs.length === 0 && <p className="lum-serif" style={{ color: T.faint, fontStyle: "italic", fontSize: 16 }}>“I dreamed I was standing in dark water, and a white bird circled above me…”</p>}
+        {msgs.length === 0 && <p className="lum-serif" style={{ color: T.faint, fontStyle: "italic", fontSize: 17 }}>“I dreamed I was standing in dark water, and a white bird circled above me…”</p>}
         {msgs.map((m, i) => (
           <div key={i} style={{ display: "flex", justifyContent: m.role === "user" ? "flex-end" : "flex-start", marginBottom: 10 }}>
             <div className={m.role === "user" ? "lum-sans" : "lum-serif"} style={{
@@ -4908,9 +4908,9 @@ const DreamScreen = ({ paid, askUpgrade, journal, setJournal }) => {
           <Eyebrow colour={T.moon}>Your Journal</Eyebrow>
           {journal.map((j, i) => (
             <Panel key={i} style={{ padding: 14, marginBottom: 8 }}>
-              <div className="lum-sans" style={{ fontSize: 11, color: T.gold }}>{j.date} · {j.moon.icon} {j.moon.name}</div>
-              <div className="lum-serif" style={{ fontSize: 15, color: T.ink, fontStyle: "italic", margin: "4px 0" }}>“{j.dream.slice(0, 110)}{j.dream.length > 110 ? "…" : ""}”</div>
-              <div className="lum-sans" style={{ fontSize: 12, color: T.dim, lineHeight: 1.5 }}>{j.note}</div>
+              <div className="lum-sans" style={{ fontSize: 12, color: T.gold }}>{j.date} · {j.moon.icon} {j.moon.name}</div>
+              <div className="lum-serif" style={{ fontSize: 16, color: T.ink, fontStyle: "italic", margin: "4px 0" }}>“{j.dream.slice(0, 110)}{j.dream.length > 110 ? "…" : ""}”</div>
+              <div className="lum-sans" style={{ fontSize: 13, color: T.dim, lineHeight: 1.5 }}>{j.note}</div>
             </Panel>
           ))}
         </div>
@@ -4960,12 +4960,12 @@ const SoulScreen = ({ paid, askUpgrade }) => {
       </H>
       <p className="lum-serif" style={{ color: T.ink, fontSize: 17, fontStyle: "italic", lineHeight: 1.6 }}>{result.primary.essence}</p>
       <Panel style={{ padding: 18, margin: "14px 0" }}>
-        <div className="lum-sans" style={{ fontSize: 11, color: T.dim, letterSpacing: ".16em", marginBottom: 12 }}>HOW EACH RAY RESONATES IN YOU</div>
+        <div className="lum-sans" style={{ fontSize: 12, color: T.dim, letterSpacing: ".16em", marginBottom: 12 }}>HOW EACH RAY RESONATES IN YOU</div>
         {result.pct.map((p) => (
           <div key={p.key} style={{ marginBottom: 10 }}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-              <span className="lum-sans" style={{ fontSize: 12.5, color: p.pct >= 50 ? p.colour : T.dim }}>{p.name}</span>
-              <span className="lum-sans" style={{ fontSize: 12, color: T.faint }}>{p.pct}%</span>
+              <span className="lum-sans" style={{ fontSize: 13.5, color: p.pct >= 50 ? p.colour : T.dim }}>{p.name}</span>
+              <span className="lum-sans" style={{ fontSize: 13, color: T.faint }}>{p.pct}%</span>
             </div>
             <div style={{ height: 5, borderRadius: 3, background: "rgba(233,230,242,.07)" }}>
               <div style={{ height: "100%", width: `${p.pct}%`, borderRadius: 3, background: p.colour, opacity: 0.85, transition: "width 1s ease" }} />
@@ -4974,7 +4974,7 @@ const SoulScreen = ({ paid, askUpgrade }) => {
         ))}
       </Panel>
       {loading ? <Channeling text="Reading your soul's signature…" /> : <Panel style={{ padding: 26, borderColor: result.primary.colour + "55" }}><ReadingText text={reading} /></Panel>}
-      <p className="lum-serif" style={{ color: T.faint, fontSize: 13.5, fontStyle: "italic", marginTop: 14, lineHeight: 1.7 }}>A questionnaire is a mirror, not a verdict. Your own inner knowing is the final authority on what your soul is.</p>
+      <p className="lum-serif" style={{ color: T.faint, fontSize: 14.5, fontStyle: "italic", marginTop: 14, lineHeight: 1.7 }}>A questionnaire is a mirror, not a verdict. Your own inner knowing is the final authority on what your soul is.</p>
     </div>
   );
 
@@ -4987,11 +4987,11 @@ const SoulScreen = ({ paid, askUpgrade }) => {
           {SOUL_STATEMENTS.map((_, i) => <div key={i} style={{ flex: 1, height: 3, borderRadius: 2, background: i <= step ? T.violet : "rgba(233,230,242,.1)" }} />)}
         </div>
         <H size={26} style={{ fontStyle: "italic" }}>“{statement}”</H>
-        <div className="lum-sans" style={{ color: T.dim, fontSize: 13, margin: "8px 0 18px" }}>How deeply does this resonate?</div>
+        <div className="lum-sans" style={{ color: T.dim, fontSize: 14, margin: "8px 0 18px" }}>How deeply does this resonate?</div>
         <div style={{ display: "grid", gap: 10 }}>
           {RESONANCE.map(([label, val]) => (
             <Panel key={label} hover onClick={() => rate(val)} style={{ padding: "15px 18px" }}>
-              <span className="lum-sans" style={{ fontSize: 14.5, color: T.ink }}>{label}</span>
+              <span className="lum-sans" style={{ fontSize: 15.5, color: T.ink }}>{label}</span>
             </Panel>
           ))}
         </div>
@@ -5003,12 +5003,12 @@ const SoulScreen = ({ paid, askUpgrade }) => {
     <div className="fade-up" style={{ maxWidth: 600 }}>
       <Eyebrow colour={T.violet}>Soul Type Profile</Eyebrow>
       <H>Which light do you carry?</H>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 14, lineHeight: 1.7 }}>Souls rarely carry only one ray. Rather than forcing you to choose between truths, you'll rate how deeply twelve statements resonate — and receive a blended portrait of the currents moving through you, with your leading light named first.</p>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7 }}>Souls rarely carry only one ray. Rather than forcing you to choose between truths, you'll rate how deeply twelve statements resonate — and receive a blended portrait of the currents moving through you, with your leading light named first.</p>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, margin: "18px 0" }}>
         {Object.values(SOUL_TYPES).map((s) => (
           <Panel key={s.name} style={{ padding: 14, borderColor: s.colour + "44" }}>
             <div className="lum-serif" style={{ fontSize: 17, color: s.colour }}>{s.name}</div>
-            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, lineHeight: 1.55, marginTop: 4 }}>{s.essence}</div>
+            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.55, marginTop: 4 }}>{s.essence}</div>
           </Panel>
         ))}
       </div>
@@ -5057,7 +5057,7 @@ const VisionScreen = ({ kind, paid, askUpgrade }) => {
     <div className="fade-up" style={{ maxWidth: 560 }}>
       <Eyebrow colour={T.rose}>{isIris ? "Iridology" : "Palm Reading"}</Eyebrow>
       <H>{isIris ? "The window of the iris" : "The map in your hands"}</H>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 14, lineHeight: 1.7 }}>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7 }}>
         {isIris ? "Upload a close-up of your eye — good lighting, close to the camera, no flash." : "Photograph your dominant hand — flat, well lit, lines clearly visible."} An occasional deep-dive, not a daily practice.
       </p>
       <Panel style={{ margin: "16px 0", padding: 20, textAlign: "center", borderStyle: "dashed", borderColor: T.rose + "55" }}>
@@ -5065,14 +5065,14 @@ const VisionScreen = ({ kind, paid, askUpgrade }) => {
         <div style={{ marginTop: 12 }}>
           <label style={{ cursor: "pointer" }}>
             <input type="file" accept="image/*" onChange={upload} style={{ display: "none" }} />
-            <span className="lum-sans" style={{ background: "rgba(192,123,138,.14)", border: `1px solid ${T.rose}66`, color: T.rose, borderRadius: 20, padding: "9px 20px", fontSize: 13 }}>Choose photo {!paid && "🔒"}</span>
+            <span className="lum-sans" style={{ background: "rgba(192,123,138,.14)", border: `1px solid ${T.rose}66`, color: T.rose, borderRadius: 20, padding: "9px 20px", fontSize: 14 }}>Choose photo {!paid && "🔒"}</span>
           </label>
           {img && <span style={{ marginLeft: 10 }}><Btn small onClick={read}>Begin reading ✧</Btn></span>}
         </div>
       </Panel>
       {loading && <Channeling text={isIris ? "Gazing into the iris…" : "Tracing your lines…"} />}
       {out && <Panel style={{ padding: 26 }}><ReadingText text={out} /></Panel>}
-      <p className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 12, fontStyle: "italic" }}>This reading is for holistic wellness reflection and spiritual insight. It is not medical advice.</p>
+      <p className="lum-sans" style={{ color: T.faint, fontSize: 12.5, marginTop: 12, fontStyle: "italic" }}>This reading is for holistic wellness reflection and spiritual insight. It is not medical advice.</p>
     </div>
   );
 };
@@ -5084,31 +5084,31 @@ const UpgradeModal = ({ reason, onClose, onChoose }) => (
   <div style={{ position: "fixed", inset: 0, zIndex: 95, background: "rgba(8,8,18,.92)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }} onClick={onClose}>
     <div className="fade-up" onClick={(e) => e.stopPropagation()} style={{ maxWidth: 420, width: "100%", background: `linear-gradient(165deg, ${T.card}, ${T.card2})`, border: `1px solid ${T.gold}55`, borderRadius: 22, padding: 28, textAlign: "center" }}>
       <div className="lum-serif gold-shimmer" style={{ fontSize: 30, fontWeight: 600 }}>Illuminate your path</div>
-      <p className="lum-sans" style={{ color: T.dim, fontSize: 14, lineHeight: 1.7, margin: "10px 0 22px" }}>{reason}</p>
+      <p className="lum-sans" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "10px 0 22px" }}>{reason}</p>
       <Panel hover onClick={() => onChoose("illuminate")} style={{ marginBottom: 12, borderColor: T.gold + "77", textAlign: "left" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <span className="lum-serif" style={{ fontSize: 20, color: T.goldHi }}>Illuminate</span>
-          <span className="lum-sans" style={{ color: T.ink, fontSize: 15 }}>$12<span style={{ color: T.faint, fontSize: 12 }}>/month</span></span>
+          <span className="lum-sans" style={{ color: T.ink, fontSize: 16 }}>$12<span style={{ color: T.faint, fontSize: 13 }}>/month</span></span>
         </div>
-        <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 4 }}>Completely ad-free · every reading, deck, sound & meditation</div>
+        <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, marginTop: 4 }}>Completely ad-free · every reading, deck, sound & meditation</div>
       </Panel>
       <Panel hover onClick={() => onChoose("oracle")} style={{ borderColor: T.violet + "77", textAlign: "left", background: "linear-gradient(160deg, #1d1438, #141228)" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <span className="lum-serif" style={{ fontSize: 20, color: T.violet }}>Oracle · Lifetime</span>
-          <span className="lum-sans" style={{ color: T.ink, fontSize: 15 }}>$88 <span style={{ color: T.faint, fontSize: 12 }}>once</span></span>
+          <span className="lum-sans" style={{ color: T.ink, fontSize: 16 }}>$88 <span style={{ color: T.faint, fontSize: 13 }}>once</span></span>
         </div>
-        <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 4 }}>Everything, forever · all future decks & features · early access</div>
+        <div className="lum-sans" style={{ fontSize: 13.5, color: T.dim, marginTop: 4 }}>Everything, forever · all future decks & features · early access</div>
       </Panel>
-      <button onClick={onClose} className="lum-sans" style={{ background: "none", border: "none", color: T.faint, fontSize: 13, marginTop: 16, cursor: "pointer" }}>Continue as a Seeker</button>
-      <div className="lum-sans" style={{ color: T.faint, fontSize: 10.5, marginTop: 8 }}>Preview build — payments connect to Stripe at launch.</div>
+      <button onClick={onClose} className="lum-sans" style={{ background: "none", border: "none", color: T.faint, fontSize: 14, marginTop: 16, cursor: "pointer" }}>Continue as a Seeker</button>
+      <div className="lum-sans" style={{ color: T.faint, fontSize: 11.5, marginTop: 8 }}>Preview build — payments connect to Stripe at launch.</div>
     </div>
   </div>
 );
 
 const AdBanner = ({ onUpgrade }) => (
   <div className="lum-sans" style={{ position: "fixed", bottom: 64, left: 0, right: 0, zIndex: 40, background: "#1f1f33", borderTop: "1px solid rgba(233,230,242,.1)", padding: "9px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-    <span style={{ fontSize: 11.5, color: T.faint }}>Ad · Sponsored content appears here on the free tier</span>
-    <button onClick={onUpgrade} style={{ background: "none", border: "none", color: T.goldHi, fontSize: 11.5, cursor: "pointer", textDecoration: "underline" }}>Remove ads from $12/month</button>
+    <span style={{ fontSize: 12.5, color: T.faint }}>Ad · Sponsored content appears here on the free tier</span>
+    <button onClick={onUpgrade} style={{ background: "none", border: "none", color: T.goldHi, fontSize: 12.5, cursor: "pointer", textDecoration: "underline" }}>Remove ads from $12/month</button>
   </div>
 );
 
@@ -5118,14 +5118,14 @@ const Interstitial = ({ onDone }) => {
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 96, background: "rgba(8,8,18,.97)", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
       <div style={{ textAlign: "center", maxWidth: 360 }}>
-        <div className="lum-sans" style={{ color: T.faint, fontSize: 11, letterSpacing: ".2em", marginBottom: 14 }}>ADVERTISEMENT</div>
+        <div className="lum-sans" style={{ color: T.faint, fontSize: 12, letterSpacing: ".2em", marginBottom: 14 }}>ADVERTISEMENT</div>
         <Panel style={{ height: 200, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>
-          <span className="lum-sans" style={{ color: T.faint, fontSize: 13 }}>Sponsored content plays here between sessions</span>
+          <span className="lum-sans" style={{ color: T.faint, fontSize: 14 }}>Sponsored content plays here between sessions</span>
         </Panel>
         {s > 0
-          ? <div className="lum-sans" style={{ color: T.dim, fontSize: 13 }}>Skip in {s}…</div>
+          ? <div className="lum-sans" style={{ color: T.dim, fontSize: 14 }}>Skip in {s}…</div>
           : <Btn small kind="ghost" onClick={onDone}>Skip ad →</Btn>}
-        <div style={{ marginTop: 16 }}><button className="lum-sans" onClick={onDone} style={{ background: "none", border: "none", color: T.goldHi, fontSize: 12, cursor: "pointer", textDecoration: "underline" }}>Remove ads from $12/month</button></div>
+        <div style={{ marginTop: 16 }}><button className="lum-sans" onClick={onDone} style={{ background: "none", border: "none", color: T.goldHi, fontSize: 13, cursor: "pointer", textDecoration: "underline" }}>Remove ads from $12/month</button></div>
       </div>
     </div>
   );
@@ -5168,7 +5168,7 @@ const ComingSoonScreen = ({ title, note, img }) => (
     <Eyebrow>Coming soon</Eyebrow>
     <H>{title}</H>
     {img && <img src={img} alt="" style={{ width: "100%", maxWidth: 300, borderRadius: 18, margin: "18px auto", display: "block", boxShadow: "0 12px 34px rgba(0,0,0,.5)" }} />}
-    <p className="lum-serif" style={{ color: T.dim, fontSize: 15, fontStyle: "italic", lineHeight: 1.75 }}>{note}</p>
+    <p className="lum-serif" style={{ color: T.dim, fontSize: 16, fontStyle: "italic", lineHeight: 1.75 }}>{note}</p>
   </div>
 );
 
@@ -5197,16 +5197,16 @@ const TrackPlayer = ({ track, fav, inPlaylist, onFav, onPlaylist }) => {
             <div className="lum-serif" style={{ fontSize: 17, color: T.ink, lineHeight: 1.2 }}>{track.title}</div>
             {onFav && <button onClick={() => onFav(track)} aria-pressed={fav} aria-label="Favourite" className="lum-sans" style={{ flexShrink: 0, background: "none", border: "none", cursor: "pointer", fontSize: 19, lineHeight: 1, color: fav ? T.gold : T.faint }}>{fav ? "★" : "☆"}</button>}
           </div>
-          {track.desc && <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, lineHeight: 1.5, marginTop: 3 }}>{track.desc}</div>}
+          {track.desc && <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, lineHeight: 1.5, marginTop: 3 }}>{track.desc}</div>}
         </div>
       </div>
       <audio ref={audioRef} controls preload="metadata" src={track.src} onPlay={onPlay} onPause={() => clearTimeout(timerRef.current)} style={{ width: "100%", marginTop: 10 }} />
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8, alignItems: "center" }}>
-        <span className="lum-sans" style={{ fontSize: 10, color: T.faint, letterSpacing: ".1em", textTransform: "uppercase" }}>Play</span>
+        <span className="lum-sans" style={{ fontSize: 11, color: T.faint, letterSpacing: ".1em", textTransform: "uppercase" }}>Play</span>
         {LOOP_OPTS.map((o) => (
-          <button key={o.id} onClick={() => setMode(o.id)} className="lum-sans" style={{ background: mode === o.id ? "rgba(184,152,232,.18)" : "rgba(233,230,242,.05)", border: `1px solid ${mode === o.id ? T.violet : "rgba(233,230,242,.14)"}`, color: mode === o.id ? T.violet : T.faint, borderRadius: 13, padding: "3px 9px", fontSize: 11, cursor: "pointer" }}>{o.label}</button>
+          <button key={o.id} onClick={() => setMode(o.id)} className="lum-sans" style={{ background: mode === o.id ? "rgba(184,152,232,.18)" : "rgba(233,230,242,.05)", border: `1px solid ${mode === o.id ? T.violet : "rgba(233,230,242,.14)"}`, color: mode === o.id ? T.violet : T.faint, borderRadius: 13, padding: "3px 9px", fontSize: 12, cursor: "pointer" }}>{o.label}</button>
         ))}
-        {onPlaylist && <button onClick={() => onPlaylist(track)} aria-pressed={inPlaylist} className="lum-sans" style={{ marginLeft: "auto", background: inPlaylist ? "rgba(201,168,76,.16)" : "transparent", border: `1px solid ${inPlaylist ? T.gold : "rgba(201,168,76,.35)"}`, color: inPlaylist ? T.goldHi : T.dim, borderRadius: 13, padding: "3px 10px", fontSize: 11, cursor: "pointer", whiteSpace: "nowrap" }}>{inPlaylist ? "✓ Playlist" : "+ Playlist"}</button>}
+        {onPlaylist && <button onClick={() => onPlaylist(track)} aria-pressed={inPlaylist} className="lum-sans" style={{ marginLeft: "auto", background: inPlaylist ? "rgba(201,168,76,.16)" : "transparent", border: `1px solid ${inPlaylist ? T.gold : "rgba(201,168,76,.35)"}`, color: inPlaylist ? T.goldHi : T.dim, borderRadius: 13, padding: "3px 10px", fontSize: 12, cursor: "pointer", whiteSpace: "nowrap" }}>{inPlaylist ? "✓ Playlist" : "+ Playlist"}</button>}
       </div>
     </Panel>
   );
@@ -5230,9 +5230,9 @@ const AmbientBar = ({ engine }) => {
   };
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", margin: "0 0 16px", padding: "10px 12px", borderRadius: 12, background: "rgba(127,212,224,.05)", border: "1px solid rgba(127,212,224,.18)" }}>
-      <span className="lum-sans" style={{ fontSize: 10.5, color: T.faint, letterSpacing: ".08em", textTransform: "uppercase", marginRight: 2 }}>🌿 Ambient underneath</span>
+      <span className="lum-sans" style={{ fontSize: 11.5, color: T.faint, letterSpacing: ".08em", textTransform: "uppercase", marginRight: 2 }}>🌿 Ambient underneath</span>
       {AMBIENTS.map((a) => (
-        <button key={a.id} onClick={() => pick(a.id)} aria-pressed={amb === a.id} className="lum-sans" style={{ background: amb === a.id ? "rgba(127,212,224,.2)" : "rgba(233,230,242,.05)", border: `1px solid ${amb === a.id ? T.teal : "rgba(233,230,242,.14)"}`, color: amb === a.id ? T.teal : T.faint, borderRadius: 14, padding: "4px 11px", fontSize: 11.5, cursor: "pointer" }}>{a.label}</button>
+        <button key={a.id} onClick={() => pick(a.id)} aria-pressed={amb === a.id} className="lum-sans" style={{ background: amb === a.id ? "rgba(127,212,224,.2)" : "rgba(233,230,242,.05)", border: `1px solid ${amb === a.id ? T.teal : "rgba(233,230,242,.14)"}`, color: amb === a.id ? T.teal : T.faint, borderRadius: 14, padding: "4px 11px", fontSize: 12.5, cursor: "pointer" }}>{a.label}</button>
       ))}
     </div>
   );
@@ -5271,11 +5271,11 @@ const SectionScreen = ({ tag, title, intro, colour, emptyMsg, playlist = [], fav
       {tracks.length === 0 ? (
         <Panel style={{ padding: 26, textAlign: "center", borderColor: (colour || T.gold) + "44", marginTop: 8 }}>
           <div style={{ fontSize: 34, marginBottom: 10 }}>🎶</div>
-          <p className="lum-serif" style={{ color: T.ink, fontSize: 16, fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>{emptyMsg}</p>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 17, fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>{emptyMsg}</p>
         </Panel>
       ) : (
         <>
-          <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "6px 0 18px" }}>{intro}</p>
+          <p className="lum-serif" style={{ color: T.dim, fontSize: 16, lineHeight: 1.7, margin: "6px 0 18px" }}>{intro}</p>
           <AmbientBar engine={engine} />
           <div style={{ display: "grid", gap: 12 }}>
             {tracks.map((t) => <TrackPlayer key={t.src} track={t} fav={favs.includes(t.src)} inPlaylist={playlist.some((p) => p.src === t.src)} onFav={onFav} onPlaylist={onPlaylist} />)}
@@ -5296,20 +5296,20 @@ const MyPlaylistScreen = ({ playlist = [], favs = [], onPlaylist, onFav }) => {
       {empty ? (
         <Panel style={{ padding: 26, textAlign: "center", borderColor: T.gold + "44", marginTop: 8 }}>
           <div style={{ fontSize: 34, marginBottom: 10 }}>🎶</div>
-          <p className="lum-serif" style={{ color: T.ink, fontSize: 16, fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>Your playlist is empty for now.</p>
-          <p className="lum-sans" style={{ color: T.dim, fontSize: 13, lineHeight: 1.7, margin: "12px 0 0" }}>On any track, tap <b style={{ color: T.gold }}>★</b> to favourite it or <b style={{ color: T.goldHi }}>+ Playlist</b> to add it — they'll gather here. 💛</p>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 17, fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>Your playlist is empty for now.</p>
+          <p className="lum-sans" style={{ color: T.dim, fontSize: 14, lineHeight: 1.7, margin: "12px 0 0" }}>On any track, tap <b style={{ color: T.gold }}>★</b> to favourite it or <b style={{ color: T.goldHi }}>+ Playlist</b> to add it — they'll gather here. 💛</p>
         </Panel>
       ) : (
         <div style={{ display: "grid", gap: 20, marginTop: 8 }}>
           {favTracks.length > 0 && (
             <div>
-              <div className="lum-sans" style={{ fontSize: 11, color: T.gold, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 10 }}>★ Favourites</div>
+              <div className="lum-sans" style={{ fontSize: 12, color: T.gold, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 10 }}>★ Favourites</div>
               <div style={{ display: "grid", gap: 12 }}>{favTracks.map(row)}</div>
             </div>
           )}
           {playlist.length > 0 && (
             <div>
-              <div className="lum-sans" style={{ fontSize: 11, color: T.goldHi, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 10 }}>Added tracks</div>
+              <div className="lum-sans" style={{ fontSize: 12, color: T.goldHi, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 10 }}>Added tracks</div>
               <div style={{ display: "grid", gap: 12 }}>{playlist.map(row)}</div>
             </div>
           )}
@@ -5341,9 +5341,10 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
 
   return (
     <div className="fade-up" style={{ textAlign: "center" }}>
-      <div className="lum-sans" style={{ color: T.dim, fontSize: 13, letterSpacing: ".08em" }}>{greeting}, beloved seeker · {moon.icon} {moon.name}</div>
+      <div className="lum-sans" style={{ color: T.dim, fontSize: 14, letterSpacing: ".08em" }}>{greeting}, beloved seeker · {moon.icon} {moon.name}</div>
       <div className="lum-serif gold-shimmer" style={{ fontSize: 46, fontWeight: 600, margin: "6px 0 2px" }}>Luminae</div>
-      <div className="lum-serif" style={{ color: T.moon, fontSize: 17, fontStyle: "italic", marginBottom: 30 }}>The wisdom you've been seeking</div>
+      <div className="lum-serif" style={{ color: T.moon, fontSize: 17, fontStyle: "italic", marginBottom: 14 }}>The wisdom you've been seeking</div>
+      <div className="lum-serif" style={{ color: T.dim, fontSize: 17, fontStyle: "italic", lineHeight: 1.7, maxWidth: 440, margin: "0 auto 30px" }}>Welcome in, dear one. Follow whatever calls you — a reading, a song, or a quiet moment. It's all here for you. ✨</div>
 
       <OracleOrb size={148} tint={orbTint} onClick={() => go("tarot")} label="Touch the orb to begin a reading" />
 
@@ -5368,7 +5369,7 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
         <Panel hover onClick={() => { pendingAngelDraw = true; go("angels"); }} style={{ marginBottom: 14, padding: "15px 18px", borderColor: "#9cb8ee44", background: "linear-gradient(160deg, #141b33, #0e0e1c)" }}>
           <Eyebrow colour="#9cb8ee">Archangel Messages · Free</Eyebrow>
           <div className="lum-serif" style={{ fontSize: 21, color: T.ink, marginTop: 2 }}>Allow the angels to guide you</div>
-          <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4, marginBottom: 12 }}>Seven archangels shuffle in the heavens — draw a card and receive a gentle message ✧</div>
+          <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 4, marginBottom: 12 }}>Seven archangels shuffle in the heavens — draw a card and receive a gentle message ✧</div>
           <div style={{ display: "flex", gap: 6 }}>
             {ARCHANGEL_FACES.map((src, i) => (
               <img key={i} src={src} alt="" loading="lazy" style={{ flex: 1, minWidth: 0, aspectRatio: "1", objectFit: "cover", objectPosition: "50% 18%", borderRadius: 10, border: "1px solid rgba(156,184,238,.3)" }} />
@@ -5383,8 +5384,8 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
               <button key={d.screen} onClick={() => go(d.screen)} aria-label={`Open ${d.name}`} className="deck-tile" style={{ position: "relative", border: "none", padding: 0, borderRadius: 15, overflow: "hidden", cursor: "pointer", aspectRatio: "3 / 4", background: "#0e0e1e", boxShadow: "0 8px 22px rgba(0,0,0,.4)" }}>
                 <img src={d.img} alt={d.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "26px 12px 11px", textAlign: "left", background: "linear-gradient(transparent, rgba(6,6,16,.93) 64%)" }}>
-                  <div className="lum-serif" style={{ fontSize: 15, color: "#fff", lineHeight: 1.15 }}>{d.name}</div>
-                  <div className="lum-sans" style={{ fontSize: 10, letterSpacing: ".08em", color: T.goldHi, marginTop: 2 }}>{d.count} · Draw →</div>
+                  <div className="lum-serif" style={{ fontSize: 16, color: "#fff", lineHeight: 1.15 }}>{d.name}</div>
+                  <div className="lum-sans" style={{ fontSize: 11, letterSpacing: ".08em", color: T.goldHi, marginTop: 2 }}>{d.count} · Draw →</div>
                 </div>
               </button>
             ))}
@@ -5398,8 +5399,8 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
               <button key={d.screen} onClick={() => go(d.screen)} aria-label={`Open ${d.name}`} className="deck-tile" style={{ position: "relative", border: "none", padding: 0, borderRadius: 15, overflow: "hidden", cursor: "pointer", aspectRatio: "3 / 4", background: "#0e0e1e", boxShadow: "0 8px 22px rgba(0,0,0,.4)" }}>
                 <img src={d.img} alt={d.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "26px 12px 11px", textAlign: "left", background: "linear-gradient(transparent, rgba(6,6,16,.93) 64%)" }}>
-                  <div className="lum-serif" style={{ fontSize: 16, color: "#fff", lineHeight: 1.15 }}>{d.name}</div>
-                  <div className="lum-sans" style={{ fontSize: 10.5, letterSpacing: ".03em", color: T.goldHi, marginTop: 3 }}>{d.note}</div>
+                  <div className="lum-serif" style={{ fontSize: 17, color: "#fff", lineHeight: 1.15 }}>{d.name}</div>
+                  <div className="lum-sans" style={{ fontSize: 11.5, letterSpacing: ".03em", color: T.goldHi, marginTop: 3 }}>{d.note}</div>
                 </div>
               </button>
             ))}
@@ -5412,7 +5413,7 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             <div style={{ padding: "14px 16px", flex: 1, alignSelf: "center" }}>
               <Eyebrow colour="#b9a3f0">Dream Journal</Eyebrow>
               <div className="lum-serif" style={{ fontSize: 20, color: T.ink }}>Capture your dreams</div>
-              <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Write them down and explore what they may mean ✧</div>
+              <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 4 }}>Write them down and explore what they may mean ✧</div>
             </div>
           </button>
         </div>
@@ -5424,8 +5425,8 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
               <button key={d.screen} onClick={() => go(d.screen)} aria-label={`Open ${d.name}`} className="deck-tile" style={{ position: "relative", border: "none", padding: 0, borderRadius: 15, overflow: "hidden", cursor: "pointer", aspectRatio: "3 / 4", background: "#0e0e1e", boxShadow: "0 8px 22px rgba(0,0,0,.4)" }}>
                 <img src={d.img} alt={d.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "26px 12px 11px", textAlign: "left", background: "linear-gradient(transparent, rgba(6,6,16,.93) 64%)" }}>
-                  <div className="lum-serif" style={{ fontSize: 16, color: "#fff", lineHeight: 1.15 }}>{d.name}</div>
-                  <div className="lum-sans" style={{ fontSize: 10.5, letterSpacing: ".03em", color: T.goldHi, marginTop: 3 }}>{d.note}</div>
+                  <div className="lum-serif" style={{ fontSize: 17, color: "#fff", lineHeight: 1.15 }}>{d.name}</div>
+                  <div className="lum-sans" style={{ fontSize: 11.5, letterSpacing: ".03em", color: T.goldHi, marginTop: 3 }}>{d.note}</div>
                 </div>
               </button>
             ))}
@@ -5440,7 +5441,7 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
             <div style={{ padding: "15px 18px", flex: 1, alignSelf: "center" }}>
               <Eyebrow colour={T.goldHi}>Weekly Horoscope · Free</Eyebrow>
               <div className="lum-serif" style={{ fontSize: 21, color: T.ink }}>Your stars this week</div>
-              <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Every sign's forecast &amp; your natal birth chart ✧</div>
+              <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 4 }}>Every sign's forecast &amp; your natal birth chart ✧</div>
             </div>
           </div>
         </Panel>
@@ -5448,20 +5449,20 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
           <Panel hover onClick={() => go("crystals")} style={{ padding: 15 }}>
             <Eyebrow colour={T.sage}>Today's Crystal</Eyebrow>
             <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>💎 {crystal.name}</div>
-            <div className="lum-sans" style={{ fontSize: 11, color: T.dim, marginTop: 4 }}>{crystal.chakra}</div>
+            <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginTop: 4 }}>{crystal.chakra}</div>
           </Panel>
           <Panel hover onClick={() => go("angels")} style={{ padding: 15, borderColor: "#3b6fd444" }}>
             <Eyebrow colour="#9cb8ee">Protection</Eyebrow>
             <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>🛡️ Michael</div>
-            <div className="lum-sans" style={{ fontSize: 11, color: T.dim, marginTop: 4 }}>One breath away</div>
+            <div className="lum-sans" style={{ fontSize: 12, color: T.dim, marginTop: 4 }}>One breath away</div>
           </Panel>
           <Panel hover onClick={() => go("quotes")} style={{ padding: 16, borderColor: T.gold + "33" }}>
             <Eyebrow colour={T.gold}>Inspirational Quotes</Eyebrow>
             <div className="lum-serif" style={{ fontSize: 19, color: T.ink }}>🕯️ Turn a card</div>
-            <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, marginTop: 4 }}>Draw a little light — anytime</div>
+            <div className="lum-sans" style={{ fontSize: 12.5, color: T.dim, marginTop: 4 }}>Draw a little light — anytime</div>
           </Panel>
         </div>
-        <p className="lum-serif" style={{ color: T.faint, fontSize: 14, fontStyle: "italic", textAlign: "center", marginTop: 26, lineHeight: 1.7 }}>
+        <p className="lum-serif" style={{ color: T.faint, fontSize: 15, fontStyle: "italic", textAlign: "center", marginTop: 26, lineHeight: 1.7 }}>
           Every reading in Luminae is opened in pure intent, surrounded in golden light, and held in the protection of Archangel Michael.
         </p>
       </div>
@@ -5505,7 +5506,7 @@ export default function Luminae() {
   const [screen, setScreen] = useState("home");
   const [tier, setTier] = useState("seeker");
   const [devPreview, setDevPreview] = useState(() => { try { return new URLSearchParams(window.location.search).has("preview"); } catch (e) { return false; } });
-  const [firstOpen, setFirstOpen] = useState(true);
+  const [firstOpen, setFirstOpen] = useState(false); // protection ritual is reading-only now — no gate on home entry
   const [ritual, setRitual] = useState(null); // pending callback
   const [upgrade, setUpgrade] = useState(null);
   const [interstitial, setInterstitial] = useState(false);
@@ -5596,7 +5597,7 @@ export default function Luminae() {
                 <span className="lum-serif" style={{ fontSize: 22, color: T.gold, width: 26, textAlign: "center" }}>{m.icon}</span>
                 <div>
                   <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>{m.name}</div>
-                  <div className="lum-sans" style={{ fontSize: 12, color: T.dim }}>{m.note}</div>
+                  <div className="lum-sans" style={{ fontSize: 13, color: T.dim }}>{m.note}</div>
                 </div>
               </div>
               <span style={{ color: T.gold }}>→</span>
@@ -5604,26 +5605,26 @@ export default function Luminae() {
           ))}
         </div>
         <Panel style={{ padding: 18, textAlign: "center" }}>
-          <div className="lum-sans" style={{ fontSize: 12, color: T.dim }}>Current tier</div>
+          <div className="lum-sans" style={{ fontSize: 13, color: T.dim }}>Current tier</div>
           <div className="lum-serif gold-shimmer" style={{ fontSize: 24, fontWeight: 600, textTransform: "capitalize" }}>{tier === "seeker" ? "Seeker · Free" : tier === "oracle" ? "Oracle · Lifetime" : "Illuminate"}</div>
           {!paid && <div style={{ marginTop: 12 }}><Btn small onClick={() => askUpgrade("Everything you love — readings, sound healing, meditation, angel guidance — in one sacred, ad-free space.")}>Illuminate from $12/mo</Btn></div>}
           {paid && <Btn small kind="ghost" onClick={() => setTier("seeker")} style={{ marginTop: 12 }}>Preview free tier</Btn>}
           {devPreview && (
             <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid rgba(201,168,76,.2)" }}>
-              <div className="lum-sans" style={{ fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: T.gold, marginBottom: 9 }}>Owner preview · not shown to visitors</div>
+              <div className="lum-sans" style={{ fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", color: T.gold, marginBottom: 9 }}>Owner preview · not shown to visitors</div>
               <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
                 {["seeker", "oracle", "illuminate"].map((t) => (
                   <Btn key={t} small kind={tier === t ? undefined : "ghost"} onClick={() => setTier(t)} style={{ textTransform: "capitalize" }}>{t}</Btn>
                 ))}
               </div>
-              <div className="lum-sans" style={{ fontSize: 10.5, color: T.faint, marginTop: 9, lineHeight: 1.5 }}>Switch tier to unlock &amp; test paid features. Tap the version badge (top-right) 5× to hide this.</div>
+              <div className="lum-sans" style={{ fontSize: 11.5, color: T.faint, marginTop: 9, lineHeight: 1.5 }}>Switch tier to unlock &amp; test paid features. Tap the version badge (top-right) 5× to hide this.</div>
             </div>
           )}
         </Panel>
-        <p className="lum-serif" style={{ color: T.faint, fontSize: 13, fontStyle: "italic", lineHeight: 1.8, marginTop: 20, textAlign: "center" }}>
+        <p className="lum-serif" style={{ color: T.faint, fontSize: 14, fontStyle: "italic", lineHeight: 1.8, marginTop: 20, textAlign: "center" }}>
           Luminae is built with deep respect for the spiritual traditions it draws from. All readings are for educational, reflective, and spiritual purposes — not medical advice, psychological diagnosis, or definitive prediction. Hold every insight with an open heart and your own discernment.
         </p>
-        <p className="lum-sans" style={{ color: T.faint, fontSize: 11, textAlign: "center", marginTop: 8 }}>Built by Olivia & DeAndre Hyde · June 2026</p>
+        <p className="lum-sans" style={{ color: T.faint, fontSize: 12, textAlign: "center", marginTop: 8 }}>Built by Olivia & DeAndre Hyde · June 2026</p>
       </div>
     ),
   }[screen];
@@ -5636,7 +5637,7 @@ export default function Luminae() {
       {screen !== "home" && <HomeBtn onClick={() => go("home")} />}
       {updateReady && (
         <div role="button" tabIndex={0} onClick={() => window.location.reload()} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") window.location.reload(); }}
-          style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "linear-gradient(90deg,#c9a84c,#e7d08a)", color: "#171728", textAlign: "center", padding: "9px 16px", cursor: "pointer", fontSize: 12.5, fontWeight: 600, letterSpacing: ".02em", boxShadow: "0 2px 14px rgba(0,0,0,.4)" }}>
+          style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "linear-gradient(90deg,#c9a84c,#e7d08a)", color: "#171728", textAlign: "center", padding: "9px 16px", cursor: "pointer", fontSize: 13.5, fontWeight: 600, letterSpacing: ".02em", boxShadow: "0 2px 14px rgba(0,0,0,.4)" }}>
           ✨ A new version of Luminae is ready — tap to refresh
         </div>
       )}
@@ -5656,7 +5657,7 @@ export default function Luminae() {
           return (
             <button key={n.id} onClick={() => go(n.id)} className="lum-sans" style={{ background: "none", border: "none", cursor: "pointer", color: active ? T.goldHi : T.faint, textAlign: "center", minWidth: 58 }}>
               <div style={{ fontSize: 19, lineHeight: 1.1 }}>{n.icon}</div>
-              <div style={{ fontSize: 10, letterSpacing: ".08em", marginTop: 3 }}>{n.label}</div>
+              <div style={{ fontSize: 11, letterSpacing: ".08em", marginTop: 3 }}>{n.label}</div>
             </button>
           );
         })}
