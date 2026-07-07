@@ -226,7 +226,7 @@ const ARCHANGELS = [
       "Here, come closer. Lay the whole tired weight of your body against my wing and let yourself be held the way you are always holding everyone else. Nothing is required of you in this moment — not strength, not answers, not a brave face. You are safe. My emerald light is a blanket over you, warm and unhurried, and it will still be here when you wake. Breathe out. You can finally let go."
     ] },
   { name: "Archangel Gabriel", domain: "Communication & Creativity", colour: "White & Copper", hex: "#d8c8b8", crystal: "Selenite", img: "/images/angels/archangel-gabriel.webp",
-    about: "The great messenger, Gabriel opens the voice and the creative channel. She carries announcements and new life, inspires writers, artists, and speakers, and helps you say the true thing with clarity and grace. She is also the tender guardian of parents, pregnancy, and children.",
+    about: "The great messenger, Gabriel opens the voice and the creative channel. He carries announcements and new life, inspires writers, artists, and speakers, and helps you say the true thing with clarity and grace. He is also the tender guardian of parents, pregnancy, and children.",
     signs: "A soft copper or white shimmer, a rush of unexpected inspiration, or the right words arriving as if from nowhere.",
     callOn: ["You must speak, write, or express something important", "You're facing an interview, presentation, or hard conversation", "Your creativity feels blocked or stalled", "You're pregnant, giving birth, or raising children", "You're called toward a new beginning or purpose", "You need to find the right words in a difficult moment"],
     invocation: "Archangel Gabriel, open my voice and my creative channel. Help me express my truth with clarity and grace.",
@@ -283,7 +283,7 @@ const ARCHANGELS = [
       "I know the ache of wanting someone to come home to. It is not foolish, this longing, it is your heart doing exactly what hearts were made to do. But do not shrink yourself smaller while you wait, hoping to be easier to love. The love meant for you will want all of you, the whole bright blaze. Keep your fire lit; it is a beacon, not a burden."
     ] },
   { name: "Archangel Jophiel", domain: "Beauty & Joyful Thought", colour: "Sunshine Yellow", hex: "#eccb55", crystal: "Citrine", img: "/images/angels/archangel-jophiel.webp",
-    about: "The angel of beauty and joyful thought, Jophiel brightens your inner world and helps you see the beauty already around you. She lifts heavy, anxious, or self-critical thinking, slows you down to savour life, and pours in joy, gratitude, and a lighter heart.",
+    about: "The angel of beauty and joyful thought, Jophiel brightens your inner world and helps you see the beauty already around you. He lifts heavy, anxious, or self-critical thinking, slows you down to savour life, and pours in joy, gratitude, and a lighter heart.",
     signs: "A sunny yellow light, a smile that rises out of nowhere, or beauty catching your eye in something you'd walked past a hundred times.",
     callOn: ["Your thoughts turn dark, heavy, or self-critical", "You need to see beauty and feel gratitude again", "Low mood needs lifting and joy needs inviting in", "Life feels rushed, grey, and joyless", "You're beautifying a space, a project, or yourself", "You want to shift the energy of a bad day"],
     invocation: "Archangel Jophiel, beautify my thoughts and brighten my inner world. Open my eyes to the beauty already all around me, and lift my heart into joy.",
