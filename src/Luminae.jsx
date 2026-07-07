@@ -5239,7 +5239,7 @@ const AmbientBar = ({ engine }) => {
 // Every track carries section tags: S=Sleep, R=Relaxation, M=Meditation, MR=Morning Rise.
 // A track appears in each section it's tagged with. (Placeholder thumbnails/descriptions.)
 const TRACKS = [
-  { title: "Golden Glow · Angels Blessing", src: "/audio/golden-glow-angels-blessing.mp3", img: "/images/angels/archangel-gabriel.webp", desc: "A tender angelic lullaby of soft voices and warm light — made to be wrapped in.", tags: ["S", "R"] },
+  { title: "Golden Glow · Angels Blessing", src: "/audio/golden-glow-angels-blessing.mp3", img: "/images/angels/archangel-gabriel.webp", desc: "A guardian angel's tender lullaby — her soft blessing helps little ones, and anyone, relax and feel safe enough to fall asleep.", tags: ["S", "R"] },
   { title: "Drifting Off", src: "/audio/drifting-off.mp3", img: "/images/features/relaxsleep.webp", desc: "Soft piano — sleepy music that melts the day away into rest.", tags: ["S", "R"] },
   { title: "Moonlit Canopy Drift", src: "/audio/moonlit-canopy-drift.mp3", img: "/images/gaia/the-full-moon.webp", desc: "Kalimba — a dreamy drift beneath a moonlit canopy, slow and still.", tags: ["S", "R"] },
   { title: "Salt Hymn", src: "/audio/salt-hymn.mp3", img: "/images/ocean/the-shoreline.webp", desc: "Harp — a hushed, hymn-like drift over the sea, spacious and reverent.", tags: ["S", "R"] },
