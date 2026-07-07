@@ -5241,7 +5241,7 @@ const AmbientBar = ({ engine }) => {
 // A track appears in each section it's tagged with. (Placeholder thumbnails/descriptions.)
 const TRACKS = [
   { title: "Golden Glow · Angels Blessing", src: "/audio/golden-glow-angels-blessing.mp3", img: "/images/angels/archangel-gabriel.webp", desc: "A guardian angel's tender lullaby — her soft blessing helps little ones, and anyone, relax and feel safe enough to fall asleep.", tags: ["S", "R"] },
-  { title: "Drifting Off", src: "/audio/drifting-off.mp3", img: "/images/features/relaxsleep.webp", desc: "Soft piano — sleepy music that melts the day away into rest.", tags: ["S", "R"] },
+  { title: "Drifting Off", src: "/audio/drifting-off.mp3", img: "/images/features/relaxsleep.webp", desc: "Soft piano — two takes woven into one longer drift that melts the day away into rest.", tags: ["S", "R"] },
   { title: "Moonlit Canopy Drift", src: "/audio/moonlit-canopy-drift.mp3", img: "/images/gaia/the-full-moon.webp", desc: "Kalimba — a dreamy drift beneath a moonlit canopy, slow and still.", tags: ["S", "R"] },
   { title: "Salt Hymn", src: "/audio/salt-hymn.mp3", img: "/images/ocean/the-shoreline.webp", desc: "Harp — a hushed, hymn-like drift over the sea, spacious and reverent.", tags: ["S", "R"] },
   { title: "Feather Dustmote", src: "/audio/feather-dustmote.mp3", img: "/images/gaia/the-morning-mist.webp", desc: "Native American flute — weightless and soft, like dust motes in a sunbeam.", tags: ["S", "R"] },
@@ -5258,6 +5258,7 @@ const TRACKS = [
   { title: "Celestial Mercy", src: "/audio/celestial-mercy.mp3", img: "/images/ocean/the-deep-calm.webp", desc: "Harp — soft, heavenly, tender and merciful.", tags: ["S", "R", "M"] },
   { title: "After the Stars", src: "/audio/after-the-stars.mp3", img: "/images/ocean/the-calm-after-the-storm.webp", desc: "Harp — a gentle drift into the calm that follows the night.", tags: ["S", "R", "M"] },
   { title: "Flute Constellation", src: "/audio/flute-constellation.mp3", img: "/images/gaia/the-wind.webp", desc: "Native American flute — airy, drifting among the stars.", tags: ["S", "R", "M"] },
+  { title: "Unwind & Reset", src: "/audio/unwind-and-reset.mp3", img: "/images/ocean/the-kelp-forest.webp", desc: "Five loved versions crossfaded into one long, ever-shifting drift — settle in and let it carry you. ~17 min.", tags: ["S", "R", "M"] },
 ];
 const ALL_TRACKS = TRACKS;
 const bySection = (tag) => TRACKS.filter((t) => (t.tags || []).includes(tag));
