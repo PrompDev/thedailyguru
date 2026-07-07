@@ -160,7 +160,6 @@ const DECKS = [
 
 const SPREADS = [
   { id: "daily", name: "Daily Single Card", cards: 1, free: true, pos: ["Today's Energy"], note: "One card each morning for the day's energy." },
-  { id: "angel", name: "Angel Message Card", cards: 1, free: true, pos: ["A Message From Your Guides"], note: "A single card as a message from your guides." },
   { id: "ppf", name: "Three Card Spread", cards: 3, free: false, pos: ["Past", "Present", "Future"], note: "The classic journey through time." },
   { id: "yesno", name: "Yes / No Spread", cards: 3, free: false, pos: ["Situation", "Guidance", "Outcome"], note: "Clarity on a question held in your heart." },
   { id: "mbs", name: "Mind · Body · Spirit", cards: 3, free: false, pos: ["Mind", "Body", "Spirit"], note: "A holistic check-in with your whole being." },
