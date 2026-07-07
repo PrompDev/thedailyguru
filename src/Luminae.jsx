@@ -4750,22 +4750,6 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
           }}>{m === 0 ? "Off" : m === 480 ? "All night" : `${m} min`}</button>
         ))}
       </div>
-      <Eyebrow colour={T.teal}>Solfeggio Frequencies</Eyebrow>
-      <Panel style={{ padding: "12px 16px", marginBottom: 12, display: "flex", justifyContent: "space-between", alignItems: "center", borderColor: T.teal + "44" }}>
-        <div>
-          <div className="lum-sans" style={{ fontSize: 13.5, color: T.ink }}>Weave frequencies & music</div>
-          <div className="lum-sans" style={{ fontSize: 11, color: T.dim, marginTop: 2 }}>Tuned chords beneath frequencies · a hidden, barely-there frequency beneath music & your own tracks</div>
-        </div>
-        <button onClick={toggleMusic} role="switch" aria-checked={withMusic} style={{ width: 46, height: 26, borderRadius: 13, border: "none", cursor: "pointer", background: withMusic ? T.teal : "rgba(233,230,242,.15)", position: "relative", transition: "background .2s", flexShrink: 0, marginLeft: 12 }}>
-          <span style={{ position: "absolute", top: 3, left: withMusic ? 23 : 3, width: 20, height: 20, borderRadius: "50%", background: "#fff", transition: "left .2s" }} />
-        </button>
-      </Panel>
-      <div style={{ display: "grid", gap: 9, marginBottom: 24 }}>
-        {SOLFEGGIO.map((s, i) => (
-          <Row key={s.hz} accent={T.teal} locked={!paid && i > 2 && s.hz !== 528}
-            track={{ id: `hz${s.hz}`, type: "tone", hz: s.hz, name: `${s.hz} Hz${s.hz === 528 ? " · The Love Frequency" : ""}`, desc: s.label }} />
-        ))}
-      </div>
       <Eyebrow colour={T.moon}>Nature</Eyebrow>
       <div style={{ display: "grid", gap: 9, marginBottom: 24 }}>
         {SOUNDSCAPES.map((s) => <Row key={s.id} accent={T.moon} track={s} locked={!s.free && !paid} />)}
@@ -5193,28 +5177,116 @@ const ComingSoonScreen = ({ title, note, img }) => (
   </div>
 );
 
-const SLEEP_TRACKS = [
-  { title: "Golden Glow · Angels Blessing", src: "/audio/golden-glow-angels-blessing.mp3", note: "A gentle angelic lullaby 🪽" },
-  { title: "Drifting Off", src: "/audio/drifting-off.mp3", note: "Soft music to melt into sleep 🌙" },
-  { title: "Moonlit Canopy Drift", src: "/audio/moonlit-canopy-drift.mp3", note: "A dreamy ambient drift ✨" },
+const LOOP_OPTS = [
+  { id: "once", label: "Once" },
+  { id: "loop", label: "🔁 Loop" },
+  { id: "30", label: "30m" },
+  { id: "60", label: "60m" },
+  { id: "480", label: "8h" },
 ];
-const RelaxSleepScreen = () => (
+const TrackPlayer = ({ track, fav, inPlaylist, onFav, onPlaylist }) => {
+  const [mode, setMode] = useState("once");
+  const audioRef = useRef(null);
+  const timerRef = useRef(null);
+  const loop = mode !== "once";
+  const mins = mode === "30" ? 30 : mode === "60" ? 60 : mode === "480" ? 480 : 0;
+  useEffect(() => { if (audioRef.current) audioRef.current.loop = loop; }, [loop]);
+  useEffect(() => () => clearTimeout(timerRef.current), []);
+  const onPlay = () => { clearTimeout(timerRef.current); if (mins > 0) timerRef.current = setTimeout(() => { try { audioRef.current && audioRef.current.pause(); } catch (e) {} }, mins * 60000); };
+  return (
+    <Panel style={{ padding: 14 }}>
+      <div style={{ display: "flex", gap: 12 }}>
+        {track.img && <img src={track.img} alt="" loading="lazy" style={{ width: 66, height: 66, borderRadius: 12, objectFit: "cover", flexShrink: 0, border: "1px solid rgba(201,168,76,.22)" }} />}
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", gap: 8, alignItems: "flex-start" }}>
+            <div className="lum-serif" style={{ fontSize: 17, color: T.ink, lineHeight: 1.2 }}>{track.title}</div>
+            {onFav && <button onClick={() => onFav(track)} aria-pressed={fav} aria-label="Favourite" className="lum-sans" style={{ flexShrink: 0, background: "none", border: "none", cursor: "pointer", fontSize: 19, lineHeight: 1, color: fav ? T.gold : T.faint }}>{fav ? "★" : "☆"}</button>}
+          </div>
+          {track.desc && <div className="lum-sans" style={{ fontSize: 11.5, color: T.dim, lineHeight: 1.5, marginTop: 3 }}>{track.desc}</div>}
+        </div>
+      </div>
+      <audio ref={audioRef} controls preload="none" src={track.src} onPlay={onPlay} onPause={() => clearTimeout(timerRef.current)} style={{ width: "100%", marginTop: 10 }} />
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8, alignItems: "center" }}>
+        <span className="lum-sans" style={{ fontSize: 10, color: T.faint, letterSpacing: ".1em", textTransform: "uppercase" }}>Play</span>
+        {LOOP_OPTS.map((o) => (
+          <button key={o.id} onClick={() => setMode(o.id)} className="lum-sans" style={{ background: mode === o.id ? "rgba(184,152,232,.18)" : "rgba(233,230,242,.05)", border: `1px solid ${mode === o.id ? T.violet : "rgba(233,230,242,.14)"}`, color: mode === o.id ? T.violet : T.faint, borderRadius: 13, padding: "3px 9px", fontSize: 11, cursor: "pointer" }}>{o.label}</button>
+        ))}
+        {onPlaylist && <button onClick={() => onPlaylist(track)} aria-pressed={inPlaylist} className="lum-sans" style={{ marginLeft: "auto", background: inPlaylist ? "rgba(201,168,76,.16)" : "transparent", border: `1px solid ${inPlaylist ? T.gold : "rgba(201,168,76,.35)"}`, color: inPlaylist ? T.goldHi : T.dim, borderRadius: 13, padding: "3px 10px", fontSize: 11, cursor: "pointer", whiteSpace: "nowrap" }}>{inPlaylist ? "✓ Playlist" : "+ Playlist"}</button>}
+      </div>
+    </Panel>
+  );
+};
+const SLEEP_TRACKS = [
+  { title: "Golden Glow · Angels Blessing", src: "/audio/golden-glow-angels-blessing.mp3", img: "/images/angels/archangel-gabriel.webp", desc: "A tender angelic lullaby of soft voices and warm light — made to be wrapped in." },
+  { title: "Drifting Off", src: "/audio/drifting-off.mp3", img: "/images/features/relaxsleep.webp", desc: "Gentle, sleepy music that melts the day away and carries you down into rest." },
+  { title: "Moonlit Canopy Drift", src: "/audio/moonlit-canopy-drift.mp3", img: "/images/gaia/the-full-moon.webp", desc: "A dreamy ambient drift beneath a moonlit canopy — slow, spacious and still." },
+];
+const MEDITATION_TRACKS = [];
+const ALL_TRACKS = [...SLEEP_TRACKS, ...MEDITATION_TRACKS];
+const RelaxSleepScreen = ({ playlist = [], favs = [], onPlaylist, onFav }) => (
   <div className="fade-up" style={{ maxWidth: 560, margin: "0 auto" }}>
     <Eyebrow>Sound &amp; Meditation</Eyebrow>
     <H>Relaxation &amp; Sleep</H>
-    <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "6px 0 18px" }}>Soft music and gentle lullabies to help you drift away. Press play, dim the lights, and let go. 🌙</p>
+    <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "6px 0 18px" }}>Soft music and gentle lullabies to help you drift away. Loop them or set a timer, dim the lights, and let go. 🌙</p>
     <div style={{ display: "grid", gap: 12 }}>
-      {SLEEP_TRACKS.map((t) => (
-        <Panel key={t.src} style={{ padding: "14px 16px" }}>
-          <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>{t.title}</div>
-          <div className="lum-sans" style={{ fontSize: 12, color: T.dim, margin: "3px 0 10px" }}>{t.note}</div>
-          <audio controls preload="none" src={t.src} style={{ width: "100%" }}>Your browser can’t play this audio.</audio>
-        </Panel>
-      ))}
+      {SLEEP_TRACKS.map((t) => <TrackPlayer key={t.src} track={t} fav={favs.includes(t.src)} inPlaylist={playlist.some((p) => p.src === t.src)} onFav={onFav} onPlaylist={onPlaylist} />)}
     </div>
     <p className="lum-serif" style={{ color: T.faint, fontSize: 13, fontStyle: "italic", textAlign: "center", lineHeight: 1.7, marginTop: 20 }}>More tracks are on their way — this little library will keep growing. ✧</p>
   </div>
 );
+const MeditationLibScreen = ({ playlist = [], favs = [], onPlaylist, onFav }) => (
+  <div className="fade-up" style={{ maxWidth: 560, margin: "0 auto" }}>
+    <Eyebrow colour={T.violet}>Sound &amp; Meditation</Eyebrow>
+    <H>Guided Meditation</H>
+    {MEDITATION_TRACKS.length === 0 ? (
+      <Panel style={{ padding: 26, textAlign: "center", borderColor: T.violet + "44", marginTop: 8 }}>
+        <div style={{ fontSize: 34, marginBottom: 10 }}>🧘</div>
+        <p className="lum-serif" style={{ color: T.ink, fontSize: 16, fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>Your guided meditations are being lovingly recorded — a soft, real voice to walk beside you.</p>
+        <p className="lum-sans" style={{ color: T.dim, fontSize: 13, lineHeight: 1.7, margin: "12px 0 0" }}>This is their home, ready and waiting. Each one will appear here as it arrives. 💜</p>
+      </Panel>
+    ) : (
+      <>
+        <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "6px 0 18px" }}>Settle in, press play, and let a gentle voice guide you home. Loop or set a timer as you like. 🕊️</p>
+        <div style={{ display: "grid", gap: 12 }}>
+          {MEDITATION_TRACKS.map((t) => <TrackPlayer key={t.src} track={t} fav={favs.includes(t.src)} inPlaylist={playlist.some((p) => p.src === t.src)} onFav={onFav} onPlaylist={onPlaylist} />)}
+        </div>
+      </>
+    )}
+  </div>
+);
+const MyPlaylistScreen = ({ playlist = [], favs = [], onPlaylist, onFav }) => {
+  const favTracks = ALL_TRACKS.concat(playlist).filter((t, i, a) => a.findIndex((x) => x.src === t.src) === i).filter((t) => favs.includes(t.src));
+  const empty = playlist.length === 0 && favTracks.length === 0;
+  const row = (t) => <TrackPlayer key={t.src} track={t} fav={favs.includes(t.src)} inPlaylist={playlist.some((p) => p.src === t.src)} onFav={onFav} onPlaylist={onPlaylist} />;
+  return (
+    <div className="fade-up" style={{ maxWidth: 560, margin: "0 auto" }}>
+      <Eyebrow colour={T.gold}>Sound &amp; Meditation</Eyebrow>
+      <H>My Playlist</H>
+      {empty ? (
+        <Panel style={{ padding: 26, textAlign: "center", borderColor: T.gold + "44", marginTop: 8 }}>
+          <div style={{ fontSize: 34, marginBottom: 10 }}>🎶</div>
+          <p className="lum-serif" style={{ color: T.ink, fontSize: 16, fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>Your playlist is empty for now.</p>
+          <p className="lum-sans" style={{ color: T.dim, fontSize: 13, lineHeight: 1.7, margin: "12px 0 0" }}>On any track, tap <b style={{ color: T.gold }}>★</b> to favourite it or <b style={{ color: T.goldHi }}>+ Playlist</b> to add it — they'll gather here. 💛</p>
+        </Panel>
+      ) : (
+        <div style={{ display: "grid", gap: 20, marginTop: 8 }}>
+          {favTracks.length > 0 && (
+            <div>
+              <div className="lum-sans" style={{ fontSize: 11, color: T.gold, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 10 }}>★ Favourites</div>
+              <div style={{ display: "grid", gap: 12 }}>{favTracks.map(row)}</div>
+            </div>
+          )}
+          {playlist.length > 0 && (
+            <div>
+              <div className="lum-sans" style={{ fontSize: 11, color: T.goldHi, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 10 }}>Added tracks</div>
+              <div style={{ display: "grid", gap: 12 }}>{playlist.map(row)}</div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
   const [daily, setDaily] = useState(null);
@@ -5410,6 +5482,12 @@ export default function Luminae() {
   const [birth, setBirth] = useState({ dob: "", time: "", place: "" });
   const [journal, setJournal] = useState([]);
   const [updateReady, setUpdateReady] = useState(false);
+  const [playlist, setPlaylist] = useState(() => { try { return JSON.parse(window.localStorage.getItem("lum_playlist") || "[]"); } catch (e) { return []; } });
+  const [favs, setFavs] = useState(() => { try { return JSON.parse(window.localStorage.getItem("lum_favs") || "[]"); } catch (e) { return []; } });
+  useEffect(() => { try { window.localStorage.setItem("lum_playlist", JSON.stringify(playlist)); } catch (e) {} }, [playlist]);
+  useEffect(() => { try { window.localStorage.setItem("lum_favs", JSON.stringify(favs)); } catch (e) {} }, [favs]);
+  const onPlaylistToggle = useCallback((t) => setPlaylist((pl) => pl.some((x) => x.src === t.src) ? pl.filter((x) => x.src !== t.src) : [...pl, { title: t.title, src: t.src, img: t.img, desc: t.desc }]), []);
+  const onFavToggle = useCallback((t) => setFavs((f) => f.includes(t.src) ? f.filter((s) => s !== t.src) : [...f, t.src]), []);
   const engine = useMemo(() => createAudioEngine(), []);
   const paid = FREE_PREVIEW || tier !== "seeker";
 
@@ -5462,7 +5540,7 @@ export default function Luminae() {
     angelnumbers: <AngelNumberScreen paid={paid} askUpgrade={askUpgrade} />,
     soul: <SoulScreen paid={paid} askUpgrade={askUpgrade} />,
     dreams: <DreamScreen paid={paid} askUpgrade={askUpgrade} journal={journal} setJournal={setJournal} />,
-    meditate: <MeditationScreen paid={paid} askUpgrade={askUpgrade} engine={engine} />,
+    meditate: <MeditationLibScreen playlist={playlist} favs={favs} onPlaylist={onPlaylistToggle} onFav={onFavToggle} />,
     quotes: <QuotesScreen />,
     oracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} />,
     fairyoracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} cards={FAIRY_CARDS} comboSet={[]} folder="fairy" eyebrow="Fairy Oracle" title="The Fairy Oracle" intro="Forty-four enchanted fairy cards, painted in moonlight — flowers, fireflies, and winged folk. Every draw is a true shuffle, so the fairy who steps forward is the one meant for this moment." spreadReason="The three-card Fairy Oracle spread awaits in Illuminate." />,
@@ -5470,8 +5548,8 @@ export default function Luminae() {
     gaiaoracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} cards={GAIA_CARDS} comboSet={[]} folder="gaia" eyebrow="Gaia Oracle" title="The Gaia Oracle" intro="Thirty-three cards of the living Earth — the sun and moon, the seasons and storms, trees, rivers and mountains. Every draw is a true shuffle, so the whisper of nature that rises is the one meant for this moment." spreadReason="The three-card Gaia spread awaits in Illuminate." />,
     mysticaloracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} cards={MYSTICAL_CARDS} comboSet={[]} folder="mystical" eyebrow="Mystical Realm" title="The Mystical Realm" intro="Thirty-three wondrous beings — unicorns, dragons, pegasus, mermaids and more, each with a gentle message. Every draw is a true shuffle, so the being that steps forward is the one meant for this moment." spreadReason="The three-card Mystical Realm spread awaits in Illuminate." />,
     crystals: <CrystalScreen paid={paid} askUpgrade={askUpgrade} />,
-    relaxsleep: <RelaxSleepScreen />,
-    playlist: <ComingSoonScreen title="My Playlist" img="/images/features/playlist.webp" note="A place to gather your favourite sounds and meditations, all in one spot — coming soon. 💫" />,
+    relaxsleep: <RelaxSleepScreen playlist={playlist} favs={favs} onPlaylist={onPlaylistToggle} onFav={onFavToggle} />,
+    playlist: <MyPlaylistScreen playlist={playlist} favs={favs} onPlaylist={onPlaylistToggle} onFav={onFavToggle} />,
     iris: <VisionScreen kind="iris" paid={paid} askUpgrade={askUpgrade} />,
     palm: <VisionScreen kind="palm" paid={paid} askUpgrade={askUpgrade} />,
     more: (
