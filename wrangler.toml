@@ -17,3 +17,7 @@ command = "npm run build"
 directory = "./dist"
 binding = "ASSETS"
 not_found_handling = "single-page-application"
+# Run the Worker before serving audio assets, so worker.js can add HTTP range
+# support (206 Partial Content) — otherwise Cloudflare serves audio straight from
+# cache without range support and the seek bar can't jump forward.
+run_worker_first = ["/audio/*"]
