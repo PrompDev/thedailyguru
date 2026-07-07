@@ -5254,6 +5254,9 @@ const TRACKS = [
   { title: "Crystal Stream Hymn", src: "/audio/crystal-stream-hymn.mp3", img: "/images/ocean/the-moonlit-water.webp", desc: "A crystalline, hymn-like flow over gently running water.", tags: ["S", "M", "R"] },
   { title: "Piano Dreams", src: "/audio/piano-dreams.mp3", img: "/images/features/dreamjournal.webp", desc: "Soft, dreamy piano to melt into.", tags: ["S", "M", "R"] },
   { title: "Forest Zen", src: "/audio/forest-zen.mp3", img: "/images/gaia/the-open-meadow.webp", desc: "Kalimba and water-glass chimes — soft and gently sparkling.", tags: ["S", "M", "R"] },
+  { title: "Celestial Mercy", src: "/audio/celestial-mercy.mp3", img: "/images/ocean/the-deep-calm.webp", desc: "Soft, heavenly ambience — tender and merciful.", tags: ["S", "R", "M"] },
+  { title: "After the Stars", src: "/audio/after-the-stars.mp3", img: "/images/ocean/the-calm-after-the-storm.webp", desc: "A gentle drift into the calm that follows the night.", tags: ["S", "R", "M"] },
+  { title: "Flute Constellation", src: "/audio/flute-constellation.mp3", img: "/images/gaia/the-wind.webp", desc: "Airy flute drifting among the stars.", tags: ["S", "R", "M"] },
 ];
 const ALL_TRACKS = TRACKS;
 const bySection = (tag) => TRACKS.filter((t) => (t.tags || []).includes(tag));
