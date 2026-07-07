@@ -1487,7 +1487,7 @@ function createAudioEngine() {
   let nodes = [];
   let timers = [];
   let timerId = null;
-  let bus = null, verbIn = null;
+  let bus = null, verbIn = null, busMaster = null;
   let cachedWhite = null, cachedBrown = null, cachedIR = null;
 
   const rnd = (a, b) => a + Math.random() * (b - a);
@@ -1549,7 +1549,7 @@ function createAudioEngine() {
     const dry = gn(1);
     const comp = c.createDynamicsCompressor();
     comp.threshold.value = -22; comp.ratio.value = 6; comp.knee.value = 18; reg(comp);
-    dry.connect(comp); comp.connect(c.destination);
+    dry.connect(comp); busMaster = gn(1); comp.connect(busMaster); busMaster.connect(c.destination);
     verbIn = gn(1);
     const conv = c.createConvolver(); conv.buffer = irBuf(); reg(conv);
     const damp = filt("lowpass", 4200, 0.7);
@@ -1983,6 +1983,7 @@ function createAudioEngine() {
       this.stop(false);
       ensure();
       bus = makeBus();
+      if (busMaster && opts.vol != null) busMaster.gain.value = opts.vol;
       if (track.type === "tone") {
         go(track.hz, null, opts.music ? 0.02 : 0.06); // tucked under the music
         if (opts.music) go("pad", track.hz);
@@ -2029,7 +2030,7 @@ function createAudioEngine() {
     stop(closeCtx = true) {
       timers.forEach((t) => { clearTimeout(t); clearInterval(t); }); timers = [];
       nodes.forEach((n) => { try { n.stop && n.stop(); } catch (e) {} try { n.disconnect(); } catch (e) {} });
-      nodes = []; bus = null; verbIn = null;
+      nodes = []; bus = null; verbIn = null; busMaster = null;
       if (timerId) { clearTimeout(timerId); timerId = null; }
       if (closeCtx && ctx) { try { ctx.close(); } catch (e) {} ctx = null; cachedWhite = null; cachedBrown = null; cachedIR = null; }
     },
@@ -5223,7 +5224,7 @@ const AmbientBar = ({ engine }) => {
     setAmb(next);
     try {
       if (!engine) return;
-      if (next) engine.play({ id: "ambient", type: AMBIENTS.find((a) => a.id === next).type });
+      if (next) engine.play({ id: "ambient", type: AMBIENTS.find((a) => a.id === next).type }, { vol: 0.5 });
       else engine.stop();
     } catch (e) {}
   };
