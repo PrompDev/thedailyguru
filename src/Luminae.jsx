@@ -5209,6 +5209,32 @@ const TrackPlayer = ({ track, fav, inPlaylist, onFav, onPlaylist }) => {
     </Panel>
   );
 };
+const AMBIENTS = [
+  { id: "rain", label: "🌧 Rain", type: "rain" },
+  { id: "ocean", label: "🌊 Ocean", type: "ocean" },
+  { id: "storm", label: "⛈ Storm", type: "storm" },
+];
+const AmbientBar = ({ engine }) => {
+  const [amb, setAmb] = useState(null);
+  useEffect(() => () => { try { engine && engine.stop(); } catch (e) {} }, [engine]);
+  const pick = (id) => {
+    const next = amb === id ? null : id;
+    setAmb(next);
+    try {
+      if (!engine) return;
+      if (next) engine.play({ id: "ambient", type: AMBIENTS.find((a) => a.id === next).type });
+      else engine.stop();
+    } catch (e) {}
+  };
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", margin: "0 0 16px", padding: "10px 12px", borderRadius: 12, background: "rgba(127,212,224,.05)", border: "1px solid rgba(127,212,224,.18)" }}>
+      <span className="lum-sans" style={{ fontSize: 10.5, color: T.faint, letterSpacing: ".08em", textTransform: "uppercase", marginRight: 2 }}>🌿 Ambient underneath</span>
+      {AMBIENTS.map((a) => (
+        <button key={a.id} onClick={() => pick(a.id)} aria-pressed={amb === a.id} className="lum-sans" style={{ background: amb === a.id ? "rgba(127,212,224,.2)" : "rgba(233,230,242,.05)", border: `1px solid ${amb === a.id ? T.teal : "rgba(233,230,242,.14)"}`, color: amb === a.id ? T.teal : T.faint, borderRadius: 14, padding: "4px 11px", fontSize: 11.5, cursor: "pointer" }}>{a.label}</button>
+      ))}
+    </div>
+  );
+};
 const SLEEP_TRACKS = [
   { title: "Golden Glow · Angels Blessing", src: "/audio/golden-glow-angels-blessing.mp3", img: "/images/angels/archangel-gabriel.webp", desc: "A tender angelic lullaby of soft voices and warm light — made to be wrapped in." },
   { title: "Drifting Off", src: "/audio/drifting-off.mp3", img: "/images/features/relaxsleep.webp", desc: "Gentle, sleepy music that melts the day away and carries you down into rest." },
@@ -5223,22 +5249,24 @@ const UPLIFTING_TRACKS = [
   { title: "Jungle Drift", src: "/audio/jungle-drift.mp3", img: "/images/gaia/the-quiet-forest.webp", desc: "A brighter, gently rhythmic drift — uplifting and alive." },
 ];
 const ALL_TRACKS = [...SLEEP_TRACKS, ...UPLIFTING_TRACKS, ...MEDITATION_TRACKS];
-const RelaxSleepScreen = ({ playlist = [], favs = [], onPlaylist, onFav }) => (
+const RelaxSleepScreen = ({ playlist = [], favs = [], onPlaylist, onFav, engine }) => (
   <div className="fade-up" style={{ maxWidth: 560, margin: "0 auto" }}>
     <Eyebrow>Sound &amp; Meditation</Eyebrow>
     <H>Relaxation &amp; Sleep</H>
     <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "6px 0 18px" }}>Soft music and gentle lullabies to help you drift away. Loop them or set a timer, dim the lights, and let go. 🌙</p>
+    <AmbientBar engine={engine} />
     <div style={{ display: "grid", gap: 12 }}>
       {SLEEP_TRACKS.map((t) => <TrackPlayer key={t.src} track={t} fav={favs.includes(t.src)} inPlaylist={playlist.some((p) => p.src === t.src)} onFav={onFav} onPlaylist={onPlaylist} />)}
     </div>
     <p className="lum-serif" style={{ color: T.faint, fontSize: 13, fontStyle: "italic", textAlign: "center", lineHeight: 1.7, marginTop: 20 }}>More tracks are on their way — this little library will keep growing. ✧</p>
   </div>
 );
-const RiseShineScreen = ({ playlist = [], favs = [], onPlaylist, onFav }) => (
+const RiseShineScreen = ({ playlist = [], favs = [], onPlaylist, onFav, engine }) => (
   <div className="fade-up" style={{ maxWidth: 560, margin: "0 auto" }}>
     <Eyebrow colour={T.gold}>Sound &amp; Meditation</Eyebrow>
     <H>Rise &amp; Shine</H>
     <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "6px 0 18px" }}>Brighter, uplifting music to open the day and lift your spirits. ☀️</p>
+    <AmbientBar engine={engine} />
     <div style={{ display: "grid", gap: 12 }}>
       {UPLIFTING_TRACKS.map((t) => <TrackPlayer key={t.src} track={t} fav={favs.includes(t.src)} inPlaylist={playlist.some((p) => p.src === t.src)} onFav={onFav} onPlaylist={onPlaylist} />)}
     </div>
@@ -5559,8 +5587,8 @@ export default function Luminae() {
     gaiaoracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} cards={GAIA_CARDS} comboSet={[]} folder="gaia" eyebrow="Gaia Oracle" title="The Gaia Oracle" intro="Thirty-three cards of the living Earth — the sun and moon, the seasons and storms, trees, rivers and mountains. Every draw is a true shuffle, so the whisper of nature that rises is the one meant for this moment." spreadReason="The three-card Gaia spread awaits in Illuminate." />,
     mysticaloracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} cards={MYSTICAL_CARDS} comboSet={[]} folder="mystical" eyebrow="Mystical Realm" title="The Mystical Realm" intro="Thirty-three wondrous beings — unicorns, dragons, pegasus, mermaids and more, each with a gentle message. Every draw is a true shuffle, so the being that steps forward is the one meant for this moment." spreadReason="The three-card Mystical Realm spread awaits in Illuminate." />,
     crystals: <CrystalScreen paid={paid} askUpgrade={askUpgrade} />,
-    relaxsleep: <RelaxSleepScreen playlist={playlist} favs={favs} onPlaylist={onPlaylistToggle} onFav={onFavToggle} />,
-    riseshine: <RiseShineScreen playlist={playlist} favs={favs} onPlaylist={onPlaylistToggle} onFav={onFavToggle} />,
+    relaxsleep: <RelaxSleepScreen playlist={playlist} favs={favs} onPlaylist={onPlaylistToggle} onFav={onFavToggle} engine={engine} />,
+    riseshine: <RiseShineScreen playlist={playlist} favs={favs} onPlaylist={onPlaylistToggle} onFav={onFavToggle} engine={engine} />,
     playlist: <MyPlaylistScreen playlist={playlist} favs={favs} onPlaylist={onPlaylistToggle} onFav={onFavToggle} />,
     iris: <VisionScreen kind="iris" paid={paid} askUpgrade={askUpgrade} />,
     palm: <VisionScreen kind="palm" paid={paid} askUpgrade={askUpgrade} />,
