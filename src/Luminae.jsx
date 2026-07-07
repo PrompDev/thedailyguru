@@ -5343,8 +5343,8 @@ const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
     <div className="fade-up" style={{ textAlign: "center" }}>
       <div className="lum-sans" style={{ color: T.dim, fontSize: 14, letterSpacing: ".08em" }}>{greeting}, beloved seeker · {moon.icon} {moon.name}</div>
       <div className="lum-serif gold-shimmer" style={{ fontSize: 46, fontWeight: 600, margin: "6px 0 2px" }}>Luminae</div>
-      <div className="lum-serif" style={{ color: T.moon, fontSize: 17, fontStyle: "italic", marginBottom: 14 }}>The wisdom you've been seeking</div>
-      <div className="lum-serif" style={{ color: T.dim, fontSize: 17, fontStyle: "italic", lineHeight: 1.7, maxWidth: 440, margin: "0 auto 30px" }}>Welcome in, dear one. Follow whatever calls you — a reading, a song, or a quiet moment. It's all here for you. ✨</div>
+      <div className="lum-serif" style={{ color: T.moon, fontSize: 17, fontStyle: "italic", lineHeight: 1.6, maxWidth: 470, margin: "2px auto 12px" }}>Your home for spiritual growth, knowledge, readings, music &amp; more unique discoveries</div>
+      <div className="lum-serif" style={{ color: T.dim, fontSize: 16, fontStyle: "italic", lineHeight: 1.7, maxWidth: 440, margin: "0 auto 30px" }}>Here to gently light the way on your spiritual journey. ✨</div>
 
       <OracleOrb size={148} tint={orbTint} onClick={() => go("tarot")} label="Touch the orb to begin a reading" />
 
