@@ -5240,9 +5240,9 @@ const AmbientBar = ({ engine }) => {
 // A track appears in each section it's tagged with. (Placeholder thumbnails/descriptions.)
 const TRACKS = [
   { title: "Golden Glow · Angels Blessing", src: "/audio/golden-glow-angels-blessing.mp3", img: "/images/angels/archangel-gabriel.webp", desc: "A tender angelic lullaby of soft voices and warm light — made to be wrapped in.", tags: ["S", "R"] },
-  { title: "Drifting Off", src: "/audio/drifting-off.mp3", img: "/images/features/relaxsleep.webp", desc: "Gentle, sleepy music that melts the day away and carries you down into rest.", tags: ["S", "R"] },
-  { title: "Moonlit Canopy Drift", src: "/audio/moonlit-canopy-drift.mp3", img: "/images/gaia/the-full-moon.webp", desc: "A dreamy ambient drift beneath a moonlit canopy — slow, spacious and still.", tags: ["S", "R"] },
-  { title: "Salt Hymn", src: "/audio/salt-hymn.mp3", img: "/images/ocean/the-shoreline.webp", desc: "A hushed, hymn-like drift over the sea — spacious and reverent.", tags: ["S", "R"] },
+  { title: "Drifting Off", src: "/audio/drifting-off.mp3", img: "/images/features/relaxsleep.webp", desc: "Soft piano — sleepy music that melts the day away into rest.", tags: ["S", "R"] },
+  { title: "Moonlit Canopy Drift", src: "/audio/moonlit-canopy-drift.mp3", img: "/images/gaia/the-full-moon.webp", desc: "Kalimba — a dreamy drift beneath a moonlit canopy, slow and still.", tags: ["S", "R"] },
+  { title: "Salt Hymn", src: "/audio/salt-hymn.mp3", img: "/images/ocean/the-shoreline.webp", desc: "Harp — a hushed, hymn-like drift over the sea, spacious and reverent.", tags: ["S", "R"] },
   { title: "Feather Dustmote", src: "/audio/feather-dustmote.mp3", img: "/images/gaia/the-morning-mist.webp", desc: "Native American flute — weightless and soft, like dust motes in a sunbeam.", tags: ["S", "R"] },
   { title: "Rainforest Retreat", src: "/audio/rainforest-retreat.mp3", img: "/images/gaia/the-gentle-rain.webp", desc: "Kalimba and soft xylophone — deep green rainforest calm to retreat into.", tags: ["S", "R"] },
   { title: "Prayer Gravel", src: "/audio/prayer-gravel.mp3", img: "/images/gaia/the-mountain.webp", desc: "Harp and violin — grounded, prayerful and tender.", tags: ["S", "R"] },
