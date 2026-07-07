@@ -702,7 +702,7 @@ const INSTRUMENTS = [
 /* A real harp recording (served from public/audio) that becomes the
    Angelic Harp in place of the live-synth version. Falls back to the
    synth if it can't be loaded, and a seeker's own upload still wins. */
-const HARP_RECORDING = { src: "/audio/Moonlit Canopy Drift.mp3", title: "Moonlit Canopy Drift" };
+const HARP_RECORDING = { src: "/audio/moonlit-canopy-drift.mp3", title: "Moonlit Canopy Drift" };
 const LAYERS = [
   { id: "rainflute", name: "Rain & Native Flute", desc: "The classic sleep companion", parts: ["rain", "flute"] },
   { id: "harp528", name: "528 Hz + Angelic Harp", desc: "The Love Frequency, sung in strings", parts: [528, "harp"] },
@@ -5193,6 +5193,29 @@ const ComingSoonScreen = ({ title, note, img }) => (
   </div>
 );
 
+const SLEEP_TRACKS = [
+  { title: "Golden Glow · Angels Blessing", src: "/audio/golden-glow-angels-blessing.mp3", note: "A gentle angelic lullaby 🪽" },
+  { title: "Drifting Off", src: "/audio/drifting-off.mp3", note: "Soft music to melt into sleep 🌙" },
+  { title: "Moonlit Canopy Drift", src: "/audio/moonlit-canopy-drift.mp3", note: "A dreamy ambient drift ✨" },
+];
+const RelaxSleepScreen = () => (
+  <div className="fade-up" style={{ maxWidth: 560, margin: "0 auto" }}>
+    <Eyebrow>Sound &amp; Meditation</Eyebrow>
+    <H>Relaxation &amp; Sleep</H>
+    <p className="lum-serif" style={{ color: T.dim, fontSize: 15, lineHeight: 1.7, margin: "6px 0 18px" }}>Soft music and gentle lullabies to help you drift away. Press play, dim the lights, and let go. 🌙</p>
+    <div style={{ display: "grid", gap: 12 }}>
+      {SLEEP_TRACKS.map((t) => (
+        <Panel key={t.src} style={{ padding: "14px 16px" }}>
+          <div className="lum-serif" style={{ fontSize: 18, color: T.ink }}>{t.title}</div>
+          <div className="lum-sans" style={{ fontSize: 12, color: T.dim, margin: "3px 0 10px" }}>{t.note}</div>
+          <audio controls preload="none" src={t.src} style={{ width: "100%" }}>Your browser can’t play this audio.</audio>
+        </Panel>
+      ))}
+    </div>
+    <p className="lum-serif" style={{ color: T.faint, fontSize: 13, fontStyle: "italic", textAlign: "center", lineHeight: 1.7, marginTop: 20 }}>More tracks are on their way — this little library will keep growing. ✧</p>
+  </div>
+);
+
 const HomeScreen = ({ tier, go, requestRitual, deckId, onAfterReading }) => {
   const [daily, setDaily] = useState(null);
   const [dailyText, setDailyText] = useState(""); const [loading, setLoading] = useState(false);
@@ -5447,7 +5470,7 @@ export default function Luminae() {
     gaiaoracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} cards={GAIA_CARDS} comboSet={[]} folder="gaia" eyebrow="Gaia Oracle" title="The Gaia Oracle" intro="Thirty-three cards of the living Earth — the sun and moon, the seasons and storms, trees, rivers and mountains. Every draw is a true shuffle, so the whisper of nature that rises is the one meant for this moment." spreadReason="The three-card Gaia spread awaits in Illuminate." />,
     mysticaloracle: <OracleScreen paid={paid} askUpgrade={askUpgrade} cards={MYSTICAL_CARDS} comboSet={[]} folder="mystical" eyebrow="Mystical Realm" title="The Mystical Realm" intro="Thirty-three wondrous beings — unicorns, dragons, pegasus, mermaids and more, each with a gentle message. Every draw is a true shuffle, so the being that steps forward is the one meant for this moment." spreadReason="The three-card Mystical Realm spread awaits in Illuminate." />,
     crystals: <CrystalScreen paid={paid} askUpgrade={askUpgrade} />,
-    relaxsleep: <ComingSoonScreen title="Relaxation & Sleep" img="/images/features/relaxsleep.webp" note="Soothing music and sleep meditations are being lovingly recorded — drifting your way very soon. 🌙" />,
+    relaxsleep: <RelaxSleepScreen />,
     playlist: <ComingSoonScreen title="My Playlist" img="/images/features/playlist.webp" note="A place to gather your favourite sounds and meditations, all in one spot — coming soon. 💫" />,
     iris: <VisionScreen kind="iris" paid={paid} askUpgrade={askUpgrade} />,
     palm: <VisionScreen kind="palm" paid={paid} askUpgrade={askUpgrade} />,
