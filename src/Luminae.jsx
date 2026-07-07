@@ -691,13 +691,9 @@ const SOUNDSCAPES = [
   { id: "ocean", name: "Ocean Waves", desc: "Rolling swells — each wave builds, crests and retreats", type: "ocean", free: true },
   { id: "rain", name: "Gentle Rain", desc: "Soft patter of individual droplets", type: "rain", free: true },
   { id: "storm", name: "Thunderstorm", desc: "Distant thunder, gentle rain", type: "storm", free: false },
-  { id: "stream", name: "Mountain Stream", desc: "Clear burbling water", type: "stream", free: false },
 ];
 const INSTRUMENTS = [
-  { id: "harp", name: "Angelic Harp", desc: "Flowing harp over a whisper of choir light", type: "harp", free: false },
-  { id: "flute", name: "Native Flute", desc: "Earth-medicine melodies — breathy, grounding", type: "flute", free: false },
-  { id: "tibetan", name: "Tibetan Singing Bowls", desc: "Deep resonant tones for grounding", type: "tibetan", free: false },
-  { id: "crystalbowls", name: "Crystal Singing Bowls", desc: "Chakra-tuned bowls in gentle sequence", type: "crystal", free: false },
+  { id: "harp", name: "Moonlit Canopy Drift", desc: "A flowing harp over a whisper of choir light", type: "harp", free: false },
 ];
 /* A real harp recording (served from public/audio) that becomes the
    Angelic Harp in place of the live-synth version. Falls back to the
@@ -4760,14 +4756,10 @@ const SoundScreen = ({ paid, askUpgrade, engine }) => {
           let t = s;
           if (s.id === "harp") {
             if (ownHarp) t = { ...s, desc: `Your own recording · "${ownHarp.name}" ✦` };
-            else if (harpRec) t = { ...s, desc: `${harpRec.name} · a flowing harp recording ✦` };
+            else if (harpRec) t = { ...s, desc: "A flowing harp & choir recording ✦" };
           }
           return <Row key={s.id} accent={T.gold} track={t} locked={!s.free && !paid} />;
         })}
-      </div>
-      <Eyebrow colour={T.violet}>Layered Combinations</Eyebrow>
-      <div style={{ display: "grid", gap: 9, marginBottom: 24 }}>
-        {LAYERS.map((l) => <Row key={l.id} accent={T.violet} track={{ ...l, type: "layer" }} locked={!paid} />)}
       </div>
       <Eyebrow colour={T.rose}>Your Own Tracks</Eyebrow>
       <p className="lum-sans" style={{ color: T.dim, fontSize: 13, lineHeight: 1.65, margin: "0 0 12px" }}>
