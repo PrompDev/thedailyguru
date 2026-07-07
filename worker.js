@@ -9,7 +9,33 @@ export default {
     if (url.pathname === "/api/luminae" && request.method === "POST") {
       return handleLuminae(request, env);
     }
-    return env.ASSETS.fetch(request);
+    const res = await env.ASSETS.fetch(request);
+    const ct = res.headers.get("Content-Type") || "";
+    // The ASSETS binding ignores Range requests (returns the whole file), which
+    // breaks the audio seek bar. Add HTTP range support for audio so players can seek.
+    if (res.status === 200 && ct.startsWith("audio")) {
+      const range = request.headers.get("Range");
+      if (!range) {
+        const headers = new Headers(res.headers);
+        headers.set("Accept-Ranges", "bytes");
+        return new Response(res.body, { status: 200, headers });
+      }
+      const buf = await res.arrayBuffer();
+      const total = buf.byteLength;
+      const m = /bytes=(\d*)-(\d*)/.exec(range);
+      let start = m && m[1] !== "" ? parseInt(m[1], 10) : 0;
+      let end = m && m[2] !== "" ? parseInt(m[2], 10) : total - 1;
+      if (!Number.isFinite(start) || start < 0 || start >= total) start = 0;
+      if (!Number.isFinite(end) || end >= total) end = total - 1;
+      if (end < start) end = total - 1;
+      const chunk = buf.slice(start, end + 1);
+      const headers = new Headers(res.headers);
+      headers.set("Accept-Ranges", "bytes");
+      headers.set("Content-Range", `bytes ${start}-${end}/${total}`);
+      headers.set("Content-Length", String(chunk.byteLength));
+      return new Response(chunk, { status: 206, statusText: "Partial Content", headers });
+    }
+    return res;
   },
 };
 
